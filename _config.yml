@@ -94,6 +94,7 @@ social_preview_image: # string, local or CORS resources
 
 # 博客中目录的全局开关。true | false
 toc: true
+
 # 评论相关，默认禁用。
 comments:
   # 帖子评论系统的全局开关。将其留空表示禁用。

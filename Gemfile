@@ -1,4 +1,4 @@
-@@ -6,9 +6,9 @@ gem "jekyll-theme-chirpy", "~> 7.4", ">= 7.4.1"
+gem "jekyll-theme-chirpy", "~> 7.4", ">= 7.4.1"
 
 gem "html-proofer", "~> 5.0", group: :test
 
