@@ -1,11 +1,11 @@
 ---
 title: Blog可以被Google搜索到
 date: 2025-11-02 17:00:00 +0800
-categories: [jekyll, Chirpy使用]
-tags: [Chirpy使用]
+categories: [jekyll, jekyll使用]
+tags: [jekyll使用]
 ---
 
-## 配置过程
+# Google
 
 1. 确认自己的blog确实未被Google搜索收录
 
@@ -55,3 +55,10 @@ tags: [Chirpy使用]
 
     等待1天后再回来看看数据是否发生变化，也可以在Google搜索引擎中搜索自己的blog查看
 
+# Bing
+
+由于GitHub同样也封禁了Bing搜索，在设置完Google搜索后，同时也要设置下Bing搜索。
+
+[Bing Webmaster Tools](https://www.bing.com/webmasters) 
+
+![image-20251102202817224](C:/Users/16658/AppData/Roaming/Typora/typora-user-images/image-20251102202817224.png)

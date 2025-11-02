@@ -1,59 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
 <url>
-<loc>http://localhost:4000/posts/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/</loc>
-<lastmod>2025-11-02T18:37:54+08:00</lastmod>
+  <loc>https://auroraol.github.io/</loc>
+  <lastmod>2025-11-02T11:45:21+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
 <url>
-<loc>http://localhost:4000/posts/config-blog-comment/</loc>
-<lastmod>2025-11-02T19:23:14+08:00</lastmod>
+  <loc>https://auroraol.github.io/categories/</loc>
+  <lastmod>2025-11-02T11:45:21+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/posts/jekyll%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8/</loc>
-<lastmod>2025-11-02T18:37:54+08:00</lastmod>
+  <loc>https://auroraol.github.io/treehole/</loc>
+  <lastmod>2025-11-02T11:45:21+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/posts/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%AA%E6%80%A7%E5%8C%96%E8%87%AA%E5%AE%9A%E4%B9%89/</loc>
-<lastmod>2025-11-01T14:00:00+08:00</lastmod>
+  <loc>https://auroraol.github.io/archives/</loc>
+  <lastmod>2025-11-02T11:45:21+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/posts/blog-google-search-include/</loc>
-<lastmod>2025-11-02T19:58:26+08:00</lastmod>
+  <loc>https://auroraol.github.io/about/</loc>
+  <lastmod>2025-11-02T11:45:21+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/categories/</loc>
-<lastmod>2025-11-02T20:01:51+08:00</lastmod>
+  <loc>https://auroraol.github.io/tool/</loc>
+  <lastmod>2025-11-02T11:45:21+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/treehole/</loc>
-<lastmod>2025-11-02T20:01:51+08:00</lastmod>
+  <loc>https://auroraol.github.io/posts/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%AA%E6%80%A7%E5%8C%96%E8%87%AA%E5%AE%9A%E4%B9%89/</loc>
+  <lastmod>2025-11-02T11:45:21+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/archives/</loc>
-<lastmod>2025-11-02T20:01:51+08:00</lastmod>
+  <loc>https://auroraol.github.io/posts/jekyll%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8/</loc>
+  <lastmod>2025-11-02T11:45:21+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/about/</loc>
-<lastmod>2025-11-02T20:01:51+08:00</lastmod>
+  <loc>https://auroraol.github.io/posts/config-blog-comment/</loc>
+  <lastmod>2025-11-02T11:45:21+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/tool/</loc>
-<lastmod>2025-11-02T20:01:51+08:00</lastmod>
+  <loc>https://auroraol.github.io/posts/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/</loc>
+  <lastmod>2025-11-02T11:45:21+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:4000/</loc>
+  <loc>https://auroraol.github.io/categories/jekyll/</loc>
+  <lastmod>2025-11-02T11:45:21+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:4000/categories/jekyll/</loc>
+  <loc>https://auroraol.github.io/categories/chirpy%E4%BD%BF%E7%94%A8/</loc>
+  <lastmod>2025-11-02T11:45:21+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:4000/categories/chirpy%E4%BD%BF%E7%94%A8/</loc>
+  <loc>https://auroraol.github.io/categories/jekyll%E4%BD%BF%E7%94%A8/</loc>
+  <lastmod>2025-11-02T11:45:21+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
-<url>
-<loc>http://localhost:4000/categories/jekyll%E4%BD%BF%E7%94%A8/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/googleec2fd4d7cbeed46d.html</loc>
-<lastmod>2025-11-02T19:41:44+08:00</lastmod>
-</url>
+
+
 </urlset>
