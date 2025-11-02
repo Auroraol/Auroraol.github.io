@@ -1,0 +1,22 @@
+name: HTML Proofer
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  htmlproofer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+      - name: Install all dependencies
+        run: bundle install
+      - name: Build site
+        run: bundle exec jekyll build
+      - name: Run HTML Proofer
+        run: bundle exec htmlproofer _site --allow-hash-href --empty-alt-ignore --only-4xx
+
