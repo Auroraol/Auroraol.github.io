@@ -11,7 +11,7 @@ tags: [jekyll使用]
 
 1. 安装RUBY
 
-   https://rubyinstaller.org/downloads/
+   访问 [Ruby Installer](https://rubyinstaller.org/downloads/) 下载
 
    记得下载带devkit的版本
 
