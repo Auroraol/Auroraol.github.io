@@ -12,11 +12,10 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
-          bundler-cache: true
-      - name: Install all dependencies including test group
+      - name: Ensure test group dependencies are installed
         run: |
           bundle config unset without
-          bundle install
+          bundle install --jobs 4 --retry 3
       - name: Build site
         run: bundle exec jekyll build
       - name: Run HTML Proofer
