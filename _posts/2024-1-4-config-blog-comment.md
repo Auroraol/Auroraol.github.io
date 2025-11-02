@@ -44,11 +44,11 @@ tags: [jekyll使用]
 
 3. 其余保持默认，但是不要关闭该也页面，下一步配置中需要使用到这里的信息
 
-    ![image-20251102190142770](C:/Users/16658/AppData/Roaming/Typora/typora-user-images/image-20251102190142770.png)
+    ![image-20251102192236662](https://github.com/Auroraol/Drawing-bed/raw/main/img/image-20251102192236662.png)
 
 1. 仓库config配置
 
-    ![image-20251102190339811](C:/Users/16658/AppData/Roaming/Typora/typora-user-images/image-20251102190339811.png)
+    ![image-20251102192301298](https://github.com/Auroraol/Drawing-bed/raw/main/img/image-20251102192301298.png)
 
     
 
