@@ -202,3 +202,253 @@ _**Agent (model default, mode Agent)**_
 
 ---
 
+`Gemfile.lock` 仅包含 Windows 平台（`x64-mingw-ucrt`）。添加 Linux 平台支持：
+
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="search_replace">
+
+<details><summary>Tool use: **code_edit** • Edit file: Gemfile.lock</summary>
+
+**Chunk 1**
+Lines added: 1, lines removed: undefined
+
+```diff
+@@ -142,4 +142,5 @@
+  PLATFORMS
+    x64-mingw-ucrt
++   x86_64-linux
+  
+  DEPENDENCIES
+```
+
+</details>
+
+</tool-use>
+
+---
+
+
+
+---
+
+已在 `Gemfile.lock` 中添加 Linux 平台支持（`x86_64-linux`）。
+
+这样 `Gemfile.lock` 同时支持：
+- Windows 平台（`x64-mingw-ucrt`）
+- Linux 平台（`x86_64-linux`）
+
+现在 CI 在 Linux 上运行 `bundle install` 时，Bundler 会自动安装 Linux 兼容的 gem 版本。某些 gem（如 `ffi`、`nokogiri`、`sass-embedded`）会根据平台安装对应版本。
+
+重新运行 CI，应该不会再出现平台不支持的错误。
+
+---
+
+_**User (2025-11-02 08:08Z)**_
+
+Run ruby/setup-ruby@v1
+
+  with:
+
+    ruby-version: 3.2.7
+
+    bundler-cache: true
+
+  env:
+
+    GITHUB_PAGES: true
+
+Modifying PATH
+
+Downloading Ruby
+
+Extracting  Ruby
+
+Print Ruby version
+
+Installing Bundler
+
+> bundle install
+
+/opt/hostedtoolcache/Ruby/3.2.7/x64/bin/bundle config --local path /home/runner/work/Auroraol.github.io/Auroraol.github.io/vendor/bundle
+
+/opt/hostedtoolcache/Ruby/3.2.7/x64/bin/bundle config --local deployment true
+
+Print lockfile
+
+Cache key: setup-ruby-bundler-cache-v6-ubuntu-24.04-x64-ruby-3.2.7-wd-/home/runner/work/Auroraol.github.io/Auroraol.github.io-with--without--only--Gemfile.lock-0debf00cfd6525ac2c5a011cf304a21f7fbac11a210c76b56944a935287f6095
+
+Cache hit for: setup-ruby-bundler-cache-v6-ubuntu-24.04-x64-ruby-3.2.7-wd-/home/runner/work/Auroraol.github.io/Auroraol.github.io-with--without--only--Gemfile.lock-0debf00cfd6525ac2c5a011cf304a21f7fbac11a210c76b56944a935287f6095
+
+Received 29742359 of 29742359 (100.0%), 99.9 MBs/sec
+
+Cache Size: ~28 MB (29742359 B)
+
+/usr/bin/tar -xf /home/runner/work/_temp/0019e929-b9e0-4aaf-a461-a97e3ef60f83/cache.tzst -P -C /home/runner/work/Auroraol.github.io/Auroraol.github.io --use-compress-program unzstd
+
+Cache restored successfully
+
+Found cache for key: setup-ruby-bundler-cache-v6-ubuntu-24.04-x64-ruby-3.2.7-wd-/home/runner/work/Auroraol.github.io/Auroraol.github.io-with--without--only--Gemfile.lock-0debf00cfd6525ac2c5a011cf304a21f7fbac11a210c76b56944a935287f6095
+
+/opt/hostedtoolcache/Ruby/3.2.7/x64/bin/bundle install --jobs 4
+
+The list of sources changed, but the lockfile can't be updated because frozen
+
+mode is set
+
+
+
+Run `bundle install` elsewhere and add the updated Gemfile.lock to version
+
+control.
+
+
+
+
+
+If this is a development machine, remove the Gemfile.lock freeze by running
+
+`bundle config set frozen false`.
+
+Error: The process '/opt/hostedtoolcache/Ruby/3.2.7/x64/bin/bundle' failed with exit code 16
+
+---
+
+_**Agent (model default, mode Agent)**_
+
+
+
+---
+
+
+错误是因为 `deployment` 模式启用冻结，而 `Gemfile` 的源列表发生了变化。检查 `Gemfile` 和 `Gemfile.lock`：
+
+
+---
+
+<tool-use data-tool-type="read" data-tool-name="read_file">
+<details><summary>Tool use: **read_file** • Read file: Gemfile</summary>
+
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="read" data-tool-name="read_file">
+<details><summary>Tool use: **read_file** • Read file: Gemfile.lock</summary>
+
+</details>
+</tool-use>
+
+---
+
+
+
+---
+
+查看 `Gemfile.lock` 的完整开头部分，确认源配置：
+
+
+---
+
+<tool-use data-tool-type="grep" data-tool-name="grep">
+<details>
+<summary>Tool use: **grep** • Grep for "^remote:|^BUNDLED WITH|^GEM" in "Gemfile.lock" • 2 matches</summary>
+
+Output mode: content
+
+
+| File | Content | Line |
+|------|------|------|
+| `Gemfile.lock` | `GEM` | L1 |
+| `Gemfile.lock` | `BUNDLED WITH` | L153 |
+
+
+</details>
+</tool-use>
+
+---
+
+
+
+---
+
+查看 `Gemfile.lock` 开头以确认源配置：
+
+
+---
+
+<tool-use data-tool-type="read" data-tool-name="read_file">
+<details><summary>Tool use: **read_file** • Read file: Gemfile.lock</summary>
+
+</details>
+</tool-use>
+
+---
+
+
+
+---
+
+在 `Gemfile` 中显式声明源，确保本地与 CI 环境使用相同源：
+
+
+---
+
+<tool-use data-tool-type="read" data-tool-name="read_file">
+<details><summary>Tool use: **read_file** • Read file: Gemfile</summary>
+
+</details>
+</tool-use>
+
+---
+
+
+
+---
+
+在 `Gemfile` 顶部添加明确的源声明：
+
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="search_replace">
+
+<details><summary>Tool use: **code_edit** • Edit file: Gemfile</summary>
+
+**Chunk 1**
+Lines added: 2, lines removed: undefined
+
+```diff
+@@ -1,2 +1,4 @@
++ source &quot;https://rubygems.org&quot;
++ 
+  gem &quot;jekyll-theme-chirpy&quot;, &quot;~&gt; 7.4&quot;, &quot;&gt;= 7.4.1&quot;
+  
+```
+
+</details>
+
+</tool-use>
+
+---
+
+
+
+---
+
+已在 `Gemfile` 顶部添加 `source "https://rubygems.org"`，与 `Gemfile.lock` 中的源一致。
+
+若仍出现源列表变更的错误，在本地运行 `bundle install` 更新 `Gemfile.lock`，然后将更新后的 `Gemfile.lock` 提交到版本控制。
+
+可以运行以下命令更新锁文件：
+
+```bash
+bundle install
+```
+
+这会在本地更新 `Gemfile.lock`，确保它反映当前源配置。之后将更改提交到仓库，CI 应能正常运行。
+
+---
+
