@@ -50,7 +50,7 @@ order: 4
 | **在线PS**                                         | [Photopea](https://www.photopea.com/ "Photopea")                                                    | 非常实用的一款在线Photoshop工具，无需注册登录                                      |
 |                                                    | [uupoop](https://www.uupoop.com "uupoop")                                                           | 简单看作国内版的「Photopea」。下载需要注册                                         |
 | **一键抠图**                                       | [remove.bg](https://www.remove.bg/zh "remove.bg")                                                   | 普通分辨率图片下载免费（无需注册）高分辨率下载需注册（不免费）。中文版容易打不开。 |
-| **OCR**                                            | [http://web.baimiaopp/com](https://web.baimiaoapp.com/)                                             | 白描网页版                                                                         |
+| **OCR**                                            | [白描网页版](https://web.baimiaoapp.com/)                                             | 白描网页版                                                                         |
 | **AI对话**                                         | [https://codenews.cc/chatgpt](https://codenews.cc/chatgpt )                                         | 下面有AI导航网站                                                                   |
 |                                                    | [https://ai.qdymys.cn/#/](https://ai.qdymys.cn/#/ )                                                 | 有额度限制                                                                         |
 |                                                    | [https://www.zaiwen.top/](https://www.zaiwen.top/ )                                                 | 高效问答无限制，非GPT模型，有多种模型                                              |
@@ -58,7 +58,7 @@ order: 4
 |                                                    | [https://chat10.free2gpt.xyz/](https://chat10.free2gpt.xyz/ )                                       | 完全免费 无需魔法 无需登录 120次/天 免费                                           |
 | **网页设计**                                       | [https://www.jyshare.com/front-end/61/](https://www.jyshare.com/front-end/61/ )                     | 菜鸟工具                                                                           |
 |                                                    | [https://htmlpage.cn/builder/](https://htmlpage.cn/builder/ )                                       | 无需注册，自己设计，可导入导出源码                                                 |
-|                                                    | [http://www.58html.com/html/](http://www.58html.com/html/ )                                         | 可以QQ登录，右键编辑CSS属性，不可以导入源码                                        |
+|                                                    | [HTML编辑器](https://www.58html.com/html/)                                         | 可以QQ登录，右键编辑CSS属性，不可以导入源码                                        |
 | **Markdown**                                       | [https://hintryer.github.io/tool/Markdown.html](https://hintryer.github.io/tool/Markdown.html )     | 自制 Markdown 在线编辑器                                                           |
 |                                                    | [https://pandao.github.io/editor.md/](https://pandao.github.io/editor.md/ )                         | 开源Editor.md，有各种快捷按键，打开较慢                                            |
 |                                                    | [https://www.jyshare.com/front-end/712/](https://www.jyshare.com/front-end/712/ )                   | 菜鸟工具，简洁无广告，打开较快，引用开源模块                                       |
@@ -99,7 +99,7 @@ order: 5
 
 ```
 
-### assets[](#assets)
+### assets {#assets}
 
 assets/img/favicons/下存放有头像，需要替换成自己的。
 

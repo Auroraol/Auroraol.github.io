@@ -5,44 +5,6 @@ categories: [jekyll, jekyll使用]
 tags: [jekyll使用]
 ---
 
-结合了一下几篇文章，做个总结：
-1.修改gem的source ：
-
-gem sources --remove https://rubygems.org/
-AI写代码
-c
-运行
-1
-这是本身的gem的网站，但是它是国外的，一般都被墙，所以要修改，先将其移除。
-2.改为可以使用的：
-
-gem sources -a 'https://gems.ruby-china.com'
-AI写代码
-c
-运行
-1
-我看过有地址写为http://ruby.taobao.org/的，但是我设置后没有用，应该是用不了了，所以，用上面那个。
-3.查看当前有的source
-
- gem sources -l
-AI写代码
-c
-运行
-1
-会显示：
-
-*** CURRENT SOURCES ***
-
-https://gems.ruby-china.com
-AI写代码
-1
-2
-3
-4.最后：
-————————————————
-版权声明：本文为CSDN博主「哥兜兜里有泡泡糖」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/weixin_44512194/article/details/107053421
-
 # 本地部署环境和调试
 
 不同的操作系统可能会不太一样，这里以Windows举例，配置本地调试环境：
@@ -62,6 +24,17 @@ AI写代码
    ` gem install jekyll bundler `
 
    安装成功后，使用命令行验证安装结果：` jekyll -v `
+
+   更换国内镜像
+
+   ```
+   1.修改gem的source ：
+   gem sources --remove https://rubygems.org/
+   2.改为可以使用的：
+   gem sources -a 'https://gems.ruby-china.com'
+   3.查看当前有的source
+    gem sources -l
+   ```
 
 3. 运行项目
 
