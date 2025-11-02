@@ -61,4 +61,4 @@ tags: [jekyll使用]
 
 [Bing Webmaster Tools](https://www.bing.com/webmasters) 
 
-![image-20251102202817224](C:/Users/16658/AppData/Roaming/Typora/typora-user-images/image-20251102202817224.png)
+![image-20251102202817224](https://github.com/Auroraol/Drawing-bed/raw/main/img/image-20251102202817224.png)
