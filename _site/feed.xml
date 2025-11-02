@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>息</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2025-11-02T16:11:18+08:00</updated>
+  <updated>2025-11-02T16:31:24+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -22,9 +22,9 @@
   <entry>
     <title>jekyll主题使用</title>
     <link href="http://localhost:4000/posts/hello-world2/" rel="alternate" type="text/html" title="jekyll主题使用" />
-    <published>2023-12-20T11:00:00+08:00</published>
+    <published>2025-11-01T11:00:00+08:00</published>
   
-    <updated>2023-12-20T11:00:00+08:00</updated>
+    <updated>2025-11-02T16:27:25+08:00</updated>
   
     <id>http://localhost:4000/posts/hello-world2/</id>
     <content src="http://localhost:4000/posts/hello-world2/" />
@@ -40,42 +40,35 @@
     
   
 
-  <summary>结合了一下几篇文章，做个总结：
-1.修改gem的source ：
+  <summary>本地部署环境和调试
 
-gem sources –remove https://rubygems.org/
-AI写代码
-c
-运行
-1
-这是本身的gem的网站，但是它是国外的，一般都被墙，所以要修改，先将其移除。
+不同的操作系统可能会不太一样，这里以Windows举例，配置本地调试环境：
+
+
+  
+    安装RUBY
+
+    访问 Ruby Installer 下载
+
+    记得下载带devkit的版本
+
+    安装过程中，如果有类似MSYS2 and MINGW development tool chain的选项，记得勾选
+
+    安装成功后，使用命令行验证安装结果： ruby -v gem -v 
+  
+  
+    安装Jekyll
+
+    ` gem install jekyll bundler `
+
+    安装成功后，使用命令行验证安装结果： jekyll -v 
+
+    更换国内镜像
+
+    1.修改gem的source ：
+gem sources --remove https://rubygems.org/
 2.改为可以使用的：
-
-gem sources -a ‘https://gems.ruby-china.com’
-AI写代码
-c
-运行
-1
-我看过有地址写为http://ruby.taobao.org/的，但是我设置后没有用，应该是用不了了，所以，用上面那个。
-3.查看当前有的source
-
-gem sources -l
-AI写代码
-c
-运行
-1
-会显示：
-
-** CURRENT SOURCES **
-
-https://gems.ruby-china.com
-AI写代码
-1
-2
-3
-4.最后：
-————————————————
-版权...</summary>
+gem s...</summary>
 
   </entry>
 
@@ -85,7 +78,7 @@ AI写代码
     <link href="http://localhost:4000/posts/hello-world2-copy/" rel="alternate" type="text/html" title="Chirpy主题的个性化自定义" />
     <published>2023-12-20T11:00:00+08:00</published>
   
-    <updated>2023-12-20T11:00:00+08:00</updated>
+    <updated>2025-11-02T16:27:25+08:00</updated>
   
     <id>http://localhost:4000/posts/hello-world2-copy/</id>
     <content src="http://localhost:4000/posts/hello-world2-copy/" />
@@ -126,7 +119,7 @@ contact.yml直接关联着网站左下角的链接，只保留github和email。�
     <link href="http://localhost:4000/posts/hello-world2-copy-2/" rel="alternate" type="text/html" title="Chirpy主题的进阶使用" />
     <published>2023-12-20T11:00:00+08:00</published>
   
-    <updated>2023-12-20T11:00:00+08:00</updated>
+    <updated>2025-11-02T16:19:43+08:00</updated>
   
     <id>http://localhost:4000/posts/hello-world2-copy-2/</id>
     <content src="http://localhost:4000/posts/hello-world2-copy-2/" />
@@ -146,7 +139,7 @@ contact.yml直接关联着网站左下角的链接，只保留github和email。�
 
 本文介绍Chirpy主题的几个进阶使用案例，包括自定义网页布局、优化文本搜索、配置评论系统等。其中一些案例会涉及到底层代码的修改，要求读者具备一定的编程基础。
 
-关于Chirpy主题的安装、配置、基础使用等内容，请阅读Jekyll博客搭建教程（下篇）。
+关于Chirpy主题的安装、配置、基础使用等内容，请阅读Jekyll博客搭建教程。
 
 自定义网页布局
 
@@ -158,7 +151,7 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
 
 博客的默认语言为英语，可以设置_config.yml中的lang变量来修改，变量取值详见ISO语言代码（如英语的lang取值为en，中文的lang取值为zh-CN）。
 
-每种语言对应一套默认字体，如英语默认的标题字体为Lato，段落字体为Source Sans Pro。如果要...</summary>
+每种语言对应一套默认字体，如英语默认的标题字体为Lato，段落字体为Source Sans Pro。如果要自定义，...</summary>
 
   </entry>
 
