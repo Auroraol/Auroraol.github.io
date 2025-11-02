@@ -13,8 +13,10 @@ jobs:
         with:
           ruby-version: '3.2'
           bundler-cache: true
-      - name: Install all dependencies
-        run: bundle install
+      - name: Install all dependencies including test group
+        run: |
+          bundle config unset without
+          bundle install
       - name: Build site
         run: bundle exec jekyll build
       - name: Run HTML Proofer
