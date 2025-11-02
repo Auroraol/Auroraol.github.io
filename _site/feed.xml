@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>息</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2025-11-02T21:45:54+08:00</updated>
+  <updated>2025-11-02T21:50:52+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -176,6 +176,48 @@ gem s...</summary>
 
   
   <entry>
+    <title>Chirpy主题的进阶使用</title>
+    <link href="http://localhost:4000/posts/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/" rel="alternate" type="text/html" title="Chirpy主题的进阶使用" />
+    <published>2025-11-01T11:00:00+08:00</published>
+  
+    <updated>2025-11-02T18:37:54+08:00</updated>
+  
+    <id>http://localhost:4000/posts/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/</id>
+    <content src="http://localhost:4000/posts/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="jekyll" />
+    
+    <category term="Chirpy使用" />
+    
+  
+
+  <summary>参考: ittousei (MsEspeon)
+
+
+自定义网页布局
+
+Favicon设置
+
+Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使用Favicon Generator生成favicon文件，再替换掉目录中的预设favicon即可。
+
+语言和字体
+
+博客的默认语言为英语，可以设置_config.yml中的lang变量来修改，变量取值详见ISO语言代码（如英语的lang取值为en，中文的lang取值为zh-CN）。
+
+每种语言对应一套默认字体，如英语默认的标题字体为Lato，段落字体为Source Sans Pro。如果要自定义，需要修改样式文件_sass/addon.variables.scss，参考这篇说明。
+
+/* fonts */
+$font-family-base: &amp;#39;Source Sans Pro&amp;#39;, &amp;#39;Microso...</summary>
+
+  </entry>
+
+  
+  <entry>
     <title>使用giscus配置GitHub Pages评论功能</title>
     <link href="http://localhost:4000/posts/config-blog-comment/" rel="alternate" type="text/html" title="使用giscus配置GitHub Pages评论功能" />
     <published>2025-11-01T11:00:00+08:00</published>
@@ -225,45 +267,6 @@ GitHub仓库配置
 giscus配置
 
 首先打开gitscu官网，需要使用当前仓库的GitHub账号登录：htt...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Chirpy主题的进阶使用</title>
-    <link href="http://localhost:4000/posts/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/" rel="alternate" type="text/html" title="Chirpy主题的进阶使用" />
-    <published>2023-12-20T11:00:00+08:00</published>
-  
-    <updated>2025-11-02T18:37:54+08:00</updated>
-  
-    <id>http://localhost:4000/posts/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/</id>
-    <content src="http://localhost:4000/posts/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="jekyll" />
-    
-    <category term="Chirpy使用" />
-    
-  
-
-  <summary>自定义网页布局
-
-Favicon设置
-
-Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使用Favicon Generator生成favicon文件，再替换掉目录中的预设favicon即可。
-
-语言和字体
-
-博客的默认语言为英语，可以设置_config.yml中的lang变量来修改，变量取值详见ISO语言代码（如英语的lang取值为en，中文的lang取值为zh-CN）。
-
-每种语言对应一套默认字体，如英语默认的标题字体为Lato，段落字体为Source Sans Pro。如果要自定义，需要修改样式文件_sass/addon.variables.scss，参考这篇说明。
-
-/* fonts */
-$font-family-base: &amp;#39;Source Sans Pro&amp;#39;, &amp;#39;Microsoft Yahei&amp;#39;, &amp;#39;PingFang SC&amp;#39;, ...</summary>
 
   </entry>
 
