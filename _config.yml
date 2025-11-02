@@ -78,7 +78,7 @@ pageviews:
 # theme_mode: [dark | light] # [light | dark]
 
 # 媒体资源的 CDN 地址。
-cdn: "https://chirpy-img.netlify.app"
+img_cdn: https://testingcf.jsdelivr.net/gh/Auroraol/auroraol.github.io
 
 # 侧边栏头像，支持本地或 CORS 资源
 avatar: "/commons/avatar.jpg"
@@ -108,14 +108,14 @@ comments:
   # Giscus options › https://giscus.app
   giscus:
     repo: "auroraol/auroraol.github.io" # <gh-username>/<repo>
-    repo_id: "R_kgDOLwStXQ"
-    category: "General"
-    category_id: "DIC_kwDOLwStXc4Ce0Hd"
+    repo_id: "R_kgDOQNpBGw"
+    category: "Comments"
+    category_id: "DIC_kwDOQNpBG84CxWyu"
     mapping: "title" # optional, default to 'pathname'
-    strict: # optional, default to '0'
-    input_position: "top" # optional, default to 'bottom'
-    lang: # optional, default to the value of `site.lang`
-    reactions_enabled: # optional, default to the value of `1`
+    strict: "0" # optional, default to '0'
+    input_position: "bottom" # optional, default to 'bottom'
+    lang: zh-CN # optional, default to the value of `site.lang`
+    reactions_enabled: "1" # optional, default to the value of `1`
 
 # 自托管静态资产，没什么用。留空禁止
 assets:

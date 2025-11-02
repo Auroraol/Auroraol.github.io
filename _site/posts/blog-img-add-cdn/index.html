@@ -30,23 +30,23 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Categories" />
+<meta property="og:title" content="GitHub Pages添加图片CDN（加速国内访问）" />
 <meta property="og:locale" content="zh_CN" />
-<meta name="description" content="A personal blog for recording pieces of thoughts." />
-<meta property="og:description" content="A personal blog for recording pieces of thoughts." />
-<link rel="canonical" href="http://localhost:4000/categories/" />
-<meta property="og:url" content="http://localhost:4000/categories/" />
+<meta name="description" content="国内部署到GitHub pages经常会出现访问慢的问题，文字部分还好，主要是图片这类资源，经常性加载失败导致用户无法浏览blog" />
+<meta property="og:description" content="国内部署到GitHub pages经常会出现访问慢的问题，文字部分还好，主要是图片这类资源，经常性加载失败导致用户无法浏览blog" />
+<link rel="canonical" href="http://localhost:4000/posts/blog-img-add-cdn/" />
+<meta property="og:url" content="http://localhost:4000/posts/blog-img-add-cdn/" />
 <meta property="og:site_name" content="息" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-11-02T19:13:50+08:00" />
+<meta property="article:published_time" content="2024-06-18T18:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Categories" />
+<meta property="twitter:title" content="GitHub Pages添加图片CDN（加速国内访问）" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-11-02T19:13:50+08:00","datePublished":"2025-11-02T19:13:50+08:00","description":"A personal blog for recording pieces of thoughts.","headline":"Categories","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/categories/"},"url":"http://localhost:4000/categories/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-06-18T18:00:00+08:00","datePublished":"2024-06-18T18:00:00+08:00","description":"国内部署到GitHub pages经常会出现访问慢的问题，文字部分还好，主要是图片这类资源，经常性加载失败导致用户无法浏览blog","headline":"GitHub Pages添加图片CDN（加速国内访问）","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/blog-img-add-cdn/"},"url":"http://localhost:4000/posts/blog-img-add-cdn/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>Categories | 息
+  <title>GitHub Pages添加图片CDN（加速国内访问） | 息
   </title>
 
   <!--
@@ -103,9 +103,16 @@
   <link rel="stylesheet" href="/assets/css/jekyll-theme-chirpy.css">
 
   
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.25.0/dist/tocbot.min.css">
   
 
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.min.css">
+  
+
+  
+    <!-- Image Popup -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css">
   
 
   <!-- JavaScript -->
@@ -287,7 +294,7 @@
       </li>
       <!-- the real tabs -->
       
-        <li class="nav-item active">
+        <li class="nav-item">
           <a href="/categories/" class="nav-link">
             <i class="fa-fw fas fa-stream"></i>
             
@@ -403,8 +410,10 @@
           
         
           
+        
+          
             
-              <span>分类</span>
+              <span>GitHub Pages添加图片CDN（加速国内访问）</span>
             
 
           
@@ -418,7 +427,7 @@
     </button>
 
     <div id="topbar-title">
-      分类
+      文章
     </div>
 
     <button type="button" id="search-trigger" class="btn btn-link">
@@ -444,242 +453,289 @@
         <div class="row flex-grow-1">
           <main aria-label="Main Content" class="col-12 col-lg-11 col-xl-9 px-md-4">
             
-              
+              <!-- Refactor the HTML structure -->
+
+
+
+<!--
+  In order to allow a wide table to scroll horizontally,
+  we suround the markdown table with `<div class="table-wrapper">` and `</div>`
+-->
+
+
+
+<!--
+  Fixed kramdown code highlight rendering:
+  https://github.com/penibelst/jekyll-compress-html/issues/101
+  https://github.com/penibelst/jekyll-compress-html/issues/71#issuecomment-188144901
+-->
+
+
+
+<!-- Change the icon of checkbox -->
+
+
+
+<!-- Handle images -->
+
+
+
+
+
+<!-- Add header for code snippets -->
+
+
+
+<!-- Create heading anchors -->
+
+
+
+
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+
+
+
+<!-- return -->
+
 
 
 
 <article class="px-1">
+  <header>
+    <h1 data-toc-skip>GitHub Pages添加图片CDN（加速国内访问）</h1>
+    
+
+    <div class="post-meta text-muted">
+      <!-- published date -->
+      <span>
+        发表于
+        <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
   
-    
-    
-    <h1 class="dynamic-title">
-      分类
-    </h1>
-    <div class="content">
+  data-ts="1718704800"
+  data-df="YYYY/MM/DD"
+  
+    data-bs-toggle="tooltip" data-bs-placement="bottom"
+  
+>
+  2024/06/18
+</time>
+
+      </span>
+
+      <!-- lastmod date -->
       
 
+      
 
-
-
-
-
-
-
-
-
-
-  
-  
-  
-
-  
-    
-
-    
-
-    
-    
-
-    <div class="card categories">
-      <!-- top-category -->
-      <div
-        id="h_0"
-        class="card-header d-flex justify-content-between hide-border-bottom"
-      >
-        <span class="ms-2">
-          <i class="far fa-folder-open fa-fw"></i>
-
+      <div class="d-flex justify-content-between">
+        <!-- author(s) -->
+        <span>
           
-          <a href="/categories/blog/" class="mx-2">Blog</a>
 
-          <!-- content count -->
-          
-          <span class="text-muted small font-weight-light">
-            
-              1
-              
-                个分类
-              ,
-            
+          作者
 
-            6
-
+          <em>
             
-              篇文章
+              <a href="">lfj</a>
             
-          </span>
+          </em>
         </span>
 
-        <!-- arrow -->
+        <div>
+          <!-- pageviews -->
+          
+
+          <!-- read time -->
+          <!-- Calculate the post's reading time, and display the word count in tooltip -->
+
+
+
+<!-- words per minute -->
+
+
+
+
+
+
+
+
+
+
+<!-- return element -->
+<span
+  class="readtime"
+  data-bs-toggle="tooltip"
+  data-bs-placement="bottom"
+  title="296 字"
+>
+  <em>1 分钟</em>阅读</span>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="content">
+    <p>国内部署到GitHub pages经常会出现访问慢的问题，文字部分还好，主要是图片这类资源，经常性加载失败导致用户无法浏览blog</p>
+
+<p>笔者这里配置了图片相关CDN，能部分缓解访问慢的问题。</p>
+
+<p>笔者这里以现在使用的blog模板举例，该模板支持全局的图片CDN配置：</p>
+
+<ol>
+  <li>
+    <p>找一个可用的前端资源CDN地址</p>
+
+    <p>推荐用这两个：</p>
+    <div class="language-plaintext highlighter-rouge"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre> fastly.jsdelivr.net
+ testingcf.jsdelivr.net
+</pre></td></tr></tbody></table></code></div>    </div>
+  </li>
+  <li>
+    <p>配置blog的CDN</p>
+
+    <p>如笔者这里在blog根目录配置如下：</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre> img_cdn: https://testingcf.jsdelivr.net/gh/Auroraol/auroraol.github.io
+</pre></td></tr></tbody></table></code></div>    </div>
+    <p>使用的cdn是testingcf.jsdelivr.net</p>
+  </li>
+  <li>
+    <p>配置完成提交后检查</p>
+
+    <p>等GitHub pages打包完成，随便找一张自己blog的图片，检查对应的图片链接是否有CDN</p>
+
+    <p>如笔者这里的图片链接如下：</p>
+
+    <p>修改前：</p>
+    <div class="language-plaintext highlighter-rouge"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre> https://auroraol.github.io/assets/image/dutch.png
+</pre></td></tr></tbody></table></code></div>    </div>
+    <p>修改后</p>
+    <div class="language-plaintext highlighter-rouge"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre> https://testingcf.jsdelivr.net/gh/winxuan/winxuan.github.io/assets/image/dutch.png
+</pre></td></tr></tbody></table></code></div>    </div>
+
+    <p>同时可以多找几个同学朋友帮你检查下，看国内网是否可以访问，最简单的办法就是用自己手机关闭无线网使用5G访问自己的blog看下加载速度是否比以前快很多。</p>
+  </li>
+</ol>
+
+  </div>
+
+  <div class="post-tail-wrapper text-muted">
+    <!-- categories -->
+    
+      <div class="post-meta mb-3">
+        <i class="far fa-folder-open fa-fw me-1"></i>
+        
+          <a href="/categories/blog/">Blog</a>,
+          <a href="/categories/build/">Build</a>
+      </div>
+    
+
+    <!-- tags -->
+    <!--
+    
+      <div class="post-tags">
+        <i class="fa fa-tags fa-fw me-1"></i>
         
           <a
-            href="#l_0"
-            data-bs-toggle="collapse"
-            aria-expanded="true"
-            aria-label="h_0-trigger"
-            class="category-trigger hide-border-bottom"
-          >
-            <i class="fas fa-fw fa-angle-down"></i>
-          </a>
+            href="/tags/blog/"
+            class="post-tag no-text-decoration"
+          >blog</a>
         
       </div>
-      <!-- .card-header -->
-
-      <!-- Sub-categories -->
-      
-        <div id="l_0" class="collapse show" aria-expanded="true">
-          <ul class="list-group">
-            
-              <li class="list-group-item">
-                <i class="far fa-folder fa-fw"></i>
-
-                
-                <a href="/categories/build/" class="mx-2">Build</a>
-
-                
-                <span class="text-muted small font-weight-light">
-                  6
-
-                  
-                    篇文章
-                  
-                </span>
-              </li>
-            
-          </ul>
-        </div>
-      
-    </div>
-    <!-- .card -->
-
     
-  
-
-  
-  
-  
-
-  
-
-  
-  
-  
-
-  
-
-  
-  
-  
-
-  
-    
-
-    
-
-    
-    
-
-    <div class="card categories">
-      <!-- top-category -->
-      <div
-        id="h_1"
-        class="card-header d-flex justify-content-between hide-border-bottom"
-      >
-        <span class="ms-2">
-          <i class="far fa-folder-open fa-fw"></i>
-
-          
-          <a href="/categories/jekyll/" class="mx-2">jekyll</a>
-
-          <!-- content count -->
-          
-          <span class="text-muted small font-weight-light">
-            
-              2
-              
-                个分类
-              ,
-            
-
-            4
-
-            
-              篇文章
-            
-          </span>
-        </span>
-
-        <!-- arrow -->
+    -->
+    <div
+      class="
+        post-tail-bottom
+        d-flex justify-content-between align-items-center mt-5 pb-2
+      "
+    >
+      <!--
+      <div class="license-wrapper">
         
-          <a
-            href="#l_1"
-            data-bs-toggle="collapse"
-            aria-expanded="true"
-            aria-label="h_1-trigger"
-            class="category-trigger hide-border-bottom"
-          >
-            <i class="fas fa-fw fa-angle-down"></i>
-          </a>
+          
+
+          本文由作者按照 
+        <a href="https://creativecommons.org/licenses/by/4.0/">
+          CC BY 4.0
+        </a>
+         进行授权
         
       </div>
-      <!-- .card-header -->
+      -->
+      <!-- Post sharing snippet -->
 
-      <!-- Sub-categories -->
-      
-        <div id="l_1" class="collapse show" aria-expanded="true">
-          <ul class="list-group">
-            
-              <li class="list-group-item">
-                <i class="far fa-folder fa-fw"></i>
-
-                
-                <a href="/categories/chirpy%E4%BD%BF%E7%94%A8/" class="mx-2">Chirpy使用</a>
-
-                
-                <span class="text-muted small font-weight-light">
-                  2
-
-                  
-                    篇文章
-                  
-                </span>
-              </li>
-            
-              <li class="list-group-item">
-                <i class="far fa-folder fa-fw"></i>
-
-                
-                <a href="/categories/jekyll%E4%BD%BF%E7%94%A8/" class="mx-2">jekyll使用</a>
-
-                
-                <span class="text-muted small font-weight-light">
-                  2
-
-                  
-                    篇文章
-                  
-                </span>
-              </li>
-            
-          </ul>
-        </div>
-      
-    </div>
-    <!-- .card -->
+<div class="share-wrapper d-flex align-items-center">
+  <span class="share-label text-muted">分享</span>
+  <span class="share-icons">
+    
+    
+    
 
     
-  
 
-  
-  
-  
-
-  
-
+    <button
+      id="copy-link"
+      aria-label="Copy link"
+      class="btn small"
+      data-bs-toggle="tooltip"
+      data-bs-placement="top"
+      title="分享链接"
+      data-title-succeed="链接已复制！"
+    >
+      <i class="fa-fw fas fa-link pe-none fs-6"></i>
+    </button>
+  </span>
+</div>
 
     </div>
-  
+    <!-- .post-tail-bottom -->
+  </div>
+  <!-- div.post-tail-wrapper -->
 </article>
+
 
             
           </main>
@@ -828,12 +884,335 @@
             </div>
 
             
+              
+              
+
+
+
+
+            
           </aside>
         </div>
 
         <div class="row">
           <!-- tail -->
           <div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 px-md-4">
+            
+              
+              <!-- Recommend the other 3 posts according to the tags and categories of the current post. -->
+
+<!-- The total size of related posts -->
+
+
+<!-- An random integer that bigger than 0 -->
+
+
+<!-- Equals to TAG_SCORE / {max_categories_hierarchy} -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  <aside id="related-posts" aria-labelledby="related-label">
+    <h3 class="mb-4" id="related-label">相关文章</h3>
+    <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/blog-giscus-url/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1704751200"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/01/09
+</time>
+
+              <h4 class="pt-0 my-2">giscus评论区出现：An error occurred URI_TOO_LONG</h4>
+              <div class="text-muted">
+                <p>配置完成giscus，将新文章推送到GitHub后，偶现在评论位置未出现评论，而是出现了报错的信息如下：
+
+An error occurred
+URI_TOO_LONG
+
+
+解决办法非常简单，直接修改文章对应的md文件的文件名，推送到GitHub即可
+
+原理上对于GitHub等版本管理软件来说，修改文件名=删除文件+新建文件 ，这时候之前通过md生成的html文件就相当于重新生成了。这里注意...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/blog-merge-theme-modify/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1708358400"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/02/20
+</time>
+
+              <h4 class="pt-0 my-2">GitHub pages同步主题作者仓库更改</h4>
+              <div class="text-muted">
+                <p>问题
+
+我们在 fork 了作者主题的仓库之后，这时候我们和主题仓库实际上已经是两个仓库了，也就是说我们自己可以在 fork 出的仓库自己更改，同时作者也在更新功能或者修复主题的 bug，此时如果我们想获取作者的修改，如果没有 git，我们就需要一行一行对照着进行修改，好处是我们有 git，也就是说我们可以通过 git 来自动化 merge 作者的修改，具体的操作如下
+
+
+  
+    首先...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/blog-bing-search-include/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1717516800"
+  data-df="YYYY/MM/DD"
+  
+>
+  2024/06/05
+</time>
+
+              <h4 class="pt-0 my-2">Bing搜索收录Github Pages（Blog可以被Bing搜索到）</h4>
+              <div class="text-muted">
+                <p>由于GitHub同样也封禁了Bing搜索，在设置完Google搜索后，同时也要设置下Bing搜索。
+
+前置步骤
+
+建议先配置完成Google搜索的收录，参考这里Google搜索收录Github Pages
+
+因为Bing的搜索配置如果使用Google账号登录如下网站，可以一键导入Google搜索的配置不用再配置一遍了
+
+https://www.bing.com/webmaster/home/...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+    </nav>
+  </aside>
+  <!-- #related-posts -->
+
+
+            
+              
+              <!-- Navigation buttons at the bottom of the post. -->
+
+<nav class="post-navigation d-flex justify-content-between" aria-label="Post Navigation">
+  
+  
+
+  
+    <a
+      href="/posts/blog-google-search-include/"
+      class="btn btn-outline-primary"
+      aria-label="上一篇"
+    >
+      <p>Google搜索收录Github Pages（Blog可以被Google搜索到）</p>
+    </a>
+  
+
+  
+    <a
+      href="/posts/blog-google-search-include-auto/"
+      class="btn btn-outline-primary"
+      aria-label="下一篇"
+    >
+      <p>Google搜索收录Github Pages 自动化(Blog可以被Google搜索到)</p>
+    </a>
+  
+</nav>
+
+            
+              
+              <!-- The comments switcher -->
+
+  
+  <!-- https://giscus.app/ -->
+<script type="text/javascript">
+  (function () {
+    const origin = 'https://giscus.app';
+    const lightTheme = 'light';
+    const darkTheme = 'dark_dimmed';
+
+    let initTheme = lightTheme;
+    const html = document.documentElement;
+
+    if (
+      (html.hasAttribute('data-mode') &&
+        html.getAttribute('data-mode') === 'dark') ||
+      (!html.hasAttribute('data-mode') &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      initTheme = darkTheme;
+    }
+
+    let giscusAttributes = {
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'auroraol/auroraol.github.io',
+      'data-repo-id': 'R_kgDOQNpBGw',
+      'data-category': 'Comments',
+      'data-category-id': 'DIC_kwDOQNpBG84CxWyu',
+      'data-mapping': 'title',
+      'data-strict' : '0',
+      'data-reactions-enabled': '1',
+      'data-emit-metadata': '0',
+      'data-theme': initTheme,
+      'data-input-position': 'bottom',
+      'data-lang': 'zh-CN',
+      'data-loading': 'lazy',
+      crossorigin: 'anonymous',
+      async: ''
+    };
+
+    let giscusScript = document.createElement('script');
+    Object.entries(giscusAttributes).forEach(([key, value]) =>
+      giscusScript.setAttribute(key, value)
+    );
+    document.getElementById('tail-wrapper').appendChild(giscusScript);
+
+    addEventListener('message', (event) => {
+      if (
+        event.source === window &&
+        event.data &&
+        event.data.direction === ModeToggle.ID
+      ) {
+        /* global theme mode changed */
+        const mode = event.data.message;
+        const theme = mode === ModeToggle.DARK_MODE ? darkTheme : lightTheme;
+
+        const message = {
+          setConfig: {
+            theme: theme
+          }
+        };
+
+        const giscus = document.getElementsByClassName('giscus-frame')[0].contentWindow;
+        giscus.postMessage({ giscus: message }, origin);
+      }
+    });
+  })();
+</script>
+
+
+
             
 
             <!-- The Footer -->
@@ -1021,6 +1400,13 @@
 
 
 
+  
+
+  
+    <!-- image lazy-loading & popup & clipboard -->
+    
+  
+
 
 
 
@@ -1046,20 +1432,73 @@
     <script src="/assets/lib/simple-jekyll-search/simple-jekyll-search.min.js"></script>
   
 
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/combine/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.10/dayjs.min.js,npm/dayjs@1.11.10/locale/zh.min.js,npm/dayjs@1.11.10/plugin/relativeTime.min.js,npm/dayjs@1.11.10/plugin/localizedFormat.min.js"></script>
 
 
 
 
 
 
-<script defer src="/assets/js/dist/categories.min.js"></script>
+<script defer src="/assets/js/dist/post.min.js"></script>
 
 
 
 <!-- Pageviews -->
+
+  
+
+  
 
 
 
