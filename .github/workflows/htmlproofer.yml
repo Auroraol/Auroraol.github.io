@@ -24,7 +24,5 @@ jobs:
             --allow-hash-href \
             --empty-alt-ignore \
             --only-4xx \
-            --url-ignore "/fonts\.googleapis\.com/" \
-            --url-ignore "/fonts\.gstatic\.com/" \
-            --url-ignore "/www\.toptal\.com/"
+            --ignore-urls "/fonts\.googleapis\.com/,/fonts\.gstatic\.com/,/www\.toptal\.com/"
 
