@@ -64,7 +64,6 @@ jobs:
           bundle exec htmlproofer _site \
             --disable-external \
             --allow-missing-href \
-            --check-html \
             --ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/,/^https:\/\//,/^\/posts\//,/^\/categories\//,/^\/tags\//,/^\/archives\//,/^\/about\//,/^\/tool\//,/^\/treehole\//"
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
