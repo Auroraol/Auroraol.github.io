@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>息</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2025-11-02T19:13:50+08:00</updated>
+  <updated>2025-11-02T19:19:31+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -169,92 +169,40 @@ giscus配置
 
   
   <entry>
-    <title>Google搜索收录Github Pages 自动化(Blog可以被Google搜索到)</title>
-    <link href="http://localhost:4000/posts/blog-google-search-include-auto/" rel="alternate" type="text/html" title="Google搜索收录Github Pages 自动化(Blog可以被Google搜索到)" />
-    <published>2024-06-23T00:00:00+08:00</published>
+    <title>Chirpy主题的进阶使用</title>
+    <link href="http://localhost:4000/posts/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/" rel="alternate" type="text/html" title="Chirpy主题的进阶使用" />
+    <published>2023-12-20T11:00:00+08:00</published>
   
-    <updated>2024-06-23T00:00:00+08:00</updated>
+    <updated>2025-11-02T18:37:54+08:00</updated>
   
-    <id>http://localhost:4000/posts/blog-google-search-include-auto/</id>
-    <content src="http://localhost:4000/posts/blog-google-search-include-auto/" />
+    <id>http://localhost:4000/posts/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/</id>
+    <content src="http://localhost:4000/posts/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/" />
     <author>
       <name>lfj</name>
     </author>
 
   
     
-    <category term="Blog" />
+    <category term="jekyll" />
     
-    <category term="Build" />
-    
-  
-
-  <summary>笔者之前有文章提到过如何将自己使用Github Pages创建的blog加入到Google搜索结果，相信试用过之后都会发现一个最基本的问题，那就是如果写了新文章之后，还需要手动导出一次网站地图然后提交，并且还要等很久才能加入到谷歌搜索结果中。
-
-网站地图vs直接添加索引
-
-笔者在实际使用过程中发现，实际上如果提交网站地图，速度会比直接在Google搜索中添加索引慢非常多，如下图所示：
-
-
-
-笔者在很久之前就将网站地图提交，同时也在索引中手动添加了几个网站，直接添加索引到Google，大概3天左右Google搜索中就出现了数据，而添加网站地图之后，笔者等了2周还是没有结果，所以相对于添加网站地图来说，最好的方式莫过于直接添加索引快很多。
-
-创建配置API权限
-
-Google search有对应的API，该API可以实现向Google search中添加索引。
-
-Google Searc...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>GitHub Pages添加图片CDN（加速国内访问）</title>
-    <link href="http://localhost:4000/posts/blog-img-add-cdn/" rel="alternate" type="text/html" title="GitHub Pages添加图片CDN（加速国内访问）" />
-    <published>2024-06-18T18:00:00+08:00</published>
-  
-    <updated>2024-06-18T18:00:00+08:00</updated>
-  
-    <id>http://localhost:4000/posts/blog-img-add-cdn/</id>
-    <content src="http://localhost:4000/posts/blog-img-add-cdn/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="Blog" />
-    
-    <category term="Build" />
+    <category term="Chirpy使用" />
     
   
 
-  <summary>国内部署到GitHub pages经常会出现访问慢的问题，文字部分还好，主要是图片这类资源，经常性加载失败导致用户无法浏览blog
+  <summary>自定义网页布局
 
-笔者这里配置了图片相关CDN，能部分缓解访问慢的问题。
+Favicon设置
 
-笔者这里以现在使用的blog模板举例，该模板支持全局的图片CDN配置：
+Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使用Favicon Generator生成favicon文件，再替换掉目录中的预设favicon即可。
 
+语言和字体
 
-  
-    找一个可用的前端资源CDN地址
+博客的默认语言为英语，可以设置_config.yml中的lang变量来修改，变量取值详见ISO语言代码（如英语的lang取值为en，中文的lang取值为zh-CN）。
 
-    推荐用这两个：
-     fastly.jsdelivr.net
- testingcf.jsdelivr.net
-    
-  
-  
-    配置blog的CDN
+每种语言对应一套默认字体，如英语默认的标题字体为Lato，段落字体为Source Sans Pro。如果要自定义，需要修改样式文件_sass/addon.variables.scss，参考这篇说明。
 
-    如笔者这里在blog根目录配置如下：
-
-     img_cdn: https://testingcf.jsdelivr.net/gh/Auroraol/auroraol.github.io
-    
-    使用的cdn是testingcf.jsdelivr.net
-  
-  
-    配置...</summary>
+/* fonts */
+$font-family-base: &amp;#39;Source Sans Pro&amp;#39;, &amp;#39;Microsoft Yahei&amp;#39;, &amp;#39;PingFang SC&amp;#39;, ...</summary>
 
   </entry>
 
