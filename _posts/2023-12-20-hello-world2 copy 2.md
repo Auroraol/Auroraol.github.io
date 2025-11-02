@@ -9,7 +9,7 @@ tags: [Chirpy使用]
 
 本文介绍Chirpy主题的几个进阶使用案例，包括自定义网页布局、优化文本搜索、配置评论系统等。其中一些案例会涉及到底层代码的修改，要求读者具备一定的编程基础。
 
-关于Chirpy主题的安装、配置、基础使用等内容，请阅读[Jekyll博客搭建教程（下篇）](/posts/build-my-blog-2/)。
+关于Chirpy主题的安装、配置、基础使用等内容，请阅读[Jekyll博客搭建教程](/posts/hello-world2/)。
 
 ## 自定义网页布局
 
@@ -19,7 +19,7 @@ Chirpy主题的favicon存放在目录`assets/img/favicons/`下，用户可以使
 
 ### 语言和字体
 
-博客的默认语言为英语，可以设置`_config.yml`中的`lang`变量来修改，变量取值详见[ISO语言代码](http://www.lingoes.net/en/translator/langcode.htm)（如英语的`lang`取值为`en`，中文的`lang`取值为`zh-CN`）。
+博客的默认语言为英语，可以设置`_config.yml`中的`lang`变量来修改，变量取值详见[ISO语言代码](https://www.lingoes.net/en/translator/langcode.htm)（如英语的`lang`取值为`en`，中文的`lang`取值为`zh-CN`）。
 
 每种语言对应一套默认字体，如英语默认的标题字体为Lato，段落字体为Source Sans Pro。如果要自定义，需要修改样式文件`_sass/addon.variables.scss`，参考这篇[说明](https://github.com/cotes2020/jekyll-theme-chirpy/pull/986)。
 
@@ -163,7 +163,7 @@ search:
 
 另一个问题是Simple Jekyll Search虽然能告诉你哪些文章包含关键词，但它不会显示关键词具体出现在文章的哪个位置。这是使用原Chirpy主题进行关键词检索的一个示例：
 
-![](/assets/img/custom-my-blog/original-search.jpeg)
+![原始搜索结果](/assets/img/custom-my-blog/original-search.jpeg)
 
 可以看到，搜索引擎只是简单列出了包含关键词`Chirpy`的文章标题和简介，而实际上我更想知道关键词出现在文章中的哪个位置，以及提及该关键词的前后文。这篇[博客](https://reesdraminski.com/garden/search-with-simplejekyllsearch/)提出了一种可行的优化思路：Simple Jekyll Search在完成全局搜索后，会输出所有包含关键词的文章。此时对这些文章再重复做一次关键词检索，记录下关键词在一篇文章中首次出现的位置，输出该位置向前数的50个字符（上文）和向后数的50个字符（下文）。
 
@@ -186,7 +186,7 @@ search:
 
 优化后的搜索结果如图，改进后的算法能标注出关键词所在位置，并给出提及关键词的上下文。
 
-![](/assets/img/custom-my-blog/updated-search.jpeg)
+![优化后的搜索结果](/assets/img/custom-my-blog/updated-search.jpeg)
 
 ## 配置评论系统
 
