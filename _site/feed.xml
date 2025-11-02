@@ -2,141 +2,163 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>http://localhost:4000/</id>
-  <title>去以六月息者也</title>
+  <title>息</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2025-05-26T01:35:43+08:00</updated>
+  <updated>2025-11-02T15:59:16+08:00</updated>
   <author>
-    <name>MsEspeon</name>
+    <name>lfj</name>
     <uri>http://localhost:4000/</uri>
   </author>
   <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml"/>
-  <link rel="alternate" type="text/html" hreflang="en"
+  <link rel="alternate" type="text/html" hreflang="zh-CN"
     href="http://localhost:4000/"/>
-  <generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator>
-  <rights> © 2025 MsEspeon </rights>
+  <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
+  <rights> © 2025 lfj </rights>
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
 
   
   <entry>
-    <title>周末小记</title>
-    <link href="http://localhost:4000/posts/mononoke/" rel="alternate" type="text/html" title="周末小记" />
-    <published>2025-05-25T23:50:00+08:00</published>
+    <title>jekyll主题使用</title>
+    <link href="http://localhost:4000/posts/hello-world2/" rel="alternate" type="text/html" title="jekyll主题使用" />
+    <published>2023-12-20T11:00:00+08:00</published>
   
-    <updated>2025-05-25T23:50:00+08:00</updated>
+    <updated>2023-12-20T11:00:00+08:00</updated>
   
-    <id>http://localhost:4000/posts/mononoke/</id>
-    <content src="http://localhost:4000/posts/mononoke/" />
+    <id>http://localhost:4000/posts/hello-world2/</id>
+    <content src="http://localhost:4000/posts/hello-world2/" />
     <author>
-      <name>MsEspeon</name>
+      <name>lfj</name>
     </author>
 
   
     
-    <category term="日常" />
+    <category term="jekyll" />
+    
+    <category term="jekyll使用" />
     
   
 
-  <summary>两周忙完了两场pre和一门期末考试，这个五月总算是闲了下来</summary>
+  <summary>结合了一下几篇文章，做个总结：
+1.修改gem的source ：
+
+gem sources –remove https://rubygems.org/
+AI写代码
+c
+运行
+1
+这是本身的gem的网站，但是它是国外的，一般都被墙，所以要修改，先将其移除。
+2.改为可以使用的：
+
+gem sources -a ‘https://gems.ruby-china.com’
+AI写代码
+c
+运行
+1
+我看过有地址写为http://ruby.taobao.org/的，但是我设置后没有用，应该是用不了了，所以，用上面那个。
+3.查看当前有的source
+
+gem sources -l
+AI写代码
+c
+运行
+1
+会显示：
+
+** CURRENT SOURCES **
+
+https://gems.ruby-china.com
+AI写代码
+1
+2
+3
+4.最后：
+————————————————
+版权...</summary>
 
   </entry>
 
   
   <entry>
-    <title>星星公主</title>
-    <link href="http://localhost:4000/posts/narutaru/" rel="alternate" type="text/html" title="星星公主" />
-    <published>2025-05-18T02:30:00+08:00</published>
+    <title>Chirpy主题的个性化自定义</title>
+    <link href="http://localhost:4000/posts/hello-world2-copy/" rel="alternate" type="text/html" title="Chirpy主题的个性化自定义" />
+    <published>2023-12-20T11:00:00+08:00</published>
   
-    <updated>2025-05-26T01:20:12+08:00</updated>
+    <updated>2023-12-20T11:00:00+08:00</updated>
   
-    <id>http://localhost:4000/posts/narutaru/</id>
-    <content src="http://localhost:4000/posts/narutaru/" />
+    <id>http://localhost:4000/posts/hello-world2-copy/</id>
+    <content src="http://localhost:4000/posts/hello-world2-copy/" />
     <author>
-      <name>MsEspeon</name>
+      <name>lfj</name>
     </author>
 
   
     
-    <category term="二次元" />
+    <category term="jekyll" />
+    
+    <category term="Chirpy使用" />
     
   
 
-  <summary>改变世界的形状</summary>
+  <summary>更改_data文件夹中contact.yml文件
 
-  </entry>
+contact.yml直接关联着网站左下角的链接，只保留github和email。后面自行可以添加
 
-  
-  <entry>
-    <title>时间线重启</title>
-    <link href="http://localhost:4000/posts/restart/" rel="alternate" type="text/html" title="时间线重启" />
-    <published>2025-05-17T22:03:00+08:00</published>
-  
-    <updated>2025-05-26T01:20:12+08:00</updated>
-  
-    <id>http://localhost:4000/posts/restart/</id>
-    <content src="http://localhost:4000/posts/restart/" />
-    <author>
-      <name>MsEspeon</name>
-    </author>
+- type: github
+  icon: &amp;quot;fab fa-github&amp;quot;
 
-  
-    
-    <category term="日常" />
-    
-  
+#- type: twitter
+#  icon: &amp;quot;fa-brands fa-x-twitter&amp;quot;
 
-  <summary>时隔一年，我又找回了自己的github账号</summary>
-
-  </entry>
-
+- type: email
+  icon: &amp;quot;fas fa-envelope&amp;quot;
   
-  <entry>
-    <title>通知书开箱</title>
-    <link href="http://localhost:4000/posts/admission-letter/" rel="alternate" type="text/html" title="通知书开箱" />
-    <published>2024-07-22T00:27:00+08:00</published>
-  
-    <updated>2025-05-26T01:20:12+08:00</updated>
-  
-    <id>http://localhost:4000/posts/admission-letter/</id>
-    <content src="http://localhost:4000/posts/admission-letter/" />
-    <author>
-      <name>MsEspeon</name>
-    </author>
-
-  
-    
-    <category term="日常" />
-    
-  
-
-  <summary>周日中午，EMS送来了心心念念的录取通知书，我的博士申请也正式告一段落</summary>
+- type: bluesky
+  icon: &amp;#39;fa-solid fa-screwdriver-wrench&amp;#39;
+  url: &amp;#39;https://jinhanlei.github.io/posts/Jekyll+%E6%A8%A1%E6%9D%BF-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%E4%B...</summary>
 
   </entry>
 
   
   <entry>
     <title>Chirpy主题的进阶使用</title>
-    <link href="http://localhost:4000/posts/customize-my-blog/" rel="alternate" type="text/html" title="Chirpy主题的进阶使用" />
-    <published>2024-04-22T16:45:00+08:00</published>
+    <link href="http://localhost:4000/posts/hello-world2-copy-2/" rel="alternate" type="text/html" title="Chirpy主题的进阶使用" />
+    <published>2023-12-20T11:00:00+08:00</published>
   
-    <updated>2025-05-18T01:51:07+08:00</updated>
+    <updated>2023-12-20T11:00:00+08:00</updated>
   
-    <id>http://localhost:4000/posts/customize-my-blog/</id>
-    <content src="http://localhost:4000/posts/customize-my-blog/" />
+    <id>http://localhost:4000/posts/hello-world2-copy-2/</id>
+    <content src="http://localhost:4000/posts/hello-world2-copy-2/" />
     <author>
-      <name>MsEspeon</name>
+      <name>lfj</name>
     </author>
 
   
     
-    <category term="Tutorial" />
+    <category term="jekyll" />
     
-    <category term="Jekyll" />
+    <category term="Chirpy使用" />
     
   
 
-  <summary>一些基于Chirpy主题的个性化设置</summary>
+  <summary>前言
+
+本文介绍Chirpy主题的几个进阶使用案例，包括自定义网页布局、优化文本搜索、配置评论系统等。其中一些案例会涉及到底层代码的修改，要求读者具备一定的编程基础。
+
+关于Chirpy主题的安装、配置、基础使用等内容，请阅读Jekyll博客搭建教程（下篇）。
+
+自定义网页布局
+
+Favicon设置
+
+Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使用Favicon Generator生成favicon文件，再替换掉目录中的预设favicon即可。
+
+语言和字体
+
+博客的默认语言为英语，可以设置_config.yml中的lang变量来修改，变量取值详见ISO语言代码（如英语的lang取值为en，中文的lang取值为zh-CN）。
+
+每种语言对应一套默认字体，如英语默认的标题字体为Lato，段落字体为Source Sans Pro。如果要...</summary>
 
   </entry>
 
