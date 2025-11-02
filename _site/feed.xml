@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>息</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2025-11-02T19:48:43+08:00</updated>
+  <updated>2025-11-02T19:57:52+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,67 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Blog可以被Google搜索到</title>
+    <link href="http://localhost:4000/posts/blog-google-search-include/" rel="alternate" type="text/html" title="Blog可以被Google搜索到" />
+    <published>2025-11-02T17:00:00+08:00</published>
+  
+    <updated>2025-11-02T19:43:31+08:00</updated>
+  
+    <id>http://localhost:4000/posts/blog-google-search-include/</id>
+    <content src="http://localhost:4000/posts/blog-google-search-include/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="jekyll" />
+    
+    <category term="Chirpy使用" />
+    
+  
+
+  <summary>配置过程
+
+
+  
+    确认自己的blog确实未被Google搜索收录
+
+    浏览器输入如下网址：
+
+     site:https://your_github_id.github.io/
+    
+
+    如果没有被Google搜索收录，那会出现如下图所示，跟着笔者往下一步一步配置吧
+
+    
+
+    如果被收录了，那就会出现如下图所示，忽略本文章的后续步骤吧
+  
+  
+    进入上图所提示的Google Search Console
+
+    选择右侧的网址前缀，并输入自己的blog地址点继续
+
+     https://your_github_id.github.io/
+    
+
+    
+  
+  
+    下载并将对应的html文件上传到自己blog中
+
+    
+  
+  
+    添加站点地图
+
+    上一步成功之后，点弹窗右下角前往资源页面，在跳...</summary>
+
+  </entry>
 
   
   <entry>
