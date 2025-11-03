@@ -1,6 +1,6 @@
 ---
 title: 使用giscus配置GitHub Pages评论功能
-date: 2025-11-01 11:00:00 +0800
+date: 2025-11-02 11:00:00 +0800
 categories: [jekyll, jekyll使用]
 tags: [jekyll使用]
 ---

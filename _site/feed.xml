@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>息</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2025-11-02T21:50:52+08:00</updated>
+  <updated>2025-11-03T23:29:08+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -20,14 +20,83 @@
 
   
   <entry>
+    <title>pg槽位创建</title>
+    <link href="http://localhost:4000/pg/%E6%A7%BD%E4%BD%8D/pg%E6%A7%BD%E4%BD%8D/" rel="alternate" type="text/html" title="pg槽位创建" />
+    <published>2025-11-03T22:40:00+08:00</published>
+  
+    <updated>2025-11-03T22:40:00+08:00</updated>
+  
+    <id>http://localhost:4000/pg/%E6%A7%BD%E4%BD%8D/pg%E6%A7%BD%E4%BD%8D/</id>
+    <content src="http://localhost:4000/pg/%E6%A7%BD%E4%BD%8D/pg%E6%A7%BD%E4%BD%8D/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="pg" />
+    
+    <category term="槽位" />
+    
+  
+
+  <summary>创建槽位
+
+-- 1️⃣ 复制标识（必须最先）(一次)
+SELECT set_replica_identity_full_for_partition(&amp;#39;spu&amp;#39;);   -- 主表+分区全部设 FULL  
+
+-- 2️⃣ 创建发布（此时无槽，仅元数据）
+CREATE PUBLICATION spu_pub FOR TABLE spu;          -- 主表
+ALTER  PUBLICATION spu_pub ADD TABLE spu_p2023, spu_p2024, ...;  -- 把分区也加进去 pg 13+：可以省略
+
+-- 3️⃣ 最后创建槽（一经创建，WAL 保留点开始推进）
+SELECT pg_create_logical_replication_slot(&amp;#39;spu_goods_center_notify_new&amp;#39;, &amp;#39;pgoutput&amp;#39;);
+
+
+函数(设...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>支持多目录</title>
+    <link href="http://localhost:4000/jekyll/jekyll%E4%BD%BF%E7%94%A8/%E6%94%AF%E6%8C%81%E5%A4%9A%E7%BA%A7%E7%9B%AE%E5%BD%95/" rel="alternate" type="text/html" title="支持多目录" />
+    <published>2025-11-03T22:20:00+08:00</published>
+  
+    <updated>2025-11-03T22:20:00+08:00</updated>
+  
+    <id>http://localhost:4000/jekyll/jekyll%E4%BD%BF%E7%94%A8/%E6%94%AF%E6%8C%81%E5%A4%9A%E7%BA%A7%E7%9B%AE%E5%BD%95/</id>
+    <content src="http://localhost:4000/jekyll/jekyll%E4%BD%BF%E7%94%A8/%E6%94%AF%E6%8C%81%E5%A4%9A%E7%BA%A7%E7%9B%AE%E5%BD%95/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="jekyll" />
+    
+    <category term="jekyll使用" />
+    
+  
+
+  <summary>_config.yml文件
+
+
+
+md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</summary>
+
+  </entry>
+
+  
+  <entry>
     <title>Blog可以被Google搜索到</title>
-    <link href="http://localhost:4000/posts/blog-google-search-include/" rel="alternate" type="text/html" title="Blog可以被Google搜索到" />
+    <link href="http://localhost:4000/jekyll/jekyll%E4%BD%BF%E7%94%A8/blog-google-search-include/" rel="alternate" type="text/html" title="Blog可以被Google搜索到" />
     <published>2025-11-02T17:00:00+08:00</published>
   
-    <updated>2025-11-02T21:05:53+08:00</updated>
+    <updated>2025-11-02T17:00:00+08:00</updated>
   
-    <id>http://localhost:4000/posts/blog-google-search-include/</id>
-    <content src="http://localhost:4000/posts/blog-google-search-include/" />
+    <id>http://localhost:4000/jekyll/jekyll%E4%BD%BF%E7%94%A8/blog-google-search-include/</id>
+    <content src="http://localhost:4000/jekyll/jekyll%E4%BD%BF%E7%94%A8/blog-google-search-include/" />
     <author>
       <name>lfj</name>
     </author>
@@ -81,151 +150,14 @@
 
   
   <entry>
-    <title>Chirpy主题的个性化自定义</title>
-    <link href="http://localhost:4000/posts/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%AA%E6%80%A7%E5%8C%96%E8%87%AA%E5%AE%9A%E4%B9%89/" rel="alternate" type="text/html" title="Chirpy主题的个性化自定义" />
-    <published>2025-11-01T14:00:00+08:00</published>
-  
-    <updated>2025-11-01T14:00:00+08:00</updated>
-  
-    <id>http://localhost:4000/posts/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%AA%E6%80%A7%E5%8C%96%E8%87%AA%E5%AE%9A%E4%B9%89/</id>
-    <content src="http://localhost:4000/posts/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%AA%E6%80%A7%E5%8C%96%E8%87%AA%E5%AE%9A%E4%B9%89/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="jekyll" />
-    
-    <category term="Chirpy使用" />
-    
-  
-
-  <summary>更改_data文件夹中contact.yml文件
-
-contact.yml直接关联着网站左下角的链接，只保留github和email。后面自行可以添加
-
-- type: github
-  icon: &amp;quot;fab fa-github&amp;quot;
-
-#- type: twitter
-#  icon: &amp;quot;fa-brands fa-x-twitter&amp;quot;
-
-- type: email
-  icon: &amp;quot;fas fa-envelope&amp;quot;
-  
-- type: bluesky
-  icon: &amp;#39;fa-solid fa-screwdriver-wrench&amp;#39;
-  url: &amp;#39;https://jinhanlei.github.io/posts/Jekyll+%E6%A8%A1%E6%9D%BF-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%E4%B...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>jekyll主题使用</title>
-    <link href="http://localhost:4000/posts/jekyll%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8/" rel="alternate" type="text/html" title="jekyll主题使用" />
-    <published>2025-11-01T11:00:00+08:00</published>
-  
-    <updated>2025-11-02T18:37:54+08:00</updated>
-  
-    <id>http://localhost:4000/posts/jekyll%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8/</id>
-    <content src="http://localhost:4000/posts/jekyll%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="jekyll" />
-    
-    <category term="jekyll使用" />
-    
-  
-
-  <summary>本地部署环境和调试
-
-不同的操作系统可能会不太一样，这里以Windows举例，配置本地调试环境：
-
-
-  
-    安装RUBY
-
-    访问 Ruby Installer 下载
-
-    记得下载带devkit的版本
-
-    安装过程中，如果有类似MSYS2 and MINGW development tool chain的选项，记得勾选
-
-    安装成功后，使用命令行验证安装结果： ruby -v gem -v 
-  
-  
-    安装Jekyll
-
-    ` gem install jekyll bundler `
-
-    安装成功后，使用命令行验证安装结果： jekyll -v 
-
-    更换国内镜像
-
-    1.修改gem的source ：
-gem sources --remove https://rubygems.org/
-2.改为可以使用的：
-gem s...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Chirpy主题的进阶使用</title>
-    <link href="http://localhost:4000/posts/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/" rel="alternate" type="text/html" title="Chirpy主题的进阶使用" />
-    <published>2025-11-01T11:00:00+08:00</published>
-  
-    <updated>2025-11-02T18:37:54+08:00</updated>
-  
-    <id>http://localhost:4000/posts/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/</id>
-    <content src="http://localhost:4000/posts/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="jekyll" />
-    
-    <category term="Chirpy使用" />
-    
-  
-
-  <summary>参考: ittousei (MsEspeon)
-
-
-自定义网页布局
-
-Favicon设置
-
-Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使用Favicon Generator生成favicon文件，再替换掉目录中的预设favicon即可。
-
-语言和字体
-
-博客的默认语言为英语，可以设置_config.yml中的lang变量来修改，变量取值详见ISO语言代码（如英语的lang取值为en，中文的lang取值为zh-CN）。
-
-每种语言对应一套默认字体，如英语默认的标题字体为Lato，段落字体为Source Sans Pro。如果要自定义，需要修改样式文件_sass/addon.variables.scss，参考这篇说明。
-
-/* fonts */
-$font-family-base: &amp;#39;Source Sans Pro&amp;#39;, &amp;#39;Microso...</summary>
-
-  </entry>
-
-  
-  <entry>
     <title>使用giscus配置GitHub Pages评论功能</title>
-    <link href="http://localhost:4000/posts/config-blog-comment/" rel="alternate" type="text/html" title="使用giscus配置GitHub Pages评论功能" />
-    <published>2025-11-01T11:00:00+08:00</published>
+    <link href="http://localhost:4000/jekyll/jekyll%E4%BD%BF%E7%94%A8/config-blog-comment/" rel="alternate" type="text/html" title="使用giscus配置GitHub Pages评论功能" />
+    <published>2025-11-02T11:00:00+08:00</published>
   
-    <updated>2025-11-02T19:23:14+08:00</updated>
+    <updated>2025-11-02T11:00:00+08:00</updated>
   
-    <id>http://localhost:4000/posts/config-blog-comment/</id>
-    <content src="http://localhost:4000/posts/config-blog-comment/" />
+    <id>http://localhost:4000/jekyll/jekyll%E4%BD%BF%E7%94%A8/config-blog-comment/</id>
+    <content src="http://localhost:4000/jekyll/jekyll%E4%BD%BF%E7%94%A8/config-blog-comment/" />
     <author>
       <name>lfj</name>
     </author>
@@ -267,6 +199,47 @@ GitHub仓库配置
 giscus配置
 
 首先打开gitscu官网，需要使用当前仓库的GitHub账号登录：htt...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Chirpy主题的个性化自定义</title>
+    <link href="http://localhost:4000/jekyll/chirpy%E4%BD%BF%E7%94%A8/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%AA%E6%80%A7%E5%8C%96%E8%87%AA%E5%AE%9A%E4%B9%89/" rel="alternate" type="text/html" title="Chirpy主题的个性化自定义" />
+    <published>2025-11-01T14:00:00+08:00</published>
+  
+    <updated>2025-11-01T14:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/jekyll/chirpy%E4%BD%BF%E7%94%A8/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%AA%E6%80%A7%E5%8C%96%E8%87%AA%E5%AE%9A%E4%B9%89/</id>
+    <content src="http://localhost:4000/jekyll/chirpy%E4%BD%BF%E7%94%A8/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%AA%E6%80%A7%E5%8C%96%E8%87%AA%E5%AE%9A%E4%B9%89/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="jekyll" />
+    
+    <category term="Chirpy使用" />
+    
+  
+
+  <summary>更改_data文件夹中contact.yml文件
+
+contact.yml直接关联着网站左下角的链接，只保留github和email。后面自行可以添加
+
+- type: github
+  icon: &amp;quot;fab fa-github&amp;quot;
+
+#- type: twitter
+#  icon: &amp;quot;fa-brands fa-x-twitter&amp;quot;
+
+- type: email
+  icon: &amp;quot;fas fa-envelope&amp;quot;
+  
+- type: bluesky
+  icon: &amp;#39;fa-solid fa-screwdriver-wrench&amp;#39;
+  url: &amp;#39;https://jinhanlei.github.io/posts/Jekyll+%E6%A8%A1%E6%9D%BF-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%E4%B...</summary>
 
   </entry>
 
