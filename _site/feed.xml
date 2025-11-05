@@ -2,9 +2,9 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>http://localhost:4000/</id>
-  <title>息</title>
+  <title></title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2025-11-06T00:55:28+08:00</updated>
+  <updated>2025-11-06T01:08:53+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -50,6 +50,28 @@ docker pull registry.cn-xxxxx.aliyuncs.com/xxxxx/ecrobot-xxx-dy:v0.1.37
 docker tag ad2a5ed8bc4c  opcloud-micro-2101562073-cn-beijing.cr.volces.com/custom_ns_9671760171634316/sdk-xxx:feature-micro_app
 # 推送镜像
 docker push opcloud-micro-2101562073-cn-beijing.cr.volces.com/custom_ns_9671760171634316/sdk-xxx:fea...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Xxxx</title>
+    <link href="http://localhost:4000/xxxx/" rel="alternate" type="text/html" title="Xxxx" />
+    <published>2025-11-04T11:00:00+08:00</published>
+  
+    <updated>2025-11-04T11:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/xxxx/</id>
+    <content src="http://localhost:4000/xxxx/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+  
+
+  <summary></summary>
 
   </entry>
 
@@ -180,60 +202,6 @@ md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</summary>
     添加站点地图
 
     上一步成功之后，点弹窗右下角前往资源页面，...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>使用giscus配置GitHub Pages评论功能</title>
-    <link href="http://localhost:4000/jekyll/jekyll%E4%BD%BF%E7%94%A8/config-blog-comment/" rel="alternate" type="text/html" title="使用giscus配置GitHub Pages评论功能" />
-    <published>2025-11-02T11:00:00+08:00</published>
-  
-    <updated>2025-11-02T11:00:00+08:00</updated>
-  
-    <id>http://localhost:4000/jekyll/jekyll%E4%BD%BF%E7%94%A8/config-blog-comment/</id>
-    <content src="http://localhost:4000/jekyll/jekyll%E4%BD%BF%E7%94%A8/config-blog-comment/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="jekyll" />
-    
-    <category term="jekyll使用" />
-    
-  
-
-  <summary>评论能力开通
-
-GitHub仓库配置
-
-首先需要在自己的仓库中开通Discussion功能，一般新仓库默认不会打开，需要手动开通然后再添加对应的模块即可
-
-
-  
-    开通Discussion功能
-
-    进入自己的GitHub pages所在仓库，找到setting界面和里面的General选项
-
-    下滑找到Feature中勾选Discussion即可打开
-
-    创建comment
-
-    找到Discussion界面，点Categories右侧的🖊按钮，进入后点New category，准备新建一个category
-
-    
-
-    这里name就填Comments，Format勾选Open-ended discussion，完事确认就配置ok
-
-    
-  
-
-
-giscus配置
-
-首先打开gitscu官网，需要使用当前仓库的GitHub账号登录：htt...</summary>
 
   </entry>
 
