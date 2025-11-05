@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>息</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2025-11-03T23:29:08+08:00</updated>
+  <updated>2025-11-06T00:55:28+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,41 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>docker推送镜像</title>
+    <link href="http://localhost:4000/docker/docker%E6%8E%A8%E9%80%81%E9%95%9C%E5%83%8F/docker/" rel="alternate" type="text/html" title="docker推送镜像" />
+    <published>2025-11-04T11:00:00+08:00</published>
+  
+    <updated>2025-11-04T11:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/docker/docker%E6%8E%A8%E9%80%81%E9%95%9C%E5%83%8F/docker/</id>
+    <content src="http://localhost:4000/docker/docker%E6%8E%A8%E9%80%81%E9%95%9C%E5%83%8F/docker/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="docker" />
+    
+    <category term="docker推送镜像" />
+    
+  
+
+  <summary>镜像
+
+# 登录docker
+docker login -u 账号 -p 密码 registry.cn-zhangjiakou.aliyuncs.com
+# 拉取镜像
+docker pull registry.cn-xxxxx.aliyuncs.com/xxxxx/ecrobot-xxx-dy:v0.1.37
+# tag
+docker tag ad2a5ed8bc4c  opcloud-micro-2101562073-cn-beijing.cr.volces.com/custom_ns_9671760171634316/sdk-xxx:feature-micro_app
+# 推送镜像
+docker push opcloud-micro-2101562073-cn-beijing.cr.volces.com/custom_ns_9671760171634316/sdk-xxx:fea...</summary>
+
+  </entry>
 
   
   <entry>
@@ -199,47 +234,6 @@ GitHub仓库配置
 giscus配置
 
 首先打开gitscu官网，需要使用当前仓库的GitHub账号登录：htt...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Chirpy主题的个性化自定义</title>
-    <link href="http://localhost:4000/jekyll/chirpy%E4%BD%BF%E7%94%A8/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%AA%E6%80%A7%E5%8C%96%E8%87%AA%E5%AE%9A%E4%B9%89/" rel="alternate" type="text/html" title="Chirpy主题的个性化自定义" />
-    <published>2025-11-01T14:00:00+08:00</published>
-  
-    <updated>2025-11-01T14:00:00+08:00</updated>
-  
-    <id>http://localhost:4000/jekyll/chirpy%E4%BD%BF%E7%94%A8/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%AA%E6%80%A7%E5%8C%96%E8%87%AA%E5%AE%9A%E4%B9%89/</id>
-    <content src="http://localhost:4000/jekyll/chirpy%E4%BD%BF%E7%94%A8/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%AA%E6%80%A7%E5%8C%96%E8%87%AA%E5%AE%9A%E4%B9%89/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="jekyll" />
-    
-    <category term="Chirpy使用" />
-    
-  
-
-  <summary>更改_data文件夹中contact.yml文件
-
-contact.yml直接关联着网站左下角的链接，只保留github和email。后面自行可以添加
-
-- type: github
-  icon: &amp;quot;fab fa-github&amp;quot;
-
-#- type: twitter
-#  icon: &amp;quot;fa-brands fa-x-twitter&amp;quot;
-
-- type: email
-  icon: &amp;quot;fas fa-envelope&amp;quot;
-  
-- type: bluesky
-  icon: &amp;#39;fa-solid fa-screwdriver-wrench&amp;#39;
-  url: &amp;#39;https://jinhanlei.github.io/posts/Jekyll+%E6%A8%A1%E6%9D%BF-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%E4%B...</summary>
 
   </entry>
 
