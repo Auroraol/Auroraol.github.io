@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title></title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2025-11-06T01:10:31+08:00</updated>
+  <updated>2025-11-07T01:06:03+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,53 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Context上下文</title>
+    <link href="http://localhost:4000/go/context%E4%B8%8A%E4%B8%8B%E6%96%87/%E4%BB%BB%E5%8A%A1%E4%B8%8A%E4%B8%8B%E6%96%87/" rel="alternate" type="text/html" title="Context上下文" />
+    <published>2025-11-07T00:40:00+08:00</published>
+  
+    <updated>2025-11-07T00:40:00+08:00</updated>
+  
+    <id>http://localhost:4000/go/context%E4%B8%8A%E4%B8%8B%E6%96%87/%E4%BB%BB%E5%8A%A1%E4%B8%8A%E4%B8%8B%E6%96%87/</id>
+    <content src="http://localhost:4000/go/context%E4%B8%8A%E4%B8%8B%E6%96%87/%E4%BB%BB%E5%8A%A1%E4%B8%8A%E4%B8%8B%E6%96%87/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="GO" />
+    
+    <category term="Context上下文" />
+    
+  
+
+  <summary>Context
+
+Context 概要
+
+Go 1.7 标准库引入 Context，中文名为上下文，是一个跨 API 和进程用来传递截止日期、取消信号和请求范围的值的接口。
+
+context.Context 定义如下：
+
+type Context interface {
+	Deadline() (deadline time.Time, ok bool)
+	Done() &amp;amp;lt;-chan struct{}
+	Err() error
+	Value(key interface{}) interface{}
+}
+
+
+
+  
+    Deadline()返回一个完成工作的截止时间，表示上下文应该被取消的时间。如果 ok==false 表示没有设置截止时间。
+  
+  
+    Done()返回一个 Channel，这个 Channel 会在当前工作完成时被关闭，表示上下文应该被取消。如果无法...</summary>
+
+  </entry>
 
   
   <entry>
@@ -180,60 +227,6 @@ md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</summary>
     添加站点地图
 
     上一步成功之后，点弹窗右下角前往资源页面，...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>使用giscus配置GitHub Pages评论功能</title>
-    <link href="http://localhost:4000/jekyll/jekyll%E4%BD%BF%E7%94%A8/config-blog-comment/" rel="alternate" type="text/html" title="使用giscus配置GitHub Pages评论功能" />
-    <published>2025-11-02T11:00:00+08:00</published>
-  
-    <updated>2025-11-02T11:00:00+08:00</updated>
-  
-    <id>http://localhost:4000/jekyll/jekyll%E4%BD%BF%E7%94%A8/config-blog-comment/</id>
-    <content src="http://localhost:4000/jekyll/jekyll%E4%BD%BF%E7%94%A8/config-blog-comment/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="jekyll" />
-    
-    <category term="jekyll使用" />
-    
-  
-
-  <summary>评论能力开通
-
-GitHub仓库配置
-
-首先需要在自己的仓库中开通Discussion功能，一般新仓库默认不会打开，需要手动开通然后再添加对应的模块即可
-
-
-  
-    开通Discussion功能
-
-    进入自己的GitHub pages所在仓库，找到setting界面和里面的General选项
-
-    下滑找到Feature中勾选Discussion即可打开
-
-    创建comment
-
-    找到Discussion界面，点Categories右侧的🖊按钮，进入后点New category，准备新建一个category
-
-    
-
-    这里name就填Comments，Format勾选Open-ended discussion，完事确认就配置ok
-
-    
-  
-
-
-giscus配置
-
-首先打开gitscu官网，需要使用当前仓库的GitHub账号登录：htt...</summary>
 
   </entry>
 
