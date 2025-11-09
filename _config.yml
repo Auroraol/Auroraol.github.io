@@ -11,7 +11,7 @@ timezone: Asia/Shanghai
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title:  # the main title
+title: L # the main title
 
 tagline: 随便写写 # it will display as the sub-title
 

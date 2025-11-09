@@ -2,9 +2,9 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>http://localhost:4000/</id>
-  <title></title>
+  <title>L</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2025-11-07T01:28:37+08:00</updated>
+  <updated>2025-11-09T14:08:25+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -20,11 +20,174 @@
 
   
   <entry>
+    <title>命令行快捷键</title>
+    <link href="http://localhost:4000/linux/%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="alternate" type="text/html" title="命令行快捷键" />
+    <published>2025-11-09T11:00:00+08:00</published>
+  
+    <updated>2025-11-09T11:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/linux/%E5%BF%AB%E6%8D%B7%E9%94%AE/</id>
+    <content src="http://localhost:4000/linux/%E5%BF%AB%E6%8D%B7%E9%94%AE/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="linux" />
+    
+  
+
+  <summary>命令行快捷键：
+
+
+  常用：
+    
+      Ctrl L ：清屏
+      Ctrl M ：等效于回车
+      Ctrl C : 中断正在当前正在执行的程序
+    
+  
+  历史命令：
+    
+      Ctrl P : 上一条命令，可以一直按表示一直往前翻
+      Ctrl N : 下一条命令
+      Ctrl R，再按历史命令中出现过的字符串：按字符串寻找历史命令（重度推荐）
+    
+  
+  命令行编辑：
+    
+      Tab : 自动补齐（重度推荐）
+      Ctrl A ： 移动光标到命令行首
+      Ctrl E : 移动光标到命令行尾
+      Ctrl B : 光标后退
+      Ctrl F : 光标前进
+      Alt F : 光标前进一个单词
+      Alt B : 光标后退一格单词
+      Ct...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>K6工具</title>
+    <link href="http://localhost:4000/%E5%8E%8B%E6%B5%8B/k6%E5%B7%A5%E5%85%B7/k6/" rel="alternate" type="text/html" title="K6工具" />
+    <published>2025-11-07T12:00:00+08:00</published>
+  
+    <updated>2025-11-07T12:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/%E5%8E%8B%E6%B5%8B/k6%E5%B7%A5%E5%85%B7/k6/</id>
+    <content src="http://localhost:4000/%E5%8E%8B%E6%B5%8B/k6%E5%B7%A5%E5%85%B7/k6/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="压测" />
+    
+    <category term="K6工具" />
+    
+  
+
+  <summary>安装
+
+Win 11 操作系统内置了 winget 安装工具，所以笔者直接使用 winget 安装 k6：
+
+winget install k6
+
+
+
+
+其他的安装方式可以参考安装文档。
+
+k6 的使
+
+k6 的 Hello World
+
+创建一个测试脚本hello-world.js：
+
+import http from &amp;#39;k6/http&amp;#39;;
+import { sleep } from &amp;#39;k6&amp;#39;;
+
+export default function () {
+  http.get(&amp;#39;https://www.baidu.com/&amp;#39;);
+  // sleep() 函数作为多个串联请求的思考时间
+  sleep(1);
+}
+
+
+默认参数运行：
+
+arduino 体验AI代码助手 代码解读复制代码# 默认参数是每个 URL 1 个虚拟用户访问一次
+k6 run hello-world.js
+
+...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>压测</title>
+    <link href="http://localhost:4000/%E5%8E%8B%E6%B5%8B/%E5%8E%8B%E6%B5%8B%E8%AF%B4%E6%98%8E/%E5%8E%8B%E6%B5%8B/" rel="alternate" type="text/html" title="压测" />
+    <published>2025-11-07T11:00:00+08:00</published>
+  
+    <updated>2025-11-07T11:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/%E5%8E%8B%E6%B5%8B/%E5%8E%8B%E6%B5%8B%E8%AF%B4%E6%98%8E/%E5%8E%8B%E6%B5%8B/</id>
+    <content src="http://localhost:4000/%E5%8E%8B%E6%B5%8B/%E5%8E%8B%E6%B5%8B%E8%AF%B4%E6%98%8E/%E5%8E%8B%E6%B5%8B/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="压测" />
+    
+    <category term="压测说明" />
+    
+  
+
+  <summary>压测
+
+压测是什么
+
+压测，即压力测试，是确立系统稳定性的一种测试方法，通常在系统正常运作范围之外进行，以考察其功能极限和隐患。
+
+主要检测服务器的承受能力，包括用户承受能力（多少用户同时玩基本不影响质量）、流量承受等。
+
+为什么要压测
+
+
+  压测的目的就是通过压测(模拟真实用户的行为)，测算出机器的性能(单台机器的 QPS)，从而推算出系统在承受指定用户数(100W)时，需要多少机器能支撑得住
+  压测是在上线前为了应对未来可能达到的用户数量的一次预估(提前演练)，压测以后通过优化程序的性能或准备充足的机器，来保证用户的体验。
+
+
+压测名词解释
+
+压测类型解释
+
+
+  
+    
+      压测类型
+      解释
+    
+  
+  
+    
+      压力测试(Stress Testing)
+      也称之为强度测试，测试一个系统的最大抗压能力，在强负载(大数据、...</summary>
+
+  </entry>
+
+  
+  <entry>
     <title>Context上下文</title>
     <link href="http://localhost:4000/go/context%E4%B8%8A%E4%B8%8B%E6%96%87/%E4%BB%BB%E5%8A%A1%E4%B8%8A%E4%B8%8B%E6%96%87/" rel="alternate" type="text/html" title="Context上下文" />
     <published>2025-11-07T00:40:00+08:00</published>
   
-    <updated>2025-11-07T00:40:00+08:00</updated>
+    <updated>2025-11-07T01:29:08+08:00</updated>
   
     <id>http://localhost:4000/go/context%E4%B8%8A%E4%B8%8B%E6%96%87/%E4%BB%BB%E5%8A%A1%E4%B8%8A%E4%B8%8B%E6%96%87/</id>
     <content src="http://localhost:4000/go/context%E4%B8%8A%E4%B8%8B%E6%96%87/%E4%BB%BB%E5%8A%A1%E4%B8%8A%E4%B8%8B%E6%96%87/" />
@@ -97,136 +260,6 @@ docker pull registry.cn-xxxxx.aliyuncs.com/xxxxx/ecrobot-xxx-dy:v0.1.37
 docker tag ad2a5ed8bc4c  opcloud-micro-2101562073-cn-beijing.cr.volces.com/custom_ns_9671760171634316/sdk-xxx:feature-micro_app
 # 推送镜像
 docker push opcloud-micro-2101562073-cn-beijing.cr.volces.com/custom_ns_9671760171634316/sdk-xxx:fea...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>pg槽位创建</title>
-    <link href="http://localhost:4000/pg/%E6%A7%BD%E4%BD%8D/pg%E6%A7%BD%E4%BD%8D/" rel="alternate" type="text/html" title="pg槽位创建" />
-    <published>2025-11-03T22:40:00+08:00</published>
-  
-    <updated>2025-11-03T22:40:00+08:00</updated>
-  
-    <id>http://localhost:4000/pg/%E6%A7%BD%E4%BD%8D/pg%E6%A7%BD%E4%BD%8D/</id>
-    <content src="http://localhost:4000/pg/%E6%A7%BD%E4%BD%8D/pg%E6%A7%BD%E4%BD%8D/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="pg" />
-    
-    <category term="槽位" />
-    
-  
-
-  <summary>创建槽位
-
--- 1️⃣ 复制标识（必须最先）(一次)
-SELECT set_replica_identity_full_for_partition(&amp;#39;spu&amp;#39;);   -- 主表+分区全部设 FULL  
-
--- 2️⃣ 创建发布（此时无槽，仅元数据）
-CREATE PUBLICATION spu_pub FOR TABLE spu;          -- 主表
-ALTER  PUBLICATION spu_pub ADD TABLE spu_p2023, spu_p2024, ...;  -- 把分区也加进去 pg 13+：可以省略
-
--- 3️⃣ 最后创建槽（一经创建，WAL 保留点开始推进）
-SELECT pg_create_logical_replication_slot(&amp;#39;spu_goods_center_notify_new&amp;#39;, &amp;#39;pgoutput&amp;#39;);
-
-
-函数(设...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>支持多目录</title>
-    <link href="http://localhost:4000/jekyll/jekyll%E4%BD%BF%E7%94%A8/%E6%94%AF%E6%8C%81%E5%A4%9A%E7%BA%A7%E7%9B%AE%E5%BD%95/" rel="alternate" type="text/html" title="支持多目录" />
-    <published>2025-11-03T22:20:00+08:00</published>
-  
-    <updated>2025-11-03T22:20:00+08:00</updated>
-  
-    <id>http://localhost:4000/jekyll/jekyll%E4%BD%BF%E7%94%A8/%E6%94%AF%E6%8C%81%E5%A4%9A%E7%BA%A7%E7%9B%AE%E5%BD%95/</id>
-    <content src="http://localhost:4000/jekyll/jekyll%E4%BD%BF%E7%94%A8/%E6%94%AF%E6%8C%81%E5%A4%9A%E7%BA%A7%E7%9B%AE%E5%BD%95/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="jekyll" />
-    
-    <category term="jekyll使用" />
-    
-  
-
-  <summary>_config.yml文件
-
-
-
-md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Blog可以被Google搜索到</title>
-    <link href="http://localhost:4000/jekyll/jekyll%E4%BD%BF%E7%94%A8/blog-google-search-include/" rel="alternate" type="text/html" title="Blog可以被Google搜索到" />
-    <published>2025-11-02T17:00:00+08:00</published>
-  
-    <updated>2025-11-02T17:00:00+08:00</updated>
-  
-    <id>http://localhost:4000/jekyll/jekyll%E4%BD%BF%E7%94%A8/blog-google-search-include/</id>
-    <content src="http://localhost:4000/jekyll/jekyll%E4%BD%BF%E7%94%A8/blog-google-search-include/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="jekyll" />
-    
-    <category term="jekyll使用" />
-    
-  
-
-  <summary>Google
-
-
-  
-    确认自己的blog确实未被Google搜索收录
-
-    浏览器输入如下网址：
-
-     site:https://your_github_id.github.io/
-    
-
-    如果没有被Google搜索收录，那会出现如下图所示，跟着笔者往下一步一步配置吧
-
-    
-
-    如果被收录了，那就会出现如下图所示，忽略本文章的后续步骤吧
-  
-  
-    进入上图所提示的Google Search Console
-
-    选择右侧的网址前缀，并输入自己的blog地址点继续
-
-     https://your_github_id.github.io/
-    
-
-    
-  
-  
-    下载并将对应的html文件上传到自己blog中
-
-    
-  
-  
-    添加站点地图
-
-    上一步成功之后，点弹窗右下角前往资源页面，...</summary>
 
   </entry>
 

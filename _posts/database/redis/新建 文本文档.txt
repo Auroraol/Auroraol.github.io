@@ -1,0 +1,28 @@
+{
+  "rpc_port":"1237",
+  "prof_addr":":1238",
+  "http_addr":":30091",
+  "redis": {
+      "addr":["10.31.164.110:7001","10.31.164.110:7002","10.31.164.110:7003","10.31.164.110:7004","10.31.164.86:7001","10.31.164.86:7002","10.31.164.86:7003","10.31.164.86:7004","10.31.164.128:7001","10.31.164.128:7002","10.31.164.128:7003","10.31.164.128:7004"],
+      "auth":"",
+      "db":""
+  },
+  "std_log": {
+      "level": "info",
+      "file": "/var/log/xiaoduo/timer.log",
+      "err_file": "/var/log/xiaoduo/timer.err.log",
+      "auto_init": true
+  },
+  "api_log": {
+      "level": "info",
+      "file": "/var/log/xiaoduo/timer.api.log",
+      "auto_init": true
+  },
+  "oc_trace": {
+      "sample_type": 1,
+      "fraction": 10.0,
+      "agent_end_point": "localhost:6831",
+      "service_name": "timer"
+  },
+  "event_timeout":3600
+}
