@@ -79,9 +79,6 @@ pageviews:
 # 媒体资源的 CDN 地址。
 img_cdn: https://testingcf.jsdelivr.net/gh/Auroraol/auroraol.github.io
 
-# 侧边栏头像，支持本地或 CORS 资源
-avatar: "/commons/avatar.jpg"
-
 # 社交预览图像，没什么用
 social_preview_image: # string, local or CORS resources
 
