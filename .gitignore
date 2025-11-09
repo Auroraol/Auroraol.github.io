@@ -1,2 +1,5 @@
 .specstory
 .bundle/
+_posts/database/redis/message-receiver/
+/_posts/database/redis/redis-dor
+_posts/database/redis/timer/

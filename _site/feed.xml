@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>L</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2025-11-09T14:30:05+08:00</updated>
+  <updated>2025-11-09T21:35:38+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,133 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>4.Redis模式总结</title>
+    <link href="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/" rel="alternate" type="text/html" title="4.Redis模式总结" />
+    <published>2025-11-09T21:02:00+08:00</published>
+  
+    <updated>2025-11-09T21:02:00+08:00</updated>
+  
+    <id>http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/</id>
+    <content src="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="Redis" />
+    
+    <category term="Redis模式" />
+    
+  
+
+  <summary>分工
+
+        ┌-------- 高可用 ---------------------┐
+        │                         │
+   +----+-----+             +-----+----+
+   │  Master  │◀---failover─│  Slave   │  Slave 随时
+   │  写+读   │          │  热备    │  准备升主
+   +----------+             +----------+
+        ▲  ▲                       │
+        │  └----- 同步 -----------------------┘
+        │                          │
+        └--------- ...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>3.Redis集群</title>
+    <link href="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E9%9B%86%E7%BE%A4/" rel="alternate" type="text/html" title="3.Redis集群" />
+    <published>2025-11-09T20:00:00+08:00</published>
+  
+    <updated>2025-11-09T20:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E9%9B%86%E7%BE%A4/</id>
+    <content src="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E9%9B%86%E7%BE%A4/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="Redis" />
+    
+    <category term="Redis模式" />
+    
+  
+
+  <summary>业务规模
+      推荐架构
+    
+  
+  
+    
+      小型业务（缓存 &amp;amp;lt; 10GB）
+      一主二从 + 三哨兵（高可用即可）
+    
+    
+      中型业务（10GB~100GB）
+      三主三从集群（分片 + 高可用）
+    
+    
+      大型业务（&amp;amp;gt;100GB，高并发）
+      多组集群 或 Redis Proxy 方案（如 Codis、Twemproxy）
+    
+  
+
+
+redis主从：可实现高并发(读)，典型部署方案：一主二从
+redis哨兵：可实现高可用，典型部署方案：一主二从三哨兵
+redis集群：可同时支持高并发(读与写)、高可用，典型部署方案：三主三从
+
+概述
+
+Redis单实例的架构，从最开始的一主N从，到读写分离，再到Sentinel哨兵机制，单实例的Redis缓存足以应对大多数的使用...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>2.Redis哨兵机制</title>
+    <link href="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/" rel="alternate" type="text/html" title="2.Redis哨兵机制" />
+    <published>2025-11-09T16:00:00+08:00</published>
+  
+    <updated>2025-11-09T16:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/</id>
+    <content src="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="Redis" />
+    
+    <category term="Redis模式" />
+    
+  
+
+  <summary>概述
+Redis的高可用机制有持久化、复制、哨兵和集群。其主要的作用和解决的问题分别是：
+
+  持久化：持久化是最简单的高可用方法(有时甚至不被归为高可用的手段)，主要作用是数据备份，即将数据存储在硬盘，保证数据不会因进程退出而丢失。
+  复制：复制是高可用Redis的基础，哨兵和集群都是在复制基础上实现高可用的。复制主要实现了数据的多机备份，以及对于读操作的负载均衡和简单的故障恢复。缺陷：故障恢复无法自动化；写操作无法负载均衡；存储能力受到单机的限制。
+  哨兵：哨兵实现了主从复制中故障的自动化恢复。缺陷：写操作无法负载均衡；存储能力受到单机的限制。
+  集群：通过集群，解决了写操作无法负载均衡，以及存储能力受到单机限制的问题，实现了较为完善的高可用方案。
+
+
+
+
+为什么要有哨兵
+Redis的主从模式重点在于解决整体的承压能力，利用从节点分担读取操作的压力。但是其在容错恢复等可靠性...</summary>
+
+  </entry>
 
   
   <entry>
@@ -70,196 +197,53 @@
 
   
   <entry>
-    <title>K6工具</title>
-    <link href="http://localhost:4000/%E5%8E%8B%E6%B5%8B/k6%E5%B7%A5%E5%85%B7/k6/" rel="alternate" type="text/html" title="K6工具" />
-    <published>2025-11-07T12:00:00+08:00</published>
+    <title>1.Redis主从复制</title>
+    <link href="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" rel="alternate" type="text/html" title="1.Redis主从复制" />
+    <published>2025-11-09T10:00:00+08:00</published>
   
-    <updated>2025-11-07T12:00:00+08:00</updated>
+    <updated>2025-11-09T10:00:00+08:00</updated>
   
-    <id>http://localhost:4000/%E5%8E%8B%E6%B5%8B/k6%E5%B7%A5%E5%85%B7/k6/</id>
-    <content src="http://localhost:4000/%E5%8E%8B%E6%B5%8B/k6%E5%B7%A5%E5%85%B7/k6/" />
+    <id>http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</id>
+    <content src="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" />
     <author>
       <name>lfj</name>
     </author>
 
   
     
-    <category term="压测" />
+    <category term="Redis" />
     
-    <category term="K6工具" />
-    
-  
-
-  <summary>安装
-
-Win 11 操作系统内置了 winget 安装工具，所以笔者直接使用 winget 安装 k6：
-
-winget install k6
-
-
-
-
-其他的安装方式可以参考安装文档。
-
-k6 的使
-
-k6 的 Hello World
-
-创建一个测试脚本hello-world.js：
-
-import http from &amp;#39;k6/http&amp;#39;;
-import { sleep } from &amp;#39;k6&amp;#39;;
-
-export default function () {
-  http.get(&amp;#39;https://www.baidu.com/&amp;#39;);
-  // sleep() 函数作为多个串联请求的思考时间
-  sleep(1);
-}
-
-
-默认参数运行：
-
-arduino 体验AI代码助手 代码解读复制代码# 默认参数是每个 URL 1 个虚拟用户访问一次
-k6 run hello-world.js
-
-...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>压测</title>
-    <link href="http://localhost:4000/%E5%8E%8B%E6%B5%8B/%E5%8E%8B%E6%B5%8B%E8%AF%B4%E6%98%8E/%E5%8E%8B%E6%B5%8B/" rel="alternate" type="text/html" title="压测" />
-    <published>2025-11-07T11:00:00+08:00</published>
-  
-    <updated>2025-11-07T11:00:00+08:00</updated>
-  
-    <id>http://localhost:4000/%E5%8E%8B%E6%B5%8B/%E5%8E%8B%E6%B5%8B%E8%AF%B4%E6%98%8E/%E5%8E%8B%E6%B5%8B/</id>
-    <content src="http://localhost:4000/%E5%8E%8B%E6%B5%8B/%E5%8E%8B%E6%B5%8B%E8%AF%B4%E6%98%8E/%E5%8E%8B%E6%B5%8B/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="压测" />
-    
-    <category term="压测说明" />
+    <category term="Redis模式" />
     
   
 
-  <summary>压测
+  <summary>本地缓存带来的挑战
 
-压测是什么
-
-压测，即压力测试，是确立系统稳定性的一种测试方法，通常在系统正常运作范围之外进行，以考察其功能极限和隐患。
-
-主要检测服务器的承受能力，包括用户承受能力（多少用户同时玩基本不影响质量）、流量承受等。
-
-为什么要压测
-
-
-  压测的目的就是通过压测(模拟真实用户的行为)，测算出机器的性能(单台机器的 QPS)，从而推算出系统在承受指定用户数(100W)时，需要多少机器能支撑得住
-  压测是在上线前为了应对未来可能达到的用户数量的一次预估(提前演练)，压测以后通过优化程序的性能或准备充足的机器，来保证用户的体验。
-
-
-压测名词解释
-
-压测类型解释
+分布式缓存相比于本地缓存，在实现层面需要关注的点有哪些不同。梳理如下：
 
 
   
     
-      压测类型
-      解释
+      维度
+      本地缓存
+      集中式缓存
     
   
   
     
-      压力测试(Stress Testing)
-      也称之为强度测试，测试一个系统的最大抗压能力，在强负载(大数据、...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Context上下文</title>
-    <link href="http://localhost:4000/go/context%E4%B8%8A%E4%B8%8B%E6%96%87/%E4%BB%BB%E5%8A%A1%E4%B8%8A%E4%B8%8B%E6%96%87/" rel="alternate" type="text/html" title="Context上下文" />
-    <published>2025-11-07T00:40:00+08:00</published>
-  
-    <updated>2025-11-07T01:29:08+08:00</updated>
-  
-    <id>http://localhost:4000/go/context%E4%B8%8A%E4%B8%8B%E6%96%87/%E4%BB%BB%E5%8A%A1%E4%B8%8A%E4%B8%8B%E6%96%87/</id>
-    <content src="http://localhost:4000/go/context%E4%B8%8A%E4%B8%8B%E6%96%87/%E4%BB%BB%E5%8A%A1%E4%B8%8A%E4%B8%8B%E6%96%87/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
+      缓存量
+      受限于单机内存大小，存储数据有限
+      需要提供给分布式系统里面所有节点共同使用，对于大型系统而言，对集中式缓存的容量诉求非常的大，远超单机内存的容量大小。
     
-    <category term="GO" />
     
-    <category term="Context上下文" />
+      可靠性
+      影响有限，只有本进程使用，不会影响其他进程的可靠性。
+      作为整个系统扛压屏障，系统内所有节点共同依赖的通用服务，一旦集中式缓存出问题，会影响与其对接的所有业务节点，对系统的影响是致命性的。
     
-  
-
-  <summary>Context
-
-Context 概要
-
-Go 1.7 标准库引入 Context，中文名为上下文，是一个跨 API 和进程用来传递截止日期、取消信号和请求范围的值的接口。
-
-context.Context 定义如下：
-
-type Context interface {
-	Deadline() (deadline time.Time, ok bool)
-	Done() &amp;amp;lt;-chan struct{}
-	Err() error
-	Value(key interface{}) interface{}
-}
-
-
-
-  
-    Deadline()返回一个完成工作的截止时间，表示上下文应该被取消的时间。如果 ok==false 表示没有设置截止时间。
-  
-  
-    Done()返回一个 Channel，这个 Channel 会在当前工作完成时被关闭，表示上下文应该被取消。如果无法...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>docker推送镜像</title>
-    <link href="http://localhost:4000/docker/docker%E6%8E%A8%E9%80%81%E9%95%9C%E5%83%8F/docker/" rel="alternate" type="text/html" title="docker推送镜像" />
-    <published>2025-11-04T11:00:00+08:00</published>
-  
-    <updated>2025-11-04T11:00:00+08:00</updated>
-  
-    <id>http://localhost:4000/docker/docker%E6%8E%A8%E9%80%81%E9%95%9C%E5%83%8F/docker/</id>
-    <content src="http://localhost:4000/docker/docker%E6%8E%A8%E9%80%81%E9%95%9C%E5%83%8F/docker/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
     
-    <category term="docker" />
-    
-    <category term="docker推送镜像" />
-    
-  
-
-  <summary>镜像
-
-# 登录docker
-docker login -u 账号 -p 密码 registry.cn-zhangjiakou.aliyuncs.com
-# 拉取镜像
-docker pull registry.cn-xxxxx.aliyuncs.com/xxxxx/ecrobot-xxx-dy:v0.1.37
-# tag
-docker tag ad2a5ed8bc4c  opcloud-micro-2101562073-cn-beijing.cr.volces.com/custom_ns_9671760171634316/sdk-xxx:feature-micro_app
-# 推送镜像
-docker push opcloud-micro-2101562073-cn-beijing.cr.volces.com/custom_ns_9671760171634316/sdk-xxx:fea...</summary>
+      承压性
+      承载单机节点的压力，请求量有限
+      承载整个分布式集群所有节点的流量，系统内...</summary>
 
   </entry>
 

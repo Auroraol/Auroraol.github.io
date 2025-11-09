@@ -517,6 +517,199 @@
 <div id="post-list" class="flex-grow-1 px-xl-1">
   
     <article class="card-wrapper card">
+      <a href="/redis/redis%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">4.Redis模式总结</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>分工
+
+        ┌-------- 高可用 ---------------------┐
+        │                         │
+   +----+-----+             +-----+----+
+   │  Master  │◀---failover─│  Slave   │  Slave 随时
+   │  写+读   │       ...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1762693320"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/09
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      Redis,
+                      Redis模式
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E9%9B%86%E7%BE%A4/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">3.Redis集群</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>业务规模
+      推荐架构
+    
+  
+  
+    
+      小型业务（缓存 &amp;lt; 10GB）
+      一主二从 + 三哨兵（高可用即可）
+    
+    
+      中型业务（10GB~100GB）
+      三主三从集群（分片 + 高可用）
+    
+    
+      大型业务（&amp;gt;100GB，高并发）
+      多组集群 或 Redis Proxy...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1762689600"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/09
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      Redis,
+                      Redis模式
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/redis/redis%E6%A8%A1%E5%BC%8F/%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">2.Redis哨兵机制</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>概述
+Redis的高可用机制有持久化、复制、哨兵和集群。其主要的作用和解决的问题分别是：
+
+  持久化：持久化是最简单的高可用方法(有时甚至不被归为高可用的手段)，主要作用是数据备份，即将数据存储在硬盘，保证数据不会因进程退出而丢失。
+  复制：复制是高可用Redis的基础，哨兵和集群都是在复制基础上实现高可用的。复制主要实现了数据的多机备份，以及对于读操作的负载均衡和简单的故障恢复。缺陷：...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1762675200"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/09
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      Redis,
+                      Redis模式
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
       <a href="/linux/%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-preview row g-0 flex-md-row-reverse">
         
 
@@ -572,6 +765,78 @@
                   <span class="categories">
                     
                       linux
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">1.Redis主从复制</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>本地缓存带来的挑战
+
+分布式缓存相比于本地缓存，在实现层面需要关注的点有哪些不同。梳理如下：
+
+
+  
+    
+      维度
+      本地缓存
+      集中式缓存
+    
+  
+  
+    
+      缓存量
+      受限于单机内存大小，存储数据有限
+      需要提供给分布式系统里面所有节点共同使用，对于大型系统而言，对集中式缓存的容量诉求非常的大，远超单机内存的...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1762653600"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/09
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      Redis,
+                      Redis模式
                   </span>
                 
               </div>
@@ -856,62 +1121,6 @@ docker tag ad2a5ed8bc4c  opcloud-mi...</p>
     </article>
   
     <article class="card-wrapper card">
-      <a href="/redis/redis%E8%BF%9E%E6%8E%A5%E6%95%B0/Redis%E9%9B%86%E7%BE%A4/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">Redis连接数调整</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p></p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1762225200"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/04
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Redis,
-                      Redis连接数
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
       <a href="/redis/redis%E8%BF%9E%E6%8E%A5%E6%95%B0/Redis%E8%BF%9E%E6%8E%A5%E6%95%B0%E8%B0%83%E6%95%B4/" class="post-preview row g-0 flex-md-row-reverse">
         
 
@@ -963,185 +1172,6 @@ docker tag ad2a5ed8bc4c  opcloud-mi...</p>
                     
                       Redis,
                       Redis连接数
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/pgsql/%E6%A7%BD%E4%BD%8D/pg%E6%A7%BD%E4%BD%8D/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">PgSQL槽位创建</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>创建槽位
-
--- 1️⃣ 复制标识（必须最先）(一次)
-SELECT set_replica_identity_full_for_partition(&#39;spu&#39;);   -- 主表+分区全部设 FULL  
-
--- 2️⃣ 创建发布（此时无槽，仅元数据）
-CREATE PUBLICATION spu_pub FOR TABLE spu;          -- 主表
-ALTER  PUBLI...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1762180800"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/03
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      PgSQL,
-                      槽位
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/pgsql/%E6%A7%BD%E4%BD%8D/pg%E8%AF%AD%E6%B3%95/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">pg语法</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>#</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1762180800"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/03
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      PgSQL,
-                      槽位
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/jekyll/jekyll%E4%BD%BF%E7%94%A8/%E6%94%AF%E6%8C%81%E5%A4%9A%E7%BA%A7%E7%9B%AE%E5%BD%95/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">支持多目录</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>_config.yml文件
-
-
-
-md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1762179600"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/03
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      jekyll,
-                      jekyll使用
                   </span>
                 
               </div>
@@ -1264,21 +1294,21 @@ md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</p>
         
         
         <li class="text-truncate lh-lg">
-          <a href="/pgsql/%E6%A7%BD%E4%BD%8D/pg%E6%A7%BD%E4%BD%8D/">PgSQL槽位创建</a>
+          <a href="/redis/redis%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/">4.Redis模式总结</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/linux/%E5%BF%AB%E6%8D%B7%E9%94%AE/">命令行快捷键</a>
+          <a href="/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E9%9B%86%E7%BE%A4/">3.Redis集群</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/%E5%8E%8B%E6%B5%8B/k6%E5%B7%A5%E5%85%B7/k6/">K6工具</a>
+          <a href="/redis/redis%E6%A8%A1%E5%BC%8F/%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/">2.Redis哨兵机制</a>
         </li>
       
         
@@ -1292,7 +1322,7 @@ md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</p>
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/context%E4%B8%8A%E4%B8%8B%E6%96%87/%E4%BB%BB%E5%8A%A1%E4%B8%8A%E4%B8%8B%E6%96%87/">Context上下文</a>
+          <a href="/%E5%8E%8B%E6%B5%8B/k6%E5%B7%A5%E5%85%B7/k6/">K6工具</a>
         </li>
       
     </ul>
@@ -1336,36 +1366,6 @@ md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</p>
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1385,8 +1385,6 @@ md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</p>
     
     
     
-      
-    
   
     
     
@@ -1396,18 +1394,6 @@ md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</p>
     
     
     
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1424,29 +1410,9 @@ md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</p>
     
     
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
+        
+        
+
   
     
     
@@ -1639,6 +1605,70 @@ md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</p>
     
     
     
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -1670,6 +1700,9 @@ md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</p>
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/redis/">Redis</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/jekyll%E4%BD%BF%E7%94%A8/">jekyll使用</a>
       
         
@@ -1679,25 +1712,22 @@ md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</p>
         <a class="post-tag btn btn-outline-primary" href="/tags/pgsql%E6%A7%BD%E4%BD%8D/">PgSQL槽位</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/redis/">Redis</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BC%93%E5%AD%98/">缓存</a>
-      
-        
         <a class="post-tag btn btn-outline-primary" href="/tags/context/">Context</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/docker%E6%8E%A8%E9%80%81%E9%95%9C%E5%83%8F/">docker推送镜像</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E4%B8%BB%E4%BB%8E%E5%88%87%E6%8D%A2/">主从切换</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">主从复制</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E5%85%A8%E9%87%8F%E5%A4%8D%E5%88%B6/">全量复制</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/%E5%8E%8B%E6%B5%8Bk6%E5%B7%A5%E5%85%B7/">压测K6工具</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E5%8E%8B%E6%B5%8B%E8%AF%B4%E6%98%8E/">压测说明</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BF%AB%E6%8D%B7%E9%94%AE/">命令行快捷键</a>
       
     </div>
   </section>
@@ -1803,36 +1833,6 @@ md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</p>
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1852,8 +1852,6 @@ md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</p>
     
     
     
-      
-    
   
     
     
@@ -1863,18 +1861,6 @@ md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</p>
     
     
     
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1891,29 +1877,9 @@ md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</p>
     
     
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
+        
+        
+
   
     
     
@@ -2106,6 +2072,70 @@ md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</p>
     
     
     
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -2137,6 +2167,9 @@ md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</p>
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/redis/">Redis</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/jekyll%E4%BD%BF%E7%94%A8/">jekyll使用</a>
       
         
@@ -2146,25 +2179,22 @@ md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</p>
         <a class="post-tag btn btn-outline-primary" href="/tags/pgsql%E6%A7%BD%E4%BD%8D/">PgSQL槽位</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/redis/">Redis</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BC%93%E5%AD%98/">缓存</a>
-      
-        
         <a class="post-tag btn btn-outline-primary" href="/tags/context/">Context</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/docker%E6%8E%A8%E9%80%81%E9%95%9C%E5%83%8F/">docker推送镜像</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E4%B8%BB%E4%BB%8E%E5%88%87%E6%8D%A2/">主从切换</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">主从复制</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E5%85%A8%E9%87%8F%E5%A4%8D%E5%88%B6/">全量复制</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/%E5%8E%8B%E6%B5%8Bk6%E5%B7%A5%E5%85%B7/">压测K6工具</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E5%8E%8B%E6%B5%8B%E8%AF%B4%E6%98%8E/">压测说明</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BF%AB%E6%8D%B7%E9%94%AE/">命令行快捷键</a>
       
     </div>
   </section>
