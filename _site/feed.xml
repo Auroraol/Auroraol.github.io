@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>L</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2025-11-15T01:46:38+08:00</updated>
+  <updated>2025-11-15T01:54:02+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,82 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Goland常用快捷键</title>
+    <link href="http://localhost:4000/go/goland%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/goland/" rel="alternate" type="text/html" title="Goland常用快捷键" />
+    <published>2025-11-13T00:40:00+08:00</published>
+  
+    <updated>2025-11-15T01:47:09+08:00</updated>
+  
+    <id>http://localhost:4000/go/goland%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/goland/</id>
+    <content src="http://localhost:4000/go/goland%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/goland/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="GO" />
+    
+    <category term="Goland常用快捷键" />
+    
+  
+
+  <summary>Goland 常用快捷键
+
+文件操作相关的快捷键
+
+
+  
+    
+      快捷键
+      作用
+    
+  
+  
+    
+      Ctrl + E
+      打开最近浏览过的文件
+    
+    
+      F2
+      重命名文件夹、文件、方法、变量名等
+    
+  
+
+
+代码格式化相关的快捷键
+
+
+  
+    
+      快捷键
+      作用
+    
+  
+  
+    
+      Ctrl + Alt + L
+      格式化代码
+    
+    
+      Ctrl + /
+      单行注释
+    
+    
+      Ctrl + Shift + /
+      多行注释
+    
+    
+      Ctrl + B 或 F4
+      快速跳转到结构体或方法的定义位置
+    
+    
+      Ctr...</summary>
+
+  </entry>
 
   
   <entry>
@@ -173,56 +249,6 @@ Redis的高可用机制有持久化、复制、哨兵和集群。其主要的作
 
 为什么要有哨兵
 Redis的主从模式重点在于解决整体的承压能力，利用从节点分担读取操作的压力。但是其在容错恢复等可靠性...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>命令行快捷键</title>
-    <link href="http://localhost:4000/linux/%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="alternate" type="text/html" title="命令行快捷键" />
-    <published>2025-11-09T11:00:00+08:00</published>
-  
-    <updated>2025-11-09T11:00:00+08:00</updated>
-  
-    <id>http://localhost:4000/linux/%E5%BF%AB%E6%8D%B7%E9%94%AE/</id>
-    <content src="http://localhost:4000/linux/%E5%BF%AB%E6%8D%B7%E9%94%AE/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="linux" />
-    
-  
-
-  <summary>命令行快捷键：
-
-
-  常用：
-    
-      Ctrl L ：清屏
-      Ctrl M ：等效于回车
-      Ctrl C : 中断正在当前正在执行的程序
-    
-  
-  历史命令：
-    
-      Ctrl P : 上一条命令，可以一直按表示一直往前翻
-      Ctrl N : 下一条命令
-      Ctrl R，再按历史命令中出现过的字符串：按字符串寻找历史命令（重度推荐）
-    
-  
-  命令行编辑：
-    
-      Tab : 自动补齐（重度推荐）
-      Ctrl A ： 移动光标到命令行首
-      Ctrl E : 移动光标到命令行尾
-      Ctrl B : 光标后退
-      Ctrl F : 光标前进
-      Alt F : 光标前进一个单词
-      Alt B : 光标后退一格单词
-      Ct...</summary>
 
   </entry>
 
