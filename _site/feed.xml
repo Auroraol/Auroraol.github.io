@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>L</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2025-11-09T22:05:44+08:00</updated>
+  <updated>2025-11-15T01:39:27+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,37 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>PgSQL语法</title>
+    <link href="http://localhost:4000/pgsql/%E8%AF%AD%E6%B3%95/pg%E8%AF%AD%E6%B3%95/" rel="alternate" type="text/html" title="PgSQL语法" />
+    <published>2025-11-09T22:40:00+08:00</published>
+  
+    <updated>2025-11-09T22:40:00+08:00</updated>
+  
+    <id>http://localhost:4000/pgsql/%E8%AF%AD%E6%B3%95/pg%E8%AF%AD%E6%B3%95/</id>
+    <content src="http://localhost:4000/pgsql/%E8%AF%AD%E6%B3%95/pg%E8%AF%AD%E6%B3%95/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="PgSQL" />
+    
+    <category term="语法" />
+    
+  
+
+  <summary>基本格式 JavaScript 复制 db..find({  })
+  等值匹配 JavaScript 复制 { field: value } 例： JavaScript 复制 { id: “3393633870761476271” }
+  嵌套字段（用点号） JavaScript 复制 { “state.status”: “running” }
+  比较运算 JavaScript 复制 { field: { $gt: 0.99 } }   // 大于 { field: { $lt: 100 } }    // 小于 { field: { $in: [1, 2] } } // 在数组中
+  数组元素匹配 JavaScript 复制 { sku_id_list: NumberLong(“100028998016”) }
+  特殊类型 ObjectId：ObjectId(“…”) Num...</summary>
+
+  </entry>
 
   
   <entry>
@@ -192,58 +223,6 @@ Redis的主从模式重点在于解决整体的承压能力，利用从节点分
       Alt F : 光标前进一个单词
       Alt B : 光标后退一格单词
       Ct...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>1.Redis主从复制</title>
-    <link href="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" rel="alternate" type="text/html" title="1.Redis主从复制" />
-    <published>2025-11-09T10:00:00+08:00</published>
-  
-    <updated>2025-11-09T10:00:00+08:00</updated>
-  
-    <id>http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</id>
-    <content src="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="Redis" />
-    
-    <category term="Redis模式" />
-    
-  
-
-  <summary>本地缓存带来的挑战
-
-分布式缓存相比于本地缓存，在实现层面需要关注的点有哪些不同。梳理如下：
-
-
-  
-    
-      维度
-      本地缓存
-      集中式缓存
-    
-  
-  
-    
-      缓存量
-      受限于单机内存大小，存储数据有限
-      需要提供给分布式系统里面所有节点共同使用，对于大型系统而言，对集中式缓存的容量诉求非常的大，远超单机内存的容量大小。
-    
-    
-      可靠性
-      影响有限，只有本进程使用，不会影响其他进程的可靠性。
-      作为整个系统扛压屏障，系统内所有节点共同依赖的通用服务，一旦集中式缓存出问题，会影响与其对接的所有业务节点，对系统的影响是致命性的。
-    
-    
-      承压性
-      承载单机节点的压力，请求量有限
-      承载整个分布式集群所有节点的流量，系统内...</summary>
 
   </entry>
 
