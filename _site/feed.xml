@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>L</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2025-11-16T01:36:12+08:00</updated>
+  <updated>2025-11-16T02:05:13+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,61 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>mongodb语法</title>
+    <link href="http://localhost:4000/mongodb/mongodb%E8%AF%AD%E6%B3%95/" rel="alternate" type="text/html" title="mongodb语法" />
+    <published>2025-11-15T20:40:00+08:00</published>
+  
+    <updated>2025-11-16T01:36:22+08:00</updated>
+  
+    <id>http://localhost:4000/mongodb/mongodb%E8%AF%AD%E6%B3%95/</id>
+    <content src="http://localhost:4000/mongodb/mongodb%E8%AF%AD%E6%B3%95/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="mongodb" />
+    
+  
+
+  <summary>语法
+
+基本格式
+
+db.集合名.find({ &amp;amp;lt;条件&amp;amp;gt; })
+
+
+等值匹配 { field : value }
+
+{ &amp;quot;field&amp;quot; : value }
+
+
+普通对象/数组对象嵌套字段 { class.attribute : value }
+
+{ &amp;quot;对象名.属性名&amp;quot;: value }
+{ &amp;quot;数组名.对象名.属性名&amp;quot;: value }
+
+
+比较运算  { field: { $xx : val } }
+
+{ field: { $gt: 0.99 } }   // 大于
+{ field: { $lt: 100 } }    // 小于 
+{ field: { $in: [1, 2] } } // 在数组中
+
+
+示例
+
+{
+    &amp;quot;_id&amp;quot;: {
+        &amp;quot;$oid&amp;quot;: &amp;quot;6912deab03b51ebcf2efe7d7&amp;quot;
+    },
+    &amp;quot;one_id&amp;quot;: &amp;quot;...</summary>
+
+  </entry>
 
   
   <entry>
@@ -211,44 +266,6 @@ redis集群：可同时支持高并发(读与写)、高可用，典型部署方�
 概述
 
 Redis单实例的架构，从最开始的一主N从，到读写分离，再到Sentinel哨兵机制，单实例的Redis缓存足以应对大多数的使用...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>2.Redis哨兵机制</title>
-    <link href="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/" rel="alternate" type="text/html" title="2.Redis哨兵机制" />
-    <published>2025-11-09T16:00:00+08:00</published>
-  
-    <updated>2025-11-09T16:00:00+08:00</updated>
-  
-    <id>http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/</id>
-    <content src="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="Redis" />
-    
-    <category term="Redis模式" />
-    
-  
-
-  <summary>概述
-Redis的高可用机制有持久化、复制、哨兵和集群。其主要的作用和解决的问题分别是：
-
-  持久化：持久化是最简单的高可用方法(有时甚至不被归为高可用的手段)，主要作用是数据备份，即将数据存储在硬盘，保证数据不会因进程退出而丢失。
-  复制：复制是高可用Redis的基础，哨兵和集群都是在复制基础上实现高可用的。复制主要实现了数据的多机备份，以及对于读操作的负载均衡和简单的故障恢复。缺陷：故障恢复无法自动化；写操作无法负载均衡；存储能力受到单机的限制。
-  哨兵：哨兵实现了主从复制中故障的自动化恢复。缺陷：写操作无法负载均衡；存储能力受到单机的限制。
-  集群：通过集群，解决了写操作无法负载均衡，以及存储能力受到单机限制的问题，实现了较为完善的高可用方案。
-
-
-
-
-为什么要有哨兵
-Redis的主从模式重点在于解决整体的承压能力，利用从节点分担读取操作的压力。但是其在容错恢复等可靠性...</summary>
 
   </entry>
 
