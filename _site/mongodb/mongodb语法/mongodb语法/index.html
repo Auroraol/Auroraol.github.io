@@ -30,23 +30,23 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="4.Redis模式总结" />
+<meta property="og:title" content="mongodb语法" />
 <meta property="og:locale" content="zh_CN" />
-<meta name="description" content="分工" />
-<meta property="og:description" content="分工" />
-<link rel="canonical" href="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/" />
-<meta property="og:url" content="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/" />
+<meta name="description" content="语法" />
+<meta property="og:description" content="语法" />
+<link rel="canonical" href="http://localhost:4000/mongodb/mongodb%E8%AF%AD%E6%B3%95/mongodb%E8%AF%AD%E6%B3%95/" />
+<meta property="og:url" content="http://localhost:4000/mongodb/mongodb%E8%AF%AD%E6%B3%95/mongodb%E8%AF%AD%E6%B3%95/" />
 <meta property="og:site_name" content="L" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-11-09T21:02:00+08:00" />
+<meta property="article:published_time" content="2025-11-03T22:40:00+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="4.Redis模式总结" />
+<meta property="twitter:title" content="mongodb语法" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-11-09T21:02:00+08:00","datePublished":"2025-11-09T21:02:00+08:00","description":"分工","headline":"4.Redis模式总结","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/"},"url":"http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-11-03T22:40:00+08:00","datePublished":"2025-11-03T22:40:00+08:00","description":"语法","headline":"mongodb语法","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/mongodb/mongodb%E8%AF%AD%E6%B3%95/mongodb%E8%AF%AD%E6%B3%95/"},"url":"http://localhost:4000/mongodb/mongodb%E8%AF%AD%E6%B3%95/mongodb%E8%AF%AD%E6%B3%95/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>4.Redis模式总结 | L
+  <title>mongodb语法 | L
   </title>
 
   <!--
@@ -405,7 +405,7 @@
         
           
             
-              <span>4.Redis模式总结</span>
+              <span>mongodb语法</span>
             
 
           
@@ -517,39 +517,6 @@
 
       
     
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
 
     
   
@@ -557,49 +524,6 @@
   
   
 
-  
-    
-    
-
-    
-      
-        
-        
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-
-    
   
 
   
@@ -622,7 +546,7 @@
 
 <article class="px-1">
   <header>
-    <h1 data-toc-skip>4.Redis模式总结</h1>
+    <h1 data-toc-skip>mongodb语法</h1>
     
 
     <div class="post-meta text-muted">
@@ -639,13 +563,13 @@
 
 <time
   
-  data-ts="1762693320"
+  data-ts="1762180800"
   data-df="YYYY/MM/DD"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  2025/11/09
+  2025/11/03
 </time>
 
       </span>
@@ -694,9 +618,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="855 字"
+  title="609 字"
 >
-  <em>4 分钟</em>阅读</span>
+  <em>3 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -704,10 +628,50 @@
   </header>
 
   <div class="content">
-    <h2 id="分工"><span class="me-2">分工</span><a href="#分工" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+    <h1 id="语法">语法</h1>
+
+<p><strong>基本格式</strong></p>
 
 <div class="language-plaintext highlighter-rouge"><div class="code-header">
         <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>db.集合名.find({ &lt;条件&gt; })
+</pre></td></tr></tbody></table></code></div></div>
+
+<p><strong>等值匹配</strong> { field : value }</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>{ "field" : value }
+</pre></td></tr></tbody></table></code></div></div>
+
+<p><strong>普通对象/数组对象嵌套字段</strong> { class.attribute : value }</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>{ "对象名.属性名": value }
+{ "数组名.对象名.属性名": value }
+</pre></td></tr></tbody></table></code></div></div>
+
+<p><strong>比较运算</strong>  { field: { $xx : val } }</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>{ field: { $gt: 0.99 } }   // 大于
+{ field: { $lt: 100 } }    // 小于 
+{ field: { $in: [1, 2] } } // 在数组中
+</pre></td></tr></tbody></table></code></div></div>
+
+<h1 id="示例">示例</h1>
+
+<div class="language-sql highlighter-rouge"><div class="code-header">
+        <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -719,126 +683,198 @@
 9
 10
 11
-</pre></td><td class="rouge-code"><pre>        ┌-------- 高可用 ---------------------┐
-        │                         │
-   +----+-----+             +-----+----+
-   │  Master  │◀---failover─│  Slave   │  Slave 随时
-   │  写+读   │          │  热备    │  准备升主
-   +----------+             +----------+
-        ▲  ▲                       │
-        │  └----- 同步 -----------------------┘
-        │                          │
-        └--------- 高并发 ---------------------┘
-              水平加更多 Master-Replica 组
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+</pre></td><td class="rouge-code"><pre><span class="p">{</span>
+    <span class="nv">"_id"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nv">"$oid"</span><span class="p">:</span> <span class="nv">"6912deab03b51ebcf2efe7d7"</span>
+    <span class="p">},</span>
+    <span class="nv">"one_id"</span><span class="p">:</span> <span class="nv">"b35fc665-409a-4501-a3bc-fa8a5b27311a"</span><span class="p">,</span>
+    <span class="nv">"req"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nv">"messageid"</span><span class="p">:</span> <span class="nv">"b35fc665-409a-4501-a3bc-fa8a5b27311a_7560982569408267785"</span><span class="p">,</span>
+        
+        <span class="nv">"evaluationdatalist"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nv">"datapool"</span><span class="p">:</span> <span class="nv">"售前Agent_isv评估_20251015_20251021"</span><span class="p">,</span>
+                <span class="nv">"dataid"</span><span class="p">:</span> <span class="nv">"b35fc665-409a-4501-a3bc-fa8a5b27311a"</span><span class="p">,</span>
+                <span class="nv">"data"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nv">"backgroundinfo"</span><span class="p">:</span> <span class="nv">"# 系统信息</span><span class="se">\n</span><span class="nv">- 当前时间：2025/10/19 22:46:06</span><span class="se">\n\n</span><span class="nv"># 店铺信息</span><span class="se">\n</span><span class="nv">- 店铺名称：悍石官方旗舰店</span><span class="se">\n</span><span class="nv">- 是否抖音旗舰店：否</span><span class="se">\n\n</span><span class="nv"># 用户信息</span><span class="se">\n</span><span class="nv">- 用户在该店铺的会员状态：不是会员</span><span class="se">\n\n</span><span class="nv"># 进线商品信息</span><span class="se">\n</span><span class="nv">## 商品信息</span><span class="se">\n</span><span class="nv">商品ID：0</span><span class="se">\n\n</span><span class="nv">- 商品基础信息：商品名称：HUMBLE STONE悍石 立体剪裁 户外三防 软壳冲锋外套24188 商品属性：n</span><span class="se">\n</span><span class="nv">"</span>
+                <span class="p">},</span>
+                <span class="nv">"ext"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nv">"msg_id"</span><span class="p">:</span> <span class="nv">"1846421919634508"</span><span class="p">,</span>
+                    <span class="nv">"conversation_id"</span><span class="p">:</span> <span class="nv">"7562944075855316262"</span><span class="p">,</span>
+                    <span class="nv">"date"</span><span class="p">:</span> <span class="nv">"20251019"</span><span class="p">,</span>
+                    <span class="nv">"log_id"</span><span class="p">:</span> <span class="nv">"02176088516297200000000000000000000ffff0ad29e2219ce43"</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nv">"datacount"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nv">"taskid"</span><span class="p">:</span> <span class="nv">"b35fc665-409a-4501-a3bc-fa8a5b27311a"</span><span class="p">,</span>
+        <span class="nv">"timestamp"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nv">"$numberLong"</span><span class="p">:</span> <span class="nv">"1762862863954"</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<h2 id="主从--哨兵模式"><span class="me-2">「主从 + 哨兵」模式</span><a href="#主从--哨兵模式" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h2 id="筛选字段"><span class="me-2">筛选字段</span><a href="#筛选字段" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<ul>
-  <li><strong>默认行为</strong>：客户端只连主节点，读写都在主节点完成，从节点纯粹是<strong>热备</strong> 。</li>
-  <li><strong>想直接用从节点读</strong>：
-    <ul>
-      <li>业务侧<strong>主动建一条连接到从节点</strong>；</li>
-      <li>在连接上先执行 <code class="language-plaintext highlighter-rouge">READONLY</code>；</li>
-      <li>之后就能发只读命令。</li>
-    </ul>
-  </li>
-  <li><strong>结果</strong>：只要客户端愿意做这两步，<strong>从节点可以被“直接”使用</strong>，常见场景是<strong>读写分离</strong>、<strong>分析报表</strong>等对延迟不敏感的读。</li>
-</ul>
+<p>根级字段精确匹配</p>
 
-<h2 id="redis-cluster-模式"><span class="me-2">Redis Cluster 模式</span><a href="#redis-cluster-模式" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<div class="language-javascript highlighter-rouge"><div class="code-header">
+        <span data-label-text="JavaScript"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="c1">// 按 one_id 查询</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nf">find</span><span class="p">({</span>
+  <span class="dl">"</span><span class="s2">one_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">b35fc665-409a-4501-a3bc-fa8a5b27311a</span><span class="dl">"</span>
+<span class="p">})</span>
 
-<ul>
-  <li>默认路由表只有「槽 → 主节点」映射；</li>
-  <li>官方 SDK 默认把请求发到主节点；</li>
-  <li>要让从节点参与读，必须：
-    <ul>
-      <li>客户端实现 <code class="language-plaintext highlighter-rouge">READONLY</code> + 槽位到从节点的二次路由；</li>
-      <li>自己处理「从节点 lag」「主从切换后连接刷新」等细节。</li>
-    </ul>
-  </li>
-  <li><strong>结果</strong>：<strong>理论上能读从，但官方不自动做，成本高</strong>，所以生产里<strong>绝大多数集群仍全部走主节点</strong>。</li>
-</ul>
+<span class="c1">// 按 req.timestamp 区间查询（NumberLong 值）</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nf">find</span><span class="p">({</span>
+  <span class="dl">"</span><span class="s2">req.timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">$gte</span><span class="dl">"</span><span class="p">:</span> <span class="nc">NumberLong</span><span class="p">(</span><span class="dl">"</span><span class="s2">1762862863954</span><span class="dl">"</span><span class="p">),</span>
+    <span class="dl">"</span><span class="s2">$lte</span><span class="dl">"</span><span class="p">:</span> <span class="nc">NumberLong</span><span class="p">(</span><span class="dl">"</span><span class="s2">1762862863954</span><span class="dl">"</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></td></tr></tbody></table></code></div></div>
 
-<h2 id="节点行为"><span class="me-2">节点行为</span><a href="#节点行为" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>嵌套数组内字段（evaluationdatalist）</p>
 
-<div class="table-wrapper"><table>
-  <thead>
-    <tr>
-      <th style="text-align: left">模式</th>
-      <th>主节点</th>
-      <th>从节点</th>
-      <th style="text-align: left">从节点能否被<code class="language-plaintext highlighter-rouge">直接读</code></th>
-      <th style="text-align: left">读请求默认行为</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">主从+哨兵</td>
-      <td>读写</td>
-      <td>只读</td>
-      <td style="text-align: left">✅ 可以，连过去发 <code class="language-plaintext highlighter-rouge">READONLY</code> 即可</td>
-      <td style="text-align: left">优先走主节点</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Cluster</td>
-      <td>读写</td>
-      <td>只读</td>
-      <td style="text-align: left">⚠️ 可以，但客户端要自己维护复杂路由</td>
-      <td style="text-align: left">优先走主节点</td>
-    </tr>
-  </tbody>
-</table></div>
+<div class="language-javascript highlighter-rouge"><div class="code-header">
+        <span data-label-text="JavaScript"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="c1">// 数组内任意元素满足即可</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nf">find</span><span class="p">({</span>
+  <span class="dl">"</span><span class="s2">req.evaluationdatalist.ext.conversation_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">7562944075855316262</span><span class="dl">"</span>
+<span class="p">})</span>
 
-<h2 id="高可用高并发原因"><span class="me-2">高可用/高并发原因</span><a href="#高可用高并发原因" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<span class="c1">// 只想让同一个元素同时满足多个条件 $elemMatch</span>
+<span class="nx">同时限定</span> <span class="nx">datapool</span> <span class="o">+</span> <span class="nx">dataid</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nf">find</span><span class="p">({</span>
+  <span class="dl">"</span><span class="s2">req.evaluationdatalist</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">$elemMatch</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">datapool</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">售前Agent_isv评估_20251015_20251021</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">dataid</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">b35fc665-409a-4501-a3bc-fa8a5b27311a</span><span class="dl">"</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></td></tr></tbody></table></code></div></div>
 
-<h3 id="一高可用从节点--热备--自动升主"><span class="me-2">一、高可用：从节点 = 热备 + 自动升主</span><a href="#一高可用从节点--热备--自动升主" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<p>嵌套对象字段（ext、data、backgroundinfo）</p>
 
-<ol>
-  <li><strong>哨兵模式</strong>
-主宕机 → 哨兵投票 → 把其中一个从节点 <code class="language-plaintext highlighter-rouge">slaveof no one</code> 提为新主；业务方只感受到秒级闪断，数据服务继续。</li>
-  <li><strong>Cluster 模式</strong>
-每组主自带 1~N 个从；集群内部 Gossip 探测失败 → 剩余主节点投票 → 直接把从提拔成新主，槽位不丢。<strong>整个过程完全自动，从节点就是“随时待命的替身”</strong>。</li>
-</ol>
+<div class="language-javascript highlighter-rouge"><div class="code-header">
+        <span data-label-text="JavaScript"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="c1">// 按 ext.date 查询</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nf">find</span><span class="p">({</span>
+  <span class="dl">"</span><span class="s2">req.evaluationdatalist.ext.date</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20251019</span><span class="dl">"</span>
+<span class="p">})</span>
 
-<h3 id="二高并发靠加主节点水平扩展而不是硬啃读写分离"><span class="me-2">二、高并发：靠“加主节点”水平扩展，而不是硬啃读写分离</span><a href="#二高并发靠加主节点水平扩展而不是硬啃读写分离" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<span class="c1">// 模糊匹配 backgroundinfo 中的「店铺名称」</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nf">find</span><span class="p">({</span>
+  <span class="dl">"</span><span class="s2">req.evaluationdatalist.data.backgroundinfo</span><span class="dl">"</span><span class="p">:</span> <span class="o">/</span><span class="nx">悍石官方旗舰店</span><span class="o">/</span>
+<span class="p">})</span>
+</pre></td></tr></tbody></table></code></div></div>
 
-<ul>
-  <li>写只能走主 → 把<strong>主节点数量</strong>从 3 组扩到 5、10、20 组，<strong>写吞吐线性翻倍</strong>。</li>
-  <li>每加一组主，同时也多了一台<strong>物理 CPU + 网卡 + 内存</strong>；即使读也全部走主，<strong>总QPS 照样随节点数线性增加</strong>（实测单分片 10w+ QPS 很轻松）。</li>
-  <li>运维成本最低：客户端零改造，无延迟顾虑，无一致性问题。</li>
-</ul>
+<h2 id="查询字段"><span class="me-2">查询字段</span><a href="#查询字段" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<h3 id="三读写分离到底用不用看场景不是刚需"><span class="me-2">三、读写分离到底用不用？——看场景，不是刚需</span><a href="#三读写分离到底用不用看场景不是刚需" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<p>只返回根级字段</p>
 
-<p>读写分离 = <strong>“写”只打主节点，“读”尽量打到从节点</strong></p>
+<div class="language-javascript highlighter-rouge"><div class="code-header">
+        <span data-label-text="JavaScript"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span>
+  <span class="p">{</span> <span class="dl">"</span><span class="s2">one_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">b35fc665-409a-4501-a3bc-fa8a5b27311a</span><span class="dl">"</span> <span class="p">},</span>   <span class="c1">// 过滤条件</span>
+  <span class="p">{</span>                                      <span class="c1">// 投影字段</span>
+    <span class="dl">"</span><span class="s2">_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">one_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>   
+    <span class="dl">"</span><span class="s2">req.taskid</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">req.timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+  <span class="p">}</span>
+<span class="p">)</span>
+</pre></td></tr></tbody></table></code></div></div>
 
-<p>使用场景:</p>
+<p>只要数组里「某个嵌套字段」</p>
 
-<ul>
-  <li>线上业务往往是<strong>读 » 写</strong>（10:1 甚至 100:1）。</li>
-  <li>主节点单机能扛的写够用，但读 QPS 先顶到天花板。</li>
-</ul>
-
-<div class="table-wrapper"><table>
-  <thead>
-    <tr>
-      <th style="text-align: left">场景</th>
-      <th style="text-align: left">是否值得把从节点拉出来读</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">读 » 写，且对<strong>毫秒级延迟不敏感</strong>、允许<strong>短暂脏读</strong></td>
-      <td style="text-align: left">✅ 可做，省几台主节点钱</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">读/写比例 &lt; 5:1，或业务<strong>对一致性/延迟敏感</strong></td>
-      <td style="text-align: left">❌ 直接加主更简单、更稳</td>
-    </tr>
-  </tbody>
-</table></div>
-
+<div class="language-javascript highlighter-rouge"><div class="code-header">
+        <span data-label-text="JavaScript"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span>
+  <span class="p">{</span> <span class="dl">"</span><span class="s2">req.evaluationdatalist.datapool</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">售前Agent_isv评估_20251015_20251021</span><span class="dl">"</span> <span class="p">},</span><span class="c1">// 过滤条件</span>
+  <span class="p">{</span>                                                   <span class="c1">// 投影字段</span>
+    <span class="dl">"</span><span class="s2">_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">one_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">req.evaluationdatalist.datapool</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>   
+    <span class="dl">"</span><span class="s2">req.evaluationdatalist.ext.date</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+  <span class="p">}</span>
+<span class="p">)</span>
+</pre></td></tr></tbody></table></code></div></div>
 
   </div>
 
@@ -848,8 +884,8 @@
       <div class="post-meta mb-3">
         <i class="far fa-folder-open fa-fw me-1"></i>
         
-          <a href="/categories/redis/">Redis</a>,
-          <a href="/categories/redis%E6%A8%A1%E5%BC%8F/">Redis模式</a>
+          <a href="/categories/mongodb/">mongodb</a>,
+          <a href="/categories/mongodb%E8%AF%AD%E6%B3%95/">mongodb语法</a>
       </div>
     
 
@@ -859,9 +895,9 @@
         <i class="fa fa-tags fa-fw me-1"></i>
         
           <a
-            href="/tags/redis/"
+            href="/tags/mongodb%E8%AF%AD%E6%B3%95/"
             class="post-tag no-text-decoration"
-          >Redis</a>
+          >mongodb语法</a>
         
       </div>
     
@@ -1444,53 +1480,6 @@
 
   
     
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
 
 
@@ -1500,134 +1489,6 @@
 
 
 
-
-
-  <aside id="related-posts" aria-labelledby="related-label">
-    <h3 class="mb-4" id="related-label">相关文章</h3>
-    <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
-      
-        <article class="col">
-          <a href="/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1762653600"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/09
-</time>
-
-              <h4 class="pt-0 my-2">1.Redis主从复制</h4>
-              <div class="text-muted">
-                <p>本地缓存带来的挑战
-
-分布式缓存相比于本地缓存，在实现层面需要关注的点有哪些不同。梳理如下：
-
-
-  
-    
-      维度
-      本地缓存
-      集中式缓存
-    
-  
-  
-    
-      缓存量
-      受限于单机内存大小，存储数据有限
-      需要提供给分布式系统里面所有节点共同使用，对于大型系统而言，对集中式缓存的容量诉求非常的大，远超单机内存的...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/redis/redis%E6%A8%A1%E5%BC%8F/%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1762675200"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/09
-</time>
-
-              <h4 class="pt-0 my-2">2.Redis哨兵机制</h4>
-              <div class="text-muted">
-                <p>概述
-Redis的高可用机制有持久化、复制、哨兵和集群。其主要的作用和解决的问题分别是：
-
-  持久化：持久化是最简单的高可用方法(有时甚至不被归为高可用的手段)，主要作用是数据备份，即将数据存储在硬盘，保证数据不会因进程退出而丢失。
-  复制：复制是高可用Redis的基础，哨兵和集群都是在复制基础上实现高可用的。复制主要实现了数据的多机备份，以及对于读操作的负载均衡和简单的故障恢复。缺陷：...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E9%9B%86%E7%BE%A4/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1762689600"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/09
-</time>
-
-              <h4 class="pt-0 my-2">3.Redis集群</h4>
-              <div class="text-muted">
-                <p>业务规模
-      推荐架构
-    
-  
-  
-    
-      小型业务（缓存 &amp;lt; 10GB）
-      一主二从 + 三哨兵（高可用即可）
-    
-    
-      中型业务（10GB~100GB）
-      三主三从集群（分片 + 高可用）
-    
-    
-      大型业务（&amp;gt;100GB，高并发）
-      多组集群 或 Redis Proxy...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-    </nav>
-  </aside>
-  <!-- #related-posts -->
 
 
             
@@ -1640,21 +1501,21 @@ Redis的高可用机制有持久化、复制、哨兵和集群。其主要的作
 
   
     <a
-      href="/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E9%9B%86%E7%BE%A4/"
+      href="/jekyll/jekyll%E4%BD%BF%E7%94%A8/%E6%94%AF%E6%8C%81%E5%A4%9A%E7%BA%A7%E7%9B%AE%E5%BD%95/"
       class="btn btn-outline-primary"
       aria-label="上一篇"
     >
-      <p>3.Redis集群</p>
+      <p>支持多目录</p>
     </a>
   
 
   
     <a
-      href="/pgsql/%E8%AF%AD%E6%B3%95/pg%E8%AF%AD%E6%B3%95/"
+      href="/pgsql/%E6%A7%BD%E4%BD%8D/pg%E6%A7%BD%E4%BD%8D/"
       class="btn btn-outline-primary"
       aria-label="下一篇"
     >
-      <p>PgSQL语法</p>
+      <p>PgSQL槽位创建</p>
     </a>
   
 </nav>
