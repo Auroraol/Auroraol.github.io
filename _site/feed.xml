@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>L</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2025-11-16T02:05:13+08:00</updated>
+  <updated>2025-11-22T23:50:25+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -20,69 +20,14 @@
 
   
   <entry>
-    <title>mongodb语法</title>
-    <link href="http://localhost:4000/mongodb/mongodb%E8%AF%AD%E6%B3%95/" rel="alternate" type="text/html" title="mongodb语法" />
-    <published>2025-11-15T20:40:00+08:00</published>
+    <title>字典解析库</title>
+    <link href="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/" rel="alternate" type="text/html" title="字典解析库" />
+    <published>2025-11-22T15:40:00+08:00</published>
   
-    <updated>2025-11-16T01:36:22+08:00</updated>
+    <updated>2025-11-22T15:40:00+08:00</updated>
   
-    <id>http://localhost:4000/mongodb/mongodb%E8%AF%AD%E6%B3%95/</id>
-    <content src="http://localhost:4000/mongodb/mongodb%E8%AF%AD%E6%B3%95/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="mongodb" />
-    
-  
-
-  <summary>语法
-
-基本格式
-
-db.集合名.find({ &amp;amp;lt;条件&amp;amp;gt; })
-
-
-等值匹配 { field : value }
-
-{ &amp;quot;field&amp;quot; : value }
-
-
-普通对象/数组对象嵌套字段 { class.attribute : value }
-
-{ &amp;quot;对象名.属性名&amp;quot;: value }
-{ &amp;quot;数组名.对象名.属性名&amp;quot;: value }
-
-
-比较运算  { field: { $xx : val } }
-
-{ field: { $gt: 0.99 } }   // 大于
-{ field: { $lt: 100 } }    // 小于 
-{ field: { $in: [1, 2] } } // 在数组中
-
-
-示例
-
-{
-    &amp;quot;_id&amp;quot;: {
-        &amp;quot;$oid&amp;quot;: &amp;quot;6912deab03b51ebcf2efe7d7&amp;quot;
-    },
-    &amp;quot;one_id&amp;quot;: &amp;quot;...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Goland常用快捷键</title>
-    <link href="http://localhost:4000/go/goland%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/goland/" rel="alternate" type="text/html" title="Goland常用快捷键" />
-    <published>2025-11-13T00:40:00+08:00</published>
-  
-    <updated>2025-11-15T01:54:12+08:00</updated>
-  
-    <id>http://localhost:4000/go/goland%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/goland/</id>
-    <content src="http://localhost:4000/go/goland%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/goland/" />
+    <id>http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/</id>
+    <content src="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/" />
     <author>
       <name>lfj</name>
     </author>
@@ -91,181 +36,208 @@ db.集合名.find({ &amp;amp;lt;条件&amp;amp;gt; })
     
     <category term="GO" />
     
-    <category term="Goland常用快捷键" />
+    <category term="解析库" />
     
   
 
-  <summary>Goland 常用快捷键
-
-文件操作相关的快捷键
-
-
-  
-    
-      快捷键
-      作用
-    
-  
-  
-    
-      Ctrl + E
-      打开最近浏览过的文件
-    
-    
-      F2
-      重命名文件夹、文件、方法、变量名等
-    
-  
-
-
-代码格式化相关的快捷键
-
-
-  
-    
-      快捷键
-      作用
-    
-  
-  
-    
-      Ctrl + Alt + L
-      格式化代码
-    
-    
-      Ctrl + /
-      单行注释
-    
-    
-      Ctrl + Shift + /
-      多行注释
-    
-    
-      Ctrl + B 或 F4
-      快速跳转到结构体或方法的定义位置
-    
-    
-      Ctr...</summary>
+  <summary></summary>
 
   </entry>
 
   
   <entry>
-    <title>PgSQL语法</title>
-    <link href="http://localhost:4000/pgsql/%E8%AF%AD%E6%B3%95/pg%E8%AF%AD%E6%B3%95/" rel="alternate" type="text/html" title="PgSQL语法" />
-    <published>2025-11-09T22:40:00+08:00</published>
+    <title>数字_字符串转换</title>
+    <link href="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%95%B0%E5%AD%97_%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2/" rel="alternate" type="text/html" title="数字_字符串转换" />
+    <published>2025-11-22T13:40:00+08:00</published>
   
-    <updated>2025-11-09T22:40:00+08:00</updated>
+    <updated>2025-11-22T13:40:00+08:00</updated>
   
-    <id>http://localhost:4000/pgsql/%E8%AF%AD%E6%B3%95/pg%E8%AF%AD%E6%B3%95/</id>
-    <content src="http://localhost:4000/pgsql/%E8%AF%AD%E6%B3%95/pg%E8%AF%AD%E6%B3%95/" />
+    <id>http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%95%B0%E5%AD%97_%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2/</id>
+    <content src="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%95%B0%E5%AD%97_%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2/" />
     <author>
       <name>lfj</name>
     </author>
 
   
     
-    <category term="PgSQL" />
+    <category term="GO" />
     
-    <category term="语法" />
+    <category term="解析库" />
     
   
 
-  <summary>基本格式 JavaScript 复制 db..find({  })
-  等值匹配 JavaScript 复制 { field: value } 例： JavaScript 复制 { id: “3393633870761476271” }
-  嵌套字段（用点号） JavaScript 复制 { “state.status”: “running” }
-  比较运算 JavaScript 复制 { field: { $gt: 0.99 } }   // 大于 { field: { $lt: 100 } }    // 小于 { field: { $in: [1, 2] } } // 在数组中
-  数组元素匹配 JavaScript 复制 { sku_id_list: NumberLong(“100028998016”) }
-  特殊类型 ObjectId：ObjectId(“…”) Num...</summary>
+  <summary>数字&amp;amp;amp;字符转换
+
+string 转换 为其他类型
+
+f, _ := strconv.ParseBool(&amp;quot;false&amp;quot;)         // bool
+g, _ := strconv.ParseFloat(&amp;quot;123.23&amp;quot;, 64)     // float
+h, _ := strconv.ParseInt(&amp;quot;-1234&amp;quot;, 10, 64)    // int64
+i, _ := strconv.ParseUint(&amp;quot;12345&amp;quot;, 10, 64)    // int64 无符号
+j, _ := strconv.Atoi(&amp;quot;1023&amp;quot;)   				// int
+fmt.Println(f, g, h, i, j)					// false 123.23 11234 12345 1023
+
+// 注: 空字符串, 解系会报err, 但是有返回值0 
+
+
+其他类型 转换 为s...</summary>
 
   </entry>
 
   
   <entry>
-    <title>4.Redis模式总结</title>
-    <link href="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/" rel="alternate" type="text/html" title="4.Redis模式总结" />
-    <published>2025-11-09T21:02:00+08:00</published>
+    <title>时间解析库</title>
+    <link href="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%97%B6%E9%97%B4%E8%A7%A3%E6%9E%90%E5%BA%93/" rel="alternate" type="text/html" title="时间解析库" />
+    <published>2025-11-22T11:40:00+08:00</published>
   
-    <updated>2025-11-09T21:02:00+08:00</updated>
+    <updated>2025-11-22T11:40:00+08:00</updated>
   
-    <id>http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/</id>
-    <content src="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/" />
+    <id>http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%97%B6%E9%97%B4%E8%A7%A3%E6%9E%90%E5%BA%93/</id>
+    <content src="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%97%B6%E9%97%B4%E8%A7%A3%E6%9E%90%E5%BA%93/" />
     <author>
       <name>lfj</name>
     </author>
 
   
     
-    <category term="Redis" />
+    <category term="GO" />
     
-    <category term="Redis模式" />
+    <category term="解析库" />
     
   
 
-  <summary>分工
+  <summary>时间戳
 
-        ┌-------- 高可用 ---------------------┐
-        │                         │
-   +----+-----+             +-----+----+
-   │  Master  │◀---failover─│  Slave   │  Slave 随时
-   │  写+读   │          │  热备    │  准备升主
-   +----------+             +----------+
-        ▲  ▲                       │
-        │  └----- 同步 -----------------------┘
-        │                          │
-        └--------- ...</summary>
+now := time.Now() // 当前本地时间
+
+sec  := now.Unix()    // 秒级（Unix 时间戳）
+msec := now.UnixMilli() // 毫秒级（Go 1.17+）
+usec := now.UnixMicro() // 微秒级（Go 1.17+）
+nsec := now.UnixNano()  // 纳秒级
+
+
+封装
+
+package adapter
+
+import (
+	&amp;quot;strconv&amp;quot;
+	&amp;quot;time&amp;quot;
+)
+
+const TimeLayout = &amp;quot;2006-01-02 15:04:05&amp;quot;
+
+var loc *time.Location
+
+func Init() error {
+	cnLoc, err := time.LoadLocation(&amp;quot;Asia/Shanghai&amp;quot;)
+	if err != nil {
+		ret...</summary>
 
   </entry>
 
   
   <entry>
-    <title>3.Redis集群</title>
-    <link href="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E9%9B%86%E7%BE%A4/" rel="alternate" type="text/html" title="3.Redis集群" />
-    <published>2025-11-09T20:00:00+08:00</published>
+    <title>默认值</title>
+    <link href="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E9%BB%98%E8%AE%A4%E5%80%BC/" rel="alternate" type="text/html" title="默认值" />
+    <published>2025-11-22T10:40:00+08:00</published>
   
-    <updated>2025-11-09T21:36:20+08:00</updated>
+    <updated>2025-11-22T10:40:00+08:00</updated>
   
-    <id>http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E9%9B%86%E7%BE%A4/</id>
-    <content src="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E9%9B%86%E7%BE%A4/" />
+    <id>http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E9%BB%98%E8%AE%A4%E5%80%BC/</id>
+    <content src="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E9%BB%98%E8%AE%A4%E5%80%BC/" />
     <author>
       <name>lfj</name>
     </author>
 
   
     
-    <category term="Redis" />
+    <category term="GO" />
     
-    <category term="Redis模式" />
-    
-  
-
-  <summary>业务规模
-      推荐架构
-    
-  
-  
-    
-      小型业务（缓存 &amp;amp;lt; 10GB）
-      一主二从 + 三哨兵（高可用即可）
-    
-    
-      中型业务（10GB~100GB）
-      三主三从集群（分片 + 高可用）
-    
-    
-      大型业务（&amp;amp;gt;100GB，高并发）
-      多组集群 或 Redis Proxy 方案（如 Codis、Twemproxy）
+    <category term="解析库" />
     
   
 
+  <summary>零值的定义取决于字段的类型：
 
-redis主从：可实现高并发(读)，典型部署方案：一主二从
-redis哨兵：可实现高可用，典型部署方案：一主二从三哨兵
-redis集群：可同时支持高并发(读与写)、高可用，典型部署方案：三主三从
 
-概述
+  对于 string 类型，零值是空字符串 ““。
+  对于 int 类型，零值是 0。
+  对于指针类型，零值是 nil。
+  对于切片和映射，零值是 nil 或者长度为 0 的切片/映射。
+  对于数组，零值是 []
 
-Redis单实例的架构，从最开始的一主N从，到读写分离，再到Sentinel哨兵机制，单实例的Redis缓存足以应对大多数的使用...</summary>
+
+例子
+
+type Goods struct {
+	// 基础字段
+	ShopID     string    `json:&amp;quot;shop_id&amp;quot;`  // 零值 &amp;quot;&amp;quot;
+	OuterID    int       `json:&amp;quot;outer_id&amp;quot;` // 零值 0
+	Flag       int       `json:&amp;quot;flag&amp;quot;`     // 零值 false
+	UpdateTime time.Time `json:&amp;quot;update_time&amp;quot;`
+	// 数组
+	DescPics []string `json:&amp;quot;desc_pic...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>结构体解析库</title>
+    <link href="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E7%BB%93%E6%9E%84%E4%BD%93%E8%A7%A3%E6%9E%90%E5%BA%93/" rel="alternate" type="text/html" title="结构体解析库" />
+    <published>2025-11-22T00:50:00+08:00</published>
+  
+    <updated>2025-11-22T00:50:00+08:00</updated>
+  
+    <id>http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E7%BB%93%E6%9E%84%E4%BD%93%E8%A7%A3%E6%9E%90%E5%BA%93/</id>
+    <content src="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E7%BB%93%E6%9E%84%E4%BD%93%E8%A7%A3%E6%9E%90%E5%BA%93/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="GO" />
+    
+    <category term="解析库" />
+    
+  
+
+  <summary>copier库
+
+
+  用 github.com/jinzhu/copier 进行结构体之间数据拷贝
+
+
+相关的包：
+
+import (
+	&amp;quot;github.com/jinzhu/copier&amp;quot;
+)
+
+
+语法
+
+copier.Copy(&amp;amp;amp;目标, &amp;amp;amp;源)
+
+
+基础使用
+
+package main
+
+import (
+	&amp;quot;fmt&amp;quot;
+	&amp;quot;github.com/jinzhu/copier&amp;quot;
+)
+
+// 复制源
+type Src struct {
+	Name        string
+	Role        string
+	Age         int32
+	EmployeCode int64 `copier:&amp;quot;EmployeNum&amp;quot;` // 指定字段名称
+	Salary      int   // 在目标结构中显式忽略
+	SpecialSrc  int   //私有属性,...</summary>
 
   </entry>
 
