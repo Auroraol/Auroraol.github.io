@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>L</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2025-11-22T23:50:25+08:00</updated>
+  <updated>2025-11-23T00:53:27+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -40,7 +40,47 @@
     
   
 
-  <summary></summary>
+  <summary>mapstructure 库
+
+
+  将 map[string]interface{} 数据解析到结构体中
+
+
+基础使用
+
+相关的包：
+
+import {
+	&amp;quot;github.com/mitchellh/mapstructure&amp;quot;
+}
+
+
+语法
+
+mapstructure.Decode(待解析map数据, &amp;amp;amp;目标)
+
+
+在日常开发中，接受的数据可能不是固定的格式，而是会根据某个值的不同有不同的内容。
+
+package main
+
+import (
+	&amp;quot;encoding/json&amp;quot;
+	&amp;quot;fmt&amp;quot;
+	&amp;quot;log&amp;quot;
+
+	&amp;quot;github.com/mitchellh/mapstructure&amp;quot;
+)
+
+type Person struct {
+	Name string
+	Age  int
+	Job  string
+}
+
+type Cat struct {
+	Name  string
+	Age...</summary>
 
   </entry>
 
