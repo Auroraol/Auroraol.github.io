@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>L</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2025-11-23T00:53:27+08:00</updated>
+  <updated>2025-11-29T18:13:28+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -20,11 +20,138 @@
 
   
   <entry>
+    <title>protobuf协议</title>
+    <link href="http://localhost:4000/%E5%8D%8F%E8%AE%AE/protobuf/" rel="alternate" type="text/html" title="protobuf协议" />
+    <published>2025-11-29T12:00:00+08:00</published>
+  
+    <updated>2025-11-29T12:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/%E5%8D%8F%E8%AE%AE/protobuf/</id>
+    <content src="http://localhost:4000/%E5%8D%8F%E8%AE%AE/protobuf/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="协议" />
+    
+  
+
+  <summary>Protobuf
+
+Protobuf 提供了一种紧凑的二进制格式，序列化后的数据体积小，解析速度快，适合高性能场景。它支持多种编程语言，包括 C++、Java、Python、Go 等，能够实现跨语言的数据交换。
+
+Protobuf 常用于以下场景：
+
+
+  
+    分布式系统：在服务之间传递高效的结构化数据。
+  
+  
+    RPC 框架：与 gRPC 集成，用于定义服务接口和消息格式。
+  
+  
+    数据存储：用于存储需要高效读取和写入的结构化数据。
+  
+
+
+三种序列化协议的差异
+
+
+  
+    
+       
+      XML
+      JSON
+      Protobuf
+    
+  
+  
+    
+      数据存储
+      文本
+      文本
+      二进制
+    
+    
+      序列化存储消耗
+      大
+     ...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>protojson解析库</title>
+    <link href="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/protojson%E8%A7%A3%E6%9E%90%E5%BA%93/" rel="alternate" type="text/html" title="protojson解析库" />
+    <published>2025-11-29T11:00:00+08:00</published>
+  
+    <updated>2025-11-29T11:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/protojson%E8%A7%A3%E6%9E%90%E5%BA%93/</id>
+    <content src="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/protojson%E8%A7%A3%E6%9E%90%E5%BA%93/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="GO" />
+    
+    <category term="解析库" />
+    
+  
+
+  <summary>json 和 protojson使用
+
+不是直接使用encoding/json库的原因:
+
+
+  
+    
+      序列化器
+      能否用于 Protobuf GO 结构体
+      输出标准 Protobuf JSON
+      能正确处理特殊 proto 类型
+    
+  
+  
+    
+      encoding/json
+      可以，但有限
+      否
+      否
+    
+    
+      protojson.Marshal
+      可以
+      是
+      是
+    
+  
+
+
+解析区别
+
+MsgId string `protobuf:&amp;quot;bytes,1,opt,name=msg_id,json=msgId,proto3&amp;quot;  json:&amp;quot;msg_id,omitempty&amp;quot;`
+
+
+
+  
+    
+      使用场景
+ ...</summary>
+
+  </entry>
+
+  
+  <entry>
     <title>字典解析库</title>
     <link href="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/" rel="alternate" type="text/html" title="字典解析库" />
     <published>2025-11-22T15:40:00+08:00</published>
   
-    <updated>2025-11-22T15:40:00+08:00</updated>
+    <updated>2025-11-23T00:54:49+08:00</updated>
   
     <id>http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/</id>
     <content src="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/" />
@@ -173,111 +300,6 @@ func Init() error {
 	cnLoc, err := time.LoadLocation(&amp;quot;Asia/Shanghai&amp;quot;)
 	if err != nil {
 		ret...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>默认值</title>
-    <link href="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E9%BB%98%E8%AE%A4%E5%80%BC/" rel="alternate" type="text/html" title="默认值" />
-    <published>2025-11-22T10:40:00+08:00</published>
-  
-    <updated>2025-11-22T10:40:00+08:00</updated>
-  
-    <id>http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E9%BB%98%E8%AE%A4%E5%80%BC/</id>
-    <content src="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E9%BB%98%E8%AE%A4%E5%80%BC/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="GO" />
-    
-    <category term="解析库" />
-    
-  
-
-  <summary>零值的定义取决于字段的类型：
-
-
-  对于 string 类型，零值是空字符串 ““。
-  对于 int 类型，零值是 0。
-  对于指针类型，零值是 nil。
-  对于切片和映射，零值是 nil 或者长度为 0 的切片/映射。
-  对于数组，零值是 []
-
-
-例子
-
-type Goods struct {
-	// 基础字段
-	ShopID     string    `json:&amp;quot;shop_id&amp;quot;`  // 零值 &amp;quot;&amp;quot;
-	OuterID    int       `json:&amp;quot;outer_id&amp;quot;` // 零值 0
-	Flag       int       `json:&amp;quot;flag&amp;quot;`     // 零值 false
-	UpdateTime time.Time `json:&amp;quot;update_time&amp;quot;`
-	// 数组
-	DescPics []string `json:&amp;quot;desc_pic...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>结构体解析库</title>
-    <link href="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E7%BB%93%E6%9E%84%E4%BD%93%E8%A7%A3%E6%9E%90%E5%BA%93/" rel="alternate" type="text/html" title="结构体解析库" />
-    <published>2025-11-22T00:50:00+08:00</published>
-  
-    <updated>2025-11-22T00:50:00+08:00</updated>
-  
-    <id>http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E7%BB%93%E6%9E%84%E4%BD%93%E8%A7%A3%E6%9E%90%E5%BA%93/</id>
-    <content src="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E7%BB%93%E6%9E%84%E4%BD%93%E8%A7%A3%E6%9E%90%E5%BA%93/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="GO" />
-    
-    <category term="解析库" />
-    
-  
-
-  <summary>copier库
-
-
-  用 github.com/jinzhu/copier 进行结构体之间数据拷贝
-
-
-相关的包：
-
-import (
-	&amp;quot;github.com/jinzhu/copier&amp;quot;
-)
-
-
-语法
-
-copier.Copy(&amp;amp;amp;目标, &amp;amp;amp;源)
-
-
-基础使用
-
-package main
-
-import (
-	&amp;quot;fmt&amp;quot;
-	&amp;quot;github.com/jinzhu/copier&amp;quot;
-)
-
-// 复制源
-type Src struct {
-	Name        string
-	Role        string
-	Age         int32
-	EmployeCode int64 `copier:&amp;quot;EmployeNum&amp;quot;` // 指定字段名称
-	Salary      int   // 在目标结构中显式忽略
-	SpecialSrc  int   //私有属性,...</summary>
 
   </entry>
 
