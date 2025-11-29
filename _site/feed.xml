@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>L</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2025-11-29T18:13:28+08:00</updated>
+  <updated>2025-11-29T18:19:45+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -147,6 +147,52 @@ MsgId string `protobuf:&amp;quot;bytes,1,opt,name=msg_id,json=msgId,proto3&amp;q
 
   
   <entry>
+    <title>字典</title>
+    <link href="http://localhost:4000/go/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%AD%97%E5%85%B8/" rel="alternate" type="text/html" title="字典" />
+    <published>2025-11-27T11:00:00+08:00</published>
+  
+    <updated>2025-11-27T11:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/go/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%AD%97%E5%85%B8/</id>
+    <content src="http://localhost:4000/go/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%AD%97%E5%85%B8/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="GO" />
+    
+    <category term="数据结构" />
+    
+  
+
+  <summary>ok-idiom
+
+使用 value, ok := map[key] 的语法保证百分之百安全
+
+//通过ok-idiom来判断key value是否存在，并获取map
+if value, ok := map1[1]; ok {
+    fmt.Println(&amp;quot;map key存在,其值为:&amp;quot;, value)
+}
+
+
+示例
+
+func getSendChannel(action *model.ActionInfo) sendChannel {
+	if action == nil {
+		return sendChannelMqtt
+	}
+    // 百分之百安全
+	if channelVal, ok := action.ExtraData[&amp;quot;channel&amp;quot;]; ok {
+		ch := sendChannel(channelVal)
+		switch ch {
+		case sen...</summary>
+
+  </entry>
+
+  
+  <entry>
     <title>字典解析库</title>
     <link href="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/" rel="alternate" type="text/html" title="字典解析库" />
     <published>2025-11-22T15:40:00+08:00</published>
@@ -248,58 +294,6 @@ fmt.Println(f, g, h, i, j)					// false 123.23 11234 12345 1023
 
 
 其他类型 转换 为s...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>时间解析库</title>
-    <link href="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%97%B6%E9%97%B4%E8%A7%A3%E6%9E%90%E5%BA%93/" rel="alternate" type="text/html" title="时间解析库" />
-    <published>2025-11-22T11:40:00+08:00</published>
-  
-    <updated>2025-11-22T11:40:00+08:00</updated>
-  
-    <id>http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%97%B6%E9%97%B4%E8%A7%A3%E6%9E%90%E5%BA%93/</id>
-    <content src="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%97%B6%E9%97%B4%E8%A7%A3%E6%9E%90%E5%BA%93/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="GO" />
-    
-    <category term="解析库" />
-    
-  
-
-  <summary>时间戳
-
-now := time.Now() // 当前本地时间
-
-sec  := now.Unix()    // 秒级（Unix 时间戳）
-msec := now.UnixMilli() // 毫秒级（Go 1.17+）
-usec := now.UnixMicro() // 微秒级（Go 1.17+）
-nsec := now.UnixNano()  // 纳秒级
-
-
-封装
-
-package adapter
-
-import (
-	&amp;quot;strconv&amp;quot;
-	&amp;quot;time&amp;quot;
-)
-
-const TimeLayout = &amp;quot;2006-01-02 15:04:05&amp;quot;
-
-var loc *time.Location
-
-func Init() error {
-	cnLoc, err := time.LoadLocation(&amp;quot;Asia/Shanghai&amp;quot;)
-	if err != nil {
-		ret...</summary>
 
   </entry>
 

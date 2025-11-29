@@ -652,6 +652,74 @@ Protobuf 常用于以下场景：
     </article>
   
     <article class="card-wrapper card">
+      <a href="/go/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%AD%97%E5%85%B8/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">字典</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>ok-idiom
+
+使用 value, ok := map[key] 的语法保证百分之百安全
+
+//通过ok-idiom来判断key value是否存在，并获取map
+if value, ok := map1[1]; ok {
+    fmt.Println(&quot;map key存在,其值为:&quot;, value)
+}
+
+
+示例
+
+func getSendChannel(action *model....</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1764212400"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/27
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      GO,
+                      数据结构
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
       <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview row g-0 flex-md-row-reverse">
         
 
@@ -1151,79 +1219,6 @@ go get fyne.io/fyne/v2@latest  #安装fyne框架...</p>
       </a>
     </article>
   
-    <article class="card-wrapper card">
-      <a href="/mongodb/mongodb%E8%AF%AD%E6%B3%95/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">mongodb语法</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>语法
-
-基本格式
-
-db.集合名.find({ &amp;lt;条件&amp;gt; })
-
-
-等值匹配 { field : value }
-
-{ &quot;field&quot; : value }
-
-
-普通对象/数组对象嵌套字段 { class.attribute : value }
-
-{ &quot;对象名.属性名&quot;: value }
-{ &quot;数组名.对象名.属性名&quot;: value }
-
-
-比较运算  { field: { $xx...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1763210400"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/15
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      mongodb
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
 </div>
 <!-- #post-list -->
 
@@ -1300,11 +1295,29 @@ db.集合名.find({ &amp;lt;条件&amp;gt; })
         </li>
       
     
+      
+      
+      
+      
+      
+
+      
+
+      
+        <!-- show number -->
+        <li class="page-item ">
+          <a
+            class="page-link"
+            href="/page4"
+          >4</a>
+        </li>
+      
+    
 
     <!-- mobile pagination -->
     <li class="page-index align-middle">
       <span>1</span>
-      <span class="text-muted">/ 3</span>
+      <span class="text-muted">/ 4</span>
     </li>
 
     <!-- right arrow -->
@@ -1365,6 +1378,13 @@ db.集合名.find({ &amp;lt;条件&amp;gt; })
         
         
         <li class="text-truncate lh-lg">
+          <a href="/go/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%AD%97%E5%85%B8/">字典</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/">字典解析库</a>
         </li>
       
@@ -1373,13 +1393,6 @@ db.集合名.find({ &amp;lt;条件&amp;gt; })
         
         <li class="text-truncate lh-lg">
           <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%95%B0%E5%AD%97_%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2/">数字_字符串转换</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%97%B6%E9%97%B4%E8%A7%A3%E6%9E%90%E5%BA%93/">时间解析库</a>
         </li>
       
     </ul>

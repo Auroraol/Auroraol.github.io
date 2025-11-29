@@ -17,6 +17,14 @@
   },
   
   {
+    "title": "字典",
+    "url": "/go/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%AD%97%E5%85%B8/",
+    "date": "2025-11-27 11:00:00 +0800",
+    "categories": "GO, 数据结构",
+    "content": "ok-idiom . 使用 value, ok := map[key] 的语法保证百分之百安全 . | 1 2 3 4 . | //通过ok-idiom来判断key value是否存在，并获取map if value, ok := map1[1]; ok { fmt.Println(\"map key存在,其值为:\", value) } . | . 示例 . | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 . | func getSendChannel(action *model.ActionInfo) sendChannel { if action == nil { return sendChannelMqtt } // 百分之百安全 if channelVal, ok := action.ExtraData[\"channel\"]; ok { ch := sendChannel(channelVal) switch ch { case sendChannelPulsar, sendChannelMqtt: return ch } } return sendChannelMqtt } . | . 遍历 . | 1 2 3 4 5 6 7 8 9 10 11 12 . | // 只遍历 key for key := range paramMap { fmt.Println(key, paramMap[key]) } // 遍历key，value for key, value := range paramMap { fmt.Println(key, value) } // 只遍历value for _, value := range paramMap { fmt.Println(value) } . | . "
+  },
+  
+  {
     "title": "字典解析库",
     "url": "/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/",
     "date": "2025-11-22 15:40:00 +0800",
