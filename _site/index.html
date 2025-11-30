@@ -513,6 +513,71 @@
 <div id="post-list" class="flex-grow-1 px-xl-1">
   
     <article class="card-wrapper card">
+      <a href="/%E6%9E%84%E5%BB%BA/%E6%9E%84%E5%BB%BA%E6%96%87%E4%BB%B6%E6%A2%B3%E7%90%86/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">go项目构建文件梳理</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>作用
+
+.gitlab-ci.yml
+    └─&amp;gt; 调用模板中的构建脚本 可能调用 make 或 build.sh
+    
+Makefile  // 提供统一的构建命令入口
+    ├─&amp;gt; build.sh (make build)
+    └─&amp;gt; ciscripts/build.sh (make package)
+    
+pack.sh  // 完成打包、镜像推送
+...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1764471600"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/30
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      构建
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
       <a href="/%E5%8D%8F%E8%AE%AE/protobuf/" class="post-preview row g-0 flex-md-row-reverse">
         
 
@@ -1150,75 +1215,6 @@ json.Marshal(待解析...</p>
       </a>
     </article>
   
-    <article class="card-wrapper card">
-      <a href="/%E5%BC%80%E5%8F%91/go_GUI%E6%A1%86%E6%9E%B6_fyne/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">go-GUI框架-fyne</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>1.安装C编译器
-
-https://sourceforge.net/projects/mingw-w64/files/mingw-w64/
-
-安装后会自动加入环境变量path，自行确认
-
-cmd下输入指令gcc -v，确定安装成功和版本
-
-
-
-2.安装fyne
-
-使用标准的go工具，安装Fyne的核心库使用:
-
-go get fyne.io/fyne/v2@latest  #安装fyne框架...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1763224800"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/16
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      开发
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
 </div>
 <!-- #post-list -->
 
@@ -1364,6 +1360,13 @@ go get fyne.io/fyne/v2@latest  #安装fyne框架...</p>
         
         
         <li class="text-truncate lh-lg">
+          <a href="/%E6%9E%84%E5%BB%BA/%E6%9E%84%E5%BB%BA%E6%96%87%E4%BB%B6%E6%A2%B3%E7%90%86/">go项目构建文件梳理</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/%E5%8D%8F%E8%AE%AE/protobuf/">protobuf协议</a>
         </li>
       
@@ -1386,13 +1389,6 @@ go get fyne.io/fyne/v2@latest  #安装fyne框架...</p>
         
         <li class="text-truncate lh-lg">
           <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/">字典解析库</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%95%B0%E5%AD%97_%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2/">数字_字符串转换</a>
         </li>
       
     </ul>

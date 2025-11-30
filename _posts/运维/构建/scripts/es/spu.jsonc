@@ -1,0 +1,349 @@
+// "aliases": { "xdmp.spu": {}}
+{
+    "mappings": {
+        "dynamic": "false",
+        "properties": {
+            "shop_id": {
+                "type": "keyword",
+                "ignore_above": 256
+            },
+            "platform": {
+                "type": "keyword",
+                "ignore_above": 256
+            },
+            "plat_goods_id": {
+                "type": "keyword",
+                "ignore_above": 256
+            },
+            "plat_goods_name": {
+                "type": "text",
+                "analyzer": "trigram_analyzer"
+            },
+            "status": {
+                "type": "short"
+            },
+            "seller_cids": {
+                "type": "keyword",
+                "ignore_above": 256
+            },
+            "tags": {
+                "type": "keyword",
+                "ignore_above": 256
+            },
+            "create_answer_goods_time": {
+                "type": "date"
+            },
+            "create_time": {
+                "type": "date"
+            },
+            "created_time": {
+                "type": "date"
+            },
+            "update_time": {
+                "type": "date"
+            },
+            "presale": {
+                "type": "byte"
+            },
+            "profit": {
+                "properties": {
+                    "aging_id": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    },
+                    "detail": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "type": "keyword",
+                                "ignore_above": 256
+                            }
+                        }
+                    },
+                    "price": {
+                        "type": "double"
+                    },
+                    "profit_amount": {
+                        "type": "double"
+                    },
+                    "profit_rate": {
+                        "type": "double"
+                    }
+                }
+            },
+            "profit_stat": {
+                "properties": {
+                    "max_price": {
+                        "type": "double"
+                    },
+                    "max_profit_amount": {
+                        "type": "double"
+                    },
+                    "max_profit_rate": {
+                        "type": "double"
+                    },
+                    "min_price": {
+                        "type": "double"
+                    },
+                    "min_profit_amount": {
+                        "type": "double"
+                    },
+                    "min_profit_rate": {
+                        "type": "double"
+                    }
+                }
+            },
+            "MarkFromApi": {
+                "type": "boolean"
+            },
+            "article_number": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "cid": {
+                "type": "long"
+            },
+            "extra": {
+                "properties": {
+                    "prop_loaded": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "id": {
+                "type": "keyword",
+                "ignore_above": 256
+            },
+            "is_answer_goods": {
+                "type": "boolean"
+            },
+            "is_onsale": {
+                "type": "boolean"
+            },
+            "list_time": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "plat_goods_url": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "props": {
+                "type": "nested",
+                "properties": {
+                    "prop_name": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "type": "keyword",
+                                "ignore_above": 256
+                            }
+                        }
+                    },
+                    "source": {
+                        "type": "byte"
+                    },
+                    "value": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "type": "keyword",
+                                "ignore_above": 256
+                            }
+                        }
+                    }
+                }
+            },
+            "relation_props": {
+                "type": "nested",
+                "properties": {
+                    "prop_name": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "type": "keyword",
+                                "ignore_above": 256
+                            }
+                        }
+                    },
+                    "source": {
+                        "type": "byte"
+                    },
+                    "value": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "type": "keyword",
+                                "ignore_above": 256
+                            }
+                        }
+                    }
+                }
+            },
+            "custom_props": {
+                "type": "nested",
+                "properties": {
+                    "prop_name": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "type": "keyword",
+                                "ignore_above": 256
+                            }
+                        }
+                    },
+                    "source": {
+                        "type": "byte"
+                    },
+                    "value": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "type": "keyword",
+                                "ignore_above": 256
+                            }
+                        }
+                    }
+                }
+            },
+            "sku_props": {
+                "type": "nested",
+                "properties": {
+                    "prop_name": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "type": "keyword",
+                                "ignore_above": 256
+                            }
+                        }
+                    },
+                    "source": {
+                        "type": "byte"
+                    },
+                    "value": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "type": "keyword",
+                                "ignore_above": 256
+                            }
+                        }
+                    }
+                }
+            },
+            "sold_quantity": {
+                "type": "long"
+            }
+        }
+    },
+    "settings": {
+        "index": {
+            "refresh_interval": "1s",
+            "indexing": {
+                "slowlog": {
+                    "level": "info",
+                    "threshold": {
+                        "index": {
+                            "trace": "1s",
+                            "debug": "2s",
+                            "info": "3s",
+                            "warn": "5s"
+                        }
+                    },
+                    "source": "1000"
+                }
+            },
+            "translog": {
+                "sync_interval": "5s",
+                "durability": "async"
+            },
+            "max_result_window": "250000",
+            "unassigned": {
+                "node_left": {
+                    "delayed_timeout": "5m"
+                }
+            },
+            "number_of_replicas": "1",
+            "codec": "best_compression",
+            "search": {
+                "slowlog": {
+                    "level": "info",
+                    "threshold": {
+                        "fetch": {
+                            "trace": "200ms",
+                            "debug": "500ms",
+                            "info": "800ms",
+                            "warn": "1s"
+                        },
+                        "query": {
+                            "trace": "500ms",
+                            "debug": "1s",
+                            "info": "3s",
+                            "warn": "5s"
+                        }
+                    }
+                }
+            },
+            "number_of_shards": "3",
+            "max_ngram_diff": 2
+        },
+        "analysis": {
+            "analyzer": {
+                "trigram_analyzer": {
+                    "type": "custom",
+                    "tokenizer": "trigram_tokenizer",
+                    "filter": [
+                        "lowercase"
+                    ]
+                },
+                "ngram_one_analyzer": {
+                    "type": "custom",
+                    "tokenizer": "ngram_one_tokenizer",
+                    "filter": [
+                        "lowercase"
+                    ]
+                }
+            },
+            "tokenizer": {
+                "trigram_tokenizer": {
+                    "type": "ngram",
+                    "min_gram": 1,
+                    "max_gram": 3,
+                    "token_chars": [
+                        "letter",
+                        "digit",
+                        "punctuation",
+                        "symbol"
+                    ]
+                },
+                "ngram_one_tokenizer": {
+                    "type": "ngram",
+                    "min_gram": 1,
+                    "max_gram": 1,
+                    "token_chars": [
+                        "letter",
+                        "digit",
+                        "punctuation",
+                        "symbol"
+                    ]
+                }
+            }
+        }
+    }
+}

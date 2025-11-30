@@ -1,0 +1,38 @@
+include:
+  - project: 'ops/gitlab-cicd-templates'
+    ref: master
+    file: 'go/cicd-template/prepare.yaml'
+  - project: 'ops/gitlab-cicd-templates'
+    ref: master
+    file: 'go/cicd-template/test.yaml'
+  - project: 'ops/gitlab-cicd-templates'
+    ref: master
+    file: 'go/cicd-template/build.yaml'
+
+# stage定义
+stages:
+  - test
+  - build
+
+# 仅作单元测试(不包含资源层测试逻辑)
+test:
+  stage: test
+  extends:
+    - .test
+
+# fixbug、feature、test分支的镜像打包
+build-test-image:
+  stage: build
+  variables:
+    CI_WEBHOOK_URL: https://open.feishu.cn/111
+  extends:
+    - .build-test-image
+
+# tag触发(仅master分支但可配置)的镜像打包
+build-prod-image:
+  stage: build
+  variables:
+    CI_WEBHOOK_URL: https://open.feishu.cn/open-apis/bot/v2/hook/dddb105b-f598-4799-b511-fedf1006bea1
+  extends:
+    - .build-prod-image
+

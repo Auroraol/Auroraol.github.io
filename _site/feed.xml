@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>L</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2025-11-29T18:19:45+08:00</updated>
+  <updated>2025-12-01T00:56:35+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,57 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>go项目构建文件梳理</title>
+    <link href="http://localhost:4000/%E6%9E%84%E5%BB%BA/%E6%9E%84%E5%BB%BA%E6%96%87%E4%BB%B6%E6%A2%B3%E7%90%86/" rel="alternate" type="text/html" title="go项目构建文件梳理" />
+    <published>2025-11-30T11:00:00+08:00</published>
+  
+    <updated>2025-11-30T11:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/%E6%9E%84%E5%BB%BA/%E6%9E%84%E5%BB%BA%E6%96%87%E4%BB%B6%E6%A2%B3%E7%90%86/</id>
+    <content src="http://localhost:4000/%E6%9E%84%E5%BB%BA/%E6%9E%84%E5%BB%BA%E6%96%87%E4%BB%B6%E6%A2%B3%E7%90%86/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="构建" />
+    
+  
+
+  <summary>作用
+
+.gitlab-ci.yml
+    └─&amp;amp;gt; 调用模板中的构建脚本 可能调用 make 或 build.sh
+    
+Makefile  // 提供统一的构建命令入口
+    ├─&amp;amp;gt; build.sh (make build)
+    └─&amp;amp;gt; ciscripts/build.sh (make package)
+    
+pack.sh  // 完成打包、镜像推送
+    ├─&amp;amp;gt; 在容器中编译
+    └─&amp;amp;gt; Dockerfile (构建镜像)
+    
+build.sh
+    └─&amp;amp;gt; 生成 dist/ 目录
+    
+Dockerfile // 生产镜像定义
+    └─&amp;amp;gt; 依赖 dist/ 目录（需要先运行 build.sh）
+
+
+
+  
+    
+      脚本
+      编译环境
+      输出
+      用途
+  ...</summary>
+
+  </entry>
 
   
   <entry>
@@ -254,46 +305,6 @@ type Person struct {
 type Cat struct {
 	Name  string
 	Age...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>数字_字符串转换</title>
-    <link href="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%95%B0%E5%AD%97_%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2/" rel="alternate" type="text/html" title="数字_字符串转换" />
-    <published>2025-11-22T13:40:00+08:00</published>
-  
-    <updated>2025-11-22T13:40:00+08:00</updated>
-  
-    <id>http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%95%B0%E5%AD%97_%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2/</id>
-    <content src="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%95%B0%E5%AD%97_%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="GO" />
-    
-    <category term="解析库" />
-    
-  
-
-  <summary>数字&amp;amp;amp;字符转换
-
-string 转换 为其他类型
-
-f, _ := strconv.ParseBool(&amp;quot;false&amp;quot;)         // bool
-g, _ := strconv.ParseFloat(&amp;quot;123.23&amp;quot;, 64)     // float
-h, _ := strconv.ParseInt(&amp;quot;-1234&amp;quot;, 10, 64)    // int64
-i, _ := strconv.ParseUint(&amp;quot;12345&amp;quot;, 10, 64)    // int64 无符号
-j, _ := strconv.Atoi(&amp;quot;1023&amp;quot;)   				// int
-fmt.Println(f, g, h, i, j)					// false 123.23 11234 12345 1023
-
-// 注: 空字符串, 解系会报err, 但是有返回值0 
-
-
-其他类型 转换 为s...</summary>
 
   </entry>
 
