@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>L</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2025-12-01T00:56:35+08:00</updated>
+  <updated>2025-12-01T20:19:06+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,68 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>k8s拉取镜像策略</title>
+    <link href="http://localhost:4000/k8s/%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E7%AD%96%E7%95%A5/" rel="alternate" type="text/html" title="k8s拉取镜像策略" />
+    <published>2025-12-01T16:00:00+08:00</published>
+  
+    <updated>2025-12-01T16:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/k8s/%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E7%AD%96%E7%95%A5/</id>
+    <content src="http://localhost:4000/k8s/%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E7%AD%96%E7%95%A5/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="k8s" />
+    
+  
+
+  <summary>镜像拉取策略
+
+
+
+
+  
+    
+      值
+      含义
+    
+  
+  
+    
+      Always
+      每次启动容器时都尝试拉取镜像（忽略本地缓存）。
+    
+    
+      IfNotPresent
+      如果本地已有该镜像，重启 Pod 时则不拉取；否则拉取。
+    
+    
+      Never
+      只使用本地镜像，绝不拉取。
+    
+  
+
+
+问题
+
+配置IfNotPresent, 但是出现偶尔更新镜像后，重启 Pod，代码却更新
+
+
+  ✅ 原因 1：Pod 被调度到了新节点（或清理过镜像的节点）
+    
+      节点 A 有旧镜像 → 用本地缓存
+      节点 B 没有镜像 → 拉取最新版本
+      如果你节点偶尔自动清理镜像（如 kubelet 的镜像回收机制），也可能触发拉取
+    
+...</summary>
+
+  </entry>
 
   
   <entry>
@@ -239,72 +301,6 @@ func getSendChannel(action *model.ActionInfo) sendChannel {
 		ch := sendChannel(channelVal)
 		switch ch {
 		case sen...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>字典解析库</title>
-    <link href="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/" rel="alternate" type="text/html" title="字典解析库" />
-    <published>2025-11-22T15:40:00+08:00</published>
-  
-    <updated>2025-11-23T00:54:49+08:00</updated>
-  
-    <id>http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/</id>
-    <content src="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="GO" />
-    
-    <category term="解析库" />
-    
-  
-
-  <summary>mapstructure 库
-
-
-  将 map[string]interface{} 数据解析到结构体中
-
-
-基础使用
-
-相关的包：
-
-import {
-	&amp;quot;github.com/mitchellh/mapstructure&amp;quot;
-}
-
-
-语法
-
-mapstructure.Decode(待解析map数据, &amp;amp;amp;目标)
-
-
-在日常开发中，接受的数据可能不是固定的格式，而是会根据某个值的不同有不同的内容。
-
-package main
-
-import (
-	&amp;quot;encoding/json&amp;quot;
-	&amp;quot;fmt&amp;quot;
-	&amp;quot;log&amp;quot;
-
-	&amp;quot;github.com/mitchellh/mapstructure&amp;quot;
-)
-
-type Person struct {
-	Name string
-	Age  int
-	Job  string
-}
-
-type Cat struct {
-	Name  string
-	Age...</summary>
 
   </entry>
 
