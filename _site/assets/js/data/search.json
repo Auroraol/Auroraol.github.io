@@ -1,6 +1,14 @@
 [
   
   {
+    "title": "指针",
+    "url": "/go/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8C%87%E9%92%88/",
+    "date": "2025-12-02 11:00:00 +0800",
+    "categories": "GO, 数据结构",
+    "content": "📌 结论 . | 值接收者方法： T 和 *T 都可以赋给接口 . | 指针接收者方法：只有 *T 可以赋给接口 | 接口类型前面永远不要加 * (接口用值，不加星；加星就废，没方法) | . 示例1: . | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 . | type F interface { f() } type S1 struct{} func (s S1) f() {} // 值接收者方法，属于 S1 的值方法集 type S2 struct{} func (s *S2) f() {} // 指针接收者方法，属于 *S2 的指针方法集 var ( i F // 接口 //值方法集 s1Val = S1{} s1Ptr = &amp;S1{} i = s1Val i = s1Ptr //指针方法集 s2Val = S2{} s2Ptr = &amp;S2{} i = s2Ptr //只能将指针对象赋值给接口变量 ) . | . 示例2 . | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 . | //httpclient包 type Store interface { Get(key string) (string, error) Set(key, val string) error } type memStore struct { data map[string]string } func (m *memStore) Get(key string) (string, error) {} func (m *memStore) Set(key, val string) error {} func NewStore() Store { return &amp;memStore{data: make(map[string]string)} } . | . 用Store . | 1 2 3 4 5 . | var _defaultInstance *httpclient.Store // 错 func GetInstance() *httpclient.Store // 错 //GetInstance().Get() 报错找不到这个方法 var _defaultInstance httpclient.Store // 对 func GetInstance() httpclient.Store // 对 . | . "
+  },
+  
+  {
     "title": "k8s拉取镜像策略",
     "url": "/k8s/%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E7%AD%96%E7%95%A5/",
     "date": "2025-12-01 16:00:00 +0800",

@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>L</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2025-12-01T20:19:06+08:00</updated>
+  <updated>2025-12-02T22:27:48+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -20,11 +20,71 @@
 
   
   <entry>
+    <title>指针</title>
+    <link href="http://localhost:4000/go/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8C%87%E9%92%88/" rel="alternate" type="text/html" title="指针" />
+    <published>2025-12-02T11:00:00+08:00</published>
+  
+    <updated>2025-12-02T11:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/go/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8C%87%E9%92%88/</id>
+    <content src="http://localhost:4000/go/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8C%87%E9%92%88/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="GO" />
+    
+    <category term="数据结构" />
+    
+  
+
+  <summary>📌 结论
+
+
+  
+    值接收者方法：   T 和 *T 都可以赋给接口
+  
+  指针接收者方法：只有 *T 可以赋给接口
+  接口类型前面永远不要加 * (接口用值，不加星；加星就废，没方法)
+
+
+示例1:
+
+type F interface {
+    f()
+}
+
+type S1 struct{}
+
+func (s S1) f() {}    // 值接收者方法，属于 S1 的值方法集
+
+type S2 struct{}
+
+func (s *S2) f() {}   // 指针接收者方法，属于 *S2 的指针方法集
+
+var (
+    i F // 接口
+    
+    //值方法集
+    s1Val = S1{}
+    s1Ptr = &amp;amp;amp;S1{}
+    i = s1Val
+    i = s1Ptr
+
+    //指针方法集 
+    s2Val = ...</summary>
+
+  </entry>
+
+  
+  <entry>
     <title>k8s拉取镜像策略</title>
     <link href="http://localhost:4000/k8s/%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E7%AD%96%E7%95%A5/" rel="alternate" type="text/html" title="k8s拉取镜像策略" />
     <published>2025-12-01T16:00:00+08:00</published>
   
-    <updated>2025-12-01T16:00:00+08:00</updated>
+    <updated>2025-12-01T20:22:00+08:00</updated>
   
     <id>http://localhost:4000/k8s/%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E7%AD%96%E7%95%A5/</id>
     <content src="http://localhost:4000/k8s/%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E7%AD%96%E7%95%A5/" />
@@ -255,52 +315,6 @@ MsgId string `protobuf:&amp;quot;bytes,1,opt,name=msg_id,json=msgId,proto3&amp;q
     
       使用场景
  ...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>字典</title>
-    <link href="http://localhost:4000/go/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%AD%97%E5%85%B8/" rel="alternate" type="text/html" title="字典" />
-    <published>2025-11-27T11:00:00+08:00</published>
-  
-    <updated>2025-11-27T11:00:00+08:00</updated>
-  
-    <id>http://localhost:4000/go/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%AD%97%E5%85%B8/</id>
-    <content src="http://localhost:4000/go/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%AD%97%E5%85%B8/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="GO" />
-    
-    <category term="数据结构" />
-    
-  
-
-  <summary>ok-idiom
-
-使用 value, ok := map[key] 的语法保证百分之百安全
-
-//通过ok-idiom来判断key value是否存在，并获取map
-if value, ok := map1[1]; ok {
-    fmt.Println(&amp;quot;map key存在,其值为:&amp;quot;, value)
-}
-
-
-示例
-
-func getSendChannel(action *model.ActionInfo) sendChannel {
-	if action == nil {
-		return sendChannelMqtt
-	}
-    // 百分之百安全
-	if channelVal, ok := action.ExtraData[&amp;quot;channel&amp;quot;]; ok {
-		ch := sendChannel(channelVal)
-		switch ch {
-		case sen...</summary>
 
   </entry>
 
