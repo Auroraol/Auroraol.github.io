@@ -2452,7 +2452,21 @@ defer cancel()
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8C%87%E9%92%88/">指针</a>
+          <a href="/go/%E8%A7%84%E5%88%99/%E6%96%B9%E6%B3%95/">函数</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/go/%E8%A7%84%E5%88%99/%E6%8E%A5%E5%8F%A3/">接口/结构体的组合</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/">指针</a>
         </li>
       
         
@@ -2467,20 +2481,6 @@ defer cancel()
         
         <li class="text-truncate lh-lg">
           <a href="/docker/docker%E6%8E%A8%E9%80%81%E9%95%9C%E5%83%8F/docker/">docker拉去/推送镜像</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/%E6%9E%84%E5%BB%BA/%E6%9E%84%E5%BB%BA%E6%96%87%E4%BB%B6%E6%A2%B3%E7%90%86/">go项目构建文件梳理</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/%E5%8D%8F%E8%AE%AE/protobuf/">protobuf协议</a>
         </li>
       
     </ul>
@@ -3097,6 +3097,30 @@ defer cancel()
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
 
 
@@ -3111,115 +3135,6 @@ defer cancel()
   <aside id="related-posts" aria-labelledby="related-label">
     <h3 class="mb-4" id="related-label">相关文章</h3>
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
-      
-        <article class="col">
-          <a href="/go/goland%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/goland/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1762965600"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/13
-</time>
-
-              <h4 class="pt-0 my-2">Goland常用快捷键</h4>
-              <div class="text-muted">
-                <p>Goland 常用快捷键
-
-文件操作相关的快捷键
-
-
-  
-    
-      快捷键
-      作用
-    
-  
-  
-    
-      Ctrl + E
-      打开最近浏览过的文件
-    
-    
-      F2
-      重命名文件夹、文件、方法、变量名等
-    
-  
-
-
-代码格式化相关的快捷键
-
-
-  
-    
-      快捷键
-      作用
- ...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/json%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1763743200"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/22
-</time>
-
-              <h4 class="pt-0 my-2">json解析库</h4>
-              <div class="text-muted">
-                <p>json库
-
-
-  
-    JSON 编码: 将 Go 的数据结构转换为 JSON 格式的字符串。通过 json.Marshal 函数实现。
-    JSON 解码: 将 JSON 格式的字符串转换为 Go 的数据结构。通过 json.Unmarshal 函数实现。
-  
-
-
-相关的包：
-
-1
-2
-3
-import {
-	&quot;encoding/json&quot;
-}
-
-
-语法
-
-1
-2
-json.M...</p>
-              </div>
-            </div>
-          </a>
-        </article>
       
         <article class="col">
           <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E7%BB%93%E6%9E%84%E4%BD%93%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview card h-100">
@@ -3286,6 +3201,105 @@ copier.Copy(&amp;amp;目标, &amp;amp;源)
 17
 18
 19...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E9%BB%98%E8%AE%A4%E5%80%BC/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1763779200"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/22
+</time>
+
+              <h4 class="pt-0 my-2">默认值</h4>
+              <div class="text-muted">
+                <p>零值的定义取决于字段的类型：
+
+
+  对于 string 类型，零值是空字符串 ““。
+  对于 int 类型，零值是 0。
+  对于指针类型，零值是 nil。
+  对于切片和映射，零值是 nil 或者长度为 0 的切片/映射。
+  对于数组，零值是 []
+
+
+例子
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+type Goods struct {
+	//...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%97%B6%E9%97%B4%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1763782800"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/22
+</time>
+
+              <h4 class="pt-0 my-2">时间解析库</h4>
+              <div class="text-muted">
+                <p>时间戳
+
+1
+2
+3
+4
+5
+6
+now := time.Now() // 当前本地时间
+
+sec  := now.Unix()    // 秒级（Unix 时间戳）
+msec := now.UnixMilli() // 毫秒级（Go 1.17+）
+usec := now.UnixMicro() // 微秒级（Go 1.17+）
+nsec := now.UnixNano()  // 纳秒级
+...</p>
               </div>
             </div>
           </a>
