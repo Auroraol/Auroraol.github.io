@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>L</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2025-12-07T15:46:37+08:00</updated>
+  <updated>2025-12-07T17:49:41+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,46 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>toml配置文件</title>
+    <link href="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8-%E5%89%AF%E6%9C%AC/" rel="alternate" type="text/html" title="toml配置文件" />
+    <published>2025-12-07T17:00:00+08:00</published>
+  
+    <updated>2025-12-07T17:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8-%E5%89%AF%E6%9C%AC/</id>
+    <content src="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8-%E5%89%AF%E6%9C%AC/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="GO" />
+    
+    <category term="解析库" />
+    
+  
+
+  <summary>配置管理神器Viper
+
+type Config struct 
+	Spu                 SpuConfig                       `mapstructure:&amp;quot;spu&amp;quot;`
+	Sdks                []SDKConf                        `mapstructure:&amp;quot;sdks&amp;quot;` //
+	SpiHttpClients SpiHttpClientConfig `mapstructure:&amp;quot;spi_http_clients&amp;quot;`
+	Person  //
+	MockConfig `mapstructure:&amp;quot;,squash&amp;quot;` //
+}
+
+type Person struct {
+	Name            string     `mapstructure:&amp;quot;name&amp;quot;`
+}
+
+type MockCon...</summary>
+
+  </entry>
 
   
   <entry>
@@ -152,7 +192,7 @@ func (s *S2)...</summary>
     <link href="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/" rel="alternate" type="text/html" title="指针" />
     <published>2025-12-02T11:00:00+08:00</published>
   
-    <updated>2025-12-02T11:00:00+08:00</updated>
+    <updated>2025-12-07T15:47:05+08:00</updated>
   
     <id>http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/</id>
     <content src="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/" />
@@ -265,57 +305,6 @@ var (
       如果你节点偶尔自动清理镜像（如 kubelet 的镜像回收机制），也可能触发拉取
     
 ...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>go项目构建文件梳理</title>
-    <link href="http://localhost:4000/%E6%9E%84%E5%BB%BA/%E6%9E%84%E5%BB%BA%E6%96%87%E4%BB%B6%E6%A2%B3%E7%90%86/" rel="alternate" type="text/html" title="go项目构建文件梳理" />
-    <published>2025-11-30T11:00:00+08:00</published>
-  
-    <updated>2025-11-30T11:00:00+08:00</updated>
-  
-    <id>http://localhost:4000/%E6%9E%84%E5%BB%BA/%E6%9E%84%E5%BB%BA%E6%96%87%E4%BB%B6%E6%A2%B3%E7%90%86/</id>
-    <content src="http://localhost:4000/%E6%9E%84%E5%BB%BA/%E6%9E%84%E5%BB%BA%E6%96%87%E4%BB%B6%E6%A2%B3%E7%90%86/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="构建" />
-    
-  
-
-  <summary>作用
-
-.gitlab-ci.yml
-    └─&amp;amp;gt; 调用模板中的构建脚本 可能调用 make 或 build.sh
-    
-Makefile  // 提供统一的构建命令入口
-    ├─&amp;amp;gt; build.sh (make build)
-    └─&amp;amp;gt; ciscripts/build.sh (make package)
-    
-pack.sh  // 完成打包、镜像推送
-    ├─&amp;amp;gt; 在容器中编译
-    └─&amp;amp;gt; Dockerfile (构建镜像)
-    
-build.sh
-    └─&amp;amp;gt; 生成 dist/ 目录
-    
-Dockerfile // 生产镜像定义
-    └─&amp;amp;gt; 依赖 dist/ 目录（需要先运行 build.sh）
-
-
-
-  
-    
-      脚本
-      编译环境
-      输出
-      用途
-  ...</summary>
 
   </entry>
 
