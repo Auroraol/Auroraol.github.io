@@ -268,13 +268,9 @@
     <!-- The Side Bar -->
 
 <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
-  <header class="profile-wrapper">
-    <a href="/" id="avatar" class="rounded-circle"><img src="/assets/img/avatar.jpeg" width="112" height="112" alt="avatar" onerror="this.style.display='none'"></a>
-
-    <h1 class="site-title">
-      <a href="/">L</a>
-    </h1>
-    <p class="site-subtitle mb-0">随便写写</p>
+  <header class="profile-wrapper"><h1 class="site-title">
+        <a href="/">L</a>
+      </h1><p class="site-subtitle mb-0">随便写写</p>
   </header>
   <!-- .profile-wrapper -->
 
@@ -517,23 +513,22 @@
 <div id="post-list" class="flex-grow-1 px-xl-1">
   
     <article class="card-wrapper card">
-      <a href="/redis/redis%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/" class="post-preview row g-0 flex-md-row-reverse">
+      <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/" class="post-preview row g-0 flex-md-row-reverse">
         
 
         
 
         <div class="col-md-12">
           <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">4.Redis模式总结</h1>
+            <h1 class="card-title my-2 mt-md-0">toml配置文件</h1>
 
             <div class="card-text content mt-0 mb-3">
-              <p>分工
+              <p>配置管理神器Viper
 
-        ┌-------- 高可用 ---------------------┐
-        │                         │
-   +----+-----+             +-----+----+
-   │  Master  │◀---failover─│  Slave   │  Slave 随时
-   │  写+读   │       ...</p>
+type Config struct 
+	Spu                 SpuConfig                       `mapstructure:&quot;spu&quot;`
+	Sdks                []SDKConf                        `mapstructure:&quot;sdks&quot;` //
+	SpiHttpCli...</p>
             </div>
 
             <div class="post-meta flex-grow-1 d-flex align-items-end">
@@ -550,490 +545,11 @@
 
 <time
   
-  data-ts="1762693320"
+  data-ts="1765098000"
   data-df="YYYY/MM/DD"
   
 >
-  2025/11/09
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Redis,
-                      Redis模式
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E9%9B%86%E7%BE%A4/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">3.Redis集群</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>业务规模
-      推荐架构
-    
-  
-  
-    
-      小型业务（缓存 &amp;lt; 10GB）
-      一主二从 + 三哨兵（高可用即可）
-    
-    
-      中型业务（10GB~100GB）
-      三主三从集群（分片 + 高可用）
-    
-    
-      大型业务（&amp;gt;100GB，高并发）
-      多组集群 或 Redis Proxy...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1762689600"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/09
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Redis,
-                      Redis模式
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/redis/redis%E6%A8%A1%E5%BC%8F/%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">2.Redis哨兵机制</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>概述
-Redis的高可用机制有持久化、复制、哨兵和集群。其主要的作用和解决的问题分别是：
-
-  持久化：持久化是最简单的高可用方法(有时甚至不被归为高可用的手段)，主要作用是数据备份，即将数据存储在硬盘，保证数据不会因进程退出而丢失。
-  复制：复制是高可用Redis的基础，哨兵和集群都是在复制基础上实现高可用的。复制主要实现了数据的多机备份，以及对于读操作的负载均衡和简单的故障恢复。缺陷：...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1762675200"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/09
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Redis,
-                      Redis模式
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/linux/%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">命令行快捷键</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>命令行快捷键：
-
-
-  常用：
-    
-      Ctrl L ：清屏
-      Ctrl M ：等效于回车
-      Ctrl C : 中断正在当前正在执行的程序
-    
-  
-  历史命令：
-    
-      Ctrl P : 上一条命令，可以一直按表示一直往前翻
-      Ctrl N : 下一条命令
-      Ctrl R，再按历史命令中出现过的字符串：按字符串寻找...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1762657200"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/09
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      linux
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">1.Redis主从复制</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>本地缓存带来的挑战
-
-分布式缓存相比于本地缓存，在实现层面需要关注的点有哪些不同。梳理如下：
-
-
-  
-    
-      维度
-      本地缓存
-      集中式缓存
-    
-  
-  
-    
-      缓存量
-      受限于单机内存大小，存储数据有限
-      需要提供给分布式系统里面所有节点共同使用，对于大型系统而言，对集中式缓存的容量诉求非常的大，远超单机内存的...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1762653600"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/09
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Redis,
-                      Redis模式
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/%E5%8E%8B%E6%B5%8B/k6%E5%B7%A5%E5%85%B7/k6/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">K6工具</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>安装
-
-Win 11 操作系统内置了 winget 安装工具，所以笔者直接使用 winget 安装 k6：
-
-winget install k6
-
-
-
-
-其他的安装方式可以参考安装文档。
-
-k6 的使
-
-k6 的 Hello World
-
-创建一个测试脚本hello-world.js：
-
-import http from &#39;k6/http&#39;;
-import { sleep } from &#39;k...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1762488000"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/07
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      压测,
-                      K6工具
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/%E5%8E%8B%E6%B5%8B/%E5%8E%8B%E6%B5%8B%E8%AF%B4%E6%98%8E/%E5%8E%8B%E6%B5%8B/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">压测</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>压测
-
-压测是什么
-
-压测，即压力测试，是确立系统稳定性的一种测试方法，通常在系统正常运作范围之外进行，以考察其功能极限和隐患。
-
-主要检测服务器的承受能力，包括用户承受能力（多少用户同时玩基本不影响质量）、流量承受等。
-
-为什么要压测
-
-
-  压测的目的就是通过压测(模拟真实用户的行为)，测算出机器的性能(单台机器的 QPS)，从而推算出系统在承受指定用户数(100W)时，需要多少机器能支...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1762484400"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/07
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      压测,
-                      压测说明
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/go/context%E4%B8%8A%E4%B8%8B%E6%96%87/%E4%BB%BB%E5%8A%A1%E4%B8%8A%E4%B8%8B%E6%96%87/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">Context上下文</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>Context
-
-Context 概要
-
-Go 1.7 标准库引入 Context，中文名为上下文，是一个跨 API 和进程用来传递截止日期、取消信号和请求范围的值的接口。
-
-context.Context 定义如下：
-
-type Context interface {
-	Deadline() (deadline time.Time, ok bool)
-	Done() &amp;lt;-chan s...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1762447200"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/07
+  2025/12/07
 </time>
 
 
@@ -1043,7 +559,7 @@ type Context interface {
                   <span class="categories">
                     
                       GO,
-                      Context上下文
+                      解析库
                   </span>
                 
               </div>
@@ -1058,24 +574,35 @@ type Context interface {
     </article>
   
     <article class="card-wrapper card">
-      <a href="/docker/docker%E6%8E%A8%E9%80%81%E9%95%9C%E5%83%8F/docker/" class="post-preview row g-0 flex-md-row-reverse">
+      <a href="/go/%E8%A7%84%E5%88%99/%E6%96%B9%E6%B3%95/" class="post-preview row g-0 flex-md-row-reverse">
         
 
         
 
         <div class="col-md-12">
           <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">docker推送镜像</h1>
+            <h1 class="card-title my-2 mt-md-0">函数</h1>
 
             <div class="card-text content mt-0 mb-3">
-              <p>镜像
+              <p>函数
 
-# 登录docker
-docker login -u 账号 -p 密码 registry.cn-zhangjiakou.aliyuncs.com
-# 拉取镜像
-docker pull registry.cn-xxxxx.aliyuncs.com/xxxxx/ecrobot-xxx-dy:v0.1.37
-# tag
-docker tag ad2a5ed8bc4c  opcloud-mi...</p>
+定义函数
+
+func 函数名字 (参数列表) (返回值列表）{
+	// 函数体
+	return 返回值列表
+}
+
+
+注意：
+
+
+  函数名首字母小写为私有，大写为公有；
+  参数列表可以有0-多个，多参数使用逗号分隔，不支持默认参数；
+  返回值列表返回值类型可以不用写变量名
+  如果只有一个返回值且不声明类型，可以省略返回值列表与括号
+  如果有返回值，函数内必须有return　
+...</p>
             </div>
 
             <div class="post-meta flex-grow-1 d-flex align-items-end">
@@ -1092,11 +619,11 @@ docker tag ad2a5ed8bc4c  opcloud-mi...</p>
 
 <time
   
-  data-ts="1762225200"
+  data-ts="1765080000"
   data-df="YYYY/MM/DD"
   
 >
-  2025/11/04
+  2025/12/07
 </time>
 
 
@@ -1105,8 +632,8 @@ docker tag ad2a5ed8bc4c  opcloud-mi...</p>
                   <i class="far fa-folder-open fa-fw me-1"></i>
                   <span class="categories">
                     
-                      docker,
-                      docker推送镜像
+                      GO,
+                      规则
                   </span>
                 
               </div>
@@ -1121,26 +648,41 @@ docker tag ad2a5ed8bc4c  opcloud-mi...</p>
     </article>
   
     <article class="card-wrapper card">
-      <a href="/redis/redis%E8%BF%9E%E6%8E%A5%E6%95%B0/Redis%E8%BF%9E%E6%8E%A5%E6%95%B0%E8%B0%83%E6%95%B4/" class="post-preview row g-0 flex-md-row-reverse">
+      <a href="/go/%E8%A7%84%E5%88%99/%E6%8E%A5%E5%8F%A3/" class="post-preview row g-0 flex-md-row-reverse">
         
 
         
 
         <div class="col-md-12">
           <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">Redis连接数调整</h1>
+            <h1 class="card-title my-2 mt-md-0">接口/结构体的组合</h1>
 
             <div class="card-text content mt-0 mb-3">
-              <p>调整的原因
+              <p>接口
 
-一般来说，现在的redis连接都会有池化技术， Redis连接池技术有以下好处：
+
+  接口 = 定义方法集
+
+
+type FImpl interface {
+	f1()
+	f2()
+	f3()
+	f4()
+}
+
+
+
+实现
+
+结构体实现遵循规则:
 
 
   
-    资源复用：连接池允许多个客户端共享一定数量的数据库连接。当一个客户端完成操作并释放连接时，这个连接可以被另一个客户端重用，而不是关闭后重新建立，这大大减少了创建和销毁连接所需的时间和资源。
+    结构体T方法为值接收者方法：   T 和 *T 都可以赋给接口
   
-  
-    减少等待时间：预创建的连接可以立即提供给需要它们的客户端。这意味着应用...</p>
+  结构体T方法为接收者方法：      只有 *T 可以赋给接口
+  接口类型前面永远不要加 * (接口用值，不加星；加星就废，没...</p>
             </div>
 
             <div class="post-meta flex-grow-1 d-flex align-items-end">
@@ -1157,11 +699,11 @@ docker tag ad2a5ed8bc4c  opcloud-mi...</p>
 
 <time
   
-  data-ts="1762225200"
+  data-ts="1764734400"
   data-df="YYYY/MM/DD"
   
 >
-  2025/11/04
+  2025/12/03
 </time>
 
 
@@ -1170,8 +712,505 @@ docker tag ad2a5ed8bc4c  opcloud-mi...</p>
                   <i class="far fa-folder-open fa-fw me-1"></i>
                   <span class="categories">
                     
-                      Redis,
-                      Redis连接数
+                      GO,
+                      规则
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">指针</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>📌 结论
+
+
+  
+    值接收者方法：   T 和 *T 都可以赋给接口
+  
+  指针接收者方法：只有 *T 可以赋给接口
+  接口类型前面永远不要加 * (接口用值，不加星；加星就废，没方法)
+
+
+示例1:
+
+type F interface {
+    f()
+}
+
+type S1 struct{}
+
+func (s S1) f() {}    // 值接收者方法，属于 S1 的值...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1764644400"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/12/02
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      GO,
+                      规则
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/k8s/%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E7%AD%96%E7%95%A5/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">k8s拉取镜像策略</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>镜像拉取策略
+
+
+
+
+  
+    
+      值
+      含义
+    
+  
+  
+    
+      Always
+      每次启动容器时都尝试拉取镜像（忽略本地缓存）。
+    
+    
+      IfNotPresent
+      如果本地已有该镜像，重启 Pod 时则不拉取；否则拉取。
+    
+    
+      Never
+      只使用本地镜像，绝不...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1764576000"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/12/01
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      k8s
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/%E6%9E%84%E5%BB%BA/%E6%9E%84%E5%BB%BA%E6%96%87%E4%BB%B6%E6%A2%B3%E7%90%86/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">go项目构建文件梳理</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>作用
+
+.gitlab-ci.yml
+    └─&amp;gt; 调用模板中的构建脚本 可能调用 make 或 build.sh
+    
+Makefile  // 提供统一的构建命令入口
+    ├─&amp;gt; build.sh (make build)
+    └─&amp;gt; ciscripts/build.sh (make package)
+    
+pack.sh  // 完成打包、镜像推送
+...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1764471600"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/30
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      构建
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/%E5%8D%8F%E8%AE%AE/protobuf/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">protobuf协议</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>Protobuf
+
+Protobuf 提供了一种紧凑的二进制格式，序列化后的数据体积小，解析速度快，适合高性能场景。它支持多种编程语言，包括 C++、Java、Python、Go 等，能够实现跨语言的数据交换。
+
+Protobuf 常用于以下场景：
+
+
+  
+    分布式系统：在服务之间传递高效的结构化数据。
+  
+  
+    RPC 框架：与 gRPC 集成，用于定义服务接口和消息格式...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1764388800"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/29
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      协议
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/protojson%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">protojson解析库</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>json 和 protojson使用
+
+不是直接使用encoding/json库的原因:
+
+
+  
+    
+      序列化器
+      能否用于 Protobuf GO 结构体
+      输出标准 Protobuf JSON
+      能正确处理特殊 proto 类型
+    
+  
+  
+    
+      encoding/json
+      可以，但有限
+      否...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1764385200"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/29
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      GO,
+                      解析库
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/go/%E8%A7%84%E5%88%99/%E5%AD%97%E5%85%B8/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">字典</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>创建
+
+Map创建了没有赋值，编译器会报错
+
+//1.make函数创建 (推荐)
+var map2 = make(map[string]string)   //make创建会直接初始化，值为nil
+
+//2.创建同时初始化 (有确定的键值时推荐)
+var map3 = map[string]int{&quot;Go&quot;:100,&quot;java&quot;:90} // 有这些键值时使用
+
+//3.var常量定义 (不...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1764212400"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/27
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      GO,
+                      规则
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">字典解析库</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>mapstructure 库
+
+
+  将 map[string]interface{} 数据解析到结构体中
+
+
+基础使用
+
+相关的包：
+
+import {
+	&quot;github.com/mitchellh/mapstructure&quot;
+}
+
+
+语法
+
+mapstructure.Decode(待解析map数据, &amp;amp;目标)
+
+
+在日常开发中，接受的数据可能不是固定的格式，而是会根据某个值的不同...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1763797200"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/22
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      GO,
+                      解析库
                   </span>
                 
               </div>
@@ -1243,11 +1282,47 @@ docker tag ad2a5ed8bc4c  opcloud-mi...</p>
         </li>
       
     
+      
+      
+      
+      
+      
+
+      
+
+      
+        <!-- show number -->
+        <li class="page-item ">
+          <a
+            class="page-link"
+            href="/page3"
+          >3</a>
+        </li>
+      
+    
+      
+      
+      
+      
+      
+
+      
+
+      
+        <!-- show number -->
+        <li class="page-item ">
+          <a
+            class="page-link"
+            href="/page4"
+          >4</a>
+        </li>
+      
+    
 
     <!-- mobile pagination -->
     <li class="page-index align-middle">
       <span>1</span>
-      <span class="text-muted">/ 2</span>
+      <span class="text-muted">/ 4</span>
     </li>
 
     <!-- right arrow -->
@@ -1294,35 +1369,35 @@ docker tag ad2a5ed8bc4c  opcloud-mi...</p>
         
         
         <li class="text-truncate lh-lg">
-          <a href="/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E9%9B%86%E7%BE%A4/">3.Redis集群</a>
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/">字典解析库</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/redis/redis%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/">4.Redis模式总结</a>
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/redis/redis%E6%A8%A1%E5%BC%8F/%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/">2.Redis哨兵机制</a>
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/">toml配置文件</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/%E5%8E%8B%E6%B5%8B/%E5%8E%8B%E6%B5%8B%E8%AF%B4%E6%98%8E/%E5%8E%8B%E6%B5%8B/">压测</a>
+          <a href="/go/%E8%A7%84%E5%88%99/%E5%AD%97%E5%85%B8/">字典</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/%E5%8E%8B%E6%B5%8B/k6%E5%B7%A5%E5%85%B7/k6/">K6工具</a>
+          <a href="/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/">指针</a>
         </li>
       
     </ul>
@@ -1376,10 +1451,6 @@ docker tag ad2a5ed8bc4c  opcloud-mi...</p>
     
     
     
-      
-        
-        
-
   
     
     
@@ -1394,31 +1465,6 @@ docker tag ad2a5ed8bc4c  opcloud-mi...</p>
     
     
     
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1454,50 +1500,6 @@ docker tag ad2a5ed8bc4c  opcloud-mi...</p>
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -1527,41 +1529,14 @@ docker tag ad2a5ed8bc4c  opcloud-mi...</p>
     
     
     
-  
-    
-    
-    
-    
       
-    
+        
+        
+
   
     
     
     
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1590,17 +1565,9 @@ docker tag ad2a5ed8bc4c  opcloud-mi...</p>
     
     
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
+        
+        
+
   
     
     
@@ -1653,10 +1620,49 @@ docker tag ad2a5ed8bc4c  opcloud-mi...</p>
     
     
     
+      
+    
   
     
     
     
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -1669,6 +1675,100 @@ docker tag ad2a5ed8bc4c  opcloud-mi...</p>
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
     
   
     
@@ -1709,25 +1809,25 @@ docker tag ad2a5ed8bc4c  opcloud-mi...</p>
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/pgsql%E6%A7%BD%E4%BD%8D/">PgSQL槽位</a>
-      
-        
         <a class="post-tag btn btn-outline-primary" href="/tags/context/">Context</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/docker%E6%8E%A8%E9%80%81%E9%95%9C%E5%83%8F/">docker推送镜像</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E4%B8%BB%E4%BB%8E%E5%88%87%E6%8D%A2/">主从切换</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/go-gui%E6%A1%86%E6%9E%B6-fyne/">go-GUI框架-fyne</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">主从复制</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/goland/">Goland</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E5%85%A8%E9%87%8F%E5%A4%8D%E5%88%B6/">全量复制</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E5%8E%8B%E6%B5%8Bk6%E5%B7%A5%E5%85%B7/">压测K6工具</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/mongodb%E8%AF%AD%E6%B3%95/">mongodb语法</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/pgsql%E6%A7%BD%E4%BD%8D/">PgSQL槽位</a>
       
     </div>
   </section>
@@ -1843,10 +1943,6 @@ docker tag ad2a5ed8bc4c  opcloud-mi...</p>
     
     
     
-      
-        
-        
-
   
     
     
@@ -1861,31 +1957,6 @@ docker tag ad2a5ed8bc4c  opcloud-mi...</p>
     
     
     
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1921,50 +1992,6 @@ docker tag ad2a5ed8bc4c  opcloud-mi...</p>
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -1994,41 +2021,14 @@ docker tag ad2a5ed8bc4c  opcloud-mi...</p>
     
     
     
-  
-    
-    
-    
-    
       
-    
+        
+        
+
   
     
     
     
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -2057,17 +2057,9 @@ docker tag ad2a5ed8bc4c  opcloud-mi...</p>
     
     
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
+        
+        
+
   
     
     
@@ -2120,10 +2112,49 @@ docker tag ad2a5ed8bc4c  opcloud-mi...</p>
     
     
     
+      
+    
   
     
     
     
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -2136,6 +2167,100 @@ docker tag ad2a5ed8bc4c  opcloud-mi...</p>
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
     
   
     
@@ -2176,25 +2301,25 @@ docker tag ad2a5ed8bc4c  opcloud-mi...</p>
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/pgsql%E6%A7%BD%E4%BD%8D/">PgSQL槽位</a>
-      
-        
         <a class="post-tag btn btn-outline-primary" href="/tags/context/">Context</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/docker%E6%8E%A8%E9%80%81%E9%95%9C%E5%83%8F/">docker推送镜像</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E4%B8%BB%E4%BB%8E%E5%88%87%E6%8D%A2/">主从切换</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/go-gui%E6%A1%86%E6%9E%B6-fyne/">go-GUI框架-fyne</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">主从复制</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/goland/">Goland</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E5%85%A8%E9%87%8F%E5%A4%8D%E5%88%B6/">全量复制</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E5%8E%8B%E6%B5%8Bk6%E5%B7%A5%E5%85%B7/">压测K6工具</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/mongodb%E8%AF%AD%E6%B3%95/">mongodb语法</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/pgsql%E6%A7%BD%E4%BD%8D/">PgSQL槽位</a>
       
     </div>
   </section>

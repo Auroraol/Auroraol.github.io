@@ -1,0 +1,20 @@
+# registry.cn-zhangjiakou.aliyuncs.com/xiaoduoai/ecrobot-goods_center:postgres-14.5-alpine-pgbigm
+FROM registry.cn-zhangjiakou.aliyuncs.com/xiaoduoai/ecrobot-goods_center:postgres-14.5-alpine as build
+
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories \
+    && apk --update add \
+        make \
+        gcc \
+        postgresql-dev \
+        musl-dev \
+    && cd /tmp \
+    && wget 'https://osdn.net/frs/redir.php?m=rwthaachen&f=pgbigm%2F72448%2Fpg_bigm-1.2-20200228.tar.gz' -O pg_bigm.tar.gz \
+    && tar zxf pg_bigm.tar.gz \
+    && cd pg_bigm-1.2-20200228 \
+    && make USE_PGXS=1 \
+    && make USE_PGXS=1 install \
+    && echo "shared_preload_libraries = 'pg_bigm'" >> /usr/local/share/postgresql/postgresql.conf.sample
+
+FROM registry.cn-zhangjiakou.aliyuncs.com/xiaoduoai/ecrobot-goods_center:postgres-14.5-alpine
+COPY --from=build /usr/local/lib/postgresql /usr/local/lib/postgresql
+COPY --from=build /usr/local/share/postgresql /usr/local/share/postgresql

@@ -39,6 +39,7 @@
 <meta property="og:site_name" content="L" />
 <meta property="og:type" content="website" />
 <link rel="prev" href="http://localhost:4000/" />
+<link rel="next" href="http://localhost:4000/page3" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="L" />
 <script type="application/ld+json">
@@ -268,13 +269,9 @@
     <!-- The Side Bar -->
 
 <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
-  <header class="profile-wrapper">
-    <a href="/" id="avatar" class="rounded-circle"><img src="/assets/img/avatar.jpeg" width="112" height="112" alt="avatar" onerror="this.style.display='none'"></a>
-
-    <h1 class="site-title">
-      <a href="/">L</a>
-    </h1>
-    <p class="site-subtitle mb-0">随便写写</p>
+  <header class="profile-wrapper"><h1 class="site-title">
+        <a href="/">L</a>
+      </h1><p class="site-subtitle mb-0">随便写写</p>
   </header>
   <!-- .profile-wrapper -->
 
@@ -517,24 +514,24 @@
 <div id="post-list" class="flex-grow-1 px-xl-1">
   
     <article class="card-wrapper card">
-      <a href="/pgsql/%E6%A7%BD%E4%BD%8D/pg%E6%A7%BD%E4%BD%8D/" class="post-preview row g-0 flex-md-row-reverse">
+      <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%95%B0%E5%AD%97_%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2/" class="post-preview row g-0 flex-md-row-reverse">
         
 
         
 
         <div class="col-md-12">
           <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">PgSQL槽位创建</h1>
+            <h1 class="card-title my-2 mt-md-0">数字_字符串转换</h1>
 
             <div class="card-text content mt-0 mb-3">
-              <p>创建槽位
+              <p>数字&amp;amp;字符转换
 
--- 1️⃣ 复制标识（必须最先）(一次)
-SELECT set_replica_identity_full_for_partition(&#39;spu&#39;);   -- 主表+分区全部设 FULL  
+string 转换 为其他类型
 
--- 2️⃣ 创建发布（此时无槽，仅元数据）
-CREATE PUBLICATION spu_pub FOR TABLE spu;          -- 主表
-ALTER  PUBLI...</p>
+f, _ := strconv.ParseBool(&quot;false&quot;)         // bool
+g, _ := strconv.ParseFloat(&quot;123.23&quot;, 64)     // float
+h, _ := strconv.ParseInt(&quot;-1234&quot;, 10, 64)    // int64
+i, _ := ...</p>
             </div>
 
             <div class="post-meta flex-grow-1 d-flex align-items-end">
@@ -551,11 +548,590 @@ ALTER  PUBLI...</p>
 
 <time
   
-  data-ts="1762180800"
+  data-ts="1763790000"
   data-df="YYYY/MM/DD"
   
 >
-  2025/11/03
+  2025/11/22
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      GO,
+                      解析库
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%97%B6%E9%97%B4%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">时间解析库</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>时间戳
+
+now := time.Now() // 当前本地时间
+
+sec  := now.Unix()    // 秒级（Unix 时间戳）
+msec := now.UnixMilli() // 毫秒级（Go 1.17+）
+usec := now.UnixMicro() // 微秒级（Go 1.17+）
+nsec := now.UnixNano()  // 纳秒级
+
+
+封装
+
+packag...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1763782800"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/22
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      GO,
+                      解析库
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E9%BB%98%E8%AE%A4%E5%80%BC/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">默认值</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>零值的定义取决于字段的类型：
+
+
+  对于 string 类型，零值是空字符串 ““。
+  对于 int 类型，零值是 0。
+  对于指针类型，零值是 nil。
+  对于切片和映射，零值是 nil 或者长度为 0 的切片/映射。
+  对于数组，零值是 []
+
+
+例子
+
+type Goods struct {
+	// 基础字段
+	ShopID     string    `json:&quot;shop...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1763779200"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/22
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      GO,
+                      解析库
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E7%BB%93%E6%9E%84%E4%BD%93%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">结构体解析库</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>copier库
+
+
+  用 github.com/jinzhu/copier 进行结构体之间数据拷贝
+
+
+相关的包：
+
+import (
+	&quot;github.com/jinzhu/copier&quot;
+)
+
+
+语法
+
+copier.Copy(&amp;amp;目标, &amp;amp;源)
+
+
+基础使用
+
+package main
+
+import (
+	&quot;fmt&quot;
+	&quot;github.com/jinzhu/copie...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1763743800"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/22
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      GO,
+                      解析库
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/json%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">json解析库</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>json库
+
+
+  
+    JSON 编码: 将 Go 的数据结构转换为 JSON 格式的字符串。通过 json.Marshal 函数实现。
+    JSON 解码: 将 JSON 格式的字符串转换为 Go 的数据结构。通过 json.Unmarshal 函数实现。
+  
+
+
+相关的包：
+
+import {
+	&quot;encoding/json&quot;
+}
+
+
+语法
+
+json.Marshal(待解析...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1763743200"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/22
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      GO,
+                      解析库
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/%E5%BC%80%E5%8F%91/go_GUI%E6%A1%86%E6%9E%B6_fyne/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">go-GUI框架-fyne</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>1.安装C编译器
+
+https://sourceforge.net/projects/mingw-w64/files/mingw-w64/
+
+安装后会自动加入环境变量path，自行确认
+
+cmd下输入指令gcc -v，确定安装成功和版本
+
+
+
+2.安装fyne
+
+使用标准的go工具，安装Fyne的核心库使用:
+
+go get fyne.io/fyne/v2@latest  #安装fyne框架...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1763224800"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/16
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      开发
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/mongodb/mongodb%E8%AF%AD%E6%B3%95/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">mongodb语法</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>语法
+
+基本格式
+
+db.集合名.find({ &amp;lt;条件&amp;gt; })
+
+
+等值匹配 { field : value }
+
+{ &quot;field&quot; : value }
+
+
+普通对象/数组对象嵌套字段 { class.attribute : value }
+
+{ &quot;对象名.属性名&quot;: value }
+{ &quot;数组名.对象名.属性名&quot;: value }
+
+
+比较运算  { field: { $xx...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1763210400"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/15
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      mongodb
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/go/goland%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/goland/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">Goland常用快捷键</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>Goland 常用快捷键
+
+文件操作相关的快捷键
+
+
+  
+    
+      快捷键
+      作用
+    
+  
+  
+    
+      Ctrl + E
+      打开最近浏览过的文件
+    
+    
+      F2
+      重命名文件夹、文件、方法、变量名等
+    
+  
+
+
+代码格式化相关的快捷键
+
+
+  
+    
+      快捷键
+      作用
+ ...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1762965600"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/13
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      GO,
+                      Goland常用快捷键
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/pgsql/%E8%AF%AD%E6%B3%95/pg%E8%AF%AD%E6%B3%95/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">PgSQL语法</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>基本格式 JavaScript 复制 db..find({  })
+  等值匹配 JavaScript 复制 { field: value } 例： JavaScript 复制 { id: “3393633870761476271” }
+  嵌套字段（用点号） JavaScript 复制 { “state.status”: “running” }
+  比较运算 JavaScript 复制 {...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1762699200"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/09
 </time>
 
 
@@ -565,7 +1141,7 @@ ALTER  PUBLI...</p>
                   <span class="categories">
                     
                       PgSQL,
-                      槽位
+                      语法
                   </span>
                 
               </div>
@@ -580,17 +1156,23 @@ ALTER  PUBLI...</p>
     </article>
   
     <article class="card-wrapper card">
-      <a href="/pgsql/%E6%A7%BD%E4%BD%8D/pg%E8%AF%AD%E6%B3%95/" class="post-preview row g-0 flex-md-row-reverse">
+      <a href="/redis/redis%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/" class="post-preview row g-0 flex-md-row-reverse">
         
 
         
 
         <div class="col-md-12">
           <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">pg语法</h1>
+            <h1 class="card-title my-2 mt-md-0">4.Redis模式总结</h1>
 
             <div class="card-text content mt-0 mb-3">
-              <p>#</p>
+              <p>分工
+
+        ┌-------- 高可用 ---------------------┐
+        │                         │
+   +----+-----+             +-----+----+
+   │  Master  │◀---failover─│  Slave   │  Slave 随时
+   │  写+读   │       ...</p>
             </div>
 
             <div class="post-meta flex-grow-1 d-flex align-items-end">
@@ -607,11 +1189,11 @@ ALTER  PUBLI...</p>
 
 <time
   
-  data-ts="1762180800"
+  data-ts="1762693320"
   data-df="YYYY/MM/DD"
   
 >
-  2025/11/03
+  2025/11/09
 </time>
 
 
@@ -620,415 +1202,8 @@ ALTER  PUBLI...</p>
                   <i class="far fa-folder-open fa-fw me-1"></i>
                   <span class="categories">
                     
-                      PgSQL,
-                      槽位
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/jekyll/jekyll%E4%BD%BF%E7%94%A8/%E6%94%AF%E6%8C%81%E5%A4%9A%E7%BA%A7%E7%9B%AE%E5%BD%95/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">支持多目录</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>_config.yml文件
-
-
-
-md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1762179600"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/03
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      jekyll,
-                      jekyll使用
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/jekyll/jekyll%E4%BD%BF%E7%94%A8/blog-google-search-include/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">Blog可以被Google搜索到</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>Google
-
-
-  
-    确认自己的blog确实未被Google搜索收录
-
-    浏览器输入如下网址：
-
-     site:https://your_github_id.github.io/
-    
-
-    如果没有被Google搜索收录，那会出现如下图所示，跟着笔者往下一步一步配置吧
-
-    
-
-    如果被收录了，那就会出现如下图所示，忽略本文章的后续步骤吧
-  
-  ...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1762074000"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/02
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      jekyll,
-                      jekyll使用
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/jekyll/jekyll%E4%BD%BF%E7%94%A8/config-blog-comment/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">使用giscus配置GitHub Pages评论功能</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>评论能力开通
-
-GitHub仓库配置
-
-首先需要在自己的仓库中开通Discussion功能，一般新仓库默认不会打开，需要手动开通然后再添加对应的模块即可
-
-
-  
-    开通Discussion功能
-
-    进入自己的GitHub pages所在仓库，找到setting界面和里面的General选项
-
-    下滑找到Feature中勾选Discussion即可打开
-
-    创建com...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1762052400"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/02
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      jekyll,
-                      jekyll使用
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/jekyll/chirpy%E4%BD%BF%E7%94%A8/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%AA%E6%80%A7%E5%8C%96%E8%87%AA%E5%AE%9A%E4%B9%89/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">Chirpy主题的个性化自定义</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>更改_data文件夹中contact.yml文件
-
-contact.yml直接关联着网站左下角的链接，只保留github和email。后面自行可以添加
-
-- type: github
-  icon: &quot;fab fa-github&quot;
-
-#- type: twitter
-#  icon: &quot;fa-brands fa-x-twitter&quot;
-
-- type: email
-  icon: &quot;fas f...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1761976800"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/01
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      jekyll,
-                      Chirpy使用
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/jekyll/chirpy%E4%BD%BF%E7%94%A8/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">Chirpy主题的进阶使用</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>参考: ittousei (MsEspeon)
-
-
-自定义网页布局
-
-Favicon设置
-
-Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使用Favicon Generator生成favicon文件，再替换掉目录中的预设favicon即可。
-
-语言和字体
-
-博客的默认语言为英语，可以设置_config.yml中的lang变量来修改，变量取值详见...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1761969600"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/01
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      jekyll,
-                      Chirpy使用
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/jekyll/jekyll%E4%BD%BF%E7%94%A8/jekyll%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">jekyll主题使用</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>本地部署环境和调试
-
-不同的操作系统可能会不太一样，这里以Windows举例，配置本地调试环境：
-
-
-  
-    安装RUBY
-
-    访问 Ruby Installer 下载
-
-    记得下载带devkit的版本
-
-    安装过程中，如果有类似MSYS2 and MINGW development tool chain的选项，记得勾选
-
-    安装成功后，使用命令行验证安装结果：...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1761966000"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/01
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      jekyll,
-                      jekyll使用
+                      Redis,
+                      Redis模式
                   </span>
                 
               </div>
@@ -1100,18 +1275,54 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
         </li>
       
     
+      
+      
+      
+      
+      
+
+      
+
+      
+        <!-- show number -->
+        <li class="page-item ">
+          <a
+            class="page-link"
+            href="/page3"
+          >3</a>
+        </li>
+      
+    
+      
+      
+      
+      
+      
+
+      
+
+      
+        <!-- show number -->
+        <li class="page-item ">
+          <a
+            class="page-link"
+            href="/page4"
+          >4</a>
+        </li>
+      
+    
 
     <!-- mobile pagination -->
     <li class="page-index align-middle">
       <span>2</span>
-      <span class="text-muted">/ 2</span>
+      <span class="text-muted">/ 4</span>
     </li>
 
     <!-- right arrow -->
     
 
-    <li class="page-item disabled">
-      <a class="page-link" href="#" aria-label="next-page">
+    <li class="page-item ">
+      <a class="page-link" href="/page3" aria-label="next-page">
         <i class="fas fa-angle-right"></i>
       </a>
     </li>
@@ -1151,35 +1362,35 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
         
         
         <li class="text-truncate lh-lg">
-          <a href="/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E9%9B%86%E7%BE%A4/">3.Redis集群</a>
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/">字典解析库</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/redis/redis%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/">4.Redis模式总结</a>
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/redis/redis%E6%A8%A1%E5%BC%8F/%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/">2.Redis哨兵机制</a>
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/">toml配置文件</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/%E5%8E%8B%E6%B5%8B/%E5%8E%8B%E6%B5%8B%E8%AF%B4%E6%98%8E/%E5%8E%8B%E6%B5%8B/">压测</a>
+          <a href="/go/%E8%A7%84%E5%88%99/%E5%AD%97%E5%85%B8/">字典</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/%E5%8E%8B%E6%B5%8B/k6%E5%B7%A5%E5%85%B7/k6/">K6工具</a>
+          <a href="/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/">指针</a>
         </li>
       
     </ul>
@@ -1233,10 +1444,6 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
     
     
     
-      
-        
-        
-
   
     
     
@@ -1251,31 +1458,6 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
     
     
     
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1311,50 +1493,6 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -1384,41 +1522,14 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
     
     
     
-  
-    
-    
-    
-    
       
-    
+        
+        
+
   
     
     
     
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1447,17 +1558,9 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
     
     
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
+        
+        
+
   
     
     
@@ -1510,10 +1613,49 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
     
     
     
+      
+    
   
     
     
     
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -1526,6 +1668,100 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
     
   
     
@@ -1566,25 +1802,25 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/pgsql%E6%A7%BD%E4%BD%8D/">PgSQL槽位</a>
-      
-        
         <a class="post-tag btn btn-outline-primary" href="/tags/context/">Context</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/docker%E6%8E%A8%E9%80%81%E9%95%9C%E5%83%8F/">docker推送镜像</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E4%B8%BB%E4%BB%8E%E5%88%87%E6%8D%A2/">主从切换</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/go-gui%E6%A1%86%E6%9E%B6-fyne/">go-GUI框架-fyne</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">主从复制</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/goland/">Goland</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E5%85%A8%E9%87%8F%E5%A4%8D%E5%88%B6/">全量复制</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E5%8E%8B%E6%B5%8Bk6%E5%B7%A5%E5%85%B7/">压测K6工具</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/mongodb%E8%AF%AD%E6%B3%95/">mongodb语法</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/pgsql%E6%A7%BD%E4%BD%8D/">PgSQL槽位</a>
       
     </div>
   </section>
@@ -1700,10 +1936,6 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
     
     
     
-      
-        
-        
-
   
     
     
@@ -1718,31 +1950,6 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
     
     
     
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1778,50 +1985,6 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -1851,41 +2014,14 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
     
     
     
-  
-    
-    
-    
-    
       
-    
+        
+        
+
   
     
     
     
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1914,17 +2050,9 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
     
     
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
+        
+        
+
   
     
     
@@ -1977,10 +2105,49 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
     
     
     
+      
+    
   
     
     
     
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -1993,6 +2160,100 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
     
   
     
@@ -2033,25 +2294,25 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/pgsql%E6%A7%BD%E4%BD%8D/">PgSQL槽位</a>
-      
-        
         <a class="post-tag btn btn-outline-primary" href="/tags/context/">Context</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/docker%E6%8E%A8%E9%80%81%E9%95%9C%E5%83%8F/">docker推送镜像</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E4%B8%BB%E4%BB%8E%E5%88%87%E6%8D%A2/">主从切换</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/go-gui%E6%A1%86%E6%9E%B6-fyne/">go-GUI框架-fyne</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">主从复制</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/goland/">Goland</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E5%85%A8%E9%87%8F%E5%A4%8D%E5%88%B6/">全量复制</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E5%8E%8B%E6%B5%8Bk6%E5%B7%A5%E5%85%B7/">压测K6工具</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/mongodb%E8%AF%AD%E6%B3%95/">mongodb语法</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/pgsql%E6%A7%BD%E4%BD%8D/">PgSQL槽位</a>
       
     </div>
   </section>

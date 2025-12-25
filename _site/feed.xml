@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>L</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2025-11-09T22:05:44+08:00</updated>
+  <updated>2025-12-07T18:11:59+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -20,230 +20,291 @@
 
   
   <entry>
-    <title>4.Redis模式总结</title>
-    <link href="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/" rel="alternate" type="text/html" title="4.Redis模式总结" />
-    <published>2025-11-09T21:02:00+08:00</published>
+    <title>toml配置文件</title>
+    <link href="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/" rel="alternate" type="text/html" title="toml配置文件" />
+    <published>2025-12-07T17:00:00+08:00</published>
   
-    <updated>2025-11-09T21:02:00+08:00</updated>
+    <updated>2025-12-07T17:00:00+08:00</updated>
   
-    <id>http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/</id>
-    <content src="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/" />
+    <id>http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/</id>
+    <content src="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/" />
     <author>
       <name>lfj</name>
     </author>
 
   
     
-    <category term="Redis" />
+    <category term="GO" />
     
-    <category term="Redis模式" />
+    <category term="解析库" />
     
   
 
-  <summary>分工
+  <summary>配置管理神器Viper
 
-        ┌-------- 高可用 ---------------------┐
-        │                         │
-   +----+-----+             +-----+----+
-   │  Master  │◀---failover─│  Slave   │  Slave 随时
-   │  写+读   │          │  热备    │  准备升主
-   +----------+             +----------+
-        ▲  ▲                       │
-        │  └----- 同步 -----------------------┘
-        │                          │
-        └--------- ...</summary>
+type Config struct 
+	Spu                 SpuConfig                       `mapstructure:&amp;quot;spu&amp;quot;`
+	Sdks                []SDKConf                        `mapstructure:&amp;quot;sdks&amp;quot;` //
+	SpiHttpClients SpiHttpClientConfig `mapstructure:&amp;quot;spi_http_clients&amp;quot;`
+	Person  //
+	MockConfig `mapstructure:&amp;quot;,squash&amp;quot;` //
+}
+
+type Person struct {
+	Name            string     `mapstructure:&amp;quot;name&amp;quot;`
+}
+
+type MockCon...</summary>
 
   </entry>
 
   
   <entry>
-    <title>3.Redis集群</title>
-    <link href="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E9%9B%86%E7%BE%A4/" rel="alternate" type="text/html" title="3.Redis集群" />
-    <published>2025-11-09T20:00:00+08:00</published>
+    <title>函数</title>
+    <link href="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%96%B9%E6%B3%95/" rel="alternate" type="text/html" title="函数" />
+    <published>2025-12-07T12:00:00+08:00</published>
   
-    <updated>2025-11-09T21:36:20+08:00</updated>
+    <updated>2025-12-07T12:00:00+08:00</updated>
   
-    <id>http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E9%9B%86%E7%BE%A4/</id>
-    <content src="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E9%9B%86%E7%BE%A4/" />
+    <id>http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%96%B9%E6%B3%95/</id>
+    <content src="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%96%B9%E6%B3%95/" />
     <author>
       <name>lfj</name>
     </author>
 
   
     
-    <category term="Redis" />
+    <category term="GO" />
     
-    <category term="Redis模式" />
-    
-  
-
-  <summary>业务规模
-      推荐架构
-    
-  
-  
-    
-      小型业务（缓存 &amp;amp;lt; 10GB）
-      一主二从 + 三哨兵（高可用即可）
-    
-    
-      中型业务（10GB~100GB）
-      三主三从集群（分片 + 高可用）
-    
-    
-      大型业务（&amp;amp;gt;100GB，高并发）
-      多组集群 或 Redis Proxy 方案（如 Codis、Twemproxy）
+    <category term="规则" />
     
   
 
+  <summary>函数
 
-redis主从：可实现高并发(读)，典型部署方案：一主二从
-redis哨兵：可实现高可用，典型部署方案：一主二从三哨兵
-redis集群：可同时支持高并发(读与写)、高可用，典型部署方案：三主三从
+定义函数
 
-概述
+func 函数名字 (参数列表) (返回值列表）{
+	// 函数体
+	return 返回值列表
+}
 
-Redis单实例的架构，从最开始的一主N从，到读写分离，再到Sentinel哨兵机制，单实例的Redis缓存足以应对大多数的使用...</summary>
+
+注意：
+
+
+  函数名首字母小写为私有，大写为公有；
+  参数列表可以有0-多个，多参数使用逗号分隔，不支持默认参数；
+  返回值列表返回值类型可以不用写变量名
+  如果只有一个返回值且不声明类型，可以省略返回值列表与括号
+  如果有返回值，函数内必须有return　
+
+
+init函数和mian函数
+
+init函数：init 函数可在package main中，可在其他package中，可在同一个package中出现多次。
+
+main函数:  main 函数只能在package main中
+
+执行顺序
+
+
+  程序的初始化和执行都起始于main包(注意是main包,不是面函数)
+  先按包的顺序依次自动执行他们的init函数
+  再执行main包init函数, ...</summary>
 
   </entry>
 
   
   <entry>
-    <title>2.Redis哨兵机制</title>
-    <link href="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/" rel="alternate" type="text/html" title="2.Redis哨兵机制" />
-    <published>2025-11-09T16:00:00+08:00</published>
+    <title>接口/结构体的组合</title>
+    <link href="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%8E%A5%E5%8F%A3/" rel="alternate" type="text/html" title="接口/结构体的组合" />
+    <published>2025-12-03T12:00:00+08:00</published>
   
-    <updated>2025-11-09T16:00:00+08:00</updated>
+    <updated>2025-12-03T12:00:00+08:00</updated>
   
-    <id>http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/</id>
-    <content src="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/" />
+    <id>http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%8E%A5%E5%8F%A3/</id>
+    <content src="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%8E%A5%E5%8F%A3/" />
     <author>
       <name>lfj</name>
     </author>
 
   
     
-    <category term="Redis" />
+    <category term="GO" />
     
-    <category term="Redis模式" />
+    <category term="规则" />
     
   
 
-  <summary>概述
-Redis的高可用机制有持久化、复制、哨兵和集群。其主要的作用和解决的问题分别是：
-
-  持久化：持久化是最简单的高可用方法(有时甚至不被归为高可用的手段)，主要作用是数据备份，即将数据存储在硬盘，保证数据不会因进程退出而丢失。
-  复制：复制是高可用Redis的基础，哨兵和集群都是在复制基础上实现高可用的。复制主要实现了数据的多机备份，以及对于读操作的负载均衡和简单的故障恢复。缺陷：故障恢复无法自动化；写操作无法负载均衡；存储能力受到单机的限制。
-  哨兵：哨兵实现了主从复制中故障的自动化恢复。缺陷：写操作无法负载均衡；存储能力受到单机的限制。
-  集群：通过集群，解决了写操作无法负载均衡，以及存储能力受到单机限制的问题，实现了较为完善的高可用方案。
+  <summary>接口
 
 
+  接口 = 定义方法集
 
 
-为什么要有哨兵
-Redis的主从模式重点在于解决整体的承压能力，利用从节点分担读取操作的压力。但是其在容错恢复等可靠性...</summary>
+type FImpl interface {
+	f1()
+	f2()
+	f3()
+	f4()
+}
+
+
+
+实现
+
+结构体实现遵循规则:
+
+
+  
+    结构体T方法为值接收者方法：   T 和 *T 都可以赋给接口
+  
+  结构体T方法为接收者方法：      只有 *T 可以赋给接口
+  接口类型前面永远不要加 * (接口用值，不加星；加星就废，没方法)
+
+
+示例1
+
+
+  结构体T方法为值接收者方法：   T 和 *T 都可以赋给接口
+
+  结构体T方法为接收者方法：只有 *T 可以赋给接口
+
+
+type F interface {
+    f()
+}
+
+type S1 struct{}
+
+func (s S1) f() {}    // 值接收者方法，属于 S1 的值方法集
+
+type S2 struct{}
+
+func (s *S2)...</summary>
 
   </entry>
 
   
   <entry>
-    <title>命令行快捷键</title>
-    <link href="http://localhost:4000/linux/%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="alternate" type="text/html" title="命令行快捷键" />
-    <published>2025-11-09T11:00:00+08:00</published>
+    <title>指针</title>
+    <link href="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/" rel="alternate" type="text/html" title="指针" />
+    <published>2025-12-02T11:00:00+08:00</published>
   
-    <updated>2025-11-09T11:00:00+08:00</updated>
+    <updated>2025-12-07T15:47:05+08:00</updated>
   
-    <id>http://localhost:4000/linux/%E5%BF%AB%E6%8D%B7%E9%94%AE/</id>
-    <content src="http://localhost:4000/linux/%E5%BF%AB%E6%8D%B7%E9%94%AE/" />
+    <id>http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/</id>
+    <content src="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/" />
     <author>
       <name>lfj</name>
     </author>
 
   
     
-    <category term="linux" />
+    <category term="GO" />
+    
+    <category term="规则" />
     
   
 
-  <summary>命令行快捷键：
+  <summary>📌 结论
 
 
-  常用：
-    
-      Ctrl L ：清屏
-      Ctrl M ：等效于回车
-      Ctrl C : 中断正在当前正在执行的程序
-    
   
-  历史命令：
-    
-      Ctrl P : 上一条命令，可以一直按表示一直往前翻
-      Ctrl N : 下一条命令
-      Ctrl R，再按历史命令中出现过的字符串：按字符串寻找历史命令（重度推荐）
-    
+    值接收者方法：   T 和 *T 都可以赋给接口
   
-  命令行编辑：
+  指针接收者方法：只有 *T 可以赋给接口
+  接口类型前面永远不要加 * (接口用值，不加星；加星就废，没方法)
+
+
+示例1:
+
+type F interface {
+    f()
+}
+
+type S1 struct{}
+
+func (s S1) f() {}    // 值接收者方法，属于 S1 的值方法集
+
+type S2 struct{}
+
+func (s *S2) f() {}   // 指针接收者方法，属于 *S2 的指针方法集
+
+var (
+    i F // 接口
     
-      Tab : 自动补齐（重度推荐）
-      Ctrl A ： 移动光标到命令行首
-      Ctrl E : 移动光标到命令行尾
-      Ctrl B : 光标后退
-      Ctrl F : 光标前进
-      Alt F : 光标前进一个单词
-      Alt B : 光标后退一格单词
-      Ct...</summary>
+    //值方法集
+    s1Val = S1{}
+    s1Ptr = &amp;amp;amp;S1{}
+    i = s1Val
+    i = s1Ptr
+
+    //指针方法集 
+    s2Val = ...</summary>
 
   </entry>
 
   
   <entry>
-    <title>1.Redis主从复制</title>
-    <link href="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" rel="alternate" type="text/html" title="1.Redis主从复制" />
-    <published>2025-11-09T10:00:00+08:00</published>
+    <title>k8s拉取镜像策略</title>
+    <link href="http://localhost:4000/k8s/%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E7%AD%96%E7%95%A5/" rel="alternate" type="text/html" title="k8s拉取镜像策略" />
+    <published>2025-12-01T16:00:00+08:00</published>
   
-    <updated>2025-11-09T10:00:00+08:00</updated>
+    <updated>2025-12-01T20:22:00+08:00</updated>
   
-    <id>http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</id>
-    <content src="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" />
+    <id>http://localhost:4000/k8s/%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E7%AD%96%E7%95%A5/</id>
+    <content src="http://localhost:4000/k8s/%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E7%AD%96%E7%95%A5/" />
     <author>
       <name>lfj</name>
     </author>
 
   
     
-    <category term="Redis" />
-    
-    <category term="Redis模式" />
+    <category term="k8s" />
     
   
 
-  <summary>本地缓存带来的挑战
+  <summary>镜像拉取策略
 
-分布式缓存相比于本地缓存，在实现层面需要关注的点有哪些不同。梳理如下：
+
 
 
   
     
-      维度
-      本地缓存
-      集中式缓存
+      值
+      含义
     
   
   
     
-      缓存量
-      受限于单机内存大小，存储数据有限
-      需要提供给分布式系统里面所有节点共同使用，对于大型系统而言，对集中式缓存的容量诉求非常的大，远超单机内存的容量大小。
+      Always
+      每次启动容器时都尝试拉取镜像（忽略本地缓存）。
     
     
-      可靠性
-      影响有限，只有本进程使用，不会影响其他进程的可靠性。
-      作为整个系统扛压屏障，系统内所有节点共同依赖的通用服务，一旦集中式缓存出问题，会影响与其对接的所有业务节点，对系统的影响是致命性的。
+      IfNotPresent
+      如果本地已有该镜像，重启 Pod 时则不拉取；否则拉取。
     
     
-      承压性
-      承载单机节点的压力，请求量有限
-      承载整个分布式集群所有节点的流量，系统内...</summary>
+      Never
+      只使用本地镜像，绝不拉取。
+    
+  
+
+
+问题
+
+配置IfNotPresent, 但是出现偶尔更新镜像后，重启 Pod，代码却更新
+
+
+  ✅ 原因 1：Pod 被调度到了新节点（或清理过镜像的节点）
+    
+      节点 A 有旧镜像 → 用本地缓存
+      节点 B 没有镜像 → 拉取最新版本
+      如果你节点偶尔自动清理镜像（如 kubelet 的镜像回收机制），也可能触发拉取
+    
+...</summary>
 
   </entry>
 
