@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>LeetCode Hot 100 - 完整可勾选进度表</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background-color: #fff;
+      font-size: 14px;
+    }
+    th, td {
+      padding: 8px 10px;
+      border: 1px solid #ccc;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background-color: #eee;
+    }
+    a {
+      text-decoration: none;
+      color: #0366d6;
+    }
+    input[type="checkbox"] {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>LeetCode Hot 100 - 完整可勾选进度表</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>标题</th>
+        <th>标签</th>
+        <th>难度</th>
+        <th>完成情况</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>0001</td><td><a href="https://leetcode.cn/problems/two-sum/" target="_blank">两数之和</a></td><td>数组、哈希表</td><td>Easy</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0002</td><td><a href="https://leetcode.cn/problems/add-two-numbers/" target="_blank">两数相加</a></td><td>链表、数学</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0003</td><td><a href="https://leetcode.cn/problems/longest-substring-without-repeating-characters/" target="_blank">无重复字符的最长子串</a></td><td>哈希表、双指针、字符串、Sliding Window</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0004</td><td><a href="https://leetcode.cn/problems/median-of-two-sorted-arrays/" target="_blank">寻找两个正序数组的中位数</a></td><td>数组、二分查找、分治算法</td><td>Hard</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0005</td><td><a href="https://leetcode.cn/problems/longest-palindromic-substring/" target="_blank">最长回文子串</a></td><td>字符串、动态规划</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0006</td><td><a href="https://leetcode.cn/problems/regular-expression-matching/" target="_blank">正则表达式匹配</a></td><td>字符串、动态规划、回溯算法</td><td>Hard</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0007</td><td><a href="https://leetcode.cn/problems/container-with-most-water/" target="_blank">盛最多水的容器</a></td><td>数组、双指针</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0008</td><td><a href="https://leetcode.cn/problems/3sum/" target="_blank">三数之和</a></td><td>数组、双指针</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0009</td><td><a href="https://leetcode.cn/problems/letter-combinations-of-a-phone-number/" target="_blank">电话号码的字母组合</a></td><td>字符串、回溯算法</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0010</td><td><a href="https://leetcode.cn/problems/remove-nth-node-from-end-of-list/" target="_blank">删除链表的倒数第N个节点</a></td><td>链表、双指针</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+
+      <tr><td>0011</td><td><a href="https://leetcode.cn/problems/valid-parentheses/" target="_blank">有效的括号</a></td><td>栈、字符串</td><td>Easy</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0012</td><td><a href="https://leetcode.cn/problems/merge-two-sorted-lists/" target="_blank">合并两个有序链表</a></td><td>链表</td><td>Easy</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0013</td><td><a href="https://leetcode.cn/problems/generate-parentheses/" target="_blank">括号生成</a></td><td>字符串、回溯算法</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0014</td><td><a href="https://leetcode.cn/problems/merge-k-sorted-lists/" target="_blank">合并K个排序链表</a></td><td>堆、链表、分治算法</td><td>Hard</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0015</td><td><a href="https://leetcode.cn/problems/next-permutation/" target="_blank">下一个排列</a></td><td>数组</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0016</td><td><a href="https://leetcode.cn/problems/longest-valid-parentheses/" target="_blank">最长有效括号</a></td><td>字符串、动态规划</td><td>Hard</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0017</td><td><a href="https://leetcode.cn/problems/search-in-rotated-sorted-array/" target="_blank">搜索旋转排序数组</a></td><td>数组、二分查找</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0018</td><td><a href="https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/" target="_blank">在排序数组中查找元素的第一个和最后一个位置</a></td><td>数组、二分查找</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0019</td><td><a href="https://leetcode.cn/problems/combination-sum/" target="_blank">组合总和</a></td><td>数组、回溯算法</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0020</td><td><a href="https://leetcode.cn/problems/trapping-rain-water/" target="_blank">接雨水</a></td><td>栈、数组、双指针</td><td>Hard</td><td><input type="checkbox"> 完成</td></tr>
+
+      <tr><td>0021</td><td><a href="https://leetcode.cn/problems/permutations/" target="_blank">全排列</a></td><td>回溯算法</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0022</td><td><a href="https://leetcode.cn/problems/rotate-image/" target="_blank">旋转图像</a></td><td>数组</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0023</td><td><a href="https://leetcode.cn/problems/group-anagrams/" target="_blank">字母异位词分组</a></td><td>哈希表、字符串</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0024</td><td><a href="https://leetcode.cn/problems/maximum-subarray/" target="_blank">最大子序和</a></td><td>数组、分治算法、动态规划</td><td>Easy</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0025</td><td><a href="https://leetcode.cn/problems/jump-game/" target="_blank">跳跃游戏</a></td><td>贪心算法、数组</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0026</td><td><a href="https://leetcode.cn/problems/merge-intervals/" target="_blank">合并区间</a></td><td>排序、数组</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0027</td><td><a href="https://leetcode.cn/problems/unique-paths/" target="_blank">不同路径</a></td><td>数组、动态规划</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0028</td><td><a href="https://leetcode.cn/problems/minimum-path-sum/" target="_blank">最小路径和</a></td><td>数组、动态规划</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0029</td><td><a href="https://leetcode.cn/problems/climbing-stairs/" target="_blank">爬楼梯</a></td><td>动态规划</td><td>Easy</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0030</td><td><a href="https://leetcode.cn/problems/edit-distance/" target="_blank">编辑距离</a></td><td>字符串、动态规划</td><td>Hard</td><td><input type="checkbox"> 完成</td></tr>
+
+      <tr><td>0031</td><td><a href="https://leetcode.cn/problems/sort-colors/" target="_blank">颜色分类</a></td><td>排序、数组、双指针</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0032</td><td><a href="https://leetcode.cn/problems/minimum-window-substring/" target="_blank">最小覆盖子串</a></td><td>哈希表、双指针、字符串、Sliding Window</td><td>Hard</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0033</td><td><a href="https://leetcode.cn/problems/subsets/" target="_blank">子集</a></td><td>位运算、数组、回溯算法</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0034</td><td><a href="https://leetcode.cn/problems/word-search/" target="_blank">单词搜索</a></td><td>数组、回溯算法</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0035</td><td><a href="https://leetcode.cn/problems/largest-rectangle-in-histogram/" target="_blank">柱状图中最大的矩形</a></td><td>栈、数组</td><td>Hard</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0036</td><td><a href="https://leetcode.cn/problems/maximal-rectangle/" target="_blank">最大矩形</a></td><td>栈、数组、哈希表、动态规划</td><td>Hard</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0037</td><td><a href="https://leetcode.cn/problems/binary-tree-inorder-traversal/" target="_blank">二叉树的中序遍历</a></td><td>栈、树、哈希表</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0038</td><td><a href="https://leetcode.cn/problems/unique-binary-search-trees/" target="_blank">不同的二叉搜索树</a></td><td>树、动态规划</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0039</td><td><a href="https://leetcode.cn/problems/validate-binary-search-tree/" target="_blank">验证二叉搜索树</a></td><td>树、深度优先搜索</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0040</td><td><a href="https://leetcode.cn/problems/symmetric-tree/" target="_blank">对称二叉树</a></td><td>树、深度优先搜索、广度优先搜索</td><td>Easy</td><td><input type="checkbox"> 完成</td></tr>
+
+      <tr><td>0041</td><td><a href="https://leetcode.cn/problems/binary-tree-level-order-traversal/" target="_blank">二叉树的层序遍历</a></td><td>树、广度优先搜索</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0042</td><td><a href="https://leetcode.cn/problems/maximum-depth-of-binary-tree/" target="_blank">二叉树的最大深度</a></td><td>树、深度优先搜索</td><td>Easy</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0043</td><td><a href="https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/" target="_blank">从前序与中序遍历序列构造二叉树</a></td><td>树、深度优先搜索、数组</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0044</td><td><a href="https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/" target="_blank">二叉树展开为链表</a></td><td>树、深度优先搜索</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0045</td><td><a href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/" target="_blank">买卖股票的最佳时机</a></td><td>数组、动态规划</td><td>Easy</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0046</td><td><a href="https://leetcode.cn/problems/binary-tree-maximum-path-sum/" target="_blank">二叉树中的最大路径和</a></td><td>树、深度优先搜索</td><td>Hard</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0047</td><td><a href="https://leetcode.cn/problems/longest-consecutive-sequence/" target="_blank">最长连续序列</a></td><td>并查集、数组</td><td>Hard</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0048</td><td><a href="https://leetcode.cn/problems/single-number/" target="_blank">只出现一次的数字</a></td><td>位运算、哈希表</td><td>Easy</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0049</td><td><a href="https://leetcode.cn/problems/word-break/" target="_blank">单词拆分</a></td><td>动态规划</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0050</td><td><a href="https://leetcode.cn/problems/linked-list-cycle/" target="_blank">环形链表</a></td><td>链表、双指针</td><td>Easy</td><td><input type="checkbox"> 完成</td></tr>
+
+      <tr><td>0051</td><td><a href="https://leetcode.cn/problems/linked-list-cycle-ii/" target="_blank">环形链表 II</a></td><td>链表、双指针</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0052</td><td><a href="https://leetcode.cn/problems/lru-cache/" target="_blank">LRU 缓存机制</a></td><td>设计</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0053</td><td><a href="https://leetcode.cn/problems/sort-list/" target="_blank">排序链表</a></td><td>排序、链表</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0054</td><td><a href="https://leetcode.cn/problems/maximum-product-subarray/" target="_blank">乘积最大子数组</a></td><td>数组、动态规划</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0055</td><td><a href="https://leetcode.cn/problems/min-stack/" target="_blank">最小栈</a></td><td>栈、设计</td><td>Easy</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0056</td><td><a href="https://leetcode.cn/problems/intersection-of-two-linked-lists/" target="_blank">相交链表</a></td><td>链表</td><td>Easy</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0057</td><td><a href="https://leetcode.cn/problems/majority-element/" target="_blank">多数元素</a></td><td>位运算、数组、分治算法</td><td>Easy</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0058</td><td><a href="https://leetcode.cn/problems/house-robber/" target="_blank">打家劫舍</a></td><td>动态规划</td><td>Easy</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0059</td><td><a href="https://leetcode.cn/problems/number-of-islands/" target="_blank">岛屿数量</a></td><td>深度优先搜索、广度优先搜索、并查集</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0060</td><td><a href="https://leetcode.cn/problems/reverse-linked-list/" target="_blank">反转链表</a></td><td>链表</td><td>Easy</td><td><input type="checkbox"> 完成</td></tr>
+
+      <tr><td>0061</td><td><a href="https://leetcode.cn/problems/course-schedule/" target="_blank">课程表</a></td><td>深度优先搜索、广度优先搜索、图、拓扑排序</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0062</td><td><a href="https://leetcode.cn/problems/implement-trie-prefix-tree/" target="_blank">实现 Trie (前缀树)</a></td><td>设计、字典树</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0063</td><td><a href="https://leetcode.cn/problems/kth-largest-element-in-an-array/" target="_blank">数组中的第K个最大元素</a></td><td>堆、分治算法</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0064</td><td><a href="https://leetcode.cn/problems/maximal-square/" target="_blank">最大正方形</a></td><td>动态规划</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0065</td><td><a href="https://leetcode.cn/problems/invert-binary-tree/" target="_blank">翻转二叉树</a></td><td>树</td><td>Easy</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0066</td><td><a href="https://leetcode.cn/problems/palindrome-linked-list/" target="_blank">回文链表</a></td><td>链表、双指针</td><td>Easy</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0067</td><td><a href="https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/" target="_blank">二叉树的最近公共祖先</a></td><td>树</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0068</td><td><a href="https://leetcode.cn/problems/product-of-array-except-self/" target="_blank">除自身以外数组的乘积</a></td><td>数组</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0069</td><td><a href="https://leetcode.cn/problems/sliding-window-maximum/" target="_blank">滑动窗口最大值</a></td><td>堆、Sliding Window</td><td>Hard</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0070</td><td><a href="https://leetcode.cn/problems/search-a-2d-matrix-ii/" target="_blank">搜索二维矩阵 II</a></td><td>二分查找、分治算法</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+
+      <tr><td>0071</td><td><a href="https://leetcode.cn/problems/meeting-rooms-ii/" target="_blank">会议室 II</a></td><td>堆、贪心算法</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0072</td><td><a href="https://leetcode.cn/problems/perfect-squares/" target="_blank">完全平方数</a></td><td>广度优先搜索、数学、动态规划</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0073</td><td><a href="https://leetcode.cn/problems/move-zeroes/" target="_blank">移动零</a></td><td>数组、双指针</td><td>Easy</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0074</td><td><a href="https://leetcode.cn/problems/find-the-duplicate-number/" target="_blank">寻找重复数</a></td><td>数组、双指针、二分查找</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0075</td><td><a href="https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/" target="_blank">二叉树的序列化与反序列化</a></td><td>树、设计</td><td>Hard</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0076</td><td><a href="https://leetcode.cn/problems/longest-increasing-subsequence/" target="_blank">最长上升子序列</a></td><td>二分查找、动态规划</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0077</td><td><a href="https://leetcode.cn/problems/remove-invalid-parentheses/" target="_blank">删除无效的括号</a></td><td>深度优先搜索、广度优先搜索</td><td>Hard</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0078</td><td><a href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-cooldown/" target="_blank">最佳买卖股票时机含冷冻期</a></td><td>动态规划</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0079</td><td><a href="https://leetcode.cn/problems/burst-balloons/" target="_blank">戳气球</a></td><td>分治算法、动态规划</td><td>Hard</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0080</td><td><a href="https://leetcode.cn/problems/coin-change/" target="_blank">零钱兑换</a></td><td>动态规划</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+
+      <tr><td>0081</td><td><a href="https://leetcode.cn/problems/house-robber-iii/" target="_blank">打家劫舍 III</a></td><td>树、深度优先搜索</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0082</td><td><a href="https://leetcode.cn/problems/counting-bits/" target="_blank">比特位计数</a></td><td>位运算、动态规划</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0083</td><td><a href="https://leetcode.cn/problems/top-k-frequent-elements/" target="_blank">前K个高频元素</a></td><td>堆、哈希表</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0084</td><td><a href="https://leetcode.cn/problems/decode-string/" target="_blank">字符串解码</a></td><td>栈、深度优先搜索</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0085</td><td><a href="https://leetcode.cn/problems/evaluate-division/" target="_blank">除法求值</a></td><td>并查集、图</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0086</td><td><a href="https://leetcode.cn/problems/queue-reconstruction-by-height/" target="_blank">根据身高重建队列</a></td><td>贪心算法</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0087</td><td><a href="https://leetcode.cn/problems/partition-equal-subset-sum/" target="_blank">分割等和子集</a></td><td>动态规划</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0088</td><td><a href="https://leetcode.cn/problems/path-sum-iii/" target="_blank">路径总和 III</a></td><td>树</td><td>Easy</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0089</td><td><a href="https://leetcode.cn/problems/find-all-anagrams-in-a-string/" target="_blank">找到字符串中所有字母异位词</a></td><td>哈希表</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0090</td><td><a href="https://leetcode.cn/problems/find-all-numbers-disappeared-in-an-array/" target="_blank">找到所有数组中消失的数字</a></td><td>数组</td><td>Easy</td><td><input type="checkbox"> 完成</td></tr>
+
+      <tr><td>0091</td><td><a href="https://leetcode.cn/problems/hamming-distance/" target="_blank">汉明距离</a></td><td>位运算</td><td>Easy</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0092</td><td><a href="https://leetcode.cn/problems/target-sum/" target="_blank">目标和</a></td><td>深度优先搜索、动态规划</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0093</td><td><a href="https://leetcode.cn/problems/convert-bst-to-greater-tree/" target="_blank">把二叉搜索树转换为累加树</a></td><td>树</td><td>Easy</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0094</td><td><a href="https://leetcode.cn/problems/diameter-of-binary-tree/" target="_blank">二叉树的直径</a></td><td>树</td><td>Easy</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0095</td><td><a href="https://leetcode.cn/problems/subarray-sum-equals-k/" target="_blank">和为K的子数组</a></td><td>数组、哈希表</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0096</td><td><a href="https://leetcode.cn/problems/shortest-unsorted-continuous-subarray/" target="_blank">最短无序连续子数组</a></td><td>数组</td><td>Easy</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0097</td><td><a href="https://leetcode.cn/problems/merge-two-binary-trees/" target="_blank">合并二叉树</a></td><td>树</td><td>Easy</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0098</td><td><a href="https://leetcode.cn/problems/task-scheduler/" target="_blank">任务调度器</a></td><td>贪心算法、队列、数组</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0099</td><td><a href="https://leetcode.cn/problems/palindromic-substrings/" target="_blank">回文子串</a></td><td>字符串、动态规划</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+      <tr><td>0100</td><td><a href="https://leetcode.cn/problems/daily-temperatures/" target="_blank">每日温度</a></td><td>栈、哈希表</td><td>Medium</td><td><input type="checkbox"> 完成</td></tr>
+    </tbody>
+  </table>
+
+  <script>
+    // 自动保存勾选状态
+    document.querySelectorAll('input[type="checkbox"]').forEach((box, index) => {
+      const key = `leetcode-hot100-${index}`;
+      box.checked = localStorage.getItem(key) === 'true';
+      box.addEventListener('change', () => {
+        localStorage.setItem(key, box.checked);
+      });
+    });
+  </script>
+
+</body>
+</html>
