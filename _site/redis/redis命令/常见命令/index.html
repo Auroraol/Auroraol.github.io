@@ -42,7 +42,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="redis常见命令" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-12-18T11:00:00+08:00","datePublished":"2025-12-18T11:00:00+08:00","description":"hash","headline":"redis常见命令","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/redis/redis%E5%91%BD%E4%BB%A4/%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/"},"url":"http://localhost:4000/redis/redis%E5%91%BD%E4%BB%A4/%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-12-28T19:28:58+08:00","datePublished":"2025-12-18T11:00:00+08:00","description":"hash","headline":"redis常见命令","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/redis/redis%E5%91%BD%E4%BB%A4/%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/"},"url":"http://localhost:4000/redis/redis%E5%91%BD%E4%BB%A4/%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -597,6 +597,17 @@
 
       
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
 
     
   
@@ -655,6 +666,29 @@
       </span>
 
       <!-- lastmod date -->
+      
+        <span>
+          更新于
+          <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1766921338"
+  data-df="YYYY/MM/DD"
+  
+    data-bs-toggle="tooltip" data-bs-placement="bottom"
+  
+>
+  2025/12/28
+</time>
+
+        </span>
       
 
       
@@ -748,7 +782,7 @@ HGETALL user:profile:10086                 → 整个字典
 HDEL user:profile:10086 vip                → 删除 vip 字段
 </pre></td></tr></tbody></table></code></div></div>
 
-<p>string</p>
+<h2 id="string"><span class="me-2">string</span><a href="#string" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <div class="language-bash highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
@@ -856,7 +890,7 @@ EXPIRE openuid_to_order_queue:user_123456 &lt;DefaultExpiration&gt;
 LRANGE openuid_to_order_queue:user_123456 0 <span class="nt">-1</span>   //取
 </pre></td></tr></tbody></table></code></div></div>
 
-<p><a href="file:///D:\Tencent\Documents\Tencent Files\Tencent Files\1665834268\nt_qq\nt_data\Pic\2025-12\Ori\76a863bd16b2652d218919c4b1b78048.png" class="popup img-link  shimmer"><img src="file:///D:\Tencent\Documents\Tencent Files\Tencent Files\1665834268\nt_qq\nt_data\Pic\2025-12\Ori\76a863bd16b2652d218919c4b1b78048.png" alt="img" loading="lazy"></a></p>
+<p><a href="https://github.com/Auroraol/Drawing-bed/raw/main/img/76a863bd16b2652d218919c4b1b78048.png" class="popup img-link  shimmer"><img src="https://github.com/Auroraol/Drawing-bed/raw/main/img/76a863bd16b2652d218919c4b1b78048.png" alt="img" loading="lazy"></a></p>
 
 <ol>
   <li>操作性质不同 OrderMissBuyerIDRead - 需要原子性操作： 需要同时执行 LRANGE（读取）和 LTRIM（删除已读取的元素） 这两个操作必须在同一个原子事务中完成，否则可能出现： 读取了数据但没有删除 或者删除操作失败导致数据丢失 SafeGetAllOrderMsgsByOrderID - 只是读取操作： 只执行 LRANGE 读取所有数据 不删除数据，所以不需要原子性保证</li>
@@ -987,6 +1021,13 @@ LRANGE openuid_to_order_queue:user_123456 0 <span class="nt">-1</span>   //取
         
         
         <li class="text-truncate lh-lg">
+          <a href="/redis/redis%E5%91%BD%E4%BB%A4/%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/">redis常见命令</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/go/%E8%A7%84%E5%88%99/%E6%96%B9%E6%B3%95/">函数</a>
         </li>
       
@@ -1009,13 +1050,6 @@ LRANGE openuid_to_order_queue:user_123456 0 <span class="nt">-1</span>   //取
         
         <li class="text-truncate lh-lg">
           <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/">字典解析库</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%84%E5%88%99/%E5%88%87%E7%89%87/">切片</a>
         </li>
       
     </ul>
