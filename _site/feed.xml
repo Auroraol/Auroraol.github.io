@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>L</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2025-12-28T19:26:26+08:00</updated>
+  <updated>2025-12-28T19:26:39+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -111,7 +111,7 @@ HSET user:profile:10086 name &amp;quot;张三&amp;quot; age 29 vip 1
     <link href="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/" rel="alternate" type="text/html" title="toml配置文件" />
     <published>2025-12-07T17:00:00+08:00</published>
   
-    <updated>2025-12-07T17:00:00+08:00</updated>
+    <updated>2025-12-28T19:26:48+08:00</updated>
   
     <id>http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/</id>
     <content src="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/" />
@@ -171,7 +171,7 @@ HSET user:profile:10086 name &amp;quot;张三&amp;quot; age 29 vip 1
     <link href="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%96%B9%E6%B3%95/" rel="alternate" type="text/html" title="函数" />
     <published>2025-12-07T12:00:00+08:00</published>
   
-    <updated>2025-12-07T18:12:44+08:00</updated>
+    <updated>2025-12-28T19:26:48+08:00</updated>
   
     <id>http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%96%B9%E6%B3%95/</id>
     <content src="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%96%B9%E6%B3%95/" />
