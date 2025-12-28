@@ -513,6 +513,141 @@
 <div id="post-list" class="flex-grow-1 px-xl-1">
   
     <article class="card-wrapper card">
+      <a href="/go/%E8%A7%84%E5%88%99/%E5%88%87%E7%89%87/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">切片</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>创建
+
+//1.make函数创建 (推荐)
+切片名称 := make([]切片类型, 0, 指定容量) 
+
+//2.创建同时初始化 (有确定的数据时推荐)
+var 切片名称 = []切片类型{}
+
+//3.var常量定义 (不推荐)
+var 切片名称 [] 切片类型
+
+
+修改
+
+值类型切片 → 必须拿索引才能改
+指针切片 → 循环变量本身就是原对象地址，直接改即可
+
+// 按索引直接改
+da...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1766224800"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/12/20
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      GO,
+                      规则
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/redis/redis%E5%91%BD%E4%BB%A4/%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">redis常见命令</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>hash
+
+HDEL hash:jd:goods:sync_tag 66d280dfdde84a769c2550b
+HSET hash:jd:goods:sync_tag 66d280dfdde84a769c2550b &quot;2025-05-16 11:38:38&quot;
+HSET user:profile:10086 name &quot;张三&quot; age 29 vip 1
+┌-----------------...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1766026800"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/12/18
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      Redis,
+                      Redis命令
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
       <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/" class="post-preview row g-0 flex-md-row-reverse">
         
 
@@ -523,12 +658,28 @@
             <h1 class="card-title my-2 mt-md-0">toml配置文件</h1>
 
             <div class="card-text content mt-0 mb-3">
-              <p>配置管理神器Viper
+              <p>总结
 
-type Config struct 
-	Spu                 SpuConfig                       `mapstructure:&quot;spu&quot;`
-	Sdks                []SDKConf                        `mapstructure:&quot;sdks&quot;` //
-	SpiHttpCli...</p>
+
+  
+    
+      Go 类型特征
+      tag 出现的关键字
+      生成的 TOML
+      备注
+    
+  
+  
+    
+      非匿名 struct
+      无 squash
+      [xxx]
+      字段继续往下写
+    
+    
+      匿名 struct
+      ,squash
+      没有 [xxx]，...</p>
             </div>
 
             <div class="post-meta flex-grow-1 d-flex align-items-end">
@@ -1082,148 +1233,6 @@ Protobuf 常用于以下场景：
       </a>
     </article>
   
-    <article class="card-wrapper card">
-      <a href="/go/%E8%A7%84%E5%88%99/%E5%AD%97%E5%85%B8/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">字典</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>创建
-
-Map创建了没有赋值，编译器会报错
-
-//1.make函数创建 (推荐)
-var map2 = make(map[string]string)   //make创建会直接初始化，值为nil
-
-//2.创建同时初始化 (有确定的键值时推荐)
-var map3 = map[string]int{&quot;Go&quot;:100,&quot;java&quot;:90} // 有这些键值时使用
-
-//3.var常量定义 (不...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1764212400"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/27
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      GO,
-                      规则
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">字典解析库</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>mapstructure 库
-
-
-  将 map[string]interface{} 数据解析到结构体中
-
-
-基础使用
-
-相关的包：
-
-import {
-	&quot;github.com/mitchellh/mapstructure&quot;
-}
-
-
-语法
-
-mapstructure.Decode(待解析map数据, &amp;amp;目标)
-
-
-在日常开发中，接受的数据可能不是固定的格式，而是会根据某个值的不同...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1763797200"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/22
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      GO,
-                      解析库
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
 </div>
 <!-- #post-list -->
 
@@ -1369,7 +1378,21 @@ mapstructure.Decode(待解析map数据, &amp;amp;目标)
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/">字典解析库</a>
+          <a href="/go/%E8%A7%84%E5%88%99/%E5%88%87%E7%89%87/">切片</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/redis/redis%E5%91%BD%E4%BB%A4/%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/">redis常见命令</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/go/%E8%A7%84%E5%88%99/%E6%96%B9%E6%B3%95/">函数</a>
         </li>
       
         
@@ -1383,21 +1406,7 @@ mapstructure.Decode(待解析map数据, &amp;amp;目标)
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/">toml配置文件</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%84%E5%88%99/%E5%AD%97%E5%85%B8/">字典</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/">指针</a>
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/">字典解析库</a>
         </li>
       
     </ul>

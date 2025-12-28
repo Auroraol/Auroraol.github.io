@@ -1,0 +1,9 @@
+@007_Go语言编程技巧.md (1-6)
+
+# Go语言编程技巧
+
+来源: https://colobu.com/gotips/007.html
+
+---
+
+# Tip #7 作者已删除了本tip

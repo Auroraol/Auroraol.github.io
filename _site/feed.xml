@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>L</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2025-12-07T18:11:59+08:00</updated>
+  <updated>2025-12-28T19:26:26+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,93 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>切片</title>
+    <link href="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E5%88%87%E7%89%87/" rel="alternate" type="text/html" title="切片" />
+    <published>2025-12-20T18:00:00+08:00</published>
+  
+    <updated>2025-12-20T18:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/go/%E8%A7%84%E5%88%99/%E5%88%87%E7%89%87/</id>
+    <content src="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E5%88%87%E7%89%87/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="GO" />
+    
+    <category term="规则" />
+    
+  
+
+  <summary>创建
+
+//1.make函数创建 (推荐)
+切片名称 := make([]切片类型, 0, 指定容量) 
+
+//2.创建同时初始化 (有确定的数据时推荐)
+var 切片名称 = []切片类型{}
+
+//3.var常量定义 (不推荐)
+var 切片名称 [] 切片类型
+
+
+修改
+
+值类型切片 → 必须拿索引才能改
+指针切片 → 循环变量本身就是原对象地址，直接改即可
+
+// 按索引直接改
+dates := []Date{ {&amp;quot;666&amp;quot;}, {&amp;quot;777&amp;quot;} }// 非指针
+for i := range dates {
+    dates[i].Id = &amp;quot;999&amp;quot; // 必须拿索引才能改
+}
+
+// 把切片元素换成指针直接改即可
+dates := []*Date{ {&amp;quot;666&amp;quot;}, {&amp;quot;777&amp;quot;} } // 指针
+for _, d := range dates {
+    d.Id = ...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>redis常见命令</title>
+    <link href="http://localhost:4000/redis/redis%E5%91%BD%E4%BB%A4/%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/" rel="alternate" type="text/html" title="redis常见命令" />
+    <published>2025-12-18T11:00:00+08:00</published>
+  
+    <updated>2025-12-18T11:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/redis/redis%E5%91%BD%E4%BB%A4/%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</id>
+    <content src="http://localhost:4000/redis/redis%E5%91%BD%E4%BB%A4/%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="Redis" />
+    
+    <category term="Redis命令" />
+    
+  
+
+  <summary>hash
+
+HDEL hash:jd:goods:sync_tag 66d280dfdde84a769c2550b
+HSET hash:jd:goods:sync_tag 66d280dfdde84a769c2550b &amp;quot;2025-05-16 11:38:38&amp;quot;
+HSET user:profile:10086 name &amp;quot;张三&amp;quot; age 29 vip 1
+┌------------------------------------------┐
+│ user:profile:10086                       │
+│  ┌----------┬------------------------┐   │
+│  │ field    │ value                  │   │  
+│  ├----------┼---------------------...</summary>
+
+  </entry>
 
   
   <entry>
@@ -40,21 +127,41 @@
     
   
 
-  <summary>配置管理神器Viper
+  <summary>总结
 
-type Config struct 
-	Spu                 SpuConfig                       `mapstructure:&amp;quot;spu&amp;quot;`
-	Sdks                []SDKConf                        `mapstructure:&amp;quot;sdks&amp;quot;` //
-	SpiHttpClients SpiHttpClientConfig `mapstructure:&amp;quot;spi_http_clients&amp;quot;`
-	Person  //
-	MockConfig `mapstructure:&amp;quot;,squash&amp;quot;` //
-}
 
-type Person struct {
-	Name            string     `mapstructure:&amp;quot;name&amp;quot;`
-}
-
-type MockCon...</summary>
+  
+    
+      Go 类型特征
+      tag 出现的关键字
+      生成的 TOML
+      备注
+    
+  
+  
+    
+      非匿名 struct
+      无 squash
+      [xxx]
+      字段继续往下写
+    
+    
+      匿名 struct
+      ,squash
+      没有 [xxx]，字段直接摊平到上层
+      俗称“扁平化”
+    
+    
+      切片/数组
+      无特殊关键字
+      两种等价写法：① [[xxx]] 多次出现② xxx = [{…}, {…}]
+      ① 易读；② 省行
+    
+    
+      map[K]V 且 K=string
+      无特殊关键字
+      [parent.xxx] 下再挂任意子键
+    ...</summary>
 
   </entry>
 
@@ -64,7 +171,7 @@ type MockCon...</summary>
     <link href="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%96%B9%E6%B3%95/" rel="alternate" type="text/html" title="函数" />
     <published>2025-12-07T12:00:00+08:00</published>
   
-    <updated>2025-12-07T12:00:00+08:00</updated>
+    <updated>2025-12-07T18:12:44+08:00</updated>
   
     <id>http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%96%B9%E6%B3%95/</id>
     <content src="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%96%B9%E6%B3%95/" />
@@ -183,128 +290,6 @@ func (s S1) f() {}    // 值接收者方法，属于 S1 的值方法集
 type S2 struct{}
 
 func (s *S2)...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>指针</title>
-    <link href="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/" rel="alternate" type="text/html" title="指针" />
-    <published>2025-12-02T11:00:00+08:00</published>
-  
-    <updated>2025-12-07T15:47:05+08:00</updated>
-  
-    <id>http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/</id>
-    <content src="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="GO" />
-    
-    <category term="规则" />
-    
-  
-
-  <summary>📌 结论
-
-
-  
-    值接收者方法：   T 和 *T 都可以赋给接口
-  
-  指针接收者方法：只有 *T 可以赋给接口
-  接口类型前面永远不要加 * (接口用值，不加星；加星就废，没方法)
-
-
-示例1:
-
-type F interface {
-    f()
-}
-
-type S1 struct{}
-
-func (s S1) f() {}    // 值接收者方法，属于 S1 的值方法集
-
-type S2 struct{}
-
-func (s *S2) f() {}   // 指针接收者方法，属于 *S2 的指针方法集
-
-var (
-    i F // 接口
-    
-    //值方法集
-    s1Val = S1{}
-    s1Ptr = &amp;amp;amp;S1{}
-    i = s1Val
-    i = s1Ptr
-
-    //指针方法集 
-    s2Val = ...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>k8s拉取镜像策略</title>
-    <link href="http://localhost:4000/k8s/%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E7%AD%96%E7%95%A5/" rel="alternate" type="text/html" title="k8s拉取镜像策略" />
-    <published>2025-12-01T16:00:00+08:00</published>
-  
-    <updated>2025-12-01T20:22:00+08:00</updated>
-  
-    <id>http://localhost:4000/k8s/%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E7%AD%96%E7%95%A5/</id>
-    <content src="http://localhost:4000/k8s/%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E7%AD%96%E7%95%A5/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="k8s" />
-    
-  
-
-  <summary>镜像拉取策略
-
-
-
-
-  
-    
-      值
-      含义
-    
-  
-  
-    
-      Always
-      每次启动容器时都尝试拉取镜像（忽略本地缓存）。
-    
-    
-      IfNotPresent
-      如果本地已有该镜像，重启 Pod 时则不拉取；否则拉取。
-    
-    
-      Never
-      只使用本地镜像，绝不拉取。
-    
-  
-
-
-问题
-
-配置IfNotPresent, 但是出现偶尔更新镜像后，重启 Pod，代码却更新
-
-
-  ✅ 原因 1：Pod 被调度到了新节点（或清理过镜像的节点）
-    
-      节点 A 有旧镜像 → 用本地缓存
-      节点 B 没有镜像 → 拉取最新版本
-      如果你节点偶尔自动清理镜像（如 kubelet 的镜像回收机制），也可能触发拉取
-    
-...</summary>
 
   </entry>
 

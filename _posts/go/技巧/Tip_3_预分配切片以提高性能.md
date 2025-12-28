@@ -1,0 +1,14 @@
+@003_Go语言编程技巧.md (1-6)
+
+# Go语言编程技巧
+
+来源: https://colobu.com/gotips/003.html
+
+---
+
+# Tip #3 预分配切片以提高性能
+原始链接：Golang Tip #3: Pre-allocate slices for performance为什么注重性能？请参考以下回答。
+过去，我曾使用`make(a, 10)`预分配数组空间，但是，
+我经常习惯性地误用`append()`方法，导致数组中出现了许多前导零（参见下图）
+为了避免这种情况，我改用了一种更有效率的预分配方法：`make(a, 0, 10)`。
+![](images/003/003.jpeg)
