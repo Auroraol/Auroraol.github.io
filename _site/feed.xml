@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>L</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2026-01-31T22:19:26+08:00</updated>
+  <updated>2026-01-31T22:27:20+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -24,7 +24,7 @@
     <link href="http://localhost:4000/go/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/OOM/" rel="alternate" type="text/html" title="OMM" />
     <published>2026-01-31T20:00:00+08:00</published>
   
-    <updated>2026-01-31T20:00:00+08:00</updated>
+    <updated>2026-01-31T22:21:44+08:00</updated>
   
     <id>http://localhost:4000/go/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/OOM/</id>
     <content src="http://localhost:4000/go/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/OOM/" />
@@ -112,7 +112,7 @@ CPU 性能分析(CPU profiling) 是最常见的性能分析类型。
     <link href="http://localhost:4000/go/%E5%BC%82%E6%AD%A5/%E9%80%9A%E9%81%93/" rel="alternate" type="text/html" title="通道" />
     <published>2026-01-20T00:40:00+08:00</published>
   
-    <updated>2026-01-31T21:46:19+08:00</updated>
+    <updated>2026-01-31T22:27:01+08:00</updated>
   
     <id>http://localhost:4000/go/%E5%BC%82%E6%AD%A5/%E9%80%9A%E9%81%93/</id>
     <content src="http://localhost:4000/go/%E5%BC%82%E6%AD%A5/%E9%80%9A%E9%81%93/" />
