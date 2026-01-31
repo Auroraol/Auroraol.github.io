@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>L</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2026-01-31T21:45:35+08:00</updated>
+  <updated>2026-01-31T22:19:26+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -20,11 +20,99 @@
 
   
   <entry>
+    <title>OMM</title>
+    <link href="http://localhost:4000/go/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/OOM/" rel="alternate" type="text/html" title="OMM" />
+    <published>2026-01-31T20:00:00+08:00</published>
+  
+    <updated>2026-01-31T20:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/go/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/OOM/</id>
+    <content src="http://localhost:4000/go/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/OOM/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="GO" />
+    
+    <category term="线上问题" />
+    
+  
+
+  <summary>服务 OOM 排查指南：从现象到根因的系统分析与解决 - 五岁博客
+
+一、OOM 典型现象
+
+OOM（Out of Memory）即内存溢出，指服务进程所需内存超过系统或容器分配的最大限制，被内核的 OOM Killer 强制终止，或因内存耗尽主动崩溃。
+
+
+  
+    服务进程消失： ps 或 top 命令看不到对应的进程了。
+  
+  
+    日志中断： 应用日志在某个时间点突然停止，没有任何异常堆栈或错误信息（这是最常见的情况）。
+  
+  
+    系统日志 (dmesg)： 在 Linux 系统中，使用 dmesg | grep -i &amp;#39;out of memory&amp;#39; 通常能找到线索，内核会打印出哪个进程因为内存不足而被杀死。
+
+    例如：[12345.678901] Out of memory: Kill process 1234 (my-service) scor...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>pprof</title>
+    <link href="http://localhost:4000/go/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/prof/" rel="alternate" type="text/html" title="pprof" />
+    <published>2026-01-31T18:00:00+08:00</published>
+  
+    <updated>2026-01-31T18:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/go/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/prof/</id>
+    <content src="http://localhost:4000/go/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/prof/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="GO" />
+    
+    <category term="线上问题" />
+    
+  
+
+  <summary>性能分析类型
+
+CPU 性能分析
+
+CPU 性能分析(CPU profiling) 是最常见的性能分析类型。
+
+启动 CPU 分析时，运行时(runtime) 将每隔 10ms 中断一次，记录此时正在运行的协程(goroutines) 的堆栈信息。
+
+一个函数在性能分析数据中出现的次数越多，说明执行该函数的代码路径(code path)花费的时间占总运行时间的比重越大。
+
+内存性能分析
+
+内存性能分析(Memory profiling) 记录堆内存分配时的堆栈信息，忽略栈内存分配信息。
+
+内存性能分析启用时，默认每1000次采样1次，这个比例是可以调整的。因为内存性能分析是基于采样的，因此基于内存分析数据来判断程序所有的内存使用情况是很困难的。
+
+阻塞性能分析
+
+阻塞性能分析(block profiling) 是 Go 特有的。
+
+阻塞性能分析用来记录一个协程等待一个共享资源花费的时...</summary>
+
+  </entry>
+
+  
+  <entry>
     <title>通道</title>
     <link href="http://localhost:4000/go/%E5%BC%82%E6%AD%A5/%E9%80%9A%E9%81%93/" rel="alternate" type="text/html" title="通道" />
     <published>2026-01-20T00:40:00+08:00</published>
   
-    <updated>2026-01-20T00:40:00+08:00</updated>
+    <updated>2026-01-31T21:46:19+08:00</updated>
   
     <id>http://localhost:4000/go/%E5%BC%82%E6%AD%A5/%E9%80%9A%E9%81%93/</id>
     <content src="http://localhost:4000/go/%E5%BC%82%E6%AD%A5/%E9%80%9A%E9%81%93/" />
@@ -61,48 +149,6 @@ go func() {
 
 
 //情形1：  channel缓存队列已满，接收者goroutine退出...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>OMM</title>
-    <link href="http://localhost:4000/go/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/OOM/" rel="alternate" type="text/html" title="OMM" />
-    <published>2025-12-20T18:00:00+08:00</published>
-  
-    <updated>2025-12-20T18:00:00+08:00</updated>
-  
-    <id>http://localhost:4000/go/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/OOM/</id>
-    <content src="http://localhost:4000/go/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/OOM/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="GO" />
-    
-    <category term="线上问题" />
-    
-  
-
-  <summary>服务 OOM 排查指南：从现象到根因的系统分析与解决 - 五岁博客
-
-一、OOM 典型现象
-
-OOM（Out of Memory）即内存溢出，指服务进程所需内存超过系统或容器分配的最大限制，被内核的 OOM Killer 强制终止，或因内存耗尽主动崩溃。
-
-
-  
-    服务进程消失： ps 或 top 命令看不到对应的进程了。
-  
-  
-    日志中断： 应用日志在某个时间点突然停止，没有任何异常堆栈或错误信息（这是最常见的情况）。
-  
-  
-    系统日志 (dmesg)： 在 Linux 系统中，使用 dmesg | grep -i &amp;#39;out of memory&amp;#39; 通常能找到线索，内核会打印出哪个进程因为内存不足而被杀死。
-
-    例如：[12345.678901] Out of memory: Kill process 1234 (my-service) scor...</summary>
 
   </entry>
 
@@ -190,66 +236,6 @@ HSET user:profile:10086 name &amp;quot;张三&amp;quot; age 29 vip 1
 │  ┌----------┬------------------------┐   │
 │  │ field    │ value                  │   │  
 │  ├----------┼---------------------...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>toml配置文件</title>
-    <link href="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/" rel="alternate" type="text/html" title="toml配置文件" />
-    <published>2025-12-07T17:00:00+08:00</published>
-  
-    <updated>2025-12-28T19:26:48+08:00</updated>
-  
-    <id>http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/</id>
-    <content src="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="GO" />
-    
-    <category term="解析库" />
-    
-  
-
-  <summary>总结
-
-
-  
-    
-      Go 类型特征
-      tag 出现的关键字
-      生成的 TOML
-      备注
-    
-  
-  
-    
-      非匿名 struct
-      无 squash
-      [xxx]
-      字段继续往下写
-    
-    
-      匿名 struct
-      ,squash
-      没有 [xxx]，字段直接摊平到上层
-      俗称“扁平化”
-    
-    
-      切片/数组
-      无特殊关键字
-      两种等价写法：① [[xxx]] 多次出现② xxx = [{…}, {…}]
-      ① 易读；② 省行
-    
-    
-      map[K]V 且 K=string
-      无特殊关键字
-      [parent.xxx] 下再挂任意子键
-    ...</summary>
 
   </entry>
 
