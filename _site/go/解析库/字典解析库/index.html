@@ -513,6 +513,28 @@
 
       
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
 
     
   
@@ -528,6 +550,50 @@
       
         
         
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
       
 
       
@@ -768,9 +834,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="4187 字"
+  title="4531 字"
 >
-  <em>23 分钟</em>阅读</span>
+  <em>25 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -784,7 +850,7 @@
   <p>将 map[string]interface{} 数据解析到结构体中</p>
 </blockquote>
 
-<h2 id="基础使用"><span class="me-2">基础使用</span><a href="#基础使用" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h2 id="基础使用推荐做法始终使用标签"><span class="me-2">基础使用(推荐做法：始终使用标签)</span><a href="#基础使用推荐做法始终使用标签" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <p>相关的包：</p>
 
@@ -803,7 +869,25 @@
 <div class="language-go highlighter-rouge"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
 </pre></td><td class="rouge-code"><pre><span class="n">mapstructure</span><span class="o">.</span><span class="n">Decode</span><span class="p">(</span><span class="n">待解析map数据</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">目标</span><span class="p">)</span>
+
+<span class="c">// 等价</span>
+<span class="n">bytes</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">json</span><span class="o">.</span><span class="n">Marshal</span><span class="p">(</span><span class="n">待解析map数据</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="no">nil</span><span class="p">,</span> <span class="n">fmt</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="s">"无法序列化输入参数: %w"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">json</span><span class="o">.</span><span class="n">Unmarshal</span><span class="p">(</span><span class="n">bytes</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">目标</span><span class="p">);</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="no">nil</span><span class="p">,</span> <span class="n">fmt</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="s">"无法反序列化输入参数到TaskInput: %w"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+<span class="p">}</span>
 </pre></td></tr></tbody></table></code></div></div>
 
 <p>在日常开发中，接受的数据可能不是固定的格式，而是会根据某个值的不同有不同的内容。</p>
@@ -1050,6 +1134,98 @@ true
 Decoded ShopIdGray1: {Data:{PlatUserIds:map[1212231:true] IsComplete:false}}
 Decoded ShopIdGray1.Data: {PlatUserIds:map[1212231:true] IsComplete:false}
 true
+</pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="默认值"><span class="me-2">默认值</span><a href="#默认值" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>当 <code class="language-plaintext highlighter-rouge">mapstructure.Decode</code> 解码时，如果 map 中缺少某些字段，结构体字段会使用 Go 的零值.  规则和json库一致</p>
+
+<h2 id="使用标签"><span class="me-2">使用标签</span><a href="#使用标签" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<h3 id="1-字段名不一致时"><span class="me-2">1. 字段名不一致时</span><a href="#1-字段名不一致时" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="k">type</span> <span class="n">Person</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">FullName</span> <span class="kt">string</span> <span class="s">`mapstructure:"name"`</span>  <span class="c">// JSON 是 "name"，结构体是 "FullName"</span>
+    <span class="n">Age</span>     <span class="kt">int</span>    <span class="s">`mapstructure:"age"`</span>
+    <span class="n">JobTitle</span> <span class="kt">string</span> <span class="s">`mapstructure:"job"`</span>   <span class="c">// JSON 是 "job"，结构体是 "JobTitle"</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h3 id="2-需要忽略某些字段时"><span class="me-2">2. 需要忽略某些字段时</span><a href="#2-需要忽略某些字段时" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="k">type</span> <span class="n">Person</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">Name</span> <span class="kt">string</span> <span class="s">`mapstructure:"name"`</span>
+    <span class="n">Age</span>  <span class="kt">int</span>    <span class="s">`mapstructure:"age"`</span>
+    <span class="n">Job</span>  <span class="kt">string</span> <span class="s">`mapstructure:"job"`</span>
+    <span class="n">InternalID</span> <span class="kt">int</span> <span class="s">`mapstructure:"-"`</span>  <span class="c">// 忽略这个字段，不解码</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h3 id="3-需要设置默认值或元数据时"><span class="me-2">3. 需要设置默认值或元数据时</span><a href="#3-需要设置默认值或元数据时" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="k">type</span> <span class="n">Person</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">Name</span> <span class="kt">string</span> <span class="s">`mapstructure:"name" json:"name"`</span>  <span class="c">// 同时兼容多个库</span>
+    <span class="n">Age</span>  <span class="kt">int</span>    <span class="s">`mapstructure:"age" json:"age" validate:"gte=0,lte=150"`</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h3 id="4-嵌入式结构体或复杂映射时"><span class="me-2">4. 嵌入式结构体或复杂映射时</span><a href="#4-嵌入式结构体或复杂映射时" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre><span class="k">type</span> <span class="n">Config</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">Server</span> <span class="k">struct</span> <span class="p">{</span>
+        <span class="n">Host</span> <span class="kt">string</span> <span class="s">`mapstructure:"host"`</span>
+        <span class="n">Port</span> <span class="kt">int</span>    <span class="s">`mapstructure:"port"`</span>
+    <span class="p">}</span> <span class="s">`mapstructure:"server"`</span>  <span class="c">// 映射到嵌套的 "server" 字段</span>
+    
+    <span class="n">Database</span> <span class="k">struct</span> <span class="p">{</span>
+        <span class="n">URL</span> <span class="kt">string</span> <span class="s">`mapstructure:"url"`</span>
+    <span class="p">}</span> <span class="s">`mapstructure:"database"`</span>
+<span class="p">}</span>
+
+<span class="c">// 对应 JSON:</span>
+<span class="c">// {</span>
+<span class="c">//   "server": { "host": "localhost", "port": 8080 },</span>
+<span class="c">//   "database": { "url": "postgres://..." }</span>
+<span class="c">// }</span>
 </pre></td></tr></tbody></table></code></div></div>
 
 <h2 id="详细使用"><span class="me-2">详细使用</span><a href="#详细使用" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
@@ -2895,6 +3071,18 @@ true
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
   
 
@@ -2995,41 +3183,6 @@ true
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%95%B0%E5%AD%97_%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1763790000"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/22
-</time>
-
-              <h4 class="pt-0 my-2">数字_字符串转换</h4>
-              <div class="text-muted">
-                <p>数字&amp;amp;字符转换
-
-string 转换 为其他类型
-
-f, _ := strconv.ParseBool(&quot;false&quot;)         // bool
-g, _ := strconv.ParseFloat(&quot;123.23&quot;, 64)     // float
-h, _ := strconv.ParseInt(&quot;-1234&quot;, 10, 64)    // int64
-i, _ := ...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
           <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/protojson%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview card h-100">
             <div class="card-body">
               <!--
@@ -3118,6 +3271,52 @@ i, _ := ...</p>
       匿名 struct
       ,squash
       没有 [xxx]，...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/json%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1763743200"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/22
+</time>
+
+              <h4 class="pt-0 my-2">json解析库</h4>
+              <div class="text-muted">
+                <p>json库
+
+
+  
+    JSON 编码: 将 Go 的数据结构转换为 JSON 格式的字符串。通过 json.Marshal 函数实现。
+    JSON 解码: 将 JSON 格式的字符串转换为 Go 的数据结构。通过 json.Unmarshal 函数实现。
+  
+
+
+相关的包：
+
+import {
+	&quot;encoding/json&quot;
+}
+
+
+语法
+
+json.Marshal(待解析...</p>
               </div>
             </div>
           </a>

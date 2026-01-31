@@ -619,6 +619,116 @@
 
       
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
 
     
   
@@ -634,6 +744,149 @@
       
         
         
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
       
 
       
@@ -874,9 +1127,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="5448 字"
+  title="8352 字"
 >
-  <em>30 分钟</em>阅读</span>
+  <em>46 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -2280,21 +2533,51 @@ defer cancel()
 
 <p>它创建一个<strong>不受父 context 取消影响</strong>的新 context（但仍保留 values，如 trace ID）。</p>
 
-<p>这意味着：</p>
+<p>这意味着：即使 <code class="language-plaintext highlighter-rouge">ctx</code>（父 context）被取消，<code class="language-plaintext highlighter-rouge">newCtx</code> 仍然可以继续运行。</p>
 
-<blockquote>
-  <p>即使 <code class="language-plaintext highlighter-rouge">ctx</code>（父 context）被取消，<code class="language-plaintext highlighter-rouge">newCtx</code> 仍然可以继续运行，直到超时（10秒）或自己完成。</p>
-</blockquote>
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="n">baseCtx</span> <span class="o">:=</span> <span class="n">context</span><span class="o">.</span><span class="n">WithoutCancel</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>        <span class="c">// 第1步：去除取消信号</span>
+<span class="n">newCtx</span> <span class="o">:=</span> <span class="n">octrace</span><span class="o">.</span><span class="n">CopySpanToNewCtx</span><span class="p">(</span><span class="n">baseCtx</span><span class="p">)</span>  <span class="c">// 第2步：复制 span 到新 context</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="n">原</span> <span class="n">ctx</span> <span class="p">(</span><span class="n">可取消</span><span class="p">)</span>
+  <span class="err">↓</span> <span class="n">调用</span> <span class="n">Cancel</span><span class="p">()</span>
+  <span class="err">×</span> <span class="n">取消信号被阻断</span>
+<span class="n">baseCtx</span> <span class="p">(</span><span class="n">不可取消</span><span class="p">)</span> <span class="err">←</span> <span class="n">context</span><span class="o">.</span><span class="n">WithoutCancel</span><span class="p">()</span>
+  <span class="err">↓</span>
+<span class="n">newCtx</span> <span class="p">(</span><span class="n">不可取消</span><span class="p">)</span> <span class="err">←</span> <span class="n">octrace</span><span class="o">.</span><span class="n">CopySpanToNewCtx</span><span class="p">()</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p><span style="color:red">注意:  容易出现oom, 即使goroutine执行完毕：</span></p>
+
+<ul>
+  <li>
+    <p>newCtx 仍然存活（因为WithoutCancel）</p>
+  </li>
+  <li>
+    <p>上下文包含trace信息、metadata、span等数据</p>
+  </li>
+  <li>
+    <p>这些对象无法被垃圾回收</p>
+  </li>
+</ul>
 
 <hr />
 
 <h3 id="-不使用-contextwithoutcancelctx-的后果"><span class="me-2">❌ 不使用 <code class="language-plaintext highlighter-rouge">context.WithoutCancel(ctx)</code> 的后果</span><a href="#-不使用-contextwithoutcancelctx-的后果" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <p>如果你直接写：</p>
-
-<p>go</p>
-
-<p>复制</p>
 
 <div class="language-go highlighter-rouge"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
@@ -2304,6 +2587,22 @@ defer cancel()
 </pre></td><td class="rouge-code"><pre><span class="n">spanCtx</span> <span class="o">:=</span> <span class="n">octrace</span><span class="o">.</span><span class="n">CopySpanToNewCtx</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
 <span class="n">newCtx</span><span class="p">,</span> <span class="n">cancel</span> <span class="o">:=</span> <span class="n">context</span><span class="o">.</span><span class="n">WithTimeout</span><span class="p">(</span><span class="n">spanCtx</span><span class="p">,</span> <span class="m">10</span><span class="o">*</span><span class="n">time</span><span class="o">.</span><span class="n">Second</span><span class="p">)</span>
 <span class="k">defer</span> <span class="n">cancel</span><span class="p">()</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="n">ctx</span> <span class="p">(</span><span class="n">父</span><span class="err">，</span><span class="n">可取消</span><span class="p">)</span>
+  <span class="err">↓</span> <span class="n">调用</span> <span class="n">Cancel</span><span class="p">()</span> <span class="err">─────────┐</span>
+    <span class="n">取消信号传播</span>            <span class="err">│</span>
+<span class="n">spanCtx</span> <span class="p">(</span><span class="n">继承取消信号</span><span class="p">)</span> <span class="err">←─────┘</span>  <span class="c">// CopySpanToNewCtx 只是复制 span，不阻断取消 </span>
+  <span class="err">↓</span>
+<span class="n">newCtx</span> <span class="p">(</span><span class="n">WithTimeout</span> <span class="n">包装</span><span class="p">)</span> <span class="err">───→</span> <span class="n">会收到取消信号</span><span class="err">！</span>
 </pre></td></tr></tbody></table></code></div></div>
 
 <p>那么：</p>
@@ -2317,10 +2616,6 @@ defer cancel()
 <hr />
 
 <h3 id="-总结能不能不用"><span class="me-2">✅ 总结：能不能不用？</span><a href="#-总结能不能不用" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-
-<p>表格</p>
-
-<p>复制</p>
 
 <div class="table-wrapper"><table>
   <thead>
@@ -2346,6 +2641,885 @@ defer cancel()
 <h3 id="-建议"><span class="me-2">✅ 建议</span><a href="#-建议" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <p>如果你是为了<strong>后台任务、日志上传、清理操作</strong>等场景，<strong>不希望被父请求的生命周期影响</strong>，那就<strong>必须用 <code class="language-plaintext highlighter-rouge">context.WithoutCancel</code></strong>。</p>
+
+<h2 id="方案对比"><span class="me-2">方案对比</span><a href="#方案对比" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th style="text-align: left">方案</th>
+      <th style="text-align: left">优点</th>
+      <th style="text-align: left">缺点</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">context.WithoutCancel(ctx)</td>
+      <td style="text-align: left">异步操作永不取消</td>
+      <td style="text-align: left">内存泄漏严重</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">octrace.CopySpanToNewCtx(ctx)</td>
+      <td style="text-align: left">无内存泄漏</td>
+      <td style="text-align: left">异步操作会被父context取消</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">带超时的独立上下文</td>
+      <td style="text-align: left">✅ 无内存泄漏<br />✅ 异步操作独立<br />✅ 有合理超时</td>
+      <td style="text-align: left">需要手动管理cancel</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>// 方案1：如果需要独立控制，自己创建可取消的 context</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>baseCtx := context.WithoutCancel(ctx)
+newCtx, cancel := context.WithCancel(baseCtx)  // 自己管理生命周期
+defer cancel() // 或根据业务逻辑调用
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>// 方案2：如果确实需要继承原 ctx 的取消，但保留 span</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>// 不要调用 WithoutCancel，直接复制 span
+newCtx := octrace.CopySpanToNewCtx(ctx)  // 会继承取消信号
+</pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="推荐写法"><span class="me-2">推荐写法</span><a href="#推荐写法" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>版本B（最佳）：goroutine 内创建</p>
+
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="k">func</span> <span class="n">pushPulsarAsync</span><span class="p">(</span><span class="n">ctx</span> <span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">msg</span> <span class="o">*</span><span class="n">pb2</span><span class="o">.</span><span class="n">AdapterMsg</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c">//gorunner.GoRun 的实现 goroutine 不会被 ctx 主动取消，</span>
+    <span class="n">gorunner</span><span class="o">.</span><span class="n">GoRun</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="k">func</span><span class="p">()</span> <span class="kt">error</span> <span class="p">{</span>
+        <span class="c">// ✅ 先阻断父取消，再复制 span</span>
+        <span class="n">baseCtx</span> <span class="o">:=</span> <span class="n">context</span><span class="o">.</span><span class="n">WithoutCancel</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>  <span class="c">// 意义不大的时候不要使用, </span>
+        <span class="n">spanCtx</span> <span class="o">:=</span> <span class="n">octrace</span><span class="o">.</span><span class="n">CopySpanToNewCtx</span><span class="p">(</span><span class="n">baseCtx</span><span class="p">)</span>
+        
+        <span class="c">// 现在 asyncCtx 只受 20s 超时控制，不受父取消影响</span>
+        <span class="n">asyncCtx</span><span class="p">,</span> <span class="n">cancel</span> <span class="o">:=</span> <span class="n">context</span><span class="o">.</span><span class="n">WithTimeout</span><span class="p">(</span><span class="n">spanCtx</span><span class="p">,</span> <span class="m">20</span><span class="o">*</span><span class="n">time</span><span class="o">.</span><span class="n">Second</span><span class="p">)</span>
+        <span class="k">defer</span> <span class="n">cancel</span><span class="p">()</span>
+        
+        <span class="n">client_business</span><span class="o">.</span><span class="n">PushPulsar</span><span class="p">(</span><span class="n">asyncCtx</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+        <span class="k">return</span> <span class="no">nil</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>T+0s:  提交到 gorunner 队列（无资源占用）
+T+5s:  队列调度，开始执行回调
+T+5s:  创建 asyncCtx（20秒计时开始）
+T+25s: 超时（实际执行了完整的20秒）</p>
+
+<p>版本A：上下文在 goroutine 外创建</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre>func pushPulsarAsync(ctx context.Context, msg *pb2.AdapterMsg) {
+    // 1️⃣ 立即创建 asyncCtx（20秒计时开始）
+    baseCtx := context.WithoutCancel(ctx)  //意义不大的时候不要使用, 
+
+    spanCtx := octrace.CopySpanToNewCtx(baseCtx)
+    asyncCtx, cancel := context.WithTimeout(spanCtx, 20*time.Second)
+    
+    // 2️⃣ 提交到 gorunner（可能排队等待）
+    gorunner.GoRun(ctx, func() error {
+        defer cancel()
+        // 3️⃣ 实际执行时，可能已经过去 5 秒
+        // 但只剩 15 秒可用（20秒已流逝）
+        client_business.PushPulsar(asyncCtx, msg)
+        return nil
+    })
+}
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>T+0s:  创建 asyncCtx（20秒计时开始）
+T+0s:  提交到 gorunner 队列
+T+5s:  队列调度，开始执行回调（只剩 15 秒）
+T+20s: asyncCtx 超时取消（实际只执行了 15 秒）</p>
+
+<h1 id="导致-oom内存溢出">导致 OOM（内存溢出)</h1>
+
+<h2 id="问题"><span class="me-2">问题</span><a href="#问题" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+</pre></td><td class="rouge-code"><pre><span class="n">newCtx</span> <span class="o">:=</span> <span class="n">octrace</span><span class="o">.</span><span class="n">CopySpanToNewCtx</span><span class="p">(</span><span class="n">baseCtx</span><span class="p">)</span>
+<span class="k">switch</span> <span class="n">msgAdapter</span><span class="o">.</span><span class="n">GetMsgType</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="n">model</span><span class="o">.</span><span class="n">BuyerMsg</span><span class="o">:</span>
+    <span class="n">aiAnswer</span><span class="p">,</span> <span class="n">ok</span> <span class="o">:=</span> <span class="n">req</span><span class="o">.</span><span class="p">(</span><span class="o">*</span><span class="n">pb</span><span class="o">.</span><span class="n">ChatMessage</span><span class="p">)</span>
+    <span class="k">if</span> <span class="o">!</span><span class="n">ok</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">fmt</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="s">"req type error"</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">Infof</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"原始消息buyer：%+v"</span><span class="p">,</span> <span class="o">*</span><span class="n">aiAnswer</span><span class="p">)</span>
+    <span class="n">ret</span><span class="o">.</span><span class="n">PlatMsgId</span> <span class="o">=</span> <span class="n">aiAnswer</span><span class="o">.</span><span class="n">PlatMsgId</span>
+    <span class="n">ExtInfo</span><span class="o">.</span><span class="n">RequestID</span> <span class="o">=</span> <span class="n">aiAnswer</span><span class="o">.</span><span class="n">RequestId</span>
+    <span class="k">if</span> <span class="n">aipaasDispatchMindFlow</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">aiAnswer</span><span class="o">.</span><span class="n">ShopId</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">isSendBusiness</span> <span class="o">=</span> <span class="no">false</span>
+    <span class="p">}</span>
+    <span class="n">pushPulsarAsync</span><span class="p">(</span><span class="n">newCtx</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">pb2</span><span class="o">.</span><span class="n">AdapterMsg</span><span class="p">{</span>
+        <span class="n">MsgType</span><span class="o">:</span> <span class="n">pb2</span><span class="o">.</span><span class="n">AdapterMsgType_BUYER_MSG</span><span class="p">,</span>
+        <span class="n">Data</span><span class="o">:</span> <span class="o">&amp;</span><span class="n">pb2</span><span class="o">.</span><span class="n">AdapterMsg_ChatMessage</span><span class="p">{</span>
+            <span class="n">ChatMessage</span><span class="o">:</span> <span class="n">aiAnswer</span><span class="o">.</span><span class="n">ChatMessage</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">})</span>
+    <span class="k">if</span> <span class="o">!</span><span class="n">isSendBusiness</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="no">nil</span>
+    <span class="p">}</span>
+    <span class="n">err</span> <span class="o">:=</span> <span class="n">client_business</span><span class="o">.</span><span class="n">Answer</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">aiAnswer</span><span class="o">.</span><span class="n">ChatMessage</span><span class="p">,</span> <span class="n">rspInfo</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">err</span>
+    <span class="p">}</span>
+
+    <span class="k">func</span> <span class="n">pushPulsarAsync</span><span class="p">(</span><span class="n">ctx</span> <span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">msg</span> <span class="o">*</span><span class="n">pb2</span><span class="o">.</span><span class="n">AdapterMsg</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">gorunner</span><span class="o">.</span><span class="n">GoRun</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="k">func</span><span class="p">()</span> <span class="kt">error</span> <span class="p">{</span>
+            <span class="n">client_business</span><span class="o">.</span><span class="n">PushPulsar</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+            <span class="k">return</span> <span class="no">nil</span>
+        <span class="p">})</span>
+    <span class="p">}</span>
+
+    <span class="k">func</span> <span class="n">PushPulsar</span><span class="p">(</span><span class="n">ctx</span> <span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">msg</span> <span class="o">*</span><span class="n">msgAdapterPb</span><span class="o">.</span><span class="n">AdapterMsg</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">PushPulsarJson</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+        <span class="n">data</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">proto</span><span class="o">.</span><span class="n">Marshal</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"json marshal error: %v"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="n">pulsar</span><span class="o">.</span><span class="n">SendAsyncByte</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"msg_adapter_msg"</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"send pulsar error: %v"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+        <span class="k">return</span>
+    <span class="p">}</span>
+
+</pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="主要问题分析"><span class="me-2">主要问题分析</span><a href="#主要问题分析" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<h3 id="1-上下文管理不当"><span class="me-2">1. 上下文管理不当</span><a href="#1-上下文管理不当" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="n">baseCtx</span> <span class="o">:=</span> <span class="n">context</span><span class="o">.</span><span class="n">WithoutCancel</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>  <span class="c">// 创建了一个永不取消的上下文</span>
+<span class="n">newCtx</span> <span class="o">:=</span> <span class="n">octrace</span><span class="o">.</span><span class="n">CopySpanToNewCtx</span><span class="p">(</span><span class="n">baseCtx</span><span class="p">)</span>
+
+<span class="k">func</span> <span class="n">pushPulsarAsync</span><span class="p">(</span><span class="n">ctx</span> <span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">msg</span> <span class="o">*</span><span class="n">pb2</span><span class="o">.</span><span class="n">AdapterMsg</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">gorunner</span><span class="o">.</span><span class="n">GoRun</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="k">func</span><span class="p">()</span> <span class="kt">error</span> <span class="p">{</span>
+		<span class="n">client_business</span><span class="o">.</span><span class="n">PushPulsar</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>  <span class="c">// ctx被goroutine持有</span>
+		<span class="k">return</span> <span class="no">nil</span>  <span class="c">// goroutine函数结束</span>
+	<span class="p">})</span>
+	<span class="c">// goroutine结束，但ctx的引用仍然存在</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<ul>
+  <li>
+    <p>使用 context.WithoutCancel(ctx) 创建了一个永不取消的上下文</p>
+  </li>
+  <li>
+    <p>这意味着即使原始请求(父)被取消（客户端断开连接、超时等），异步推送 Pulsar 的 goroutine 仍然会继续运行</p>
+  </li>
+  <li>
+    <p>在高并发场景下，会积累大量不会被垃圾回收的 goroutine, 高并发下的积累效应</p>
+
+    <ul>
+      <li>
+        <p>每个消息 = 一个goroutine = 一个永不释放的上下文</p>
+      </li>
+      <li>
+        <p>1000 QPS × 上下文大小(几KB) × 运行时间(小时) = 大量内存</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="2-goroutine-泄漏风险"><span class="me-2">2. goroutine 泄漏风险</span><a href="#2-goroutine-泄漏风险" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">pushPulsarAsync</span><span class="p">(</span><span class="n">newCtx</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">pb2</span><span class="o">.</span><span class="n">AdapterMsg</span><span class="p">{</span><span class="o">...</span><span class="p">})</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>个消息都会通过 gorunner.GoRun 启动新的 goroutine：</p>
+
+<ul>
+  <li>
+    <p>如果 Pulsar 服务器响应慢或网络问题，这些 goroutine 会阻塞</p>
+  </li>
+  <li>
+    <p>没有 goroutine 池限制，无限创建 goroutine</p>
+  </li>
+  <li>
+    <p>goroutine 持有上下文引用，导致内存无法释放</p>
+  </li>
+</ul>
+
+<h3 id="3-异步操作无限制"><span class="me-2">3. 异步操作无限制</span><a href="#3-异步操作无限制" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<ul>
+  <li>
+    <p>每个消息分支都调用 pushPulsarAsync</p>
+  </li>
+  <li>
+    <p>高峰期可能同时创建数千个 goroutine</p>
+  </li>
+  <li>
+    <p>每个 goroutine 占用 ~2-8KB 栈空间，容易导致内存爆炸</p>
+  </li>
+</ul>
+
+<h2 id="解决方案建议"><span class="me-2">解决方案建议</span><a href="#解决方案建议" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<h3 id="1-修复上下文管理"><span class="me-2">1. 修复上下文管理</span><a href="#1-修复上下文管理" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="c">// 替换现有的上下文创建</span>
+<span class="n">newCtx</span> <span class="o">:=</span> <span class="n">octrace</span><span class="o">.</span><span class="n">CopySpanToNewCtx</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span> <span class="c">// 直接使用原始上下文</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h3 id="2-添加-goroutine-池限制"><span class="me-2">2. 添加 goroutine 池限制</span><a href="#2-添加-goroutine-池限制" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>考虑使用 sync.Pool 或第三方 goroutine 池库来限制并发数量。</p>
+
+<h3 id="3-添加超时控制"><span class="me-2">3. 添加超时控制</span><a href="#3-添加超时控制" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="n">timeoutCtx</span><span class="p">,</span> <span class="n">cancel</span> <span class="o">:=</span> <span class="n">context</span><span class="o">.</span><span class="n">WithTimeout</span><span class="p">(</span><span class="n">newCtx</span><span class="p">,</span> <span class="m">30</span><span class="o">*</span><span class="n">time</span><span class="o">.</span><span class="n">Second</span><span class="p">)</span>
+<span class="k">defer</span> <span class="n">cancel</span><span class="p">()</span>
+<span class="n">gorunner</span><span class="o">.</span><span class="n">GoRun</span><span class="p">(</span><span class="n">timeoutCtx</span><span class="p">,</span> <span class="k">func</span><span class="p">()</span> <span class="kt">error</span> <span class="p">{</span>
+    <span class="c">// 推送逻辑</span>
+<span class="p">})</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h3 id="4-使用缓冲通道"><span class="me-2">4. 使用缓冲通道</span><a href="#4-使用缓冲通道" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="k">var</span> <span class="n">pulsarChan</span> <span class="o">=</span> <span class="nb">make</span><span class="p">(</span><span class="k">chan</span> <span class="o">*</span><span class="n">pb2</span><span class="o">.</span><span class="n">AdapterMsg</span><span class="p">,</span> <span class="m">1000</span><span class="p">)</span> <span class="c">// 限制缓冲区大小</span>
+
+<span class="k">func</span> <span class="n">pushPulsarAsync</span><span class="p">(</span><span class="n">msg</span> <span class="o">*</span><span class="n">pb2</span><span class="o">.</span><span class="n">AdapterMsg</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">select</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="n">pulsarChan</span> <span class="o">&lt;-</span> <span class="n">msg</span><span class="o">:</span>
+        <span class="c">// 成功入队</span>
+    <span class="k">default</span><span class="o">:</span>
+        <span class="c">// 队列满，丢弃或记录错误</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">Warnf</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"pulsar queue full, dropping message"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c">// 单独的消费者 goroutine 处理队列</span>
+<span class="k">go</span> <span class="k">func</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="n">msg</span> <span class="o">:=</span> <span class="k">range</span> <span class="n">pulsarChan</span> <span class="p">{</span>
+        <span class="n">client_business</span><span class="o">.</span><span class="n">PushPulsar</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}()</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>核心问题：context.WithoutCancel 导致的 goroutine 永生是主要元凶，建议优先修复这个问题。</p>
+
+<h1 id="双层异步是合理的">双层异步是合理的</h1>
+
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+</pre></td><td class="rouge-code"><pre><span class="k">func</span> <span class="n">pushPulsarAsync</span><span class="p">(</span><span class="n">ctx</span> <span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">msg</span> <span class="o">*</span><span class="n">pb2</span><span class="o">.</span><span class="n">AdapterMsg</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">gorunner</span><span class="o">.</span><span class="n">GoRun</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="k">func</span><span class="p">()</span> <span class="kt">error</span> <span class="p">{</span>
+		<span class="n">client_business</span><span class="o">.</span><span class="n">PushPulsar</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+		<span class="k">return</span> <span class="no">nil</span>
+	<span class="p">})</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">PushPulsar</span><span class="p">(</span><span class="n">ctx</span> <span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">msg</span> <span class="o">*</span><span class="n">msgAdapterPb</span><span class="o">.</span><span class="n">AdapterMsg</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">PushPulsarJson</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+	<span class="n">data</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">proto</span><span class="o">.</span><span class="n">Marshal</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+		<span class="n">logger</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"json marshal error: %v"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+		<span class="k">return</span>
+	<span class="p">}</span>
+	<span class="n">err</span> <span class="o">=</span> <span class="n">pulsar</span><span class="o">.</span><span class="n">SendAsyncByte</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"msg_adapter_msg"</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+		<span class="n">logger</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"send pulsar error: %v"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+		<span class="k">return</span>
+	<span class="p">}</span>
+	<span class="k">return</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">PushPulsarJson</span><span class="p">(</span><span class="n">ctx</span> <span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">msg</span> <span class="o">*</span><span class="n">msgAdapterPb</span><span class="o">.</span><span class="n">AdapterMsg</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">op</span> <span class="o">:=</span> <span class="n">protojson</span><span class="o">.</span><span class="n">MarshalOptions</span><span class="p">{</span>
+		<span class="n">UseProtoNames</span><span class="o">:</span>  <span class="no">true</span><span class="p">,</span>
+		<span class="n">UseEnumNumbers</span><span class="o">:</span> <span class="no">true</span><span class="p">,</span>
+	<span class="p">}</span>
+	<span class="n">data</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">op</span><span class="o">.</span><span class="n">Marshal</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+		<span class="n">logger</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"json marshal error: %v"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+		<span class="k">return</span>
+	<span class="p">}</span>
+	<span class="n">err</span> <span class="o">=</span> <span class="n">pulsar</span><span class="o">.</span><span class="n">SendAsyncByte</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"msg_adapter_msg_json"</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+		<span class="n">logger</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"send pulsar error: %v"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+		<span class="k">return</span>
+	<span class="p">}</span>
+	<span class="k">return</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h3 id="异步层次分析"><span class="me-2">异步层次分析</span><a href="#异步层次分析" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>第一层异步 (gorunner.GoRun)：</p>
+
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="n">gorunner</span><span class="o">.</span><span class="n">GoRun</span><span class="p">(</span><span class="n">asyncCtx</span><span class="p">,</span> <span class="k">func</span><span class="p">()</span> <span class="kt">error</span> <span class="p">{</span>
+    <span class="n">client_business</span><span class="o">.</span><span class="n">PushPulsar</span><span class="p">(</span><span class="n">asyncCtx</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>  <span class="c">// 所有操作都在goroutine中</span>
+    <span class="k">return</span> <span class="no">nil</span>
+<span class="p">})</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>第二层异步 (pulsar.SendAsyncByte)：</p>
+
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="c">// 在goroutine中执行</span>
+<span class="n">PushPulsarJson</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>         <span class="c">// 同步：JSON序列化</span>
+<span class="n">data</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">proto</span><span class="o">.</span><span class="n">Marshal</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>    <span class="c">// 同步：protobuf序列化  </span>
+<span class="n">err</span> <span class="o">=</span> <span class="n">pulsar</span><span class="o">.</span><span class="n">SendAsyncByte</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>    <span class="c">// 异步：网络发送</span>
+<span class="n">err</span> <span class="o">=</span> <span class="n">pulsar</span><span class="o">.</span><span class="n">SendAsyncByte</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>    <span class="c">// 异步：再次网络发送</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h3 id="为什么需要双重异步"><span class="me-2">为什么需要双重异步</span><a href="#为什么需要双重异步" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<ol>
+  <li>
+    <p>序列化开销：proto.Marshal 和 JSON 序列化是CPU密集型操作</p>
+  </li>
+  <li>
+    <p>错误处理：日志记录、错误检查等同步操作</p>
+  </li>
+  <li>
+    <p>客户端准备：GetPublisher() 等可能有同步开销</p>
+  </li>
+  <li>
+    <p>网络准备：连接池获取、消息封装等</p>
+  </li>
+</ol>
+
+<h3 id="性能优势"><span class="me-2">性能优势</span><a href="#性能优势" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th style="text-align: left">场景</th>
+      <th style="text-align: left">直接调用</th>
+      <th style="text-align: left">单层异步</th>
+      <th style="text-align: left">双重异步</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">主流程阻塞</td>
+      <td style="text-align: left">高</td>
+      <td style="text-align: left">中</td>
+      <td style="text-align: left">无</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CPU累积</td>
+      <td style="text-align: left">高</td>
+      <td style="text-align: left">高</td>
+      <td style="text-align: left">低</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">响应时间</td>
+      <td style="text-align: left">慢</td>
+      <td style="text-align: left">中</td>
+      <td style="text-align: left">快</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">错误隔离</td>
+      <td style="text-align: left">无</td>
+      <td style="text-align: left">中</td>
+      <td style="text-align: left">好</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<h3 id="实际效果"><span class="me-2">实际效果</span><a href="#实际效果" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="c">// 主流程：立即返回，不等待任何操作</span>
+<span class="n">pushPulsarAsync</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+<span class="k">return</span> <span class="c">// 主业务立即完成</span>
+
+<span class="c">// 后台goroutine：异步处理所有耗时操作</span>
+<span class="n">goroutine</span><span class="o">:</span> <span class="p">{</span>
+    <span class="n">序列化消息</span> <span class="err">→</span> <span class="n">发送到Pulsar</span> <span class="err">→</span> <span class="n">发送到Pulsar</span> <span class="n">JSON</span> <span class="err">→</span> <span class="n">完成</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>这种设计确保了：</p>
+
+<ul>
+  <li>
+    <p>✅ 主业务流程零阻塞</p>
+  </li>
+  <li>
+    <p>✅ 所有耗时操作异步化</p>
+  </li>
+  <li>
+    <p>✅ 高并发下的稳定性能</p>
+  </li>
+  <li>
+    <p>✅ 完善的错误隔离</p>
+  </li>
+</ul>
+
+<p>结论：这种双重异步设计是经过深思熟虑的架构模式，能在高并发场景下提供最佳的性能和用户体验。</p>
+
+<h1 id="由-go-gc垃圾回收-管理无人引用时自动回收">由 <strong>Go GC（垃圾回收）</strong> 管理，无人引用时自动回收</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>baseCtx := context.WithoutCancel(ctx)  // ① 创建
+newCtx := octrace.CopySpanToNewCtx(baseCtx)  // ② 包装
+pushPulsarAsync(newCtx, msg)  // ③ 传入 goroutine
+</pre></td></tr></tbody></table></code></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre>goroutine 堆栈（长期存在，因为 gorunner 是线程池）
+    ↓ 长期引用
+newCtx
+    ↓ 父节点
+baseCtx
+    ↓ 父节点（通过 WithoutCancel 的内部机制）
+ctx（原始请求上下文）
+    ↓ 可能引用大量请求相关数据...
+</pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="为什么-永不取消-导致无法回收"><span class="me-2">为什么 “永不取消” 导致无法回收</span><a href="#为什么-永不取消-导致无法回收" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>表格</p>
+
+<p>复制</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th style="text-align: left">正常 context</th>
+      <th style="text-align: left">WithoutCancel context</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">超时/取消后，<code class="language-plaintext highlighter-rouge">Done()</code> 关闭</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Done()</code> 永远不会关闭</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">生命周期明确</td>
+      <td style="text-align: left">生命周期无限</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">可以被及时回收</td>
+      <td style="text-align: left"><strong>必须等待所有引用释放</strong></td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p><strong>关键：</strong></p>
+
+<p>go</p>
+
+<p>复制</p>
+
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="c">// WithoutCancel 的实现（简化）</span>
+<span class="k">func</span> <span class="n">WithoutCancel</span><span class="p">(</span><span class="n">parent</span> <span class="n">Context</span><span class="p">)</span> <span class="n">Context</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">&amp;</span><span class="n">withoutCancelCtx</span><span class="p">{</span><span class="n">parent</span><span class="p">}</span>  <span class="c">// 持有 parent 引用！</span>
+<span class="p">}</span>
+
+<span class="k">type</span> <span class="n">withoutCancelCtx</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">c</span> <span class="n">Context</span>  <span class="c">// 这个字段一直存在</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p><strong><code class="language-plaintext highlighter-rouge">baseCtx</code> 持有了 <code class="language-plaintext highlighter-rouge">ctx</code>，<code class="language-plaintext highlighter-rouge">newCtx</code> 持有了 <code class="language-plaintext highlighter-rouge">baseCtx</code>，goroutine 持有了 <code class="language-plaintext highlighter-rouge">newCtx</code>…</strong></p>
+
+<hr />
+
+<h2 id="泄漏场景"><span class="me-2">泄漏场景</span><a href="#泄漏场景" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>go</p>
+
+<p>复制</p>
+
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="c">// 每次请求都执行</span>
+<span class="k">func</span> <span class="n">HandleRequest</span><span class="p">(</span><span class="n">ctx</span> <span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">msg</span> <span class="o">*</span><span class="n">Msg</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">baseCtx</span> <span class="o">:=</span> <span class="n">context</span><span class="o">.</span><span class="n">WithoutCancel</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+    <span class="n">newCtx</span> <span class="o">:=</span> <span class="n">octrace</span><span class="o">.</span><span class="n">CopySpanToNewCtx</span><span class="p">(</span><span class="n">baseCtx</span><span class="p">)</span>
+    <span class="n">pushPulsarAsync</span><span class="p">(</span><span class="n">newCtx</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>  <span class="c">// goroutine 长期持有</span>
+<span class="p">}</span>
+
+<span class="c">// 假设 gorunner 是固定线程池，goroutine 永不退出</span>
+<span class="c">// 结果：每次请求的数据都通过 ctx → baseCtx → newCtx 被长期引用</span>
+<span class="c">// 内存持续增长，无法回收，最终 OOM</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<hr />
+
+<h2 id="解决方案"><span class="me-2">解决方案</span><a href="#解决方案" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<h3 id="-方案-1在-goroutine-内部创建推荐"><span class="me-2">✅ 方案 1：在 goroutine 内部创建（推荐）</span><a href="#-方案-1在-goroutine-内部创建推荐" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>go</p>
+
+<p>复制</p>
+
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="k">func</span> <span class="n">pushPulsarAsync</span><span class="p">(</span><span class="n">parentCtx</span> <span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">msg</span> <span class="o">*</span><span class="n">pb2</span><span class="o">.</span><span class="n">AdapterMsg</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c">// 只传递必要信息，不传递 ctx</span>
+    <span class="n">gorunner</span><span class="o">.</span><span class="n">GoRun</span><span class="p">(</span><span class="no">nil</span><span class="p">,</span> <span class="k">func</span><span class="p">()</span> <span class="kt">error</span> <span class="p">{</span>
+        <span class="c">// 内部创建，内部释放</span>
+        <span class="n">baseCtx</span> <span class="o">:=</span> <span class="n">context</span><span class="o">.</span><span class="n">WithoutCancel</span><span class="p">(</span><span class="n">parentCtx</span><span class="p">)</span>  <span class="c">// 阻断取消</span>
+        <span class="n">spanCtx</span> <span class="o">:=</span> <span class="n">octrace</span><span class="o">.</span><span class="n">CopySpanToNewCtx</span><span class="p">(</span><span class="n">baseCtx</span><span class="p">)</span>
+        <span class="n">asyncCtx</span><span class="p">,</span> <span class="n">cancel</span> <span class="o">:=</span> <span class="n">context</span><span class="o">.</span><span class="n">WithTimeout</span><span class="p">(</span><span class="n">spanCtx</span><span class="p">,</span> <span class="m">20</span><span class="o">*</span><span class="n">time</span><span class="o">.</span><span class="n">Second</span><span class="p">)</span>
+        <span class="k">defer</span> <span class="n">cancel</span><span class="p">()</span>
+        
+        <span class="n">client_business</span><span class="o">.</span><span class="n">PushPulsar</span><span class="p">(</span><span class="n">asyncCtx</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+        <span class="k">return</span> <span class="no">nil</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p><strong>关键点：</strong> <code class="language-plaintext highlighter-rouge">parentCtx</code> 只在创建瞬间使用，创建后不再被持有。</p>
+
+<h3 id="-方案-2只复制必要数据不保留-ctx"><span class="me-2">✅ 方案 2：只复制必要数据，不保留 ctx</span><a href="#-方案-2只复制必要数据不保留-ctx" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>go</p>
+
+<p>复制</p>
+
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="k">func</span> <span class="n">pushPulsarAsync</span><span class="p">(</span><span class="n">ctx</span> <span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">msg</span> <span class="o">*</span><span class="n">pb2</span><span class="o">.</span><span class="n">AdapterMsg</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c">// 提前提取需要的数据</span>
+    <span class="n">traceID</span> <span class="o">:=</span> <span class="n">octrace</span><span class="o">.</span><span class="n">GetTraceID</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+    
+    <span class="n">gorunner</span><span class="o">.</span><span class="n">GoRun</span><span class="p">(</span><span class="no">nil</span><span class="p">,</span> <span class="k">func</span><span class="p">()</span> <span class="kt">error</span> <span class="p">{</span>
+        <span class="c">// 用提取的数据重建，不持有原 ctx</span>
+        <span class="n">newCtx</span> <span class="o">:=</span> <span class="n">octrace</span><span class="o">.</span><span class="n">WithTraceID</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">Background</span><span class="p">(),</span> <span class="n">traceID</span><span class="p">)</span>
+        <span class="n">asyncCtx</span><span class="p">,</span> <span class="n">cancel</span> <span class="o">:=</span> <span class="n">context</span><span class="o">.</span><span class="n">WithTimeout</span><span class="p">(</span><span class="n">newCtx</span><span class="p">,</span> <span class="m">20</span><span class="o">*</span><span class="n">time</span><span class="o">.</span><span class="n">Second</span><span class="p">)</span>
+        <span class="k">defer</span> <span class="n">cancel</span><span class="p">()</span>
+        
+        <span class="n">client_business</span><span class="o">.</span><span class="n">PushPulsar</span><span class="p">(</span><span class="n">asyncCtx</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+        <span class="k">return</span> <span class="no">nil</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<hr />
+
+<h2 id="对比总结"><span class="me-2">对比总结</span><a href="#对比总结" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>表格</p>
+
+<p>复制</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th style="text-align: left">写法</th>
+      <th style="text-align: left">是否泄漏</th>
+      <th style="text-align: left">原因</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">外部 <code class="language-plaintext highlighter-rouge">WithoutCancel</code> + <code class="language-plaintext highlighter-rouge">CopySpan</code> + 传入 goroutine</td>
+      <td style="text-align: left">❌ <strong>泄漏</strong></td>
+      <td style="text-align: left">goroutine 长期持有引用链</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">内部创建 + 使用 + 释放</td>
+      <td style="text-align: left">✅ 安全</td>
+      <td style="text-align: left">创建后原 ctx 不再被持有</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">提取数据 + 重建上下文</td>
+      <td style="text-align: left">✅ 安全</td>
+      <td style="text-align: left">完全不持有原 ctx</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<hr />
+
+<h2 id="一句话结论"><span class="me-2">一句话结论</span><a href="#一句话结论" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<blockquote>
+  <p><strong>是的，你的写法会导致内存泄漏！</strong>
+<code class="language-plaintext highlighter-rouge">newCtx</code> 通过 <code class="language-plaintext highlighter-rouge">baseCtx</code> 间接持有原始 <code class="language-plaintext highlighter-rouge">ctx</code>，而 goroutine 长期不退出 → 引用永不释放 → 无法 GC。
+<strong>必须将 <code class="language-plaintext highlighter-rouge">WithoutCancel</code> 和 <code class="language-plaintext highlighter-rouge">CopySpan</code> 移到 goroutine 内部执行</strong>，确保原 ctx 只被短暂使用。</p>
+</blockquote>
+
+<h1 id="extracttraceid">ExtractTraceID</h1>
+
+<p>据您提供的代码片段，octrace.ExtractTraceID(ctx).String() 的作用是：
+功能说明
+提取追踪ID：从上下文（context）中提取分布式追踪系统的追踪ID
+转换为字符串：将提取出的追踪ID转换为字符串格式
+详细解释
+octrace - OpenCensus追踪包，这是一个开源的观测性框架
+ExtractTraceID(ctx) - 从传入的context中提取当前请求的追踪ID
+.String() - 将追踪ID格式化为可读的字符串
+使用场景
+这个功能通常用于：
+日志关联：将追踪ID记录到日志中，便于跨服务的问题排查
+监控追踪：在微服务架构中跟踪单个请求的完整调用链路
+调试分析：帮助开发人员理解请求在不同服务间的流转情况</p>
 
   </div>
 
@@ -3145,6 +4319,18 @@ defer cancel()
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
 
 
@@ -3159,48 +4345,6 @@ defer cancel()
   <aside id="related-posts" aria-labelledby="related-label">
     <h3 class="mb-4" id="related-label">相关文章</h3>
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
-      
-        <article class="col">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%95%B0%E5%AD%97_%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1763790000"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/22
-</time>
-
-              <h4 class="pt-0 my-2">数字_字符串转换</h4>
-              <div class="text-muted">
-                <p>数字&amp;amp;字符转换
-
-string 转换 为其他类型
-
-1
-2
-3
-4
-5
-6
-7
-8
-f, _ := strconv.ParseBool(&quot;false&quot;)         // bool
-g, _ := strconv.ParseFloat(&quot;123.23&quot;, 64)     // float
-h, _ := strconv.ParseInt(&quot;-1234&quot;, 10, 64)    /...</p>
-              </div>
-            </div>
-          </a>
-        </article>
       
         <article class="col">
           <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview card h-100">
@@ -3230,7 +4374,7 @@ h, _ := strconv.ParseInt(&quot;-1234&quot;, 10, 64)    /...</p>
   将 map[string]interface{} 数据解析到结构体中
 
 
-基础使用
+基础使用(推荐做法：始终使用标签)
 
 相关的包：
 
@@ -3245,10 +4389,16 @@ import {
 语法
 
 1
-mapstructure.Decode(待解析map数据, &amp;amp;目标)
-
-
-在日常开发中，接受的数据可能不是固定的格式，而是会...</p>
+2
+3
+4
+5
+6
+7
+8
+9
+10
+mapstructure.Decode(待解析map数据, &amp;amp...</p>
               </div>
             </div>
           </a>
@@ -3296,6 +4446,51 @@ var map2 = make(map[string]string)   //make创建会直接初始化，值为nil
 
 //2.创建同时初始化 (有确定的键值时推荐)
 var map3 = map[string]int{&quot;Go&quot;:100,&quot;java&quot;:90} // ...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/protojson%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1764385200"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/29
+</time>
+
+              <h4 class="pt-0 my-2">protojson解析库</h4>
+              <div class="text-muted">
+                <p>json 和 protojson使用
+
+不是直接使用encoding/json库的原因:
+
+
+  
+    
+      序列化器
+      能否用于 Protobuf GO 结构体
+      输出标准 Protobuf JSON
+      能正确处理特殊 proto 类型
+    
+  
+  
+    
+      encoding/json
+      可以，但有限
+      否...</p>
               </div>
             </div>
           </a>

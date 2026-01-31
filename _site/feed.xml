@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>L</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2026-01-20T22:50:28+08:00</updated>
+  <updated>2026-01-31T21:45:35+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -61,6 +61,48 @@ go func() {
 
 
 //情形1：  channel缓存队列已满，接收者goroutine退出...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>OMM</title>
+    <link href="http://localhost:4000/go/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/OOM/" rel="alternate" type="text/html" title="OMM" />
+    <published>2025-12-20T18:00:00+08:00</published>
+  
+    <updated>2025-12-20T18:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/go/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/OOM/</id>
+    <content src="http://localhost:4000/go/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/OOM/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="GO" />
+    
+    <category term="线上问题" />
+    
+  
+
+  <summary>服务 OOM 排查指南：从现象到根因的系统分析与解决 - 五岁博客
+
+一、OOM 典型现象
+
+OOM（Out of Memory）即内存溢出，指服务进程所需内存超过系统或容器分配的最大限制，被内核的 OOM Killer 强制终止，或因内存耗尽主动崩溃。
+
+
+  
+    服务进程消失： ps 或 top 命令看不到对应的进程了。
+  
+  
+    日志中断： 应用日志在某个时间点突然停止，没有任何异常堆栈或错误信息（这是最常见的情况）。
+  
+  
+    系统日志 (dmesg)： 在 Linux 系统中，使用 dmesg | grep -i &amp;#39;out of memory&amp;#39; 通常能找到线索，内核会打印出哪个进程因为内存不足而被杀死。
+
+    例如：[12345.678901] Out of memory: Kill process 1234 (my-service) scor...</summary>
 
   </entry>
 
@@ -208,63 +250,6 @@ HSET user:profile:10086 name &amp;quot;张三&amp;quot; age 29 vip 1
       无特殊关键字
       [parent.xxx] 下再挂任意子键
     ...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>函数</title>
-    <link href="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%96%B9%E6%B3%95/" rel="alternate" type="text/html" title="函数" />
-    <published>2025-12-07T12:00:00+08:00</published>
-  
-    <updated>2025-12-28T19:26:48+08:00</updated>
-  
-    <id>http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%96%B9%E6%B3%95/</id>
-    <content src="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%96%B9%E6%B3%95/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="GO" />
-    
-    <category term="规则" />
-    
-  
-
-  <summary>函数
-
-定义函数
-
-func 函数名字 (参数列表) (返回值列表）{
-	// 函数体
-	return 返回值列表
-}
-
-
-注意：
-
-
-  函数名首字母小写为私有，大写为公有；
-  参数列表可以有0-多个，多参数使用逗号分隔，不支持默认参数；
-  返回值列表返回值类型可以不用写变量名
-  如果只有一个返回值且不声明类型，可以省略返回值列表与括号
-  如果有返回值，函数内必须有return　
-
-
-init函数和mian函数
-
-init函数：init 函数可在package main中，可在其他package中，可在同一个package中出现多次。
-
-main函数:  main 函数只能在package main中
-
-执行顺序
-
-
-  程序的初始化和执行都起始于main包(注意是main包,不是面函数)
-  先按包的顺序依次自动执行他们的init函数
-  再执行main包init函数, ...</summary>
 
   </entry>
 

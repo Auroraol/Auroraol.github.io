@@ -2310,6 +2310,18 @@
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
   
 
@@ -2336,48 +2348,6 @@
   <aside id="related-posts" aria-labelledby="related-label">
     <h3 class="mb-4" id="related-label">相关文章</h3>
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
-      
-        <article class="col">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%95%B0%E5%AD%97_%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1763790000"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/22
-</time>
-
-              <h4 class="pt-0 my-2">数字_字符串转换</h4>
-              <div class="text-muted">
-                <p>数字&amp;amp;字符转换
-
-string 转换 为其他类型
-
-1
-2
-3
-4
-5
-6
-7
-8
-f, _ := strconv.ParseBool(&quot;false&quot;)         // bool
-g, _ := strconv.ParseFloat(&quot;123.23&quot;, 64)     // float
-h, _ := strconv.ParseInt(&quot;-1234&quot;, 10, 64)    /...</p>
-              </div>
-            </div>
-          </a>
-        </article>
       
         <article class="col">
           <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview card h-100">
@@ -2407,7 +2377,7 @@ h, _ := strconv.ParseInt(&quot;-1234&quot;, 10, 64)    /...</p>
   将 map[string]interface{} 数据解析到结构体中
 
 
-基础使用
+基础使用(推荐做法：始终使用标签)
 
 相关的包：
 
@@ -2422,10 +2392,16 @@ import {
 语法
 
 1
-mapstructure.Decode(待解析map数据, &amp;amp;目标)
-
-
-在日常开发中，接受的数据可能不是固定的格式，而是会...</p>
+2
+3
+4
+5
+6
+7
+8
+9
+10
+mapstructure.Decode(待解析map数据, &amp;amp...</p>
               </div>
             </div>
           </a>
@@ -2473,6 +2449,51 @@ var map2 = make(map[string]string)   //make创建会直接初始化，值为nil
 
 //2.创建同时初始化 (有确定的键值时推荐)
 var map3 = map[string]int{&quot;Go&quot;:100,&quot;java&quot;:90} // ...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/protojson%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1764385200"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/29
+</time>
+
+              <h4 class="pt-0 my-2">protojson解析库</h4>
+              <div class="text-muted">
+                <p>json 和 protojson使用
+
+不是直接使用encoding/json库的原因:
+
+
+  
+    
+      序列化器
+      能否用于 Protobuf GO 结构体
+      输出标准 Protobuf JSON
+      能正确处理特殊 proto 类型
+    
+  
+  
+    
+      encoding/json
+      可以，但有限
+      否...</p>
               </div>
             </div>
           </a>

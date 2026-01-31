@@ -469,6 +469,79 @@
 
 
 
+  
+  
+
+  
+    
+      
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+
+  
+
 
 <!-- Add header for code snippets -->
 
@@ -491,6 +564,28 @@
       
         
         
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
       
 
       
@@ -712,9 +807,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="2256 字"
+  title="3698 字"
 >
-  <em>12 分钟</em>阅读</span>
+  <em>20 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -1450,6 +1545,578 @@ channel 关闭且空: 循环正常退出
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></div></div>
 
+<h1 id="取消goroutine">取消goroutine</h1>
+
+<h2 id="方式1-取消信号"><span class="me-2">方式1 取消信号</span><a href="#方式1-取消信号" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>假设你有一个主 goroutine 和一个工作 goroutine，主 goroutine 需要通知工作 goroutine 停止处理，并等待工作 goroutine 确认停止。
+<strong>主 goroutine</strong></p>
+
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="rouge-code"><pre><span class="k">package</span> <span class="n">main</span>
+
+<span class="k">import</span> <span class="p">(</span>
+    <span class="s">"fmt"</span>
+    <span class="s">"time"</span>
+<span class="p">)</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">closeProcessCh</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="k">chan</span> <span class="k">struct</span><span class="p">{})</span>
+    <span class="n">closeProcessAckCh</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="k">chan</span> <span class="k">struct</span><span class="p">{})</span>
+
+    <span class="c">// 启动工作 goroutine</span>
+    <span class="k">go</span> <span class="n">worker</span><span class="p">(</span><span class="n">closeProcessCh</span><span class="p">,</span> <span class="n">closeProcessAckCh</span><span class="p">)</span>
+
+    <span class="c">// 模拟主 goroutine 的其他操作</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">Sleep</span><span class="p">(</span><span class="m">2</span> <span class="o">*</span> <span class="n">time</span><span class="o">.</span><span class="n">Second</span><span class="p">)</span>
+
+    <span class="c">// 通知工作 goroutine 停止处理</span>
+    <span class="n">closeProcessCh</span> <span class="o">&lt;-</span> <span class="k">struct</span><span class="p">{}{}</span>
+    <span class="o">&lt;-</span><span class="n">closeProcessAckCh</span> <span class="c">//  // 等待工作 goroutine 确认停止</span>
+
+    <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"工作 goroutine 已经停止"</span><span class="p">)</span>
+<span class="p">}</span>
+
+</pre></td></tr></tbody></table></code></div></div>
+
+<p><strong>工作 goroutine</strong></p>
+
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="rouge-code"><pre><span class="k">func</span> <span class="n">worker</span><span class="p">(</span><span class="n">closeProcessCh</span> <span class="k">chan</span> <span class="k">struct</span><span class="p">{},</span> <span class="n">closeProcessAckCh</span> <span class="k">chan</span> <span class="k">struct</span><span class="p">{})</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">{</span>
+        <span class="k">select</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="o">&lt;-</span><span class="n">closeProcessCh</span><span class="o">:</span>
+            <span class="c">// 收到停止信号，进行清理操作</span>
+            <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"工作 goroutine 收到停止信号，开始清理..."</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">Sleep</span><span class="p">(</span><span class="m">1</span> <span class="o">*</span> <span class="n">time</span><span class="o">.</span><span class="n">Second</span><span class="p">)</span> <span class="c">// 模拟清理操作</span>
+            <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"工作 goroutine 清理完成"</span><span class="p">)</span>
+
+            <span class="c">// 发送确认信号</span>
+            <span class="n">closeProcessAckCh</span> <span class="o">&lt;-</span> <span class="k">struct</span><span class="p">{}{}</span>
+            <span class="k">return</span>
+        <span class="k">default</span><span class="o">:</span>
+            <span class="c">// 继续处理任务</span>
+            <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"工作 goroutine 正在处理任务..."</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">Sleep</span><span class="p">(</span><span class="m">500</span> <span class="o">*</span> <span class="n">time</span><span class="o">.</span><span class="n">Millisecond</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</pre></td></tr></tbody></table></code></div></div>
+
+<p><strong>示例</strong></p>
+
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+</pre></td><td class="rouge-code"><pre>	<span class="n">succPlatGoodsIds</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">bool</span><span class="p">)</span>
+	<span class="n">failedPlatGoodsIds</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">bool</span><span class="p">)</span>	
+	<span class="n">syncM</span> <span class="o">:=</span> <span class="n">sync</span><span class="o">.</span><span class="n">Mutex</span><span class="p">{}</span>
+	<span class="n">runner</span> <span class="o">:=</span> <span class="n">gorunner</span><span class="o">.</span><span class="n">NewGoRunner</span><span class="p">()</span>
+	<span class="n">runner</span><span class="o">.</span><span class="n">GoRun</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="k">func</span><span class="p">()</span> <span class="kt">error</span> <span class="p">{</span>
+		<span class="k">for</span> <span class="n">iterResult</span> <span class="o">:=</span> <span class="k">range</span> <span class="n">onsaleCh</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="n">iterResult</span><span class="o">.</span><span class="n">Err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+				<span class="n">abort</span> <span class="o">=</span> <span class="no">true</span>
+				<span class="k">return</span> <span class="n">err</span>
+			<span class="p">}</span>
+			<span class="n">tempV</span> <span class="o">:=</span> <span class="n">iterResult</span><span class="o">.</span><span class="n">Spu</span>
+			<span class="n">_</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">w</span><span class="o">.</span><span class="n">container</span><span class="o">.</span><span class="n">Spu</span><span class="p">()</span><span class="o">.</span><span class="n">AddSpu</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">tempV</span><span class="p">)</span>
+			<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+				<span class="n">syncM</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+				<span class="n">failedPlatGoodsIds</span><span class="p">[</span><span class="n">tempV</span><span class="o">.</span><span class="n">PlatGoodsID</span><span class="p">]</span> <span class="o">=</span> <span class="no">true</span>
+				<span class="n">syncM</span><span class="o">.</span><span class="n">Unlock</span><span class="p">()</span>
+				<span class="k">continue</span>
+			<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+				<span class="n">logger</span><span class="o">.</span><span class="n">Debugf</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"add spu success, goods is %v"</span><span class="p">,</span> <span class="n">tempV</span><span class="o">.</span><span class="n">PlatGoodsID</span><span class="p">)</span>
+				<span class="n">syncM</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+				<span class="n">succPlatGoodsIds</span><span class="p">[</span><span class="n">tempV</span><span class="o">.</span><span class="n">PlatGoodsID</span><span class="p">]</span> <span class="o">=</span> <span class="no">true</span>
+				<span class="n">actualTotal</span><span class="o">++</span>
+				<span class="n">syncM</span><span class="o">.</span><span class="n">Unlock</span><span class="p">()</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+		<span class="k">return</span> <span class="no">nil</span>
+	<span class="p">})</span>
+
+	<span class="n">closeProcessCh</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="k">chan</span> <span class="k">struct</span><span class="p">{})</span>
+	<span class="n">closeProcessAckCh</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="k">chan</span> <span class="k">struct</span><span class="p">{})</span>
+	<span class="n">runner</span><span class="o">.</span><span class="n">GoRun</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="k">func</span><span class="p">()</span> <span class="kt">error</span> <span class="p">{</span>
+		<span class="k">defer</span> <span class="k">func</span><span class="p">()</span> <span class="p">{</span>
+			<span class="n">closeProcessAckCh</span> <span class="o">&lt;-</span> <span class="k">struct</span><span class="p">{}{}</span>
+		<span class="p">}()</span>
+
+		<span class="n">t</span> <span class="o">:=</span> <span class="n">time</span><span class="o">.</span><span class="n">NewTicker</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">Second</span> <span class="o">*</span> <span class="m">5</span><span class="p">)</span>
+		<span class="k">defer</span> <span class="n">t</span><span class="o">.</span><span class="n">Stop</span><span class="p">()</span>
+
+		<span class="k">for</span> <span class="p">{</span>
+			<span class="k">select</span> <span class="p">{</span>
+			<span class="k">case</span> <span class="o">&lt;-</span><span class="n">t</span><span class="o">.</span><span class="n">C</span><span class="o">:</span>
+				<span class="n">syncM</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+				<span class="n">succ</span> <span class="o">:=</span> <span class="kt">int64</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">succPlatGoodsIds</span><span class="p">))</span>
+				<span class="n">failed</span> <span class="o">:=</span> <span class="kt">int64</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">failedPlatGoodsIds</span><span class="p">))</span>
+				<span class="n">syncM</span><span class="o">.</span><span class="n">Unlock</span><span class="p">()</span>
+
+				<span class="n">fixTotal</span> <span class="o">:=</span> <span class="n">max</span><span class="p">(</span><span class="n">total</span><span class="p">,</span> <span class="n">succ</span><span class="o">+</span><span class="n">failed</span><span class="p">)</span>
+				<span class="n">logger</span><span class="o">.</span><span class="n">WithFields</span><span class="p">(</span><span class="n">taskFields</span><span class="p">)</span><span class="o">.</span><span class="n">WithFields</span><span class="p">(</span><span class="n">logger</span><span class="o">.</span><span class="n">Fields</span><span class="p">{</span>
+					<span class="s">"trueTotal"</span><span class="o">:</span> <span class="n">actualTotal</span><span class="p">,</span>
+					<span class="s">"total"</span><span class="o">:</span>     <span class="n">fixTotal</span><span class="p">,</span>
+					<span class="s">"succeed"</span><span class="o">:</span>   <span class="n">succ</span><span class="p">,</span>
+					<span class="s">"failed"</span><span class="o">:</span>    <span class="n">failed</span><span class="p">,</span>
+				<span class="p">})</span><span class="o">.</span><span class="n">Info</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"update task process"</span><span class="p">)</span>
+				<span class="n">err</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">TaskProcessReport</span><span class="p">(</span><span class="n">fixTotal</span><span class="p">,</span> <span class="n">succ</span><span class="p">,</span> <span class="n">failed</span><span class="p">)</span>
+				<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+					<span class="n">logger</span><span class="o">.</span><span class="n">WithFields</span><span class="p">(</span><span class="n">taskFields</span><span class="p">)</span><span class="o">.</span><span class="n">WithError</span><span class="p">(</span><span class="n">err</span><span class="p">)</span><span class="o">.</span><span class="n">Error</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"report process failed"</span><span class="p">)</span>
+				<span class="p">}</span>
+			<span class="k">case</span> <span class="o">&lt;-</span><span class="n">closeProcessCh</span><span class="o">:</span>
+				<span class="k">return</span> <span class="no">nil</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">},</span> <span class="n">gorunner</span><span class="o">.</span><span class="n">WithSkipWait</span><span class="p">())</span>
+	<span class="n">runner</span><span class="o">.</span><span class="n">Wait</span><span class="p">()</span>
+	<span class="n">closeProcessCh</span> <span class="o">&lt;-</span> <span class="k">struct</span><span class="p">{}{}</span>
+	<span class="o">&lt;-</span><span class="n">closeProcessAckCh</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="方式2-取消上下文"><span class="me-2">方式2 取消上下文</span><a href="#方式2-取消上下文" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">onsaleCh</span> <span class="n">通道是在多个</span> <span class="n">fetchAndSendSpuItems</span> <span class="n">调用之间共享的</span><span class="err">。</span><span class="n">这意味着每个</span> <span class="n">fetchAndSendSpuItems</span> <span class="n">函数都会尝试向同一个</span> <span class="n">onsaleCh</span> <span class="n">通道发送数据</span><span class="err">。</span><span class="n">尝试关闭一个已经关闭的通道好像就会触发报错</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p><strong>示例</strong></p>
+
+<div class="language-go highlighter-rouge"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+</pre></td><td class="rouge-code"><pre><span class="k">func</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span><span class="n">defaultApi</span><span class="p">)</span> <span class="n">IterOnsaleGoodsByPage</span><span class="p">(</span><span class="n">ctx</span> <span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">work</span> <span class="o">*</span><span class="n">Worker</span><span class="p">,</span> <span class="n">pf</span> <span class="n">platform</span><span class="o">.</span><span class="n">TPlatform</span><span class="p">,</span> <span class="n">shopID</span> <span class="kt">string</span><span class="p">,</span> <span class="n">initialPageNo</span> <span class="kt">int64</span><span class="p">,</span> <span class="n">pageSize</span> <span class="kt">int64</span><span class="p">,</span> <span class="n">total</span> <span class="kt">int64</span><span class="p">)</span> <span class="p">(</span><span class="o">&lt;-</span><span class="k">chan</span> <span class="n">IterGoodsResult</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">onsaleCh</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="k">chan</span> <span class="n">IterGoodsResult</span><span class="p">,</span> <span class="m">150</span><span class="p">)</span>
+	<span class="n">subCtx</span><span class="p">,</span> <span class="n">cancel</span> <span class="o">:=</span> <span class="n">context</span><span class="o">.</span><span class="n">WithCancel</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>   <span class="c">// 取消上下文</span>
+	<span class="n">cancelFunc</span> <span class="o">:=</span> <span class="k">func</span><span class="p">()</span> <span class="p">{</span> <span class="n">cancel</span><span class="p">()</span> <span class="p">}</span>
+	<span class="n">runner</span> <span class="o">:=</span> <span class="n">gorunner</span><span class="o">.</span><span class="n">NewGoRunner</span><span class="p">()</span>
+	<span class="k">var</span> <span class="n">limitCount</span> <span class="kt">int64</span> <span class="o">=</span> <span class="m">10000</span>
+
+	<span class="k">if</span> <span class="n">total</span> <span class="o">&gt;=</span> <span class="n">limitCount</span> <span class="p">{</span>
+		<span class="n">startTime</span> <span class="o">:=</span> <span class="kt">int64</span><span class="p">(</span><span class="m">1575043200</span><span class="p">)</span>
+		<span class="n">endTime</span> <span class="o">:=</span> <span class="n">common</span><span class="o">.</span><span class="n">LocalTimeNow</span><span class="p">()</span><span class="o">.</span><span class="n">Unix</span><span class="p">()</span>
+		<span class="n">isSubdivided</span><span class="p">,</span> <span class="n">isAbort</span> <span class="o">:=</span> <span class="n">efficientSubdivideTime</span><span class="p">(</span><span class="n">subCtx</span><span class="p">,</span> <span class="n">work</span><span class="p">,</span> <span class="n">pf</span><span class="p">,</span> <span class="n">shopID</span><span class="p">,</span> <span class="n">limitCount</span><span class="p">,</span> <span class="n">initialPageNo</span><span class="p">,</span> <span class="n">pageSize</span><span class="p">,</span> <span class="n">startTime</span><span class="p">,</span> <span class="n">endTime</span><span class="p">,</span> <span class="n">onsaleCh</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">runner</span><span class="p">,</span> <span class="n">cancelFunc</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">isAbort</span> <span class="p">{</span>
+			<span class="n">cancelFunc</span><span class="p">()</span>
+			<span class="k">return</span> <span class="n">onsaleCh</span><span class="p">,</span> <span class="n">fmt</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="s">"unable to subdivide time range for shop %s"</span><span class="p">,</span> <span class="n">shopID</span><span class="p">)</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="o">!</span><span class="n">isSubdivided</span> <span class="p">{</span>
+			<span class="n">cancelFunc</span><span class="p">()</span>
+			<span class="k">return</span> <span class="n">onsaleCh</span><span class="p">,</span> <span class="n">fmt</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="s">"subdivision did not return any valid ranges for shop %s"</span><span class="p">,</span> <span class="n">shopID</span><span class="p">)</span>
+		<span class="p">}</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="n">total</span> <span class="o">&gt;</span> <span class="m">0</span> <span class="p">{</span>
+		<span class="n">runner</span><span class="o">.</span><span class="n">GoRun</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="k">func</span><span class="p">()</span> <span class="kt">error</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="n">fetchAndSendSpuItems</span><span class="p">(</span><span class="n">subCtx</span><span class="p">,</span> <span class="n">work</span><span class="p">,</span> <span class="n">pf</span><span class="p">,</span> <span class="n">shopID</span><span class="p">,</span> <span class="n">initialPageNo</span><span class="p">,</span> <span class="n">pageSize</span><span class="p">,</span> <span class="no">nil</span><span class="p">,</span> <span class="no">nil</span><span class="p">,</span> <span class="n">onsaleCh</span><span class="p">,</span> <span class="n">cancelFunc</span><span class="p">)</span>
+		<span class="p">})</span>
+	<span class="p">}</span>
+
+	<span class="c">// 后台等待所有任务完成</span>
+	<span class="n">gorunner</span><span class="o">.</span><span class="n">GoRun</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="k">func</span><span class="p">()</span> <span class="kt">error</span> <span class="p">{</span>
+		<span class="k">defer</span> <span class="k">func</span><span class="p">()</span> <span class="p">{</span>
+			<span class="k">defer</span> <span class="n">cancelFunc</span><span class="p">()</span>  <span class="c">// 取消</span>
+			<span class="k">defer</span> <span class="nb">close</span><span class="p">(</span><span class="n">onsaleCh</span><span class="p">)</span> <span class="c">// 完成后关闭 onsaleCh 通道</span>
+			<span class="n">logger</span><span class="o">.</span><span class="n">Infof</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"IterOnsaleGoodsByPage all goroutines completed for shop %s"</span><span class="p">,</span> <span class="n">shopID</span><span class="p">)</span>
+		<span class="p">}()</span>
+
+		<span class="k">select</span> <span class="p">{</span>
+		<span class="k">case</span> <span class="o">&lt;-</span><span class="n">ctx</span><span class="o">.</span><span class="n">Done</span><span class="p">()</span><span class="o">:</span>
+			<span class="n">logger</span><span class="o">.</span><span class="n">Warnf</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"Operation cancelled for shop %s"</span><span class="p">,</span> <span class="n">shopID</span><span class="p">)</span>
+			<span class="k">return</span> <span class="n">ctx</span><span class="o">.</span><span class="n">Err</span><span class="p">()</span>
+		<span class="k">default</span><span class="o">:</span>
+			<span class="n">runner</span><span class="o">.</span><span class="n">Wait</span><span class="p">()</span>
+		<span class="p">}</span>
+		<span class="k">return</span> <span class="no">nil</span>
+	<span class="p">})</span>
+
+	<span class="k">return</span> <span class="n">onsaleCh</span><span class="p">,</span> <span class="no">nil</span>
+<span class="p">}</span>
+
+<span class="c">// 获取SPU列表并发送到通道  //返回一个通道的函数</span>
+<span class="k">func</span> <span class="n">fetchAndSendSpuItems</span><span class="p">(</span><span class="n">ctx</span> <span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">work</span> <span class="o">*</span><span class="n">Worker</span><span class="p">,</span> <span class="n">pf</span> <span class="n">platform</span><span class="o">.</span><span class="n">TPlatform</span><span class="p">,</span> <span class="n">shopID</span> <span class="kt">string</span><span class="p">,</span> <span class="n">initialPageNo</span> <span class="kt">int64</span><span class="p">,</span> <span class="n">pageSize</span> <span class="kt">int64</span><span class="p">,</span> <span class="n">beginTime</span> <span class="o">*</span><span class="kt">int64</span><span class="p">,</span> <span class="n">endTime</span> <span class="o">*</span><span class="kt">int64</span><span class="p">,</span> <span class="n">onsaleCh</span> <span class="k">chan</span><span class="o">&lt;-</span> <span class="n">IterGoodsResult</span><span class="p">,</span> <span class="n">cancelFunc</span> <span class="k">func</span><span class="p">())</span> <span class="kt">error</span> <span class="p">{</span>
+	<span class="n">filter</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="n">spu</span><span class="o">.</span><span class="n">SpuQuery</span><span class="p">{</span>
+		<span class="n">ShopId</span><span class="o">:</span>   <span class="n">shopID</span><span class="p">,</span>
+		<span class="n">Page</span><span class="o">:</span>     <span class="n">initialPageNo</span><span class="p">,</span>
+		<span class="n">PageSize</span><span class="o">:</span> <span class="n">pageSize</span><span class="p">,</span>
+	<span class="p">}</span>
+
+	<span class="k">if</span> <span class="n">beginTime</span> <span class="o">!=</span> <span class="no">nil</span> <span class="o">&amp;&amp;</span> <span class="n">endTime</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+		<span class="n">filter</span><span class="o">.</span><span class="n">TimeFilters</span> <span class="o">=</span> <span class="p">[]</span><span class="n">query</span><span class="o">.</span><span class="n">TimeFilter</span><span class="p">{</span>
+			<span class="p">{</span>
+				<span class="n">Start</span><span class="o">:</span>    <span class="n">strconv</span><span class="o">.</span><span class="n">FormatInt</span><span class="p">(</span><span class="o">*</span><span class="n">beginTime</span><span class="p">,</span> <span class="m">10</span><span class="p">),</span>
+				<span class="n">End</span><span class="o">:</span>      <span class="n">strconv</span><span class="o">.</span><span class="n">FormatInt</span><span class="p">(</span><span class="o">*</span><span class="n">endTime</span><span class="p">,</span> <span class="m">10</span><span class="p">),</span>
+				<span class="n">TimeName</span><span class="o">:</span> <span class="s">"CreateTime"</span><span class="p">,</span>
+			<span class="p">},</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="k">for</span> <span class="p">{</span>
+		<span class="k">select</span> <span class="p">{</span>
+		<span class="k">case</span> <span class="o">&lt;-</span><span class="n">ctx</span><span class="o">.</span><span class="n">Done</span><span class="p">()</span><span class="o">:</span>
+			<span class="n">onsaleCh</span> <span class="o">&lt;-</span> <span class="n">IterGoodsResult</span><span class="p">{</span><span class="n">Err</span><span class="o">:</span> <span class="n">ctx</span><span class="o">.</span><span class="n">Err</span><span class="p">()}</span>
+			<span class="k">return</span> <span class="n">ctx</span><span class="o">.</span><span class="n">Err</span><span class="p">()</span>
+		<span class="k">default</span><span class="o">:</span>
+		<span class="p">}</span>
+
+		<span class="k">const</span> <span class="n">maxRetries</span> <span class="o">=</span> <span class="m">3</span>
+		<span class="n">retryBackoff</span> <span class="o">:=</span> <span class="n">time</span><span class="o">.</span><span class="n">Second</span>
+		<span class="k">var</span> <span class="n">spuList</span> <span class="p">[]</span><span class="n">spu</span><span class="o">.</span><span class="n">Spu</span>
+		<span class="k">var</span> <span class="n">err</span> <span class="kt">error</span>
+		<span class="k">var</span> <span class="n">i</span> <span class="kt">int</span>
+		<span class="c">// 重试</span>
+		<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">maxRetries</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">{</span>
+			<span class="n">spuList</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">work</span><span class="o">.</span><span class="n">container</span><span class="o">.</span><span class="n">Sdk</span><span class="p">(</span><span class="n">pf</span><span class="p">)</span><span class="o">.</span><span class="n">GetSpuList</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">filter</span><span class="p">)</span>
+			<span class="k">if</span> <span class="n">err</span> <span class="o">==</span> <span class="no">nil</span> <span class="p">{</span>
+				<span class="k">break</span>
+			<span class="p">}</span>
+			<span class="n">time</span><span class="o">.</span><span class="n">Sleep</span><span class="p">(</span><span class="n">retryBackoff</span><span class="p">)</span>
+			<span class="n">logger</span><span class="o">.</span><span class="n">Infof</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"failed to get spu list by page, shop_id: %v, page: %v, page_size: %v, err: %v, retrying (%d/%d)"</span><span class="p">,</span>
+				<span class="n">filter</span><span class="o">.</span><span class="n">ShopId</span><span class="p">,</span> <span class="n">filter</span><span class="o">.</span><span class="n">Page</span><span class="p">,</span> <span class="n">filter</span><span class="o">.</span><span class="n">PageSize</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="m">1</span><span class="p">,</span> <span class="n">maxRetries</span><span class="p">)</span>
+			<span class="n">retryBackoff</span> <span class="o">*=</span> <span class="m">2</span> <span class="c">// 指数退避</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+			<span class="n">logger</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"failed to get spu list by page, shop_id: %v, page: %v, page_size: %v, err: %v, retrying (%d/%d)"</span><span class="p">,</span>
+				<span class="n">filter</span><span class="o">.</span><span class="n">ShopId</span><span class="p">,</span> <span class="n">filter</span><span class="o">.</span><span class="n">Page</span><span class="p">,</span> <span class="n">filter</span><span class="o">.</span><span class="n">PageSize</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="m">1</span><span class="p">,</span> <span class="n">maxRetries</span><span class="p">)</span>
+			<span class="n">onsaleCh</span> <span class="o">&lt;-</span> <span class="n">IterGoodsResult</span><span class="p">{</span><span class="n">Err</span><span class="o">:</span> <span class="n">err</span><span class="p">}</span>
+			<span class="n">cancelFunc</span><span class="p">()</span> <span class="c">// 取消所有goroutine的fetchAndSendSpuItems()</span>
+			<span class="k">return</span> <span class="n">err</span>
+		<span class="p">}</span>
+
+		<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">spuList</span><span class="p">)</span> <span class="o">==</span> <span class="m">0</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="no">nil</span>
+		<span class="p">}</span>
+
+		<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">spuItem</span> <span class="o">:=</span> <span class="k">range</span> <span class="n">spuList</span> <span class="p">{</span>
+			<span class="n">s</span> <span class="o">:=</span> <span class="n">spuItem</span>
+			<span class="n">onsaleCh</span> <span class="o">&lt;-</span> <span class="n">IterGoodsResult</span><span class="p">{</span><span class="n">Spu</span><span class="o">:</span> <span class="n">s</span><span class="p">,</span> <span class="n">Err</span><span class="o">:</span> <span class="no">nil</span><span class="p">}</span>
+		<span class="p">}</span>
+
+		<span class="n">filter</span><span class="o">.</span><span class="n">Page</span> <span class="o">+=</span> <span class="m">1</span>
+		<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">spuList</span><span class="p">)</span> <span class="o">&gt;</span> <span class="m">0</span> <span class="p">{</span>
+			<span class="n">time</span><span class="o">.</span><span class="n">Sleep</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">Second</span> <span class="o">*</span> <span class="m">5</span><span class="p">)</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c">// 细分时间区间</span>
+<span class="k">func</span> <span class="n">efficientSubdivideTime</span><span class="p">(</span><span class="n">ctx</span> <span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">work</span> <span class="o">*</span><span class="n">Worker</span><span class="p">,</span> <span class="n">pf</span> <span class="n">platform</span><span class="o">.</span><span class="n">TPlatform</span><span class="p">,</span> <span class="n">shopID</span> <span class="kt">string</span><span class="p">,</span> <span class="n">limitCount</span><span class="p">,</span> <span class="n">initialPageNo</span><span class="p">,</span> <span class="n">pageSize</span><span class="p">,</span>
+	<span class="n">startTime</span><span class="p">,</span> <span class="n">endTime</span> <span class="kt">int64</span><span class="p">,</span> <span class="n">onsaleCh</span> <span class="k">chan</span><span class="o">&lt;-</span> <span class="n">IterGoodsResult</span><span class="p">,</span> <span class="n">runner</span> <span class="o">*</span><span class="n">gorunner</span><span class="o">.</span><span class="n">GoRunner</span><span class="p">,</span> <span class="n">cancelFunc</span> <span class="k">func</span><span class="p">())</span> <span class="p">(</span><span class="kt">bool</span><span class="p">,</span> <span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="n">endTime</span> <span class="o">&lt;=</span> <span class="n">startTime</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="no">true</span><span class="p">,</span> <span class="no">false</span> <span class="c">// 参数1: true 表示区间有效; 参数2: true 表示是否终止</span>
+	<span class="p">}</span>
+
+	<span class="n">count</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">Instance</span><span class="p">(</span><span class="n">pf</span><span class="p">)</span><span class="o">.</span><span class="n">GetOnsaleGoodsCountByTimestamp</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">work</span><span class="p">,</span> <span class="n">pf</span><span class="p">,</span> <span class="n">shopID</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">startTime</span><span class="p">,</span> <span class="n">endTime</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+		<span class="n">logger</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"failed to get spu list count by page, shop_id: %v, err: %v"</span><span class="p">,</span> <span class="n">shopID</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+		<span class="n">onsaleCh</span> <span class="o">&lt;-</span> <span class="n">IterGoodsResult</span><span class="p">{</span><span class="n">Err</span><span class="o">:</span> <span class="n">err</span><span class="p">}</span>
+		<span class="k">return</span> <span class="no">false</span><span class="p">,</span> <span class="no">true</span>
+	<span class="p">}</span>
+
+	<span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="m">0</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="no">true</span><span class="p">,</span> <span class="no">false</span>
+	<span class="p">}</span>
+
+	<span class="k">if</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="m">0</span> <span class="o">&amp;&amp;</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="n">limitCount</span> <span class="p">{</span>
+		<span class="n">logger</span><span class="o">.</span><span class="n">Infof</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"Efficient subdivision: startTime:%s, endTime:%s, count:%d"</span><span class="p">,</span> <span class="n">common</span><span class="o">.</span><span class="n">TimestampToStringTime</span><span class="p">(</span><span class="n">startTime</span><span class="p">),</span> <span class="n">common</span><span class="o">.</span><span class="n">TimestampToStringTime</span><span class="p">(</span><span class="n">endTime</span><span class="p">),</span> <span class="n">count</span><span class="p">)</span>
+		<span class="p">(</span><span class="o">*</span><span class="n">runner</span><span class="p">)</span><span class="o">.</span><span class="n">GoRun</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="k">func</span><span class="p">()</span> <span class="kt">error</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="n">fetchAndSendSpuItems</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">work</span><span class="p">,</span> <span class="n">pf</span><span class="p">,</span> <span class="n">shopID</span><span class="p">,</span> <span class="n">initialPageNo</span><span class="p">,</span> <span class="n">pageSize</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">startTime</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">endTime</span><span class="p">,</span> <span class="n">onsaleCh</span><span class="p">,</span> <span class="n">cancelFunc</span><span class="p">)</span>
+		<span class="p">})</span>
+		<span class="k">return</span> <span class="no">true</span><span class="p">,</span> <span class="no">false</span>
+	<span class="p">}</span>
+
+	<span class="k">if</span> <span class="n">count</span> <span class="o">&gt;=</span> <span class="n">limitCount</span> <span class="p">{</span>
+		<span class="n">midTime</span> <span class="o">:=</span> <span class="p">(</span><span class="n">startTime</span> <span class="o">+</span> <span class="n">endTime</span><span class="p">)</span> <span class="o">/</span> <span class="m">2</span>
+		<span class="n">isLeftValid</span><span class="p">,</span> <span class="n">isLeftAbort</span> <span class="o">:=</span> <span class="n">efficientSubdivideTime</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">work</span><span class="p">,</span> <span class="n">pf</span><span class="p">,</span> <span class="n">shopID</span><span class="p">,</span> <span class="n">limitCount</span><span class="p">,</span> <span class="n">initialPageNo</span><span class="p">,</span> <span class="n">pageSize</span><span class="p">,</span> <span class="n">startTime</span><span class="p">,</span> <span class="n">midTime</span><span class="p">,</span> <span class="n">onsaleCh</span><span class="p">,</span> <span class="n">runner</span><span class="p">,</span> <span class="n">cancelFunc</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">isLeftAbort</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="no">false</span><span class="p">,</span> <span class="no">true</span>
+		<span class="p">}</span>
+
+		<span class="n">isRightValid</span><span class="p">,</span> <span class="n">isRightAbort</span> <span class="o">:=</span> <span class="n">efficientSubdivideTime</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">work</span><span class="p">,</span> <span class="n">pf</span><span class="p">,</span> <span class="n">shopID</span><span class="p">,</span> <span class="n">limitCount</span><span class="p">,</span> <span class="n">initialPageNo</span><span class="p">,</span> <span class="n">pageSize</span><span class="p">,</span> <span class="n">midTime</span><span class="p">,</span> <span class="n">endTime</span><span class="p">,</span> <span class="n">onsaleCh</span><span class="p">,</span> <span class="n">runner</span><span class="p">,</span> <span class="n">cancelFunc</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">isRightAbort</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="no">false</span><span class="p">,</span> <span class="no">true</span>
+		<span class="p">}</span>
+
+		<span class="k">return</span> <span class="n">isLeftValid</span> <span class="o">||</span> <span class="n">isRightValid</span><span class="p">,</span> <span class="no">false</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="no">false</span><span class="p">,</span> <span class="no">false</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>具体调用见:  方式1 取消信号</p>
+
+<p>效果:   调用瞬间, 会打印细分出来的时间区间, 然后后台去执行耗时操作(fetchAndSendSpuItems)</p>
+
+<p><a href="C:/Users/16658/AppData/Roaming/Typora/typora-user-images/image-20260127110922858.png" class="popup img-link  shimmer"><img src="C:/Users/16658/AppData/Roaming/Typora/typora-user-images/image-20260127110922858.png" alt="image-20241206144106416" loading="lazy"></a></p>
+
+<p>#</p>
 
   </div>
 
@@ -2250,6 +2917,18 @@ channel 关闭且空: 循环正常退出
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
@@ -2263,41 +2942,6 @@ channel 关闭且空: 循环正常退出
   <aside id="related-posts" aria-labelledby="related-label">
     <h3 class="mb-4" id="related-label">相关文章</h3>
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
-      
-        <article class="col">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%95%B0%E5%AD%97_%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1763790000"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/22
-</time>
-
-              <h4 class="pt-0 my-2">数字_字符串转换</h4>
-              <div class="text-muted">
-                <p>数字&amp;amp;字符转换
-
-string 转换 为其他类型
-
-f, _ := strconv.ParseBool(&quot;false&quot;)         // bool
-g, _ := strconv.ParseFloat(&quot;123.23&quot;, 64)     // float
-h, _ := strconv.ParseInt(&quot;-1234&quot;, 10, 64)    // int64
-i, _ := ...</p>
-              </div>
-            </div>
-          </a>
-        </article>
       
         <article class="col">
           <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview card h-100">
@@ -2327,7 +2971,7 @@ i, _ := ...</p>
   将 map[string]interface{} 数据解析到结构体中
 
 
-基础使用
+基础使用(推荐做法：始终使用标签)
 
 相关的包：
 
@@ -2340,8 +2984,8 @@ import {
 
 mapstructure.Decode(待解析map数据, &amp;amp;目标)
 
-
-在日常开发中，接受的数据可能不是固定的格式，而是会根据某个值的不同...</p>
+// 等价
+bytes, err := j...</p>
               </div>
             </div>
           </a>
@@ -2385,6 +3029,51 @@ var map3 = map[string]int{&quot;Go&quot;:100,&quot;java&quot;:90} // 有这些�
           </a>
         </article>
       
+        <article class="col">
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/protojson%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1764385200"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/29
+</time>
+
+              <h4 class="pt-0 my-2">protojson解析库</h4>
+              <div class="text-muted">
+                <p>json 和 protojson使用
+
+不是直接使用encoding/json库的原因:
+
+
+  
+    
+      序列化器
+      能否用于 Protobuf GO 结构体
+      输出标准 Protobuf JSON
+      能正确处理特殊 proto 类型
+    
+  
+  
+    
+      encoding/json
+      可以，但有限
+      否...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
     </nav>
   </aside>
   <!-- #related-posts -->
@@ -2400,11 +3089,11 @@ var map3 = map[string]int{&quot;Go&quot;:100,&quot;java&quot;:90} // 有这些�
 
   
     <a
-      href="/go/%E8%A7%84%E5%88%99/%E5%88%87%E7%89%87/"
+      href="/go/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/OOM/"
       class="btn btn-outline-primary"
       aria-label="上一篇"
     >
-      <p>切片</p>
+      <p>OMM</p>
     </a>
   
 

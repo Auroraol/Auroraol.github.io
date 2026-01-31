@@ -1535,6 +1535,18 @@
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
   
 
@@ -1587,48 +1599,6 @@
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%95%B0%E5%AD%97_%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1763790000"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/22
-</time>
-
-              <h4 class="pt-0 my-2">数字_字符串转换</h4>
-              <div class="text-muted">
-                <p>数字&amp;amp;字符转换
-
-string 转换 为其他类型
-
-1
-2
-3
-4
-5
-6
-7
-8
-f, _ := strconv.ParseBool(&quot;false&quot;)         // bool
-g, _ := strconv.ParseFloat(&quot;123.23&quot;, 64)     // float
-h, _ := strconv.ParseInt(&quot;-1234&quot;, 10, 64)    /...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
           <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview card h-100">
             <div class="card-body">
               <!--
@@ -1656,7 +1626,7 @@ h, _ := strconv.ParseInt(&quot;-1234&quot;, 10, 64)    /...</p>
   将 map[string]interface{} 数据解析到结构体中
 
 
-基础使用
+基础使用(推荐做法：始终使用标签)
 
 相关的包：
 
@@ -1671,10 +1641,16 @@ import {
 语法
 
 1
-mapstructure.Decode(待解析map数据, &amp;amp;目标)
-
-
-在日常开发中，接受的数据可能不是固定的格式，而是会...</p>
+2
+3
+4
+5
+6
+7
+8
+9
+10
+mapstructure.Decode(待解析map数据, &amp;amp...</p>
               </div>
             </div>
           </a>
@@ -1720,6 +1696,55 @@ mapstructure.Decode(待解析map数据, &amp;amp;目标)
       encoding/json
       可以，但有限
       否...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1765098000"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/12/07
+</time>
+
+              <h4 class="pt-0 my-2">toml配置文件</h4>
+              <div class="text-muted">
+                <p>总结
+
+
+  
+    
+      Go 类型特征
+      tag 出现的关键字
+      生成的 TOML
+      备注
+    
+  
+  
+    
+      非匿名 struct
+      无 squash
+      [xxx]
+      字段继续往下写
+    
+    
+      匿名 struct
+      ,squash
+      没有 [xxx]，...</p>
               </div>
             </div>
           </a>

@@ -671,6 +671,17 @@
 
       
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
 
     
   
@@ -679,10 +690,85 @@
   
 
   
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+
+    
+  
 
   
   
 
+  
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+
+    
   
 
   
@@ -795,9 +881,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="317 字"
+  title="690 字"
 >
-  <em>1 分钟</em>阅读</span>
+  <em>3 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -916,6 +1002,107 @@
 </pre></td></tr></tbody></table></code></div></div>
 
 <p><a href="https://github.com/Auroraol/Drawing-bed/raw/main/img/image-20251109140401149.png" class="popup img-link  shimmer"><img src="https://github.com/Auroraol/Drawing-bed/raw/main/img/image-20251109140401149.png" alt="image-20251109140401149" loading="lazy"></a></p>
+
+<h2 id="pg_publication"><span class="me-2">pg_publication</span><a href="#pg_publication" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>PostgreSQL 逻辑复制（Logical Replication）中 Publication（发布）的表范围指定功能</p>
+
+<div class="language-sql highlighter-rouge"><div class="code-header">
+        <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="c1">-- 你的版本：复制 spu 表的全部数据, 默认 INSERT + UPDATE + DELETE + TRUNCATE</span>
+<span class="k">CREATE</span> <span class="n">PUBLICATION</span> <span class="n">spu_pub</span> <span class="k">FOR</span> <span class="k">TABLE</span> <span class="n">spu</span><span class="p">;</span>
+
+<span class="c1">-- PostgreSQL 15+ 带行过滤：只复制符合条件的行</span>
+<span class="k">CREATE</span> <span class="n">PUBLICATION</span> <span class="n">spu_pub_filtered</span> 
+<span class="k">FOR</span> <span class="k">TABLE</span> <span class="n">spu</span> <span class="k">WHERE</span> <span class="p">(</span><span class="n">status</span> <span class="o">=</span> <span class="s1">'active'</span><span class="p">);</span>
+
+<span class="c1">-- PostgreSQL 15+ 带列过滤：只复制指定列</span>
+<span class="k">CREATE</span> <span class="n">PUBLICATION</span> <span class="n">spu_pub_columns</span> 
+<span class="k">FOR</span> <span class="k">TABLE</span> <span class="n">spu</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">price</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h3 id="带行过滤row-filter的发布"><span class="me-2"><strong>带行过滤（Row Filter）</strong>的发布</span><a href="#带行过滤row-filter的发布" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<h4 id="1-insert"><span class="me-2">1. INSERT</span><a href="#1-insert" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<div class="language-sql highlighter-rouge"><div class="code-header">
+        <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="c1">-- 主库执行</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">spu</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'商品A'</span><span class="p">,</span> <span class="s1">'active'</span><span class="p">);</span>    <span class="c1">-- ✅ 会复制到订阅端</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">spu</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'商品B'</span><span class="p">,</span> <span class="s1">'inactive'</span><span class="p">);</span>  <span class="c1">-- ❌ 不会复制</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h4 id="2-update关键行为"><span class="me-2">2. UPDATE（关键行为）</span><a href="#2-update关键行为" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<div class="language-sql highlighter-rouge"><div class="code-header">
+        <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="c1">-- 场景：把 inactive 改为 active</span>
+<span class="k">UPDATE</span> <span class="n">spu</span> <span class="k">SET</span> <span class="n">status</span> <span class="o">=</span> <span class="s1">'active'</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>  
+<span class="c1">-- 结果：订阅端会执行 INSERT（新增这条数据）</span>
+
+<span class="c1">-- 场景：把 active 改为 inactive  </span>
+<span class="k">UPDATE</span> <span class="n">spu</span> <span class="k">SET</span> <span class="n">status</span> <span class="o">=</span> <span class="s1">'inactive'</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="c1">-- 结果：订阅端会执行 DELETE（删除这条数据）</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h4 id="3-delete"><span class="me-2">3. DELETE</span><a href="#3-delete" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<div class="language-sql highlighter-rouge"><div class="code-header">
+        <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">spu</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="c1">-- 只有原本满足 status='active' 的行被删除时，才会同步删除</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h4 id="常见使用场景"><span class="me-2">常见使用场景</span><a href="#常见使用场景" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<div class="language-sql highlighter-rouge"><div class="code-header">
+        <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="c1">-- 1. 只同步上架商品（排除下架/草稿）</span>
+<span class="k">CREATE</span> <span class="n">PUBLICATION</span> <span class="n">online_spu</span> 
+<span class="k">FOR</span> <span class="k">TABLE</span> <span class="n">spu</span> <span class="k">WHERE</span> <span class="p">(</span><span class="n">status</span> <span class="o">=</span> <span class="s1">'active'</span> <span class="k">AND</span> <span class="n">is_deleted</span> <span class="o">=</span> <span class="k">false</span><span class="p">);</span>
+
+<span class="c1">-- 2. 只同步特定品类</span>
+<span class="k">CREATE</span> <span class="n">PUBLICATION</span> <span class="n">electronics_pub</span> 
+<span class="k">FOR</span> <span class="k">TABLE</span> <span class="n">spu</span> <span class="k">WHERE</span> <span class="p">(</span><span class="n">category_id</span> <span class="o">=</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="c1">-- 3. 只同步近期数据</span>
+<span class="k">CREATE</span> <span class="n">PUBLICATION</span> <span class="n">recent_spu</span> 
+<span class="k">FOR</span> <span class="k">TABLE</span> <span class="n">spu</span> <span class="k">WHERE</span> <span class="p">(</span><span class="n">created_at</span> <span class="o">&gt;</span> <span class="s1">'2024-01-01'</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></div></div>
+
 
   </div>
 

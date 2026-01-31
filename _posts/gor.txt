@@ -1,0 +1,1059 @@
+       /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/runtime/netpoll.go:351 +0x85
+internal/poll.(*pollDesc).wait(0xc006538900?, 0xc00387a000?, 0x0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:84 +0x27
+internal/poll.(*pollDesc).waitRead(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0xc006538900, {0xc00387a000, 0x1000, 0x1000})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_unix.go:165 +0x27a
+net.(*netFD).Read(0xc006538900, {0xc00387a000?, 0x4084b4?, 0x0?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/fd_posix.go:55 +0x25
+net.(*conn).Read(0xc005ea70e8, {0xc00387a000?, 0x40829f?, 0xc003ab3a10?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/net.go:194 +0x45
+net/http.(*persistConn).Read(0xc005a24c60, {0xc00387a000?, 0x7d1705?, 0x2b56180?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2125 +0x47
+bufio.(*Reader).fill(0xc005f77980)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:113 +0x103
+bufio.(*Reader).Peek(0xc005f77980, 0x1)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:152 +0x53
+net/http.(*persistConn).readLoop(0xc005a24c60)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2278 +0x172
+created by net/http.(*Transport).dialConn in goroutine 2871746
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1947 +0x174f
+
+goroutine 639123 [select, 36 minutes]:
+google.golang.org/grpc/internal/grpcsync.(*CallbackSerializer).run(0xc0054aa020, {0x2b76eb8, 0xc00449de50})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/grpcsync/callback_serializer.go:88 +0x10c
+created by google.golang.org/grpc/internal/grpcsync.NewCallbackSerializer in goroutine 639121
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/grpcsync/callback_serializer.go:52 +0x11a
+
+goroutine 9901 [select]:
+net/http.(*persistConn).writeLoop(0xc00450a900)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2593 +0xe7
+created by net/http.(*Transport).dialConn in goroutine 9896
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1948 +0x17a5
+
+goroutine 16081 [select]:
+github.com/apache/rocketmq-clients/golang/v5/pkg/ticker.Tick.func1()
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/apache/rocketmq-clients/golang/v5@v5.1.2/pkg/ticker/ticker.go:27 +0xbd
+created by github.com/apache/rocketmq-clients/golang/v5/pkg/ticker.Tick in goroutine 86
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/apache/rocketmq-clients/golang/v5@v5.1.2/pkg/ticker/ticker.go:23 +0x74
+
+goroutine 639150 [select, 36 minutes]:
+google.golang.org/grpc/internal/grpcsync.(*CallbackSerializer).run(0xc004f2d3e0, {0x2b76eb8, 0xc00456e960})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/grpcsync/callback_serializer.go:88 +0x10c
+created by google.golang.org/grpc/internal/grpcsync.NewCallbackSerializer in goroutine 639121
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/grpcsync/callback_serializer.go:52 +0x11a
+
+goroutine 2884022 [runnable]:
+net/http.(*persistConn).readLoop.func4({0x2b56180, 0x48981e0})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2370 +0xa7
+net/http.(*bodyEOFSignal).condfn(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:3018
+net/http.(*bodyEOFSignal).Read(0xc0054cfb80, {0xc0038e4000, 0x200, 0x200})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2994 +0x1fb
+go.opencensus.io/plugin/ochttp.(*bodyTracker).Read(0xc0006f60d8, {0xc0038e4000?, 0xc00359a280?, 0x41b63e?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/go.opencensus.io@v0.24.0/plugin/ochttp/trace.go:113 +0x29
+go.opencensus.io/plugin/ochttp.(*tracker).Read(0xc0063ff9d0, {0xc0038e4000?, 0x200?, 0xc000355008?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/go.opencensus.io@v0.24.0/plugin/ochttp/client_stats.go:126 +0x2a
+net/http.(*cancelTimerBody).Read(0xc004569a60, {0xc0038e4000?, 0xc00359a380?, 0x47af99?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/client.go:972 +0x2a
+io.ReadAll({0x7f53e686a948, 0xc004569a60})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/io/io.go:712 +0x75
+io/ioutil.ReadAll(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/io/ioutil/ioutil.go:28
+gopkg.in/resty%2ev1.(*Client).execute(0xc00326c000, 0xc003912780)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gopkg.in/resty.v1@v1.12.0/client.go:850 +0x6f4
+gopkg.in/resty%2ev1.(*Request).Execute(0xc003912780, {0x26f29e2?, 0xc0046f6000?}, {0x271e9c0, 0x11})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gopkg.in/resty.v1@v1.12.0/request.go:489 +0x1fa
+gopkg.in/resty%2ev1.(*Request).Post(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gopkg.in/resty.v1@v1.12.0/request.go:443
+gitlab.xiaoduoai.com/base/conf-engine/sdk.(*HTTPSDK).getConfData(0xc002921900, {0x2b76e80, 0xc0046f6000}, 0xc00359a848, {0x26f2b6e, 0x4}, {0x0, 0x0}, {0xc0048d2470, 0x1, ...})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/base/conf-engine/sdk@v1.0.11/sdk_http.go:176 +0x585
+gitlab.xiaoduoai.com/base/conf-engine/sdk.(*HTTPSDK).GetConfData(0xc004fdb0a0?, {0x2b76e80?, 0xc0046f6000?}, {0x26f481f?, 0x0?}, {0x272beb5?, 0xc00359aac0?}, {0x270b5b2?, 0x29c6b80a8f4752c6?}, {0x26f2b6e, ...}, ...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/base/conf-engine/sdk@v1.0.11/sdk_http.go:73 +0xc5
+gitlab.xiaoduoai.com/ecrobot/chatbot-client-common/component/conf_engine.CheckMsgToTest({0x2b76e80, 0xc0046f6000}, {0xc0068351c0, 0x19}, {0xc004deff20, 0xf})
+        /builds/ecrobot/chatbot-client-common/component/conf_engine/conf_engine.go:122 +0x102
+gitlab.xiaoduoai.com/ecrobot/chatbot-client-common/component/msg_adapter/impl/default.(*BaseMsgAdapter).CheckGrayAndSetMetadataTag(0xc004765cb8?, {0x2b76e80?, 0xc004862a20?}, {0x7f53e6655300?, 0xc004765cc0?})
+        /builds/ecrobot/chatbot-client-common/component/msg_adapter/impl/default/impl_base.go:423 +0x32d
+gitlab.xiaoduoai.com/ecrobot/chatbot-client-common/handler.(*DialogueHandler).OriginMsg(0x24287c0?, {0x2b76e80, 0xc004862a20}, 0xc003875680, 0xc004862a50)
+        /builds/ecrobot/chatbot-client-common/handler/dialogue.go:348 +0x23e
+reflect.Value.call({0x22b39a0?, 0xc002e83280?, 0x8?}, {0x26f2a5a, 0x4}, {0xc00359b3e8, 0x3, 0xc00060fe80?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/reflect/value.go:584 +0xca6
+reflect.Value.Call({0x22b39a0?, 0xc002e83280?, 0xc004862a20?}, {0xc00359b3e8?, 0x26cc3a0?, 0xc0056d9e00?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/reflect/value.go:368 +0xb9
+gitlab.xiaoduoai.com/golib/xd_sdk/httpserver/middles.CreateHandlerFuncWithLogger.func1(0xc0056d9e00)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/httpserver/middles/handler.go:370 +0x549
+github.com/gin-gonic/gin.(*Context).Next(0xc0056d9e00)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 +0x2b
+gitlab.xiaoduoai.com/ecrobot/chatbot-client-common/server.newRouter.LoggingResponse.LoggingResponseWithLogger.func10(0xc0056d9e00)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/httpserver/middles/logging.go:46 +0xf3
+github.com/gin-gonic/gin.(*Context).Next(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174
+gitlab.xiaoduoai.com/golib/xd_sdk/httpserver/middles.HttpMetricStats.func1(0xc0056d9e00)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/httpserver/middles/http_stats.go:35 +0x1a4
+github.com/gin-gonic/gin.(*Context).Next(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174
+gitlab.xiaoduoai.com/golib/xd_sdk/octrace/integration/http.Middleware.func4(0xc0056d9e00)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/octrace/integration/http/server.go:150 +0x849
+github.com/gin-gonic/gin.(*Context).Next(0xc0056d9e00)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 +0x2b
+gitlab.xiaoduoai.com/golib/xd_sdk/httpserver.NewServerWithOptions.GinParseCallInfo.func3(0xc0056d9e00)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/public/caller_info.go:49 +0x175
+github.com/gin-gonic/gin.(*Context).Next(0xc0056d9e00)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 +0x2b
+gitlab.xiaoduoai.com/golib/xd_sdk/httpserver.NewServerWithOptions.Recovery.RecoveryWithLogger.func6(0xc00359bb88?)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/httpserver/middles/recovery.go:25 +0x51
+github.com/gin-gonic/gin.(*Context).Next(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc002be29c0, 0xc0056d9e00)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 +0x64e
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc002be29c0, {0x2b71c08, 0xc0001a3b20}, 0xc003874f00)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 +0x1aa
+net/http.serverHandler.ServeHTTP({0x2b6a898?}, {0x2b71c08?, 0xc0001a3b20?}, 0x6?)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/server.go:3301 +0x8e
+net/http.(*conn).serve(0xc0038a21b0, {0x2b76e80, 0xc002e94f90})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/server.go:2102 +0x625
+created by net/http.(*Server).Serve in goroutine 274
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/server.go:3454 +0x485
+
+goroutine 2883969 [select]:
+net/http.(*persistConn).roundTrip(0xc00542aa20, 0xc00545b9a0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2829 +0x785
+net/http.(*Transport).roundTrip(0xc0030f1ba0, 0xc0037f68c0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:696 +0xb9a
+net/http.(*Transport).RoundTrip(0xc0057f5980?, 0xc0037c92c0?)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/roundtrip.go:30 +0x13
+go.opencensus.io/plugin/ochttp.(*traceTransport).RoundTrip(0xc0069e0700, 0xc0037f6780)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/go.opencensus.io@v0.24.0/plugin/ochttp/trace.go:84 +0x3ce
+go.opencensus.io/plugin/ochttp.statsTransport.RoundTrip({{0x2b62100?, 0xc0069e0700?}}, 0xc0037f6640)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/go.opencensus.io@v0.24.0/plugin/ochttp/client_stats.go:57 +0x917
+go.opencensus.io/plugin/ochttp.(*Transport).RoundTrip(0xc002edbd10, 0xc0037f6640)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/go.opencensus.io@v0.24.0/plugin/ochttp/client.go:99 +0x1bf
+gitlab.xiaoduoai.com/golib/xd_sdk/octrace/integration/http.(*Transport).RoundTrip(0xc003ab8af0?, 0xc0037f6640?)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/octrace/integration/http/client.go:46 +0x92
+net/http.send(0xc0037f6500, {0x2b575c0, 0xc003ab8af0}, {0xc0006ee301?, 0x4b1673?, 0x490dd00?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/client.go:259 +0x5e2
+net/http.(*Client).send(0xc003d3cab0, 0xc0037f6500, {0x0?, 0xc0006ee408?, 0x490dd00?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/client.go:180 +0x91
+net/http.(*Client).do(0xc003d3cab0, 0xc0037f6500)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/client.go:728 +0x989
+net/http.(*Client).Do(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/client.go:587
+gopkg.in/resty%2ev1.(*Client).execute(0xc002d88f00, 0xc0037f6140)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gopkg.in/resty.v1@v1.12.0/client.go:823 +0x2fb
+gopkg.in/resty%2ev1.(*Request).Execute(0xc0037f6140, {0x26f29e2?, 0xc1cbc8?}, {0xc004629100, 0x3b})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gopkg.in/resty.v1@v1.12.0/request.go:489 +0x1fa
+gopkg.in/resty%2ev1.(*Request).Post(0xc0037f6140?, {0xc004629100?, 0xc004a7d020?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gopkg.in/resty.v1@v1.12.0/request.go:443 +0x2a
+gitlab.xiaoduoai.com/ecrobot/chatbot-client-common/component/client_business.ExternalBusinessWithTimeout({0x2b76e80, 0xc004a7c090}, {0x271af91, 0x10}, {0x217a260, 0xc0040922b8}, {0x2290340, 0xc0057f4e80}, 0x5)
+        /builds/ecrobot/chatbot-client-common/component/client_business/client.go:116 +0x165
+gitlab.xiaoduoai.com/ecrobot/chatbot-client-common/component/client_business.Answer({0x2b76e80, 0xc004a7c090}, 0xc002de9860, 0xc0057f4e80)
+        /builds/ecrobot/chatbot-client-common/component/client_business/client.go:60 +0x108
+gitlab.xiaoduoai.com/ecrobot/chatbot-client-common/internal/dialogue.(*Service).MsgHandleToBusiness(0x2b76e80?, {0x2b76e80, 0xc004a7c090}, {0x2691840, 0xc003f6ac60}, {0x2b964a0, 0xc003f6ac58}, 0xc0006eec20, 0x1)
+        /builds/ecrobot/chatbot-client-common/internal/dialogue/dialogue.go:353 +0x50c
+gitlab.xiaoduoai.com/ecrobot/chatbot-client-common/handler.(*DialogueHandler).OriginMsg(0x24287c0?, {0x2b76e80, 0xc003f2eae0}, 0xc0037e63c0, 0xc003f2eb10)
+        /builds/ecrobot/chatbot-client-common/handler/dialogue.go:385 +0x8d7
+reflect.Value.call({0x22b39a0?, 0xc002e83280?, 0x8?}, {0x26f2a5a, 0x4}, {0xc0006ef3e8, 0x3, 0xc00060fe80?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/reflect/value.go:584 +0xca6
+reflect.Value.Call({0x22b39a0?, 0xc002e83280?, 0xc003f2eae0?}, {0xc0006ef3e8?, 0x26cc3a0?, 0xc004484600?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/reflect/value.go:368 +0xb9
+gitlab.xiaoduoai.com/golib/xd_sdk/httpserver/middles.CreateHandlerFuncWithLogger.func1(0xc004484600)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/httpserver/middles/handler.go:370 +0x549
+github.com/gin-gonic/gin.(*Context).Next(0xc004484600)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 +0x2b
+gitlab.xiaoduoai.com/ecrobot/chatbot-client-common/server.newRouter.LoggingResponse.LoggingResponseWithLogger.func10(0xc004484600)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/httpserver/middles/logging.go:46 +0xf3
+github.com/gin-gonic/gin.(*Context).Next(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174
+gitlab.xiaoduoai.com/golib/xd_sdk/httpserver/middles.HttpMetricStats.func1(0xc004484600)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/httpserver/middles/http_stats.go:35 +0x1a4
+github.com/gin-gonic/gin.(*Context).Next(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174
+gitlab.xiaoduoai.com/golib/xd_sdk/octrace/integration/http.Middleware.func4(0xc004484600)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/octrace/integration/http/server.go:150 +0x849
+github.com/gin-gonic/gin.(*Context).Next(0xc004484600)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 +0x2b
+gitlab.xiaoduoai.com/golib/xd_sdk/httpserver.NewServerWithOptions.GinParseCallInfo.func3(0xc004484600)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/public/caller_info.go:49 +0x175
+github.com/gin-gonic/gin.(*Context).Next(0xc004484600)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 +0x2b
+gitlab.xiaoduoai.com/golib/xd_sdk/httpserver.NewServerWithOptions.Recovery.RecoveryWithLogger.func6(0xc0006efb88?)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/httpserver/middles/recovery.go:25 +0x51
+github.com/gin-gonic/gin.(*Context).Next(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc002be29c0, 0xc004484600)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 +0x64e
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc002be29c0, {0x2b71c08, 0xc000001500}, 0xc0037dbb80)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 +0x1aa
+net/http.serverHandler.ServeHTTP({0x2b6a898?}, {0x2b71c08?, 0xc000001500?}, 0x6?)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/server.go:3301 +0x8e
+net/http.(*conn).serve(0xc0036f9200, {0x2b76e80, 0xc002e94f90})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/server.go:2102 +0x625
+created by net/http.(*Server).Serve in goroutine 274
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/server.go:3454 +0x485
+
+goroutine 2882491 [IO wait]:
+internal/poll.runtime_pollWait(0x7f53e6832fe0, 0x72)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/runtime/netpoll.go:351 +0x85
+internal/poll.(*pollDesc).wait(0xc005904680?, 0xc00539d000?, 0x0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:84 +0x27
+internal/poll.(*pollDesc).waitRead(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0xc005904680, {0xc00539d000, 0x1000, 0x1000})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_unix.go:165 +0x27a
+net.(*netFD).Read(0xc005904680, {0xc00539d000?, 0x1a?, 0x0?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/fd_posix.go:55 +0x25
+net.(*conn).Read(0xc005ea7df0, {0xc00539d000?, 0x408285?, 0xc005652000?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/net.go:194 +0x45
+net/http.(*persistConn).Read(0xc00542aa20, {0xc00539d000?, 0x7d1705?, 0x2b56180?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2125 +0x47
+bufio.(*Reader).fill(0xc005e55740)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:113 +0x103
+bufio.(*Reader).Peek(0xc005e55740, 0x1)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:152 +0x53
+net/http.(*persistConn).readLoop(0xc00542aa20)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2278 +0x172
+created by net/http.(*Transport).dialConn in goroutine 2882475
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1947 +0x174f
+
+goroutine 639122 [select, 36 minutes]:
+google.golang.org/grpc/internal/grpcsync.(*CallbackSerializer).run(0xc004a35f70, {0x2b76eb8, 0xc00449de00})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/grpcsync/callback_serializer.go:88 +0x10c
+created by google.golang.org/grpc/internal/grpcsync.NewCallbackSerializer in goroutine 639121
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/grpcsync/callback_serializer.go:52 +0x11a
+
+goroutine 2879004 [IO wait]:
+internal/poll.runtime_pollWait(0x7f53e64bfb18, 0x72)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/runtime/netpoll.go:351 +0x85
+internal/poll.(*pollDesc).wait(0xc005657a00?, 0xc00493f000?, 0x0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:84 +0x27
+internal/poll.(*pollDesc).waitRead(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0xc005657a00, {0xc00493f000, 0x1000, 0x1000})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_unix.go:165 +0x27a
+net.(*netFD).Read(0xc005657a00, {0xc00493f000?, 0x10?, 0x0?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/fd_posix.go:55 +0x25
+net.(*conn).Read(0xc0061002a8, {0xc00493f000?, 0x408285?, 0xc005652000?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/net.go:194 +0x45
+net/http.(*persistConn).Read(0xc004c21320, {0xc00493f000?, 0x7d1705?, 0x2b56180?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2125 +0x47
+bufio.(*Reader).fill(0xc0056e0900)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:113 +0x103
+bufio.(*Reader).Peek(0xc0056e0900, 0x1)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:152 +0x53
+net/http.(*persistConn).readLoop(0xc004c21320)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2278 +0x172
+created by net/http.(*Transport).dialConn in goroutine 2879016
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1947 +0x174f
+
+goroutine 2827177 [IO wait]:
+internal/poll.runtime_pollWait(0x7f53e652db08, 0x72)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/runtime/netpoll.go:351 +0x85
+internal/poll.(*pollDesc).wait(0xc0001e8880?, 0xc004cec000?, 0x0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:84 +0x27
+internal/poll.(*pollDesc).waitRead(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0xc0001e8880, {0xc004cec000, 0x1000, 0x1000})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_unix.go:165 +0x27a
+net.(*netFD).Read(0xc0001e8880, {0xc004cec000?, 0x4084b4?, 0x0?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/fd_posix.go:55 +0x25
+net.(*conn).Read(0xc005b32280, {0xc004cec000?, 0x40829f?, 0xc002cb0fc0?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/net.go:194 +0x45
+net/http.(*persistConn).Read(0xc006774a20, {0xc004cec000?, 0x7d1705?, 0x2b56180?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2125 +0x47
+bufio.(*Reader).fill(0xc00594f7a0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:113 +0x103
+bufio.(*Reader).Peek(0xc00594f7a0, 0x1)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:152 +0x53
+net/http.(*persistConn).readLoop(0xc006774a20)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2278 +0x172
+created by net/http.(*Transport).dialConn in goroutine 2827172
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1947 +0x174f
+
+goroutine 639172 [select]:
+google.golang.org/grpc/internal/transport.(*controlBuffer).get(0xc004572bc0, 0x1)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/transport/controlbuf.go:412 +0x108
+google.golang.org/grpc/internal/transport.(*loopyWriter).run(0xc0050d7c80)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/transport/controlbuf.go:575 +0x78
+google.golang.org/grpc/internal/transport.newHTTP2Client.func6()
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/transport/http2_client.go:470 +0xd2
+created by google.golang.org/grpc/internal/transport.newHTTP2Client in goroutine 639151
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/transport/http2_client.go:468 +0x23d2
+
+goroutine 2884083 [IO wait]:
+internal/poll.runtime_pollWait(0x7f53e6522ef0, 0x72)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/runtime/netpoll.go:351 +0x85
+internal/poll.(*pollDesc).wait(0xc006539a00?, 0xc0050466d1?, 0x0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:84 +0x27
+internal/poll.(*pollDesc).waitRead(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0xc006539a00, {0xc0050466d1, 0x1, 0x1})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_unix.go:165 +0x27a
+net.(*netFD).Read(0xc006539a00, {0xc0050466d1?, 0xc002cbc798?, 0xc002cbc77c?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/fd_posix.go:55 +0x25
+net.(*conn).Read(0xc003f6b328, {0xc0050466d1?, 0xc004bd17a0?, 0xc004a2fc00?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/net.go:194 +0x45
+net/http.(*connReader).backgroundRead(0xc0050466c0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/server.go:690 +0x37
+created by net/http.(*connReader).startBackgroundRead in goroutine 2884097
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/server.go:686 +0xb6
+
+goroutine 639173 [select, 36 minutes]:
+google.golang.org/grpc.newClientStreamWithParams.func4()
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/stream.go:393 +0x8c
+created by google.golang.org/grpc.newClientStreamWithParams in goroutine 639121
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/stream.go:392 +0xde9
+
+goroutine 2842112 [select]:
+net/http.(*persistConn).writeLoop(0xc005879c20)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2593 +0xe7
+created by net/http.(*Transport).dialConn in goroutine 2842101
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1948 +0x17a5
+
+goroutine 2732509 [select]:
+net/http.(*persistConn).writeLoop(0xc00437b7a0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2593 +0xe7
+created by net/http.(*Transport).dialConn in goroutine 2732498
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1948 +0x17a5
+
+goroutine 2884082 [select]:
+net/http.awaitLegacyCancel({0x2b76eb8?, 0xc003e31630?}, 0xc005353f30, 0xc0068e69bc?)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:744 +0x72
+created by net/http.(*Transport).roundTrip in goroutine 2883978
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:650 +0x96b
+
+goroutine 2878049 [select]:
+google.golang.org/grpc.newClientStreamWithParams.func4()
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/stream.go:393 +0x8c
+created by google.golang.org/grpc.newClientStreamWithParams in goroutine 125
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/stream.go:392 +0xde9
+
+goroutine 2878050 [select]:
+google.golang.org/grpc/internal/transport.(*Stream).waitOnHeader(0xc0047eb440)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/transport/transport.go:378 +0x79
+google.golang.org/grpc/internal/transport.(*Stream).RecvCompress(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/transport/transport.go:393
+google.golang.org/grpc.(*csAttempt).recvMsg(0xc0039b3e10, {0x2537520, 0xc004d6ce80}, 0x4664ec?)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/stream.go:1115 +0x117
+google.golang.org/grpc.(*clientStream).RecvMsg.func1(0xffffffffffffffff?)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/stream.go:969 +0x1f
+google.golang.org/grpc.(*clientStream).withRetry(0xc0047eb0e0, 0xc0041d5e90, 0xc0041d5e80)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/stream.go:789 +0x13b
+google.golang.org/grpc.(*clientStream).RecvMsg(0xc0047eb0e0, {0x2537520?, 0xc004d6ce80?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/stream.go:968 +0x155
+github.com/apache/rocketmq-clients/golang/v5/protocol/v2.(*messagingServiceReceiveMessageClient).Recv(0xc0062d9340)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/apache/rocketmq-clients/golang/v5@v5.1.2/protocol/v2/service_grpc.pb.go:194 +0x46
+github.com/apache/rocketmq-clients/golang/v5.(*defaultSimpleConsumer).receiveMessage.func1()
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/apache/rocketmq-clients/golang/v5@v5.1.2/simple_consumer.go:221 +0x91
+created by github.com/apache/rocketmq-clients/golang/v5.(*defaultSimpleConsumer).receiveMessage in goroutine 125
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/apache/rocketmq-clients/golang/v5@v5.1.2/simple_consumer.go:218 +0x294
+
+goroutine 2843683 [IO wait]:
+internal/poll.runtime_pollWait(0x7f53e652d7c0, 0x72)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/runtime/netpoll.go:351 +0x85
+internal/poll.(*pollDesc).wait(0xc0044b5200?, 0xc003793000?, 0x0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:84 +0x27
+internal/poll.(*pollDesc).waitRead(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0xc0044b5200, {0xc003793000, 0x1000, 0x1000})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_unix.go:165 +0x27a
+net.(*netFD).Read(0xc0044b5200, {0xc003793000?, 0x3?, 0x0?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/fd_posix.go:55 +0x25
+net.(*conn).Read(0xc003ac4ee8, {0xc003793000?, 0x408285?, 0xc005652000?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/net.go:194 +0x45
+net/http.(*persistConn).Read(0xc0060b97a0, {0xc003793000?, 0x7d1705?, 0x2b56180?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2125 +0x47
+bufio.(*Reader).fill(0xc00304e360)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:113 +0x103
+bufio.(*Reader).Peek(0xc00304e360, 0x1)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:152 +0x53
+net/http.(*persistConn).readLoop(0xc0060b97a0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2278 +0x172
+created by net/http.(*Transport).dialConn in goroutine 2843663
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1947 +0x174f
+
+goroutine 2883978 [select]:
+net/http.(*persistConn).roundTrip(0xc006774a20, 0xc003e31680)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2829 +0x785
+net/http.(*Transport).roundTrip(0xc0030d2d00, 0xc00392c3c0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:696 +0xb9a
+net/http.(*Transport).RoundTrip(0xc005353e50?, 0xc00386ae60?)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/roundtrip.go:30 +0x13
+go.opencensus.io/plugin/ochttp.(*traceTransport).RoundTrip(0xc005703700, 0xc00392c280)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/go.opencensus.io@v0.24.0/plugin/ochttp/trace.go:84 +0x3ce
+go.opencensus.io/plugin/ochttp.statsTransport.RoundTrip({{0x2b62100?, 0xc005703700?}}, 0xc00392c140)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/go.opencensus.io@v0.24.0/plugin/ochttp/client_stats.go:57 +0x917
+go.opencensus.io/plugin/ochttp.(*Transport).RoundTrip(0xc002c843c0, 0xc00392c140)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/go.opencensus.io@v0.24.0/plugin/ochttp/client.go:99 +0x1bf
+gitlab.xiaoduoai.com/golib/xd_sdk/octrace/integration/http.(*Transport).RoundTrip(0xc002a65c70?, 0xc00392c140?)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/octrace/integration/http/client.go:46 +0x92
+net/http.send(0xc00392c000, {0x2b575c0, 0xc002a65c70}, {0xc00359e301?, 0x4b1673?, 0x490dd00?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/client.go:259 +0x5e2
+net/http.(*Client).send(0xc002cb0600, 0xc00392c000, {0x63162ea?, 0xc00359e418?, 0x490dd00?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/client.go:180 +0x91
+net/http.(*Client).do(0xc002cb0600, 0xc00392c000)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/client.go:728 +0x989
+net/http.(*Client).Do(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/client.go:587
+gopkg.in/resty%2ev1.(*Client).execute(0xc002cb4000, 0xc003913b80)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gopkg.in/resty.v1@v1.12.0/client.go:823 +0x2fb
+gopkg.in/resty%2ev1.(*Request).Execute(0xc003913b80, {0x26f29e2?, 0xc1cbc8?}, {0xc004ba8be0, 0x42})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gopkg.in/resty.v1@v1.12.0/request.go:489 +0x1fa
+gopkg.in/resty%2ev1.(*Request).Post(0xc003913b80?, {0xc004ba8be0?, 0xc0046f7e60?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gopkg.in/resty.v1@v1.12.0/request.go:443 +0x2a
+gitlab.xiaoduoai.com/ecrobot/chatbot-client-common/component/client_business.ExternalBusiness({0x2b76e80, 0xc004862000}, {0x2732cb4, 0x17}, {0x217a260, 0xc0065b14b8}, {0x2290340, 0xc004c25b70})
+        /builds/ecrobot/chatbot-client-common/component/client_business/client.go:139 +0x17c
+gitlab.xiaoduoai.com/ecrobot/chatbot-client-common/component/client_business.ReportClient({0x2b76e80, 0xc004862000}, 0xc0064355d8?, 0xc004c25b70)
+        /builds/ecrobot/chatbot-client-common/component/client_business/client.go:78 +0x76
+gitlab.xiaoduoai.com/ecrobot/chatbot-client-common/internal/dialogue.(*Service).MsgHandleToBusiness(0x2b76e80?, {0x2b76e80, 0xc004862000}, {0x2691840, 0xc004765a50}, {0x2b964a0, 0xc004765a48}, 0xc00359ec20, 0x1)
+        /builds/ecrobot/chatbot-client-common/internal/dialogue/dialogue.go:401 +0x9b4
+gitlab.xiaoduoai.com/ecrobot/chatbot-client-common/handler.(*DialogueHandler).OriginMsg(0x24287c0?, {0x2b76e80, 0xc0051de990}, 0xc0038452c0, 0xc0051de9c0)
+        /builds/ecrobot/chatbot-client-common/handler/dialogue.go:385 +0x8d7
+reflect.Value.call({0x22b39a0?, 0xc002e83280?, 0x8?}, {0x26f2a5a, 0x4}, {0xc00359f3e8, 0x3, 0xc00060fe80?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/reflect/value.go:584 +0xca6
+reflect.Value.Call({0x22b39a0?, 0xc002e83280?, 0xc0051de990?}, {0xc00359f3e8?, 0x26cc3a0?, 0xc006412000?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/reflect/value.go:368 +0xb9
+gitlab.xiaoduoai.com/golib/xd_sdk/httpserver/middles.CreateHandlerFuncWithLogger.func1(0xc006412000)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/httpserver/middles/handler.go:370 +0x549
+github.com/gin-gonic/gin.(*Context).Next(0xc006412000)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 +0x2b
+gitlab.xiaoduoai.com/ecrobot/chatbot-client-common/server.newRouter.LoggingResponse.LoggingResponseWithLogger.func10(0xc006412000)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/httpserver/middles/logging.go:46 +0xf3
+github.com/gin-gonic/gin.(*Context).Next(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174
+gitlab.xiaoduoai.com/golib/xd_sdk/httpserver/middles.HttpMetricStats.func1(0xc006412000)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/httpserver/middles/http_stats.go:35 +0x1a4
+github.com/gin-gonic/gin.(*Context).Next(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174
+gitlab.xiaoduoai.com/golib/xd_sdk/octrace/integration/http.Middleware.func4(0xc006412000)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/octrace/integration/http/server.go:150 +0x849
+github.com/gin-gonic/gin.(*Context).Next(0xc006412000)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 +0x2b
+gitlab.xiaoduoai.com/golib/xd_sdk/httpserver.NewServerWithOptions.GinParseCallInfo.func3(0xc006412000)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/public/caller_info.go:49 +0x175
+github.com/gin-gonic/gin.(*Context).Next(0xc006412000)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 +0x2b
+gitlab.xiaoduoai.com/golib/xd_sdk/httpserver.NewServerWithOptions.Recovery.RecoveryWithLogger.func6(0xc00359fb88?)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/httpserver/middles/recovery.go:25 +0x51
+github.com/gin-gonic/gin.(*Context).Next(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc002be29c0, 0xc006412000)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 +0x64e
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc002be29c0, {0x2b71c08, 0xc0001a3960}, 0xc003844b40)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 +0x1aa
+net/http.serverHandler.ServeHTTP({0x2b6a898?}, {0x2b71c08?, 0xc0001a3960?}, 0x6?)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/server.go:3301 +0x8e
+net/http.(*conn).serve(0xc0036f9dd0, {0x2b76e80, 0xc002e94f90})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/server.go:2102 +0x625
+created by net/http.(*Server).Serve in goroutine 274
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/server.go:3454 +0x485
+
+goroutine 2804930 [select]:
+net/http.(*persistConn).writeLoop(0xc005aca240)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2593 +0xe7
+created by net/http.(*Transport).dialConn in goroutine 2804912
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1948 +0x17a5
+
+goroutine 2842111 [IO wait]:
+internal/poll.runtime_pollWait(0x7f53e66aa1f0, 0x72)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/runtime/netpoll.go:351 +0x85
+internal/poll.(*pollDesc).wait(0xc005940000?, 0xc0054d6000?, 0x0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:84 +0x27
+internal/poll.(*pollDesc).waitRead(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0xc005940000, {0xc0054d6000, 0x1000, 0x1000})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_unix.go:165 +0x27a
+net.(*netFD).Read(0xc005940000, {0xc0054d6000?, 0x14?, 0x0?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/fd_posix.go:55 +0x25
+net.(*conn).Read(0xc005ea61a0, {0xc0054d6000?, 0x408285?, 0xc005652000?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/net.go:194 +0x45
+net/http.(*persistConn).Read(0xc005879c20, {0xc0054d6000?, 0x7d1705?, 0x2b56180?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2125 +0x47
+bufio.(*Reader).fill(0xc0045f35c0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:113 +0x103
+bufio.(*Reader).Peek(0xc0045f35c0, 0x1)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:152 +0x53
+net/http.(*persistConn).readLoop(0xc005879c20)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2278 +0x172
+created by net/http.(*Transport).dialConn in goroutine 2842101
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1947 +0x174f
+
+goroutine 639148 [select, 36 minutes]:
+google.golang.org/grpc/internal/grpcsync.(*CallbackSerializer).run(0xc004f2d380, {0x2b76eb8, 0xc00456e8c0})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/grpcsync/callback_serializer.go:88 +0x10c
+created by google.golang.org/grpc/internal/grpcsync.NewCallbackSerializer in goroutine 639121
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/grpcsync/callback_serializer.go:52 +0x11a
+
+goroutine 2883286 [select]:
+net/http.(*persistConn).writeLoop(0xc005b0bb00)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2593 +0xe7
+created by net/http.(*Transport).dialConn in goroutine 2883277
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1948 +0x17a5
+
+goroutine 2884079 [select]:
+net/http.setRequestCancel.func4()
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/client.go:402 +0x85
+created by net/http.setRequestCancel in goroutine 2884029
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/client.go:401 +0x4f9
+
+goroutine 2881038 [select]:
+net/http.(*persistConn).writeLoop(0xc005ef0d80)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2593 +0xe7
+created by net/http.(*Transport).dialConn in goroutine 2881033
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1948 +0x17a5
+
+goroutine 2880061 [select]:
+google.golang.org/grpc/internal/transport.(*Stream).waitOnHeader(0xc0056967e0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/transport/transport.go:378 +0x79
+google.golang.org/grpc/internal/transport.(*Stream).RecvCompress(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/transport/transport.go:393
+google.golang.org/grpc.(*csAttempt).recvMsg(0xc004647110, {0x2537520, 0xc002807cc0}, 0x0?)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/stream.go:1115 +0x117
+google.golang.org/grpc.(*clientStream).RecvMsg.func1(0xffffffffffffffff?)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/stream.go:969 +0x1f
+google.golang.org/grpc.(*clientStream).withRetry(0xc0056965a0, 0xc003226e90, 0xc003226e80)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/stream.go:789 +0x13b
+google.golang.org/grpc.(*clientStream).RecvMsg(0xc0056965a0, {0x2537520?, 0xc002807cc0?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/stream.go:968 +0x155
+github.com/apache/rocketmq-clients/golang/v5/protocol/v2.(*messagingServiceReceiveMessageClient).Recv(0xc003f843a0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/apache/rocketmq-clients/golang/v5@v5.1.2/protocol/v2/service_grpc.pb.go:194 +0x46
+github.com/apache/rocketmq-clients/golang/v5.(*defaultSimpleConsumer).receiveMessage.func1()
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/apache/rocketmq-clients/golang/v5@v5.1.2/simple_consumer.go:221 +0x91
+created by github.com/apache/rocketmq-clients/golang/v5.(*defaultSimpleConsumer).receiveMessage in goroutine 239
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/apache/rocketmq-clients/golang/v5@v5.1.2/simple_consumer.go:218 +0x294
+
+goroutine 639124 [select, 36 minutes]:
+google.golang.org/grpc/internal/grpcsync.(*CallbackSerializer).run(0xc0054aa050, {0x2b76eb8, 0xc00449dea0})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/grpcsync/callback_serializer.go:88 +0x10c
+created by google.golang.org/grpc/internal/grpcsync.NewCallbackSerializer in goroutine 639121
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/grpcsync/callback_serializer.go:52 +0x11a
+
+goroutine 639147 [select, 1 minutes]:
+google.golang.org/grpc/internal/transport.(*recvBufferReader).readHeaderClient(0xc0044f2e10, {0xc005746f40, 0x5, 0x5})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/transport/transport.go:199 +0xa7
+google.golang.org/grpc/internal/transport.(*recvBufferReader).ReadHeader(0xc0044f2e10, {0xc005746f40?, 0xc00455ad88?, 0xc0051958c0?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/transport/transport.go:145 +0x45
+google.golang.org/grpc/internal/transport.(*transportReader).ReadHeader(0xc00560dd20, {0xc005746f40?, 0x5, 0xc005b39008?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/transport/transport.go:614 +0x25
+google.golang.org/grpc/internal/transport.(*Stream).ReadHeader(0xc0051958c0, {0xc005746f40, 0x5, 0x5})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/transport/transport.go:557 +0xa6
+google.golang.org/grpc.(*parser).recvMsg(0xc005746f30, 0x400000)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/rpc_util.go:659 +0x3b
+google.golang.org/grpc.recvAndDecompress(0xc005746f30, 0xc0051958c0, {0x0, 0x0}, 0x400000, 0x0, {0x0, 0x0}, 0x0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/rpc_util.go:823 +0x9a
+google.golang.org/grpc.recv(0xc005f2bdc8?, {0x7f53e682edd8, 0x4936340}, 0x0?, {0x0?, 0x0?}, {0x25b1640, 0xc0060d55c0}, 0x46?, 0x0, ...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/rpc_util.go:916 +0x91
+google.golang.org/grpc.(*csAttempt).recvMsg(0xc00453aa90, {0x25b1640, 0xc0060d55c0}, 0xc0062c8620?)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/stream.go:1129 +0x2d9
+google.golang.org/grpc.(*clientStream).RecvMsg.func1(0xc0060d5480?)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/stream.go:969 +0x1f
+google.golang.org/grpc.(*clientStream).withRetry(0xc005195560, 0xc005f2bec8, 0xc005f2beb8)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/stream.go:773 +0x3b5
+google.golang.org/grpc.(*clientStream).RecvMsg(0xc005195560, {0x25b1640?, 0xc0060d55c0?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/stream.go:968 +0x155
+github.com/apache/rocketmq-clients/golang/v5/protocol/v2.(*messagingServiceTelemetryClient).Recv(0xc0054abcf0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/apache/rocketmq-clients/golang/v5@v5.1.2/protocol/v2/service_grpc.pb.go:252 +0x46
+github.com/apache/rocketmq-clients/golang/v5.(*defaultClientSession).startUp.func1()
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/apache/rocketmq-clients/golang/v5@v5.1.2/client.go:116 +0x66
+created by github.com/apache/rocketmq-clients/golang/v5.(*defaultClientSession).startUp in goroutine 639121
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/apache/rocketmq-clients/golang/v5@v5.1.2/client.go:103 +0xa6
+
+goroutine 2883996 [select]:
+net/http.setRequestCancel.func4()
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/client.go:402 +0x85
+created by net/http.setRequestCancel in goroutine 2883969
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/client.go:401 +0x4f9
+
+goroutine 2519806 [IO wait]:
+internal/poll.runtime_pollWait(0x7f53e6523350, 0x72)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/runtime/netpoll.go:351 +0x85
+internal/poll.(*pollDesc).wait(0xc0056be400?, 0xc005674000?, 0x0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:84 +0x27
+internal/poll.(*pollDesc).waitRead(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0xc0056be400, {0xc005674000, 0x1000, 0x1000})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_unix.go:165 +0x27a
+net.(*netFD).Read(0xc0056be400, {0xc005674000?, 0x4084b4?, 0x0?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/fd_posix.go:55 +0x25
+net.(*conn).Read(0xc005ea6ff8, {0xc005674000?, 0x4082af?, 0xc00313c120?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/net.go:194 +0x45
+net/http.(*persistConn).Read(0xc003c78240, {0xc005674000?, 0x7d1705?, 0x2b56180?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2125 +0x47
+bufio.(*Reader).fill(0xc0066b8240)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:113 +0x103
+bufio.(*Reader).Peek(0xc0066b8240, 0x1)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:152 +0x53
+net/http.(*persistConn).readLoop(0xc003c78240)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2278 +0x172
+created by net/http.(*Transport).dialConn in goroutine 2519795
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1947 +0x174f
+
+goroutine 639149 [select, 36 minutes]:
+google.golang.org/grpc/internal/grpcsync.(*CallbackSerializer).run(0xc004f2d3b0, {0x2b76eb8, 0xc00456e910})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/grpcsync/callback_serializer.go:88 +0x10c
+created by google.golang.org/grpc/internal/grpcsync.NewCallbackSerializer in goroutine 639121
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/grpcsync/callback_serializer.go:52 +0x11a
+
+goroutine 639210 [select, 36 minutes]:
+google.golang.org/grpc.newClientStreamWithParams.func4()
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/stream.go:393 +0x8c
+created by google.golang.org/grpc.newClientStreamWithParams in goroutine 639147
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/stream.go:392 +0xde9
+
+goroutine 2884074 [IO wait]:
+internal/poll.runtime_pollWait(0x7f53e6462e88, 0x72)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/runtime/netpoll.go:351 +0x85
+internal/poll.(*pollDesc).wait(0xc006538300?, 0xc004aee341?, 0x0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:84 +0x27
+internal/poll.(*pollDesc).waitRead(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0xc006538300, {0xc004aee341, 0x1, 0x1})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_unix.go:165 +0x27a
+net.(*netFD).Read(0xc006538300, {0xc004aee341?, 0xc003e30730?, 0xc002848000?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/fd_posix.go:55 +0x25
+net.(*conn).Read(0xc003f6af30, {0xc004aee341?, 0xc003a05fd0?, 0x1addf2f?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/net.go:194 +0x45
+net/http.(*connReader).backgroundRead(0xc004aee330)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/server.go:690 +0x37
+created by net/http.(*connReader).startBackgroundRead in goroutine 2884022
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/server.go:686 +0xb6
+
+goroutine 2878080 [IO wait]:
+internal/poll.runtime_pollWait(0x7f53e652a218, 0x72)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/runtime/netpoll.go:351 +0x85
+internal/poll.(*pollDesc).wait(0xc004ae7500?, 0xc003b34000?, 0x0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:84 +0x27
+internal/poll.(*pollDesc).waitRead(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0xc004ae7500, {0xc003b34000, 0x1000, 0x1000})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_unix.go:165 +0x27a
+net.(*netFD).Read(0xc004ae7500, {0xc003b34000?, 0x4084b4?, 0x0?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/fd_posix.go:55 +0x25
+net.(*conn).Read(0xc000120bf8, {0xc003b34000?, 0x40829f?, 0xc003ab3a10?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/net.go:194 +0x45
+net/http.(*persistConn).Read(0xc005e566c0, {0xc003b34000?, 0x7d1705?, 0x2b56180?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2125 +0x47
+bufio.(*Reader).fill(0xc005f77320)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:113 +0x103
+bufio.(*Reader).Peek(0xc005f77320, 0x1)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:152 +0x53
+net/http.(*persistConn).readLoop(0xc005e566c0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2278 +0x172
+created by net/http.(*Transport).dialConn in goroutine 2878076
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1947 +0x174f
+
+goroutine 2884077 [select]:
+net/http.setRequestCancel.func4()
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/client.go:402 +0x85
+created by net/http.setRequestCancel in goroutine 2884022
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/client.go:401 +0x4f9
+
+goroutine 2843684 [select]:
+net/http.(*persistConn).writeLoop(0xc0060b97a0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2593 +0xe7
+created by net/http.(*Transport).dialConn in goroutine 2843663
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1948 +0x17a5
+
+goroutine 2681603 [select]:
+net/http.(*persistConn).writeLoop(0xc00611c360)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2593 +0xe7
+created by net/http.(*Transport).dialConn in goroutine 2681586
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1948 +0x17a5
+
+goroutine 639211 [select, 36 minutes]:
+contrib.go.opencensus.io/exporter/ocagent.(*Exporter).indefiniteBackgroundConnection(0xc004fa0d80)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/contrib.go.opencensus.io/exporter/ocagent@v0.6.0/connection.go:81 +0x232
+created by contrib.go.opencensus.io/exporter/ocagent.(*Exporter).Start.func1 in goroutine 639147
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/contrib.go.opencensus.io/exporter/ocagent@v0.6.0/ocagent.go:178 +0x18e
+
+goroutine 2882492 [select]:
+net/http.(*persistConn).writeLoop(0xc00542aa20)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2593 +0xe7
+created by net/http.(*Transport).dialConn in goroutine 2882475
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1948 +0x17a5
+
+goroutine 2519904 [IO wait]:
+internal/poll.runtime_pollWait(0x7f53e67aca90, 0x72)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/runtime/netpoll.go:351 +0x85
+internal/poll.(*pollDesc).wait(0xc005a08d00?, 0xc0058b1000?, 0x0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:84 +0x27
+internal/poll.(*pollDesc).waitRead(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0xc005a08d00, {0xc0058b1000, 0x1000, 0x1000})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_unix.go:165 +0x27a
+net.(*netFD).Read(0xc005a08d00, {0xc0058b1000?, 0x4084b4?, 0x0?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/fd_posix.go:55 +0x25
+net.(*conn).Read(0xc005ea7550, {0xc0058b1000?, 0x40829f?, 0xc002cb0fc0?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/net.go:194 +0x45
+net/http.(*persistConn).Read(0xc005bb1b00, {0xc0058b1000?, 0x7d1705?, 0x2b56180?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2125 +0x47
+bufio.(*Reader).fill(0xc0066b92c0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:113 +0x103
+bufio.(*Reader).Peek(0xc0066b92c0, 0x1)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:152 +0x53
+net/http.(*persistConn).readLoop(0xc005bb1b00)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2278 +0x172
+created by net/http.(*Transport).dialConn in goroutine 2519914
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1947 +0x174f
+
+goroutine 2884081 [select]:
+net/http.setRequestCancel.func4()
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/client.go:402 +0x85
+created by net/http.setRequestCancel in goroutine 2883978
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/client.go:401 +0x4f9
+
+goroutine 2519921 [select]:
+net/http.(*persistConn).writeLoop(0xc005bb1b00)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2593 +0xe7
+created by net/http.(*Transport).dialConn in goroutine 2519914
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1948 +0x17a5
+
+goroutine 2519807 [select]:
+net/http.(*persistConn).writeLoop(0xc003c78240)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2593 +0xe7
+created by net/http.(*Transport).dialConn in goroutine 2519795
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1948 +0x17a5
+
+goroutine 2884098 [runnable]:
+gitlab.xiaoduoai.com/golib/xd_sdk/redis.(*traceHook).BeforeProcess(0x4936340?, {0x2b76e80, 0xc0055c58f0}, {0x2b85e10, 0xc003f662a0})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/redis/hook.go:30 +0x215
+github.com/go-redis/redis/v8.hooks.process({{0xc0028d9ee0?, 0x58?, 0x24046a0?}}, {0x2b76e80?, 0xc0055c58f0?}, {0x2b85e10, 0xc003f662a0}, 0xc00523cc78)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/go-redis/redis/v8@v8.11.5/redis.go:63 +0x12d
+github.com/go-redis/redis/v8.(*ClusterClient).Process(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/go-redis/redis/v8@v8.11.5/cluster.go:768
+github.com/go-redis/redis/v8.cmdable.EvalSha(0xc0003f6ec0, {0x2b76e80, 0xc0055c58f0}, {0xc000054ae0, 0x28}, {0xc004c25d50, 0x1, 0x10?}, {0xc004569b30, 0x1, ...})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/go-redis/redis/v8@v8.11.5/commands.go:3135 +0x271
+github.com/go-redsync/redsync/v4/redis/goredis/v8.(*conn).Eval(0xc004569b00, 0xc00037ecf0, {0xc004569b20, 0x2, 0x2})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/go-redsync/redsync/v4@v4.5.1/redis/goredis/v8/goredis.go:62 +0x103
+github.com/go-redsync/redsync/v4.(*Mutex).release(0xc0038dc5a0, {0x2b76e80?, 0xc0055c58f0?}, {0x2b58d20?, 0xc0005b0be0?}, {0xc005a38558, 0x18})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/go-redsync/redsync/v4@v4.5.1/mutex.go:225 +0x15b
+github.com/go-redsync/redsync/v4.(*Mutex).UnlockContext.func1({0x2b58d20?, 0xc0005b0be0?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/go-redsync/redsync/v4@v4.5.1/mutex.go:121 +0x3d
+github.com/go-redsync/redsync/v4.(*Mutex).actOnPoolsAsync.func1({0x2b58d20?, 0xc0005b0be0?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/go-redsync/redsync/v4@v4.5.1/mutex.go:263 +0x2a
+created by github.com/go-redsync/redsync/v4.(*Mutex).actOnPoolsAsync in goroutine 2883897
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/go-redsync/redsync/v4@v4.5.1/mutex.go:261 +0x65
+
+goroutine 2879005 [select]:
+net/http.(*persistConn).writeLoop(0xc004c21320)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2593 +0xe7
+created by net/http.(*Transport).dialConn in goroutine 2879016
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1948 +0x17a5
+
+goroutine 639174 [select, 36 minutes]:
+google.golang.org/grpc/internal/grpcsync.(*CallbackSerializer).run(0xc004d2e900, {0x2b76eb8, 0xc0044f3770})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/grpcsync/callback_serializer.go:88 +0x10c
+created by google.golang.org/grpc/internal/grpcsync.NewCallbackSerializer in goroutine 639147
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/grpcsync/callback_serializer.go:52 +0x11a
+
+goroutine 2831954 [IO wait]:
+internal/poll.runtime_pollWait(0x7f53e6521908, 0x72)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/runtime/netpoll.go:351 +0x85
+internal/poll.(*pollDesc).wait(0xc005a09680?, 0xc0042b9000?, 0x0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:84 +0x27
+internal/poll.(*pollDesc).waitRead(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0xc005a09680, {0xc0042b9000, 0x1000, 0x1000})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_unix.go:165 +0x27a
+net.(*netFD).Read(0xc005a09680, {0xc0042b9000?, 0xe?, 0x0?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/fd_posix.go:55 +0x25
+net.(*conn).Read(0xc005cc0468, {0xc0042b9000?, 0x408285?, 0xc005652000?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/net.go:194 +0x45
+net/http.(*persistConn).Read(0xc003d5c120, {0xc0042b9000?, 0x7d1705?, 0x2b56180?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2125 +0x47
+bufio.(*Reader).fill(0xc006506900)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:113 +0x103
+bufio.(*Reader).Peek(0xc006506900, 0x1)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:152 +0x53
+net/http.(*persistConn).readLoop(0xc003d5c120)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2278 +0x172
+created by net/http.(*Transport).dialConn in goroutine 2831938
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1947 +0x174f
+
+goroutine 2827178 [select]:
+net/http.(*persistConn).writeLoop(0xc006774a20)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2593 +0xe7
+created by net/http.(*Transport).dialConn in goroutine 2827172
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1948 +0x17a5
+
+goroutine 2884080 [select]:
+net/http.awaitLegacyCancel({0x2b76eb8?, 0xc003e31400?}, 0xc005353470, 0xc002e94f90?)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:744 +0x72
+created by net/http.(*Transport).roundTrip in goroutine 2884029
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:650 +0x96b
+
+goroutine 2681602 [IO wait]:
+internal/poll.runtime_pollWait(0x7f53e64ea5b8, 0x72)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/runtime/netpoll.go:351 +0x85
+internal/poll.(*pollDesc).wait(0xc005f41d80?, 0xc005b90000?, 0x0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:84 +0x27
+internal/poll.(*pollDesc).waitRead(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0xc005f41d80, {0xc005b90000, 0x1000, 0x1000})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_unix.go:165 +0x27a
+net.(*netFD).Read(0xc005f41d80, {0xc005b90000?, 0x4084b4?, 0x0?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/fd_posix.go:55 +0x25
+net.(*conn).Read(0xc003798770, {0xc005b90000?, 0x4082af?, 0xc003ab3a10?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/net.go:194 +0x45
+net/http.(*persistConn).Read(0xc00611c360, {0xc005b90000?, 0x7d1705?, 0x2b56180?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2125 +0x47
+bufio.(*Reader).fill(0xc0046ec840)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:113 +0x103
+bufio.(*Reader).Peek(0xc0046ec840, 0x1)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:152 +0x53
+net/http.(*persistConn).readLoop(0xc00611c360)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2278 +0x172
+created by net/http.(*Transport).dialConn in goroutine 2681586
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1947 +0x174f
+
+goroutine 639160 [IO wait]:
+internal/poll.runtime_pollWait(0x7f53e64ead60, 0x72)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/runtime/netpoll.go:351 +0x85
+internal/poll.(*pollDesc).wait(0xc0056ba680?, 0xc0031bd980?, 0x0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:84 +0x27
+internal/poll.(*pollDesc).waitRead(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0xc0056ba680, {0xc0031bd980, 0x1980, 0x1980})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_unix.go:165 +0x27a
+net.(*netFD).Read(0xc0056ba680, {0xc0031bd980?, 0xc0031bd980?, 0x5?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/fd_posix.go:55 +0x25
+net.(*conn).Read(0xc0062c8500, {0xc0031bd980?, 0x7f53e67b8cf8?, 0x7f542d611108?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/net.go:194 +0x45
+crypto/tls.(*atLeastReader).Read(0xc0031b4b40, {0xc0031bd980?, 0x197b?, 0x30?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/crypto/tls/conn.go:809 +0x3b
+bytes.(*Buffer).ReadFrom(0xc0045982b8, {0x2b5fa40, 0xc0031b4b40})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bytes/buffer.go:211 +0x98
+crypto/tls.(*Conn).readFromUntil(0xc004598008, {0x2b59dc0, 0xc0062c8500}, 0x4439f4?)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/crypto/tls/conn.go:831 +0xde
+crypto/tls.(*Conn).readRecordOrCCS(0xc004598008, 0x0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/crypto/tls/conn.go:629 +0x3cf
+crypto/tls.(*Conn).readRecord(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/crypto/tls/conn.go:591
+crypto/tls.(*Conn).Read(0xc004598008, {0xc004632000, 0x8000, 0xc000000000?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/crypto/tls/conn.go:1385 +0x145
+bufio.(*Reader).Read(0xc0057c6de0, {0xc003cb10e0, 0x9, 0x47afb9?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:245 +0x197
+io.ReadAtLeast({0x2b566e0, 0xc0057c6de0}, {0xc003cb10e0, 0x9, 0x9}, 0x9)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/io/io.go:335 +0x91
+io.ReadFull(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/io/io.go:354
+golang.org/x/net/http2.readFrameHeader({0xc003cb10e0, 0x9, 0x28653be37fe?}, {0x2b566e0?, 0xc0057c6de0?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/x/net@v0.41.0/http2/frame.go:242 +0x65
+golang.org/x/net/http2.(*Framer).ReadFrame(0xc003cb10a0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/x/net@v0.41.0/http2/frame.go:506 +0x7d
+google.golang.org/grpc/internal/transport.(*http2Client).reader(0xc00455ad88, 0xc00456bea0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/transport/http2_client.go:1645 +0x1c6
+created by google.golang.org/grpc/internal/transport.newHTTP2Client in goroutine 639151
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/transport/http2_client.go:412 +0x1df3
+
+goroutine 2884029 [select]:
+net/http.(*persistConn).roundTrip(0xc00450a900, 0xc003e31450)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2829 +0x785
+net/http.(*Transport).roundTrip(0xc0030d2d00, 0xc003913900)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:696 +0xb9a
+net/http.(*Transport).RoundTrip(0xc005353370?, 0xc00386ac80?)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/roundtrip.go:30 +0x13
+go.opencensus.io/plugin/ochttp.(*traceTransport).RoundTrip(0xc005703400, 0xc0039137c0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/go.opencensus.io@v0.24.0/plugin/ochttp/trace.go:84 +0x3ce
+go.opencensus.io/plugin/ochttp.statsTransport.RoundTrip({{0x2b62100?, 0xc005703400?}}, 0xc003913680)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/go.opencensus.io@v0.24.0/plugin/ochttp/client_stats.go:57 +0x917
+go.opencensus.io/plugin/ochttp.(*Transport).RoundTrip(0xc002c843c0, 0xc003913680)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/go.opencensus.io@v0.24.0/plugin/ochttp/client.go:99 +0x1bf
+gitlab.xiaoduoai.com/golib/xd_sdk/octrace/integration/http.(*Transport).RoundTrip(0xc002a65c70?, 0xc003913680?)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/octrace/integration/http/client.go:46 +0x92
+net/http.send(0xc003913540, {0x2b575c0, 0xc002a65c70}, {0xc003408301?, 0x4b1673?, 0x490dd00?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/client.go:259 +0x5e2
+net/http.(*Client).send(0xc002cb0600, 0xc003913540, {0x0?, 0xc003408438?, 0x490dd00?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/client.go:180 +0x91
+net/http.(*Client).do(0xc002cb0600, 0xc003913540)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/client.go:728 +0x989
+net/http.(*Client).Do(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/client.go:587
+gopkg.in/resty%2ev1.(*Client).execute(0xc002cb4000, 0xc003913180)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gopkg.in/resty.v1@v1.12.0/client.go:823 +0x2fb
+gopkg.in/resty%2ev1.(*Request).Execute(0xc003913180, {0x26f29e2?, 0xc1cbc8?}, {0xc004ba8960, 0x42})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gopkg.in/resty.v1@v1.12.0/request.go:489 +0x1fa
+gopkg.in/resty%2ev1.(*Request).Post(0xc003913180?, {0xc004ba8960?, 0xc0046f7290?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gopkg.in/resty.v1@v1.12.0/request.go:443 +0x2a
+gitlab.xiaoduoai.com/ecrobot/chatbot-client-common/component/client_business.ExternalBusiness({0x2b76e80, 0xc0055c4e40}, {0x2732cb4, 0x17}, {0x217a260, 0xc0065b11b8}, {0x2290340, 0xc0053528e0})
+        /builds/ecrobot/chatbot-client-common/component/client_business/client.go:139 +0x17c
+gitlab.xiaoduoai.com/ecrobot/chatbot-client-common/component/client_business.ReportClient({0x2b76e80, 0xc0055c4e40}, 0xc00595bf50?, 0xc0053528e0)
+        /builds/ecrobot/chatbot-client-common/component/client_business/client.go:78 +0x76
+gitlab.xiaoduoai.com/ecrobot/chatbot-client-common/internal/dialogue.(*Service).MsgHandleToBusiness(0x2b76e80?, {0x2b76e80, 0xc0055c4e40}, {0x2691840, 0xc003f6b0a8}, {0x2b964a0, 0xc003f6b0a0}, 0xc003408c20, 0x1)
+        /builds/ecrobot/chatbot-client-common/internal/dialogue/dialogue.go:401 +0x9b4
+gitlab.xiaoduoai.com/ecrobot/chatbot-client-common/handler.(*DialogueHandler).OriginMsg(0x24287c0?, {0x2b76e80, 0xc0048d1e00}, 0xc0038ba780, 0xc0048d1e30)
+        /builds/ecrobot/chatbot-client-common/handler/dialogue.go:385 +0x8d7
+reflect.Value.call({0x22b39a0?, 0xc002e83280?, 0x8?}, {0x26f2a5a, 0x4}, {0xc002cf33e8, 0x3, 0xc00060fe80?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/reflect/value.go:584 +0xca6
+reflect.Value.Call({0x22b39a0?, 0xc002e83280?, 0xc0048d1e00?}, {0xc002cf33e8?, 0x26cc3a0?, 0xc006413300?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/reflect/value.go:368 +0xb9
+gitlab.xiaoduoai.com/golib/xd_sdk/httpserver/middles.CreateHandlerFuncWithLogger.func1(0xc006413300)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/httpserver/middles/handler.go:370 +0x549
+github.com/gin-gonic/gin.(*Context).Next(0xc006413300)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 +0x2b
+gitlab.xiaoduoai.com/ecrobot/chatbot-client-common/server.newRouter.LoggingResponse.LoggingResponseWithLogger.func10(0xc006413300)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/httpserver/middles/logging.go:46 +0xf3
+github.com/gin-gonic/gin.(*Context).Next(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174
+gitlab.xiaoduoai.com/golib/xd_sdk/httpserver/middles.HttpMetricStats.func1(0xc006413300)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/httpserver/middles/http_stats.go:35 +0x1a4
+github.com/gin-gonic/gin.(*Context).Next(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174
+gitlab.xiaoduoai.com/golib/xd_sdk/octrace/integration/http.Middleware.func4(0xc006413300)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/octrace/integration/http/server.go:150 +0x849
+github.com/gin-gonic/gin.(*Context).Next(0xc006413300)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 +0x2b
+gitlab.xiaoduoai.com/golib/xd_sdk/httpserver.NewServerWithOptions.GinParseCallInfo.func3(0xc006413300)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/public/caller_info.go:49 +0x175
+github.com/gin-gonic/gin.(*Context).Next(0xc006413300)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 +0x2b
+gitlab.xiaoduoai.com/golib/xd_sdk/httpserver.NewServerWithOptions.Recovery.RecoveryWithLogger.func6(0xc00523eb88?)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/gitlab.xiaoduoai.com/golib/xd_sdk@v0.2.79-0.20251210142819-5bf6da60366f/httpserver/middles/recovery.go:25 +0x51
+github.com/gin-gonic/gin.(*Context).Next(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc002be29c0, 0xc006413300)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 +0x64e
+github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc002be29c0, {0x2b71c08, 0xc0000017a0}, 0xc0038a5b80)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 +0x1aa
+net/http.serverHandler.ServeHTTP({0x2b6a898?}, {0x2b71c08?, 0xc0000017a0?}, 0x6?)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/server.go:3301 +0x8e
+net/http.(*conn).serve(0xc0038a2f30, {0x2b76e80, 0xc002e94f90})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/server.go:2102 +0x625
+created by net/http.(*Server).Serve in goroutine 274
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/server.go:3454 +0x485
+
+goroutine 2878097 [select]:
+net/http.(*persistConn).writeLoop(0xc005e566c0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2593 +0xe7
+created by net/http.(*Transport).dialConn in goroutine 2878076
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1948 +0x17a5
+
+goroutine 639176 [select, 36 minutes]:
+google.golang.org/grpc/internal/grpcsync.(*CallbackSerializer).run(0xc004d2e960, {0x2b76eb8, 0xc0044f3810})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/grpcsync/callback_serializer.go:88 +0x10c
+created by google.golang.org/grpc/internal/grpcsync.NewCallbackSerializer in goroutine 639147
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/grpcsync/callback_serializer.go:52 +0x11a
+
+goroutine 2880060 [select]:
+google.golang.org/grpc.newClientStreamWithParams.func4()
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/stream.go:393 +0x8c
+created by google.golang.org/grpc.newClientStreamWithParams in goroutine 239
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/stream.go:392 +0xde9
+
+goroutine 2804929 [IO wait]:
+internal/poll.runtime_pollWait(0x7f53e6522cc0, 0x72)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/runtime/netpoll.go:351 +0x85
+internal/poll.(*pollDesc).wait(0xc005adf280?, 0xc005d12000?, 0x0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:84 +0x27
+internal/poll.(*pollDesc).waitRead(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0xc005adf280, {0xc005d12000, 0x1000, 0x1000})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_unix.go:165 +0x27a
+net.(*netFD).Read(0xc005adf280, {0xc005d12000?, 0x15?, 0x0?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/fd_posix.go:55 +0x25
+net.(*conn).Read(0xc0047651f0, {0xc005d12000?, 0x408285?, 0xc005652000?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/net.go:194 +0x45
+net/http.(*persistConn).Read(0xc005aca240, {0xc005d12000?, 0x7d1705?, 0x2b56180?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2125 +0x47
+bufio.(*Reader).fill(0xc00673e300)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:113 +0x103
+bufio.(*Reader).Peek(0xc00673e300, 0x1)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:152 +0x53
+net/http.(*persistConn).readLoop(0xc005aca240)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2278 +0x172
+created by net/http.(*Transport).dialConn in goroutine 2804912
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1947 +0x174f
+
+goroutine 2732508 [IO wait]:
+internal/poll.runtime_pollWait(0x7f53e6516eb8, 0x72)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/runtime/netpoll.go:351 +0x85
+internal/poll.(*pollDesc).wait(0xc004d9fe00?, 0xc003493000?, 0x0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:84 +0x27
+internal/poll.(*pollDesc).waitRead(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0xc004d9fe00, {0xc003493000, 0x1000, 0x1000})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_unix.go:165 +0x27a
+net.(*netFD).Read(0xc004d9fe00, {0xc003493000?, 0x4084b4?, 0x0?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/fd_posix.go:55 +0x25
+net.(*conn).Read(0xc0062c9bc8, {0xc003493000?, 0x40829f?, 0xc00313c120?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/net.go:194 +0x45
+net/http.(*persistConn).Read(0xc00437b7a0, {0xc003493000?, 0x7d1705?, 0x2b56180?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2125 +0x47
+bufio.(*Reader).fill(0xc0030bb800)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:113 +0x103
+bufio.(*Reader).Peek(0xc0030bb800, 0x1)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:152 +0x53
+net/http.(*persistConn).readLoop(0xc00437b7a0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2278 +0x172
+created by net/http.(*Transport).dialConn in goroutine 2732498
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1947 +0x174f
+
+goroutine 2883986 [IO wait]:
+internal/poll.runtime_pollWait(0x7f53e6832ec8, 0x72)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/runtime/netpoll.go:351 +0x85
+internal/poll.(*pollDesc).wait(0xc0044b4000?, 0xc005079421?, 0x0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:84 +0x27
+internal/poll.(*pollDesc).waitRead(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0xc0044b4000, {0xc005079421, 0x1, 0x1})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_unix.go:165 +0x27a
+net.(*netFD).Read(0xc0044b4000, {0xc005079421?, 0xc00545a000?, 0xc002848000?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/fd_posix.go:55 +0x25
+net.(*conn).Read(0xc003f6aa30, {0xc005079421?, 0xc002c8c7d0?, 0x1addf2f?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/net.go:194 +0x45
+net/http.(*connReader).backgroundRead(0xc005079410)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/server.go:690 +0x37
+created by net/http.(*connReader).startBackgroundRead in goroutine 2883969
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/server.go:686 +0xb6
+
+goroutine 2871740 [select]:
+net/http.(*persistConn).writeLoop(0xc005a24c60)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2593 +0xe7
+created by net/http.(*Transport).dialConn in goroutine 2871746
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1948 +0x17a5
+
+goroutine 2831955 [select]:
+net/http.(*persistConn).writeLoop(0xc003d5c120)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2593 +0xe7
+created by net/http.(*Transport).dialConn in goroutine 2831938
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1948 +0x17a5
+
+goroutine 639175 [select, 36 minutes]:
+google.golang.org/grpc/internal/grpcsync.(*CallbackSerializer).run(0xc004d2e930, {0x2b76eb8, 0xc0044f37c0})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/grpcsync/callback_serializer.go:88 +0x10c
+created by google.golang.org/grpc/internal/grpcsync.NewCallbackSerializer in goroutine 639147
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/grpcsync/callback_serializer.go:52 +0x11a
+
+goroutine 639142 [select]:
+google.golang.org/grpc/internal/transport.(*controlBuffer).get(0xc004504c80, 0x1)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/transport/controlbuf.go:412 +0x108
+google.golang.org/grpc/internal/transport.(*loopyWriter).run(0xc005383d80)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/transport/controlbuf.go:575 +0x78
+google.golang.org/grpc/internal/transport.newHTTP2Client.func6()
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/transport/http2_client.go:470 +0xd2
+created by google.golang.org/grpc/internal/transport.newHTTP2Client in goroutine 639116
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/google.golang.org/grpc@v1.66.0/internal/transport/http2_client.go:468 +0x23d2
+
+goroutine 2851426 [IO wait]:
+internal/poll.runtime_pollWait(0x7f53e64bf8e8, 0x72)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/runtime/netpoll.go:351 +0x85
+internal/poll.(*pollDesc).wait(0xc005546a00?, 0xc005224000?, 0x0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:84 +0x27
+internal/poll.(*pollDesc).waitRead(...)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0xc005546a00, {0xc005224000, 0x1000, 0x1000})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/internal/poll/fd_unix.go:165 +0x27a
+net.(*netFD).Read(0xc005546a00, {0xc005224000?, 0x4084b4?, 0x0?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/fd_posix.go:55 +0x25
+net.(*conn).Read(0xc003ac5f28, {0xc005224000?, 0x40829f?, 0xc00313c120?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/net.go:194 +0x45
+net/http.(*persistConn).Read(0xc006811200, {0xc005224000?, 0x7d1705?, 0x2b56180?})
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2125 +0x47
+bufio.(*Reader).fill(0xc0062511a0)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:113 +0x103
+bufio.(*Reader).Peek(0xc0062511a0, 0x1)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/bufio/bufio.go:152 +0x53
+net/http.(*persistConn).readLoop(0xc006811200)
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:2278 +0x172
+created by net/http.(*Transport).dialConn in goroutine 2851404
+        /builds/ecrobot/chatbot-client-common/.gopath/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.10.linux-amd64/src/net/http/transport.go:1947 +0x174f

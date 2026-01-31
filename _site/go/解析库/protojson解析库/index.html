@@ -1639,6 +1639,18 @@
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
   
 
@@ -1763,41 +1775,6 @@
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%95%B0%E5%AD%97_%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1763790000"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/22
-</time>
-
-              <h4 class="pt-0 my-2">数字_字符串转换</h4>
-              <div class="text-muted">
-                <p>数字&amp;amp;字符转换
-
-string 转换 为其他类型
-
-f, _ := strconv.ParseBool(&quot;false&quot;)         // bool
-g, _ := strconv.ParseFloat(&quot;123.23&quot;, 64)     // float
-h, _ := strconv.ParseInt(&quot;-1234&quot;, 10, 64)    // int64
-i, _ := ...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
           <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview card h-100">
             <div class="card-body">
               <!--
@@ -1825,7 +1802,7 @@ i, _ := ...</p>
   将 map[string]interface{} 数据解析到结构体中
 
 
-基础使用
+基础使用(推荐做法：始终使用标签)
 
 相关的包：
 
@@ -1838,8 +1815,8 @@ import {
 
 mapstructure.Decode(待解析map数据, &amp;amp;目标)
 
-
-在日常开发中，接受的数据可能不是固定的格式，而是会根据某个值的不同...</p>
+// 等价
+bytes, err := j...</p>
               </div>
             </div>
           </a>
@@ -1889,6 +1866,52 @@ mapstructure.Decode(待解析map数据, &amp;amp;目标)
       匿名 struct
       ,squash
       没有 [xxx]，...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/json%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1763743200"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/22
+</time>
+
+              <h4 class="pt-0 my-2">json解析库</h4>
+              <div class="text-muted">
+                <p>json库
+
+
+  
+    JSON 编码: 将 Go 的数据结构转换为 JSON 格式的字符串。通过 json.Marshal 函数实现。
+    JSON 解码: 将 JSON 格式的字符串转换为 Go 的数据结构。通过 json.Unmarshal 函数实现。
+  
+
+
+相关的包：
+
+import {
+	&quot;encoding/json&quot;
+}
+
+
+语法
+
+json.Marshal(待解析...</p>
               </div>
             </div>
           </a>

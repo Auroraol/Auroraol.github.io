@@ -920,7 +920,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="4417 字"
+  title="4404 字"
 >
   <em>24 分钟</em>阅读</span>
 
@@ -961,7 +961,7 @@
 <span class="n">json</span><span class="o">.</span><span class="n">Unmarshal</span><span class="p">(</span><span class="n">待解析json数据</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">结果</span><span class="p">)</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<h3 id="基础使用"><span class="me-2">基础使用</span><a href="#基础使用" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h3 id="基础使用推荐做法始终使用标签"><span class="me-2">基础使用(推荐做法：始终使用标签)</span><a href="#基础使用推荐做法始终使用标签" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <h4 id="一序列化结构体struct-json"><span class="me-2">一、序列化结构体(struct-&gt;json)</span><a href="#一序列化结构体struct-json" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
@@ -1305,7 +1305,7 @@ int: len=1, data=0
 bool: len=5, data=false
 </pre></td></tr></tbody></table></code></div></div>
 
-<h3 id="unmarshal-结构体字段赋予默认值"><span class="me-2">Unmarshal 结构体字段赋予默认值</span><a href="#unmarshal-结构体字段赋予默认值" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h3 id="unmarshal-结构体字段赋予默认值-crossed_swords"><span class="me-2">Unmarshal 结构体字段赋予默认值 :crossed_swords:</span><a href="#unmarshal-结构体字段赋予默认值-crossed_swords" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <div class="language-go highlighter-rouge"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
@@ -1486,8 +1486,7 @@ bool: len=5, data=false
 <ul>
   <li>Marshal时：
 字段如果是零值，且带了 <code class="language-plaintext highlighter-rouge">omitempty</code>，整条 key 都不会写出去，省空间。</li>
-  <li>Unmarshal时：
-JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错，也不会受 <code class="language-plaintext highlighter-rouge">omitempty</code> 影响</li>
+  <li>Unmarshal时：不会受 <code class="language-plaintext highlighter-rouge">omitempty</code> 影响</li>
 </ul>
 
 <p>⭐️ 未忽略空值字段</p>
@@ -3462,6 +3461,18 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
   
 
@@ -3502,48 +3513,6 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%95%B0%E5%AD%97_%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1763790000"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/22
-</time>
-
-              <h4 class="pt-0 my-2">数字_字符串转换</h4>
-              <div class="text-muted">
-                <p>数字&amp;amp;字符转换
-
-string 转换 为其他类型
-
-1
-2
-3
-4
-5
-6
-7
-8
-f, _ := strconv.ParseBool(&quot;false&quot;)         // bool
-g, _ := strconv.ParseFloat(&quot;123.23&quot;, 64)     // float
-h, _ := strconv.ParseInt(&quot;-1234&quot;, 10, 64)    /...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
           <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview card h-100">
             <div class="card-body">
               <!--
@@ -3571,7 +3540,7 @@ h, _ := strconv.ParseInt(&quot;-1234&quot;, 10, 64)    /...</p>
   将 map[string]interface{} 数据解析到结构体中
 
 
-基础使用
+基础使用(推荐做法：始终使用标签)
 
 相关的包：
 
@@ -3586,10 +3555,16 @@ import {
 语法
 
 1
-mapstructure.Decode(待解析map数据, &amp;amp;目标)
-
-
-在日常开发中，接受的数据可能不是固定的格式，而是会...</p>
+2
+3
+4
+5
+6
+7
+8
+9
+10
+mapstructure.Decode(待解析map数据, &amp;amp...</p>
               </div>
             </div>
           </a>
@@ -3635,6 +3610,55 @@ mapstructure.Decode(待解析map数据, &amp;amp;目标)
       encoding/json
       可以，但有限
       否...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1765098000"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/12/07
+</time>
+
+              <h4 class="pt-0 my-2">toml配置文件</h4>
+              <div class="text-muted">
+                <p>总结
+
+
+  
+    
+      Go 类型特征
+      tag 出现的关键字
+      生成的 TOML
+      备注
+    
+  
+  
+    
+      非匿名 struct
+      无 squash
+      [xxx]
+      字段继续往下写
+    
+    
+      匿名 struct
+      ,squash
+      没有 [xxx]，...</p>
               </div>
             </div>
           </a>
