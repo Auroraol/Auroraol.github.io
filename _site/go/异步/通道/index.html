@@ -641,17 +641,6 @@
 
       
     
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
 
     
   
@@ -667,6 +656,28 @@
       
         
         
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
       
 
       
@@ -830,7 +841,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="3698 字"
+  title="3718 字"
 >
   <em>20 分钟</em>阅读</span>
 
@@ -1568,9 +1579,9 @@ channel 关闭且空: 循环正常退出
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<h1 id="取消goroutine">取消goroutine</h1>
+<h2 id="取消goroutine"><span class="me-2">取消goroutine</span><a href="#取消goroutine" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<h2 id="方式1-取消信号"><span class="me-2">方式1 取消信号</span><a href="#方式1-取消信号" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h3 id="方式1-取消信号"><span class="me-2">方式1 取消信号</span><a href="#方式1-取消信号" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <p>假设你有一个主 goroutine 和一个工作 goroutine，主 goroutine 需要通知工作 goroutine 停止处理，并等待工作 goroutine 确认停止。
 <strong>主 goroutine</strong></p>
@@ -1619,8 +1630,8 @@ channel 关闭且空: 循环正常退出
     <span class="n">time</span><span class="o">.</span><span class="n">Sleep</span><span class="p">(</span><span class="m">2</span> <span class="o">*</span> <span class="n">time</span><span class="o">.</span><span class="n">Second</span><span class="p">)</span>
 
     <span class="c">// 通知工作 goroutine 停止处理</span>
-    <span class="n">closeProcessCh</span> <span class="o">&lt;-</span> <span class="k">struct</span><span class="p">{}{}</span>
-    <span class="o">&lt;-</span><span class="n">closeProcessAckCh</span> <span class="c">//  // 等待工作 goroutine 确认停止</span>
+    <span class="n">closeProcessCh</span> <span class="o">&lt;-</span> <span class="k">struct</span><span class="p">{}{}</span>     <span class="c">// ① 发送停止信号（阻塞直到worker接收）</span>
+    <span class="o">&lt;-</span><span class="n">closeProcessAckCh</span>           <span class="c">// ② 等待确认（阻塞直到worker发送）</span>
 
     <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"工作 goroutine 已经停止"</span><span class="p">)</span>
 <span class="p">}</span>
@@ -1809,7 +1820,7 @@ channel 关闭且空: 循环正常退出
 	<span class="o">&lt;-</span><span class="n">closeProcessAckCh</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<h2 id="方式2-取消上下文"><span class="me-2">方式2 取消上下文</span><a href="#方式2-取消上下文" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h3 id="方式2-取消上下文"><span class="me-2">方式2 取消上下文</span><a href="#方式2-取消上下文" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <div class="language-go highlighter-rouge"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
@@ -2138,8 +2149,6 @@ channel 关闭且空: 循环正常退出
 <p>效果:   调用瞬间, 会打印细分出来的时间区间, 然后后台去执行耗时操作(fetchAndSendSpuItems)</p>
 
 <p><a href="https://github.com/Auroraol/Drawing-bed/raw/main/img/image-20260127110922858.png" class="popup img-link  shimmer"><img src="https://github.com/Auroraol/Drawing-bed/raw/main/img/image-20260127110922858.png" alt="image-20241206144106416" loading="lazy"></a></p>
-
-<p>#</p>
 
   </div>
 

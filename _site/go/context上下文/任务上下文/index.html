@@ -729,6 +729,17 @@
 
       
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
 
     
   
@@ -1127,9 +1138,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="8352 字"
+  title="8255 字"
 >
-  <em>46 分钟</em>阅读</span>
+  <em>45 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -3293,10 +3304,6 @@ ctx（原始请求上下文）
 
 <h2 id="为什么-永不取消-导致无法回收"><span class="me-2">为什么 “永不取消” 导致无法回收</span><a href="#为什么-永不取消-导致无法回收" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p>表格</p>
-
-<p>复制</p>
-
 <div class="table-wrapper"><table>
   <thead>
     <tr>
@@ -3319,12 +3326,6 @@ ctx（原始请求上下文）
     </tr>
   </tbody>
 </table></div>
-
-<p><strong>关键：</strong></p>
-
-<p>go</p>
-
-<p>复制</p>
 
 <div class="language-go highlighter-rouge"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
@@ -3351,10 +3352,6 @@ ctx（原始请求上下文）
 <hr />
 
 <h2 id="泄漏场景"><span class="me-2">泄漏场景</span><a href="#泄漏场景" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
-<p>go</p>
-
-<p>复制</p>
 
 <div class="language-go highlighter-rouge"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
@@ -3385,10 +3382,6 @@ ctx（原始请求上下文）
 <h2 id="解决方案"><span class="me-2">解决方案</span><a href="#解决方案" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <h3 id="-方案-1在-goroutine-内部创建推荐"><span class="me-2">✅ 方案 1：在 goroutine 内部创建（推荐）</span><a href="#-方案-1在-goroutine-内部创建推荐" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-
-<p>go</p>
-
-<p>复制</p>
 
 <div class="language-go highlighter-rouge"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
@@ -3423,10 +3416,6 @@ ctx（原始请求上下文）
 <p><strong>关键点：</strong> <code class="language-plaintext highlighter-rouge">parentCtx</code> 只在创建瞬间使用，创建后不再被持有。</p>
 
 <h3 id="-方案-2只复制必要数据不保留-ctx"><span class="me-2">✅ 方案 2：只复制必要数据，不保留 ctx</span><a href="#-方案-2只复制必要数据不保留-ctx" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-
-<p>go</p>
-
-<p>复制</p>
 
 <div class="language-go highlighter-rouge"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
@@ -3463,10 +3452,6 @@ ctx（原始请求上下文）
 <hr />
 
 <h2 id="对比总结"><span class="me-2">对比总结</span><a href="#对比总结" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
-<p>表格</p>
-
-<p>复制</p>
 
 <div class="table-wrapper"><table>
   <thead>
@@ -3505,21 +3490,25 @@ ctx（原始请求上下文）
 <strong>必须将 <code class="language-plaintext highlighter-rouge">WithoutCancel</code> 和 <code class="language-plaintext highlighter-rouge">CopySpan</code> 移到 goroutine 内部执行</strong>，确保原 ctx 只被短暂使用。</p>
 </blockquote>
 
-<h1 id="extracttraceid">ExtractTraceID</h1>
+<h1 id="octrace">octrace</h1>
 
-<p>据您提供的代码片段，octrace.ExtractTraceID(ctx).String() 的作用是：
-功能说明
-提取追踪ID：从上下文（context）中提取分布式追踪系统的追踪ID
-转换为字符串：将提取出的追踪ID转换为字符串格式
-详细解释
-octrace - OpenCensus追踪包，这是一个开源的观测性框架
-ExtractTraceID(ctx) - 从传入的context中提取当前请求的追踪ID
-.String() - 将追踪ID格式化为可读的字符串
-使用场景
-这个功能通常用于：
-日志关联：将追踪ID记录到日志中，便于跨服务的问题排查
-监控追踪：在微服务架构中跟踪单个请求的完整调用链路
-调试分析：帮助开发人员理解请求在不同服务间的流转情况</p>
+<h2 id="extracttraceid"><span class="me-2">ExtractTraceID</span><a href="#extracttraceid" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>octrace.ExtractTraceID(ctx).String() 的作用是：
+功能说明</p>
+
+<ul>
+  <li>提取追踪ID：从上下文（context）中提取分布式追踪系统的追踪ID</li>
+  <li>转换为字符串：将提取出的追踪ID转换为字符串格式</li>
+</ul>
+
+<p>使用场景</p>
+
+<ul>
+  <li>日志关联：将追踪ID记录到日志中，便于跨服务的问题排查</li>
+  <li>监控追踪：在微服务架构中跟踪单个请求的完整调用链路</li>
+  <li>调试分析：帮助开发人员理解请求在不同服务间的流转情况</li>
+</ul>
 
   </div>
 
