@@ -445,6 +445,9 @@
 
 
 
+<!-- Add collapsible code block functionality -->
+
+
 <!--
   In order to allow a wide table to scroll horizontally,
   we suround the markdown table with `<div class="table-wrapper">` and `</div>`
@@ -843,7 +846,7 @@
     </div>
   </header>
 
-  <div class="content">
+  <script src="/assets/js/dist/collapsible.js"></script><div class="content">
     <h1 id="mapstructure-库">mapstructure 库</h1>
 
 <blockquote>
@@ -854,7 +857,7 @@
 
 <p>相关的包：</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -866,7 +869,7 @@
 
 <p>语法</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -892,7 +895,7 @@
 
 <p>在日常开发中，接受的数据可能不是固定的格式，而是会根据某个值的不同有不同的内容。</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1018,7 +1021,7 @@
 
 <p>运行结果：</p>
 
-<div class="language-css highlighter-rouge"><div class="code-header">
+<div class="language-css highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="CSS"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1026,15 +1029,15 @@
 <span class="nt">cat</span><span class="o">:</span> <span class="p">{</span><span class="err">kitty</span> <span class="err">1</span> <span class="err">Ragdoll</span><span class="p">}</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<p>我们定义了两个结构体<code class="language-plaintext highlighter-rouge">Person</code>和<code class="language-plaintext highlighter-rouge">Cat</code>，他们的字段有些许不同。现在，我们约定通信的 JSON 串中有一个<code class="language-plaintext highlighter-rouge">type</code>字段。当<code class="language-plaintext highlighter-rouge">type</code>的值为<code class="language-plaintext highlighter-rouge">person</code>时，该 JSON 串表示的是<code class="language-plaintext highlighter-rouge">Person</code>类型的数据。当<code class="language-plaintext highlighter-rouge">type</code>的值为<code class="language-plaintext highlighter-rouge">cat</code>时，该 JSON 串表示的是<code class="language-plaintext highlighter-rouge">Cat</code>类型的数据。</p>
+<p>我们定义了两个结构体<code class="language-plaintext highlighter-rouge collapsible-container">Person</code>和<code class="language-plaintext highlighter-rouge collapsible-container">Cat</code>，他们的字段有些许不同。现在，我们约定通信的 JSON 串中有一个<code class="language-plaintext highlighter-rouge collapsible-container">type</code>字段。当<code class="language-plaintext highlighter-rouge collapsible-container">type</code>的值为<code class="language-plaintext highlighter-rouge collapsible-container">person</code>时，该 JSON 串表示的是<code class="language-plaintext highlighter-rouge collapsible-container">Person</code>类型的数据。当<code class="language-plaintext highlighter-rouge collapsible-container">type</code>的值为<code class="language-plaintext highlighter-rouge collapsible-container">cat</code>时，该 JSON 串表示的是<code class="language-plaintext highlighter-rouge collapsible-container">Cat</code>类型的数据。</p>
 
-<p>上面代码中，我们先用<code class="language-plaintext highlighter-rouge">json.Unmarshal</code>将字节流解码为<code class="language-plaintext highlighter-rouge">map[string]interface{}</code>类型。然后读取里面的<code class="language-plaintext highlighter-rouge">type</code>字段。根据<code class="language-plaintext highlighter-rouge">type</code>字段的值，再使用<code class="language-plaintext highlighter-rouge">mapstructure.Decode</code>将该 JSON 串分别解码为<code class="language-plaintext highlighter-rouge">Person</code>和<code class="language-plaintext highlighter-rouge">Cat</code>类型的值，并输出。</p>
+<p>上面代码中，我们先用<code class="language-plaintext highlighter-rouge collapsible-container">json.Unmarshal</code>将字节流解码为<code class="language-plaintext highlighter-rouge collapsible-container">map[string]interface{}</code>类型。然后读取里面的<code class="language-plaintext highlighter-rouge collapsible-container">type</code>字段。根据<code class="language-plaintext highlighter-rouge collapsible-container">type</code>字段的值，再使用<code class="language-plaintext highlighter-rouge collapsible-container">mapstructure.Decode</code>将该 JSON 串分别解码为<code class="language-plaintext highlighter-rouge collapsible-container">Person</code>和<code class="language-plaintext highlighter-rouge collapsible-container">Cat</code>类型的值，并输出。</p>
 
-<p>实际上，Google Protobuf 通常也使用这种方式。在协议中添加消息 ID 或<strong>全限定消息名</strong>。接收方收到数据后，先读取协议 ID 或<strong>全限定消息名</strong>。然后调用 Protobuf 的解码方法将其解码为对应的<code class="language-plaintext highlighter-rouge">Message</code>结构。从这个角度来看，<code class="language-plaintext highlighter-rouge">mapstructure</code>也可以用于网络消息解码，<strong>如果你不考虑性能的话</strong>。</p>
+<p>实际上，Google Protobuf 通常也使用这种方式。在协议中添加消息 ID 或<strong>全限定消息名</strong>。接收方收到数据后，先读取协议 ID 或<strong>全限定消息名</strong>。然后调用 Protobuf 的解码方法将其解码为对应的<code class="language-plaintext highlighter-rouge collapsible-container">Message</code>结构。从这个角度来看，<code class="language-plaintext highlighter-rouge collapsible-container">mapstructure</code>也可以用于网络消息解码，<strong>如果你不考虑性能的话</strong>。</p>
 
 <p><strong>示例:</strong></p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1120,7 +1123,7 @@
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<div class="language-plaintext highlighter-rouge"><div class="code-header">
+<div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1138,13 +1141,13 @@ true
 
 <h2 id="默认值"><span class="me-2">默认值</span><a href="#默认值" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p>当 <code class="language-plaintext highlighter-rouge">mapstructure.Decode</code> 解码时，如果 map 中缺少某些字段，结构体字段会使用 Go 的零值.  规则和json库一致</p>
+<p>当 <code class="language-plaintext highlighter-rouge collapsible-container">mapstructure.Decode</code> 解码时，如果 map 中缺少某些字段，结构体字段会使用 Go 的零值.  规则和json库一致</p>
 
 <h2 id="使用标签"><span class="me-2">使用标签</span><a href="#使用标签" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <h3 id="1-字段名不一致时"><span class="me-2">1. 字段名不一致时</span><a href="#1-字段名不一致时" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1160,7 +1163,7 @@ true
 
 <h3 id="2-需要忽略某些字段时"><span class="me-2">2. 需要忽略某些字段时</span><a href="#2-需要忽略某些字段时" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1178,7 +1181,7 @@ true
 
 <h3 id="3-需要设置默认值或元数据时"><span class="me-2">3. 需要设置默认值或元数据时</span><a href="#3-需要设置默认值或元数据时" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1192,7 +1195,7 @@ true
 
 <h3 id="4-嵌入式结构体或复杂映射时"><span class="me-2">4. 嵌入式结构体或复杂映射时</span><a href="#4-嵌入式结构体或复杂映射时" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1232,11 +1235,11 @@ true
 
 <h3 id="field-tags-字段标签"><span class="me-2">Field Tags (字段标签)</span><a href="#field-tags-字段标签" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>默认情况下，<code class="language-plaintext highlighter-rouge">mapstructure</code>使用结构体中字段的名称做这个映射，例如我们的结构体有一个<code class="language-plaintext highlighter-rouge">Name</code>字段，<code class="language-plaintext highlighter-rouge">mapstructure</code>解码时会在<code class="language-plaintext highlighter-rouge">map[string]interface{}</code>中查找键名<code class="language-plaintext highlighter-rouge">name</code>。</p>
+<p>默认情况下，<code class="language-plaintext highlighter-rouge collapsible-container">mapstructure</code>使用结构体中字段的名称做这个映射，例如我们的结构体有一个<code class="language-plaintext highlighter-rouge collapsible-container">Name</code>字段，<code class="language-plaintext highlighter-rouge collapsible-container">mapstructure</code>解码时会在<code class="language-plaintext highlighter-rouge collapsible-container">map[string]interface{}</code>中查找键名<code class="language-plaintext highlighter-rouge collapsible-container">name</code>。</p>
 
-<p>注意，这里的<code class="language-plaintext highlighter-rouge">name</code>是大小写不敏感的！</p>
+<p>注意，这里的<code class="language-plaintext highlighter-rouge collapsible-container">name</code>是大小写不敏感的！</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1246,9 +1249,9 @@ true
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<p>当然，我们也可以指定映射的字段名。设置<code class="language-plaintext highlighter-rouge">mapstructure</code>标签。例如下面使用<code class="language-plaintext highlighter-rouge">username</code>代替上例中的<code class="language-plaintext highlighter-rouge">name</code>：</p>
+<p>当然，我们也可以指定映射的字段名。设置<code class="language-plaintext highlighter-rouge collapsible-container">mapstructure</code>标签。例如下面使用<code class="language-plaintext highlighter-rouge collapsible-container">username</code>代替上例中的<code class="language-plaintext highlighter-rouge collapsible-container">name</code>：</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1260,7 +1263,7 @@ true
 
 <p>示例：</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1382,13 +1385,13 @@ true
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<p>上面代码中，我们使用标签<code class="language-plaintext highlighter-rouge">mapstructure:"username"</code>将<code class="language-plaintext highlighter-rouge">Person</code>的<code class="language-plaintext highlighter-rouge">Name</code>字段映射为<code class="language-plaintext highlighter-rouge">username</code>，在 JSON 串中我们需要设置<code class="language-plaintext highlighter-rouge">username</code>才能正确解析。另外，注意到，我们将第二个 JSON 串中的<code class="language-plaintext highlighter-rouge">Age</code>和第三个 JSON 串中的<code class="language-plaintext highlighter-rouge">Name</code>首字母大写了，但是并没有影响解码结果。<code class="language-plaintext highlighter-rouge">mapstructure</code>处理字段映射是大小写不敏感的。</p>
+<p>上面代码中，我们使用标签<code class="language-plaintext highlighter-rouge collapsible-container">mapstructure:"username"</code>将<code class="language-plaintext highlighter-rouge collapsible-container">Person</code>的<code class="language-plaintext highlighter-rouge collapsible-container">Name</code>字段映射为<code class="language-plaintext highlighter-rouge collapsible-container">username</code>，在 JSON 串中我们需要设置<code class="language-plaintext highlighter-rouge collapsible-container">username</code>才能正确解析。另外，注意到，我们将第二个 JSON 串中的<code class="language-plaintext highlighter-rouge collapsible-container">Age</code>和第三个 JSON 串中的<code class="language-plaintext highlighter-rouge collapsible-container">Name</code>首字母大写了，但是并没有影响解码结果。<code class="language-plaintext highlighter-rouge collapsible-container">mapstructure</code>处理字段映射是大小写不敏感的。</p>
 
 <h3 id="renaming-fields"><span class="me-2">Renaming Fields</span><a href="#renaming-fields" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>在实际使用过程中，我们可能需要重命名 <code class="language-plaintext highlighter-rouge">mapstructure</code> 查找的键，这个时候，可以使用 “mapstructure” 标签并直接设置一个值。例如，要将上面的 “username” 示例更改为 “user”：</p>
+<p>在实际使用过程中，我们可能需要重命名 <code class="language-plaintext highlighter-rouge collapsible-container">mapstructure</code> 查找的键，这个时候，可以使用 “mapstructure” 标签并直接设置一个值。例如，要将上面的 “username” 示例更改为 “user”：</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1404,7 +1407,7 @@ true
 
 <p><strong>方式1</strong></p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1416,7 +1419,7 @@ true
 
 <p>对应map</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1428,7 +1431,7 @@ true
 
 <p><strong>方式2</strong></p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1440,7 +1443,7 @@ true
 
 <p>对应map</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1452,7 +1455,7 @@ true
 
 <p>看<strong>例子1</strong>：</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1576,7 +1579,7 @@ true
 
 <p>结果：</p>
 
-<div class="language-fsharp highlighter-rouge"><div class="code-header">
+<div class="language-fsharp highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Fsharp"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1586,11 +1589,11 @@ true
 <span class="nn">Exiting</span><span class="p">.</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<p>注意对比<code class="language-plaintext highlighter-rouge">Friend1</code>和<code class="language-plaintext highlighter-rouge">Friend2</code>使用的 JSON 串的不同。</p>
+<p>注意对比<code class="language-plaintext highlighter-rouge collapsible-container">Friend1</code>和<code class="language-plaintext highlighter-rouge collapsible-container">Friend2</code>使用的 JSON 串的不同。</p>
 
 <p>接着看这个<strong>例子2</strong>：</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1720,7 +1723,7 @@ true
 
 <p>结果：</p>
 
-<div class="language-css highlighter-rouge"><div class="code-header">
+<div class="language-css highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="CSS"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1728,24 +1731,24 @@ true
 <span class="nt">friend2</span><span class="o">:</span> <span class="p">{</span><span class="py">Type</span><span class="p">:</span><span class="n">friend2</span> <span class="n">Person</span><span class="p">:</span><span class="err">{</span><span class="n">Name</span><span class="p">:</span><span class="n">dj2</span> <span class="n">Type</span><span class="p">:</span><span class="n">friend2</span><span class="p">}</span><span class="err">}</span> 
 </pre></td></tr></tbody></table></code></div></div>
 
-<p>注意对比<code class="language-plaintext highlighter-rouge">Friend1</code>和<code class="language-plaintext highlighter-rouge">Friend2</code>使用的 JSON 串的不同。</p>
+<p>注意对比<code class="language-plaintext highlighter-rouge collapsible-container">Friend1</code>和<code class="language-plaintext highlighter-rouge collapsible-container">Friend2</code>使用的 JSON 串的不同。</p>
 
-<p>另外需要注意一点，如果父结构体中有同名的字段，那么<code class="language-plaintext highlighter-rouge">mapstructure</code>会将JSON 中对应的值<strong>同时设置到这两个字段中</strong>，即这两个字段有相同的值。</p>
+<p>另外需要注意一点，如果父结构体中有同名的字段，那么<code class="language-plaintext highlighter-rouge collapsible-container">mapstructure</code>会将JSON 中对应的值<strong>同时设置到这两个字段中</strong>，即这两个字段有相同的值。</p>
 
 <h3 id="remainder-values-未映射的值"><span class="me-2">Remainder Values (未映射的值)</span><a href="#remainder-values-未映射的值" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>如果源数据中有未映射的值（即结构体中无对应的字段），<code class="language-plaintext highlighter-rouge">mapstructure</code>默认会忽略它。</p>
+<p>如果源数据中有未映射的值（即结构体中无对应的字段），<code class="language-plaintext highlighter-rouge collapsible-container">mapstructure</code>默认会忽略它。</p>
 
 <p>解决方法:</p>
 
 <ol>
-  <li>可以通过在 <code class="language-plaintext highlighter-rouge">DecoderConfig</code> 中设置 <code class="language-plaintext highlighter-rouge">ErrorUnused</code> 来引发错误。如果正在使用元数据（Metadata），还可以维护一个未使用键的切片（slice）。</li>
-  <li>可以在结构体中定义一个字段，为其设置<code class="language-plaintext highlighter-rouge">mapstructure:",remain"</code>标签。这样未映射的值就会添加到这个字段中。注意，这个字段的类型只能为<code class="language-plaintext highlighter-rouge">map[string]interface{}</code>或<code class="language-plaintext highlighter-rouge">map[interface{}]interface{}</code>这两种类型之一。</li>
+  <li>可以通过在 <code class="language-plaintext highlighter-rouge collapsible-container">DecoderConfig</code> 中设置 <code class="language-plaintext highlighter-rouge collapsible-container">ErrorUnused</code> 来引发错误。如果正在使用元数据（Metadata），还可以维护一个未使用键的切片（slice）。</li>
+  <li>可以在结构体中定义一个字段，为其设置<code class="language-plaintext highlighter-rouge collapsible-container">mapstructure:",remain"</code>标签。这样未映射的值就会添加到这个字段中。注意，这个字段的类型只能为<code class="language-plaintext highlighter-rouge collapsible-container">map[string]interface{}</code>或<code class="language-plaintext highlighter-rouge collapsible-container">map[interface{}]interface{}</code>这两种类型之一。</li>
 </ol>
 
-<p>注意: <span style="color:red"> 这个字段的类型只能为<code class="language-plaintext highlighter-rouge">map[string]interface{}</code>或<code class="language-plaintext highlighter-rouge">map[interface{}]interface{}</code>这两种类型之一</span></p>
+<p>注意: <span style="color:red"> 这个字段的类型只能为<code class="language-plaintext highlighter-rouge collapsible-container">map[string]interface{}</code>或<code class="language-plaintext highlighter-rouge collapsible-container">map[interface{}]interface{}</code>这两种类型之一</span></p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1805,7 +1808,7 @@ true
 
 <p>通过以下例子来进行讲解：</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1855,7 +1858,7 @@ true
 
 <p>结果：</p>
 
-<div class="language-css highlighter-rouge"><div class="code-header">
+<div class="language-css highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="CSS"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="nt">e</span><span class="o">:</span> <span class="p">{</span><span class="py">private</span><span class="p">:</span> <span class="n">Public</span><span class="p">:</span><span class="n">I</span> <span class="n">made</span> <span class="n">it</span> <span class="n">through</span><span class="err">!</span><span class="p">}</span>
@@ -1867,9 +1870,9 @@ true
 
 <h3 id="逆向转换"><span class="me-2">逆向转换</span><a href="#逆向转换" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>在反向解码时，可以为某些字段设置<code class="language-plaintext highlighter-rouge">mapstructure:",omitempty"</code>。这样当这些字段为空值时，就不会出现在结构的<code class="language-plaintext highlighter-rouge">map[string]interface{}</code>中：</p>
+<p>在反向解码时，可以为某些字段设置<code class="language-plaintext highlighter-rouge collapsible-container">mapstructure:",omitempty"</code>。这样当这些字段为空值时，就不会出现在结构的<code class="language-plaintext highlighter-rouge collapsible-container">map[string]interface{}</code>中：</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1911,7 +1914,7 @@ true
 
 <p>结果：</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1921,9 +1924,9 @@ true
 
 <h3 id="metadata"><span class="me-2">Metadata</span><a href="#metadata" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>解码时会产生一些有用的信息，<code class="language-plaintext highlighter-rouge">mapstructure</code>可以使用<code class="language-plaintext highlighter-rouge">Metadata</code>收集这些信息。<code class="language-plaintext highlighter-rouge">Metadata</code>结构如下：</p>
+<p>解码时会产生一些有用的信息，<code class="language-plaintext highlighter-rouge collapsible-container">mapstructure</code>可以使用<code class="language-plaintext highlighter-rouge collapsible-container">Metadata</code>收集这些信息。<code class="language-plaintext highlighter-rouge collapsible-container">Metadata</code>结构如下：</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1951,17 +1954,17 @@ true
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<p><code class="language-plaintext highlighter-rouge">Metadata</code>只有3个导出字段：</p>
+<p><code class="language-plaintext highlighter-rouge collapsible-container">Metadata</code>只有3个导出字段：</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">Keys</code>：解码成功的键名；</li>
-  <li><code class="language-plaintext highlighter-rouge">Unused</code>：在源数据中存在，但是目标结构中不存在的键名。</li>
-  <li><code class="language-plaintext highlighter-rouge">Unset</code>：在目标结构中存在，但是源数据中不存在。</li>
+  <li><code class="language-plaintext highlighter-rouge collapsible-container">Keys</code>：解码成功的键名；</li>
+  <li><code class="language-plaintext highlighter-rouge collapsible-container">Unused</code>：在源数据中存在，但是目标结构中不存在的键名。</li>
+  <li><code class="language-plaintext highlighter-rouge collapsible-container">Unset</code>：在目标结构中存在，但是源数据中不存在。</li>
 </ul>
 
-<p>使用<code class="language-plaintext highlighter-rouge">DecodeMetadata</code>方法：</p>
+<p>使用<code class="language-plaintext highlighter-rouge collapsible-container">DecodeMetadata</code>方法：</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -2023,7 +2026,7 @@ true
 
 <p>结果</p>
 
-<div class="language-css highlighter-rouge"><div class="code-header">
+<div class="language-css highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="CSS"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="nt">成功解码的结构的键keys</span><span class="o">:[]</span><span class="nt">string</span><span class="p">{</span><span class="err">"Name",</span> <span class="err">"Age"</span><span class="p">}</span> <span class="nt">源数据未被解码unused</span><span class="o">:[]</span><span class="nt">string</span><span class="p">{</span><span class="err">"job"</span><span class="p">}</span><span class="o">,</span> <span class="nt">结果接口中被找到unset</span><span class="o">:</span> <span class="o">[]</span><span class="nt">string</span><span class="p">{</span><span class="err">"Sex"</span><span class="p">}</span> 
@@ -2031,9 +2034,9 @@ true
 
 <h3 id="字段类型错误处理"><span class="me-2">字段类型错误处理</span><a href="#字段类型错误处理" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p><code class="language-plaintext highlighter-rouge">mapstructure</code>执行转换的过程中不可避免地会产生错误，例如 JSON 中某个键的类型与对应 Go 结构体中的字段类型不一致。<code class="language-plaintext highlighter-rouge">Decode/DecodeMetadata</code>会返回这些错误：</p>
+<p><code class="language-plaintext highlighter-rouge collapsible-container">mapstructure</code>执行转换的过程中不可避免地会产生错误，例如 JSON 中某个键的类型与对应 Go 结构体中的字段类型不一致。<code class="language-plaintext highlighter-rouge collapsible-container">Decode/DecodeMetadata</code>会返回这些错误：</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -2075,11 +2078,11 @@ true
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<p>上面代码中，结构体中<code class="language-plaintext highlighter-rouge">Person</code>中字段<code class="language-plaintext highlighter-rouge">Name</code>为<code class="language-plaintext highlighter-rouge">string</code>类型，但输入中<code class="language-plaintext highlighter-rouge">name</code>为<code class="language-plaintext highlighter-rouge">int</code>类型；字段<code class="language-plaintext highlighter-rouge">Age</code>为<code class="language-plaintext highlighter-rouge">int</code>类型，但输入中<code class="language-plaintext highlighter-rouge">age</code>为<code class="language-plaintext highlighter-rouge">string</code>类型；字段<code class="language-plaintext highlighter-rouge">Emails</code>为<code class="language-plaintext highlighter-rouge">[]string</code>类型，但输入中<code class="language-plaintext highlighter-rouge">emails</code>为<code class="language-plaintext highlighter-rouge">[]int</code>类型。</p>
+<p>上面代码中，结构体中<code class="language-plaintext highlighter-rouge collapsible-container">Person</code>中字段<code class="language-plaintext highlighter-rouge collapsible-container">Name</code>为<code class="language-plaintext highlighter-rouge collapsible-container">string</code>类型，但输入中<code class="language-plaintext highlighter-rouge collapsible-container">name</code>为<code class="language-plaintext highlighter-rouge collapsible-container">int</code>类型；字段<code class="language-plaintext highlighter-rouge collapsible-container">Age</code>为<code class="language-plaintext highlighter-rouge collapsible-container">int</code>类型，但输入中<code class="language-plaintext highlighter-rouge collapsible-container">age</code>为<code class="language-plaintext highlighter-rouge collapsible-container">string</code>类型；字段<code class="language-plaintext highlighter-rouge collapsible-container">Emails</code>为<code class="language-plaintext highlighter-rouge collapsible-container">[]string</code>类型，但输入中<code class="language-plaintext highlighter-rouge collapsible-container">emails</code>为<code class="language-plaintext highlighter-rouge collapsible-container">[]int</code>类型。</p>
 
 <p>结果：</p>
 
-<div class="language-sh highlighter-rouge"><div class="code-header">
+<div class="language-sh highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -2101,13 +2104,13 @@ true
 
 <h3 id="弱类型输入"><span class="me-2">弱类型输入</span><a href="#弱类型输入" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>不想对结构体字段类型和<code class="language-plaintext highlighter-rouge">map[string]interface{}</code>的对应键值做强类型一致的校验。</p>
+<p>不想对结构体字段类型和<code class="language-plaintext highlighter-rouge collapsible-container">map[string]interface{}</code>的对应键值做强类型一致的校验。</p>
 
-<p>使用<code class="language-plaintext highlighter-rouge">WeakDecode/WeakDecodeMetadata</code>方法，它们会尝试做类型自动转换。</p>
+<p>使用<code class="language-plaintext highlighter-rouge collapsible-container">WeakDecode/WeakDecodeMetadata</code>方法，它们会尝试做类型自动转换。</p>
 
-<p>注意: 如果类型转换失败了，<code class="language-plaintext highlighter-rouge">WeakDecode</code>同样会返回错误。</p>
+<p>注意: 如果类型转换失败了，<code class="language-plaintext highlighter-rouge collapsible-container">WeakDecode</code>同样会返回错误。</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -2155,9 +2158,9 @@ true
 
 <h3 id="解码器"><span class="me-2">解码器</span><a href="#解码器" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p><code class="language-plaintext highlighter-rouge">mapstructure</code>还提供了更灵活的解码器（<code class="language-plaintext highlighter-rouge">Decoder</code>）。可以通过配置<code class="language-plaintext highlighter-rouge">DecoderConfig</code>实现上面介绍的任何功能：</p>
+<p><code class="language-plaintext highlighter-rouge collapsible-container">mapstructure</code>还提供了更灵活的解码器（<code class="language-plaintext highlighter-rouge collapsible-container">Decoder</code>）。可以通过配置<code class="language-plaintext highlighter-rouge collapsible-container">DecoderConfig</code>实现上面介绍的任何功能：</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -2287,7 +2290,7 @@ true
 
 <p>示例：</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -2462,6 +2465,27 @@ true
         
         
         <li class="text-truncate lh-lg">
+          <a href="/%E6%B5%8B%E8%AF%95/%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0%E6%B5%8B%E8%AF%95/">代码折叠功能测试</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/%E6%B5%8B%E8%AF%95/test-code-folding/">测试代码折叠功能</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/agent/langchain-agent%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/agent/langchain%E8%A7%A3%E6%9E%90/LangChain%E8%A7%A3%E6%9E%90/">LangChain解析</a>
         </li>
       
@@ -2469,28 +2493,7 @@ true
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/context%E4%B8%8A%E4%B8%8B%E6%96%87/%E4%BB%BB%E5%8A%A1%E4%B8%8A%E4%B8%8B%E6%96%87/">Context上下文</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/go/%E5%BC%82%E6%AD%A5/%E9%80%9A%E9%81%93/">通道</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/go/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/OOM/">OMM</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%84%E5%88%99/%E6%96%B9%E6%B3%95/">函数</a>
+          <a href="/agent/langchain-agent%E8%A7%A3%E6%9E%90/LangGraph-agent/">LangChain-Agent解析2</a>
         </li>
       
     </ul>
@@ -2584,6 +2587,45 @@ true
     
     
     
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -2618,6 +2660,16 @@ true
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -2637,91 +2689,6 @@ true
     
     
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
     
   
     
@@ -2827,6 +2794,344 @@ true
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -2868,142 +3173,6 @@ true
     
     
       
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
     
   
     
@@ -3034,7 +3203,16 @@ true
         <a class="post-tag btn btn-outline-primary" href="/tags/jekyll%E4%BD%BF%E7%94%A8/">jekyll使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0/">代码折叠</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/">功能测试</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
@@ -3047,15 +3225,6 @@ true
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/go-gui%E6%A1%86%E6%9E%B6-fyne/">go-GUI框架-fyne</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/goland/">Goland</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/langchain%E8%A7%A3%E6%9E%90/">LangChain解析</a>
       
     </div>
   </section>
@@ -3717,6 +3886,45 @@ json.Marshal(待解析...</p>
     
     
     
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -3751,6 +3959,16 @@ json.Marshal(待解析...</p>
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -3770,91 +3988,6 @@ json.Marshal(待解析...</p>
     
     
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
     
   
     
@@ -3960,6 +4093,344 @@ json.Marshal(待解析...</p>
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -4001,142 +4472,6 @@ json.Marshal(待解析...</p>
     
     
       
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
     
   
     
@@ -4167,7 +4502,16 @@ json.Marshal(待解析...</p>
         <a class="post-tag btn btn-outline-primary" href="/tags/jekyll%E4%BD%BF%E7%94%A8/">jekyll使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0/">代码折叠</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/">功能测试</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
@@ -4180,15 +4524,6 @@ json.Marshal(待解析...</p>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/go-gui%E6%A1%86%E6%9E%B6-fyne/">go-GUI框架-fyne</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/goland/">Goland</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/langchain%E8%A7%A3%E6%9E%90/">LangChain解析</a>
       
     </div>
   </section>

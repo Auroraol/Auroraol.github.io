@@ -445,6 +445,9 @@
 
 
 
+<!-- Add collapsible code block functionality -->
+
+
 <!--
   In order to allow a wide table to scroll horizontally,
   we suround the markdown table with `<div class="table-wrapper">` and `</div>`
@@ -710,7 +713,7 @@
     </div>
   </header>
 
-  <div class="content">
+  <script src="/assets/js/dist/collapsible.js"></script><div class="content">
     <blockquote>
   <p>参考: <a href="https://github.com/ittousei">ittousei (MsEspeon)</a></p>
 </blockquote>
@@ -719,15 +722,15 @@
 
 <h3 id="favicon设置"><span class="me-2">Favicon设置</span><a href="#favicon设置" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>Chirpy主题的favicon存放在目录<code class="language-plaintext highlighter-rouge">assets/img/favicons/</code>下，用户可以使用<a href="https://realfavicongenerator.net/">Favicon Generator</a>生成favicon文件，再替换掉目录中的预设favicon即可。</p>
+<p>Chirpy主题的favicon存放在目录<code class="language-plaintext highlighter-rouge collapsible-container">assets/img/favicons/</code>下，用户可以使用<a href="https://realfavicongenerator.net/">Favicon Generator</a>生成favicon文件，再替换掉目录中的预设favicon即可。</p>
 
 <h3 id="语言和字体"><span class="me-2">语言和字体</span><a href="#语言和字体" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>博客的默认语言为英语，可以设置<code class="language-plaintext highlighter-rouge">_config.yml</code>中的<code class="language-plaintext highlighter-rouge">lang</code>变量来修改，变量取值详见<a href="https://www.lingoes.net/en/translator/langcode.htm">ISO语言代码</a>（如英语的<code class="language-plaintext highlighter-rouge">lang</code>取值为<code class="language-plaintext highlighter-rouge">en</code>，中文的<code class="language-plaintext highlighter-rouge">lang</code>取值为<code class="language-plaintext highlighter-rouge">zh-CN</code>）。</p>
+<p>博客的默认语言为英语，可以设置<code class="language-plaintext highlighter-rouge collapsible-container">_config.yml</code>中的<code class="language-plaintext highlighter-rouge collapsible-container">lang</code>变量来修改，变量取值详见<a href="https://www.lingoes.net/en/translator/langcode.htm">ISO语言代码</a>（如英语的<code class="language-plaintext highlighter-rouge collapsible-container">lang</code>取值为<code class="language-plaintext highlighter-rouge collapsible-container">en</code>，中文的<code class="language-plaintext highlighter-rouge collapsible-container">lang</code>取值为<code class="language-plaintext highlighter-rouge collapsible-container">zh-CN</code>）。</p>
 
-<p>每种语言对应一套默认字体，如英语默认的标题字体为Lato，段落字体为Source Sans Pro。如果要自定义，需要修改样式文件<code class="language-plaintext highlighter-rouge">_sass/addon.variables.scss</code>，参考这篇<a href="https://github.com/cotes2020/jekyll-theme-chirpy/pull/986">说明</a>。</p>
+<p>每种语言对应一套默认字体，如英语默认的标题字体为Lato，段落字体为Source Sans Pro。如果要自定义，需要修改样式文件<code class="language-plaintext highlighter-rouge collapsible-container">_sass/addon.variables.scss</code>，参考这篇<a href="https://github.com/cotes2020/jekyll-theme-chirpy/pull/986">说明</a>。</p>
 
-<div class="language-scss highlighter-rouge"><div class="code-header">
+<div class="language-scss highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="SCSS"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -751,9 +754,9 @@
   <li>ABOUT</li>
 </ul>
 
-<p>如果要更改顺序，则需前往<code class="language-plaintext highlighter-rouge">_tabs</code>目录修改相应文件。以archives选项为例，我们需要修改<code class="language-plaintext highlighter-rouge">_tabs/archives.md</code>：</p>
+<p>如果要更改顺序，则需前往<code class="language-plaintext highlighter-rouge collapsible-container">_tabs</code>目录修改相应文件。以archives选项为例，我们需要修改<code class="language-plaintext highlighter-rouge collapsible-container">_tabs/archives.md</code>：</p>
 
-<div class="language-md highlighter-rouge"><div class="code-header">
+<div class="language-md highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Markdown"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -767,15 +770,15 @@
 <span class="nn">---</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<p>其中，<code class="language-plaintext highlighter-rouge">layout</code>项表示前往<code class="language-plaintext highlighter-rouge">_layouts</code>目录，读取<code class="language-plaintext highlighter-rouge">_layouts/archives.html</code>作为网页模版；<code class="language-plaintext highlighter-rouge">icon</code>项表示使用<code class="language-plaintext highlighter-rouge">fa-archive</code>作为icon图标，更多图标详见<a href="https://fontawesome.com/v4/icons/">Font Awesome 4</a>；<code class="language-plaintext highlighter-rouge">order</code>项指定了选项在菜单栏中的顺序。</p>
+<p>其中，<code class="language-plaintext highlighter-rouge collapsible-container">layout</code>项表示前往<code class="language-plaintext highlighter-rouge collapsible-container">_layouts</code>目录，读取<code class="language-plaintext highlighter-rouge collapsible-container">_layouts/archives.html</code>作为网页模版；<code class="language-plaintext highlighter-rouge collapsible-container">icon</code>项表示使用<code class="language-plaintext highlighter-rouge collapsible-container">fa-archive</code>作为icon图标，更多图标详见<a href="https://fontawesome.com/v4/icons/">Font Awesome 4</a>；<code class="language-plaintext highlighter-rouge collapsible-container">order</code>项指定了选项在菜单栏中的顺序。</p>
 
-<p>例如，我想把archives选项放在菜单栏的第一位，只需将<code class="language-plaintext highlighter-rouge">order</code>项设置为<code class="language-plaintext highlighter-rouge">1</code>。</p>
+<p>例如，我想把archives选项放在菜单栏的第一位，只需将<code class="language-plaintext highlighter-rouge collapsible-container">order</code>项设置为<code class="language-plaintext highlighter-rouge collapsible-container">1</code>。</p>
 
 <h3 id="创建和删除子页面"><span class="me-2">创建和删除子页面</span><a href="#创建和删除子页面" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>例如我希望在个人网站上创建一个留言板，放在网站子页<code class="language-plaintext highlighter-rouge">/treehole/</code>下。我们可以向<code class="language-plaintext highlighter-rouge">_tabs</code>目录添加模版文件<code class="language-plaintext highlighter-rouge">_tabs/treehole.md</code>来实现这一需求。</p>
+<p>例如我希望在个人网站上创建一个留言板，放在网站子页<code class="language-plaintext highlighter-rouge collapsible-container">/treehole/</code>下。我们可以向<code class="language-plaintext highlighter-rouge collapsible-container">_tabs</code>目录添加模版文件<code class="language-plaintext highlighter-rouge collapsible-container">_tabs/treehole.md</code>来实现这一需求。</p>
 
-<div class="language-md highlighter-rouge"><div class="code-header">
+<div class="language-md highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Markdown"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -789,9 +792,9 @@
 <span class="nn">---</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<p>网站会自动生成子页面<code class="language-plaintext highlighter-rouge">/treehole/</code>，并读取<code class="language-plaintext highlighter-rouge">_layouts/treehole.html</code>作为该页面的模版，我们可以在模版文件<code class="language-plaintext highlighter-rouge">treehole.html</code>中写入自己想要的模块，给网页添加新的功能。以下是html模版的一个简单示例（没有添加任何模块，只是输出‘Hello, world!’）：</p>
+<p>网站会自动生成子页面<code class="language-plaintext highlighter-rouge collapsible-container">/treehole/</code>，并读取<code class="language-plaintext highlighter-rouge collapsible-container">_layouts/treehole.html</code>作为该页面的模版，我们可以在模版文件<code class="language-plaintext highlighter-rouge collapsible-container">treehole.html</code>中写入自己想要的模块，给网页添加新的功能。以下是html模版的一个简单示例（没有添加任何模块，只是输出‘Hello, world!’）：</p>
 
-<div class="language-html highlighter-rouge"><div class="code-header">
+<div class="language-html highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="HTML"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -807,7 +810,7 @@ layout: page
 <span class="nt">&lt;p&gt;</span>Hello, world!<span class="nt">&lt;/p&gt;</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<p>同样如果想要删除某个子页面，比如标签页<code class="language-plaintext highlighter-rouge">/tags/</code>（因为我讨厌打标签），只需删除对应的模版文件<code class="language-plaintext highlighter-rouge">_tabs/tags.md</code>。</p>
+<p>同样如果想要删除某个子页面，比如标签页<code class="language-plaintext highlighter-rouge collapsible-container">/tags/</code>（因为我讨厌打标签），只需删除对应的模版文件<code class="language-plaintext highlighter-rouge collapsible-container">_tabs/tags.md</code>。</p>
 
 <h2 id="优化文本搜索"><span class="me-2">优化文本搜索</span><a href="#优化文本搜索" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
@@ -821,9 +824,9 @@ layout: page
   <li>输出包含关键词的文章</li>
 </ul>
 
-<p>Chirpy主题在博客中内置了文本搜索功能，使用的搜索算法是Christian Fei的<a href="https://github.com/christian-fei/Simple-Jekyll-Search">Simple Jekyll Search</a>。该算法的实现思路是创建一个文本数据集<code class="language-plaintext highlighter-rouge">search.json</code>，将每篇文章作为一级对象，文章的<code class="language-plaintext highlighter-rouge">title</code>、<code class="language-plaintext highlighter-rouge">author</code>、<code class="language-plaintext highlighter-rouge">content</code>等信息作为二级对象，写入json文件中。数据模版如下：</p>
+<p>Chirpy主题在博客中内置了文本搜索功能，使用的搜索算法是Christian Fei的<a href="https://github.com/christian-fei/Simple-Jekyll-Search">Simple Jekyll Search</a>。该算法的实现思路是创建一个文本数据集<code class="language-plaintext highlighter-rouge collapsible-container">search.json</code>，将每篇文章作为一级对象，文章的<code class="language-plaintext highlighter-rouge collapsible-container">title</code>、<code class="language-plaintext highlighter-rouge collapsible-container">author</code>、<code class="language-plaintext highlighter-rouge collapsible-container">content</code>等信息作为二级对象，写入json文件中。数据模版如下：</p>
 
-<div class="language-json highlighter-rouge"><div class="code-header">
+<div class="language-json highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="JSON"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -849,7 +852,7 @@ layout: page
 
 <h3 id="精准搜索"><span class="me-2">精准搜索</span><a href="#精准搜索" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>首当其冲的问题是Simple Jekyll Search居然不支持精准搜索，考虑下面这个例子。我想搜索所有包含短语<code class="language-plaintext highlighter-rouge">let it go</code>的文章，这个句子会出现在搜索结果中：</p>
+<p>首当其冲的问题是Simple Jekyll Search居然不支持精准搜索，考虑下面这个例子。我想搜索所有包含短语<code class="language-plaintext highlighter-rouge collapsible-container">let it go</code>的文章，这个句子会出现在搜索结果中：</p>
 
 <center>
 <mark style="background-color: rgba(255, 255, 153, 0.5);">Let</mark>'s take a photo here. I'll print <mark style="background-color: rgba(255, 255, 153, 0.5);">it</mark> on my shirt and <mark style="background-color: rgba(255, 255, 153, 0.5);">go</mark> to school.
@@ -868,7 +871,7 @@ layout: page
   <li><a href="https://github.com/christian-fei/Simple-Jekyll-Search/pull/166">Simple-Jekyll-Search/pull/166</a></li>
 </ul>
 
-<p>既然问题已经解决了，为什么搜索结果还是那么奇怪呢？仔细阅读<a href="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.10.0/">项目代码</a>，会发现非常坑的一点，作者虽然在源目录<code class="language-plaintext highlighter-rouge">/src/</code>更新了代码，却没有在终目录<code class="language-plaintext highlighter-rouge">/dest/</code>重新编译项目。</p>
+<p>既然问题已经解决了，为什么搜索结果还是那么奇怪呢？仔细阅读<a href="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.10.0/">项目代码</a>，会发现非常坑的一点，作者虽然在源目录<code class="language-plaintext highlighter-rouge collapsible-container">/src/</code>更新了代码，却没有在终目录<code class="language-plaintext highlighter-rouge collapsible-container">/dest/</code>重新编译项目。</p>
 
 <ul>
   <li>Q：bug修了吗？ <br />
@@ -880,10 +883,10 @@ A：如修</li>
 <p>因此，我们需要重新编写搜索算法，并替换掉原先失效的算法库。具体步骤如下：</p>
 
 <ul>
-  <li>在<code class="language-plaintext highlighter-rouge">assets/lib/simple-jekyll-search/simple-jekyll-search.js</code>中重写精确匹配的搜索算法；</li>
+  <li>在<code class="language-plaintext highlighter-rouge collapsible-container">assets/lib/simple-jekyll-search/simple-jekyll-search.js</code>中重写精确匹配的搜索算法；</li>
 </ul>
 
-<div class="language-js highlighter-rouge"><div class="code-header">
+<div class="language-js highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="JavaScript"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -906,11 +909,11 @@ A：如修</li>
 </pre></td></tr></tbody></table></code></div></div>
 
 <ul>
-  <li>使用<a href="https://www.toptal.com/developers/javascript-minifier">在线转换</a>将.js文件转成.min.js格式，生成的新文件保存至<code class="language-plaintext highlighter-rouge">assets/lib/simple-jekyll-search/simple-jekyll-search.min.js</code>；</li>
-  <li>在<code class="language-plaintext highlighter-rouge">_data/orginal/cors.yml</code>中修改了搜索算法的引用地址。</li>
+  <li>使用<a href="https://www.toptal.com/developers/javascript-minifier">在线转换</a>将.js文件转成.min.js格式，生成的新文件保存至<code class="language-plaintext highlighter-rouge collapsible-container">assets/lib/simple-jekyll-search/simple-jekyll-search.min.js</code>；</li>
+  <li>在<code class="language-plaintext highlighter-rouge collapsible-container">_data/orginal/cors.yml</code>中修改了搜索算法的引用地址。</li>
 </ul>
 
-<div class="language-yaml highlighter-rouge"><div class="code-header">
+<div class="language-yaml highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="YAML"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -920,17 +923,17 @@ A：如修</li>
   <span class="na">js</span><span class="pi">:</span> <span class="s">/assets/lib/simple-jekyll-search/simple-jekyll-search.min.js</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<p>此外，我对文本数据<code class="language-plaintext highlighter-rouge">assets/js/data/search.json</code>做了一些格式上的优化，使搜索结果更为精确，在此不做详细说明。</p>
+<p>此外，我对文本数据<code class="language-plaintext highlighter-rouge collapsible-container">assets/js/data/search.json</code>做了一些格式上的优化，使搜索结果更为精确，在此不做详细说明。</p>
 
 <h3 id="搜索结果展示"><span class="me-2">搜索结果展示</span><a href="#搜索结果展示" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <p>另一个问题是Simple Jekyll Search虽然能告诉你哪些文章包含关键词，但它不会显示关键词具体出现在文章的哪个位置。这是使用原Chirpy主题进行关键词检索的一个示例：</p>
 
-<p>可以看到，搜索引擎只是简单列出了包含关键词<code class="language-plaintext highlighter-rouge">Chirpy</code>的文章标题和简介，而实际上我更想知道关键词出现在文章中的哪个位置，以及提及该关键词的前后文。这篇<a href="https://reesdraminski.com/garden/search-with-simplejekyllsearch/">博客</a>提出了一种可行的优化思路：Simple Jekyll Search在完成全局搜索后，会输出所有包含关键词的文章。此时对这些文章再重复做一次关键词检索，记录下关键词在一篇文章中首次出现的位置，输出该位置向前数的50个字符（上文）和向后数的50个字符（下文）。</p>
+<p>可以看到，搜索引擎只是简单列出了包含关键词<code class="language-plaintext highlighter-rouge collapsible-container">Chirpy</code>的文章标题和简介，而实际上我更想知道关键词出现在文章中的哪个位置，以及提及该关键词的前后文。这篇<a href="https://reesdraminski.com/garden/search-with-simplejekyllsearch/">博客</a>提出了一种可行的优化思路：Simple Jekyll Search在完成全局搜索后，会输出所有包含关键词的文章。此时对这些文章再重复做一次关键词检索，记录下关键词在一篇文章中首次出现的位置，输出该位置向前数的50个字符（上文）和向后数的50个字符（下文）。</p>
 
-<p>我在<code class="language-plaintext highlighter-rouge">_includes/search_loader.html</code>中实现了这个思路，以下是部分代码片段：</p>
+<p>我在<code class="language-plaintext highlighter-rouge collapsible-container">_includes/search_loader.html</code>中实现了这个思路，以下是部分代码片段：</p>
 
-<div class="language-js highlighter-rouge"><div class="code-header">
+<div class="language-js highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="JavaScript"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -962,7 +965,7 @@ A：如修</li>
 
 <h2 id="配置评论系统"><span class="me-2">配置评论系统</span><a href="#配置评论系统" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p>Chirpy主题支持为文章添加评论系统，在<code class="language-plaintext highlighter-rouge">config.yml</code>的<code class="language-plaintext highlighter-rouge">comments</code>一项中设置，可选择的评论系统有</p>
+<p>Chirpy主题支持为文章添加评论系统，在<code class="language-plaintext highlighter-rouge collapsible-container">config.yml</code>的<code class="language-plaintext highlighter-rouge collapsible-container">comments</code>一项中设置，可选择的评论系统有</p>
 
 <ul>
   <li>disqus</li>
@@ -970,9 +973,9 @@ A：如修</li>
   <li>giscus</li>
 </ul>
 
-<p>这里以giscus为例，说明如何在博客中开启评论。先在<code class="language-plaintext highlighter-rouge">config.yml</code>中声明开启gicus。</p>
+<p>这里以giscus为例，说明如何在博客中开启评论。先在<code class="language-plaintext highlighter-rouge collapsible-container">config.yml</code>中声明开启gicus。</p>
 
-<div class="language-yaml highlighter-rouge"><div class="code-header">
+<div class="language-yaml highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="YAML"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -990,9 +993,9 @@ A：如修</li>
   <li>访问博客所在的repository，在<kbd>Settings</kbd>&gt;<kbd>General</kbd>&gt;<kbd>Features</kbd>一栏中勾选上<a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/enabling-or-disabling-github-discussions-for-a-repository">Discussions</a>。</li>
 </ul>
 
-<p>在giscus app中填入博客repository的地址，获取giscus的配置参数，填入<code class="language-plaintext highlighter-rouge">config.yml</code>中的对应项。</p>
+<p>在giscus app中填入博客repository的地址，获取giscus的配置参数，填入<code class="language-plaintext highlighter-rouge collapsible-container">config.yml</code>中的对应项。</p>
 
-<div class="language-yaml highlighter-rouge"><div class="code-header">
+<div class="language-yaml highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="YAML"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1020,13 +1023,13 @@ A：如修</li>
 
 <p>最后，重新生成静态网页并推送到GitHub仓库，就能在文章的评论区发表评论了。</p>
 
-<div class="language-zsh highlighter-rouge"><div class="code-header">
+<div class="language-zsh highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>bundle <span class="nb">exec </span>jekyll s
 </pre></td></tr></tbody></table></code></div></div>
 
-<p>如果需要对giscus做更详细的配置，可在博客项目的根目录创建配置文件<code class="language-plaintext highlighter-rouge">giscus.json</code>，参考这篇<a href="https://github.com/giscus/giscus/blob/main/ADVANCED-USAGE.md">giscus Advanced Usage</a>进行配置。</p>
+<p>如果需要对giscus做更详细的配置，可在博客项目的根目录创建配置文件<code class="language-plaintext highlighter-rouge collapsible-container">giscus.json</code>，参考这篇<a href="https://github.com/giscus/giscus/blob/main/ADVANCED-USAGE.md">giscus Advanced Usage</a>进行配置。</p>
 
   </div>
 
@@ -1133,6 +1136,27 @@ A：如修</li>
         
         
         <li class="text-truncate lh-lg">
+          <a href="/%E6%B5%8B%E8%AF%95/%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0%E6%B5%8B%E8%AF%95/">代码折叠功能测试</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/%E6%B5%8B%E8%AF%95/test-code-folding/">测试代码折叠功能</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/agent/langchain-agent%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/agent/langchain%E8%A7%A3%E6%9E%90/LangChain%E8%A7%A3%E6%9E%90/">LangChain解析</a>
         </li>
       
@@ -1140,28 +1164,7 @@ A：如修</li>
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/context%E4%B8%8A%E4%B8%8B%E6%96%87/%E4%BB%BB%E5%8A%A1%E4%B8%8A%E4%B8%8B%E6%96%87/">Context上下文</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/go/%E5%BC%82%E6%AD%A5/%E9%80%9A%E9%81%93/">通道</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/go/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/OOM/">OMM</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%84%E5%88%99/%E6%96%B9%E6%B3%95/">函数</a>
+          <a href="/agent/langchain-agent%E8%A7%A3%E6%9E%90/LangGraph-agent/">LangChain-Agent解析2</a>
         </li>
       
     </ul>
@@ -1255,6 +1258,45 @@ A：如修</li>
     
     
     
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -1289,6 +1331,16 @@ A：如修</li>
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -1308,91 +1360,6 @@ A：如修</li>
     
     
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
     
   
     
@@ -1498,6 +1465,344 @@ A：如修</li>
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -1539,142 +1844,6 @@ A：如修</li>
     
     
       
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
     
   
     
@@ -1705,7 +1874,16 @@ A：如修</li>
         <a class="post-tag btn btn-outline-primary" href="/tags/jekyll%E4%BD%BF%E7%94%A8/">jekyll使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0/">代码折叠</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/">功能测试</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
@@ -1718,15 +1896,6 @@ A：如修</li>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/go-gui%E6%A1%86%E6%9E%B6-fyne/">go-GUI框架-fyne</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/goland/">Goland</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/langchain%E8%A7%A3%E6%9E%90/">LangChain解析</a>
       
     </div>
   </section>
@@ -2238,6 +2407,45 @@ GitHub仓库配置
     
     
     
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -2272,6 +2480,16 @@ GitHub仓库配置
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -2291,91 +2509,6 @@ GitHub仓库配置
     
     
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
     
   
     
@@ -2481,6 +2614,344 @@ GitHub仓库配置
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -2522,142 +2993,6 @@ GitHub仓库配置
     
     
       
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
     
   
     
@@ -2688,7 +3023,16 @@ GitHub仓库配置
         <a class="post-tag btn btn-outline-primary" href="/tags/jekyll%E4%BD%BF%E7%94%A8/">jekyll使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0/">代码折叠</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/">功能测试</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
@@ -2701,15 +3045,6 @@ GitHub仓库配置
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/go-gui%E6%A1%86%E6%9E%B6-fyne/">go-GUI框架-fyne</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/goland/">Goland</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/langchain%E8%A7%A3%E6%9E%90/">LangChain解析</a>
       
     </div>
   </section>

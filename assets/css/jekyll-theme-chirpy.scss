@@ -4,3 +4,92 @@
 @import 'main';
 
 /* append your custom style below */
+/* 侧边栏背景图片添加 */
+// #sidebar {
+//     background-image: url(https://cdn.jsdelivr.net/gh/huanyushi/huanyushi.github.io@mainhttps://cdn.jsdelivr.net/gh/huanyushi/blog-images@main/img/background.jpg); /* <- change background image */
+//     background-size: cover; /* <- customize the image size */
+//     background-repeat: no-repeat; /* <- no-repeat */
+//     background-position: top; /* <- image position */
+// }
+
+// Code collapse styles
+.collapsible-container {
+  position: relative;
+  margin-bottom: 1rem;
+  border-radius: 0.625rem;
+}
+
+.collapsible-trigger {
+  display: block;
+  width: auto;
+//   max-width: 80px;
+  padding: 0.3rem 0.5rem;
+  background-color: var(--highlight-bg-color);
+  border: 1px solid var(--language-border-color);
+  border-radius: 0 0 0.625rem 0.625rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--code-header-text-color);
+  text-align: center;
+  transition: all 0.3s ease;
+  margin: 0 auto;
+  font-size: 0.85rem;
+  line-height: 1.4; /* 保持高度不变 */
+  
+  &:hover {
+    background-color: rgba(128, 128, 128, 0.37);
+    color: white;
+  }
+}
+
+.collapsible-content {
+  overflow: hidden;
+  max-height: 456px; /* 默认显示19行，每行24px */
+  border: 1px solid var(--language-border-color);
+  border-top: none;
+  border-radius: 0 0 0.625rem 0.625rem;
+  transition: max-height 0.3s ease-out;
+  
+  .highlight {
+    margin: 0;
+    border-radius: 0;
+    
+    table {
+      width: 100%;
+      margin: 0;
+      
+      tr {
+        td {
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+/* 滚动条样式 */
+.collapsible-content::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.collapsible-content::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+}
+
+.collapsible-content::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.collapsible-content::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 6px;
+}
+
+/* 触发器额外样式 */
+.collapsible-trigger-css {
+  color: gray;
+  text-align: center;
+  font-size: 0.8rem;
+}

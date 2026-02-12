@@ -445,6 +445,9 @@
 
 
 
+<!-- Add collapsible code block functionality -->
+
+
 <!--
   In order to allow a wide table to scroll horizontally,
   we suround the markdown table with `<div class="table-wrapper">` and `</div>`
@@ -934,7 +937,7 @@
     </div>
   </header>
 
-  <div class="content">
+  <script src="/assets/js/dist/collapsible.js"></script><div class="content">
     <p><a href="https://fiveyoboy.com/articles/go-server-oom-guide/">服务 OOM 排查指南：从现象到根因的系统分析与解决 - 五岁博客</a></p>
 
 <h2 id="一oom-典型现象"><span class="me-2">一、OOM 典型现象</span><a href="#一oom-典型现象" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
@@ -943,18 +946,18 @@
 
 <ul>
   <li>
-    <p><strong>服务进程消失：</strong> <code class="language-plaintext highlighter-rouge">ps</code> 或 <code class="language-plaintext highlighter-rouge">top</code> 命令看不到对应的进程了。</p>
+    <p><strong>服务进程消失：</strong> <code class="language-plaintext highlighter-rouge collapsible-container">ps</code> 或 <code class="language-plaintext highlighter-rouge collapsible-container">top</code> 命令看不到对应的进程了。</p>
   </li>
   <li>
     <p><strong>日志中断：</strong> 应用日志在某个时间点突然停止，没有任何异常堆栈或错误信息（这是最常见的情况）。</p>
   </li>
   <li>
-    <p><strong>系统日志 (dmesg)：</strong> 在 Linux 系统中，使用 <code class="language-plaintext highlighter-rouge">dmesg | grep -i 'out of memory'</code> 通常能找到线索，内核会打印出哪个进程因为内存不足而被杀死。</p>
+    <p><strong>系统日志 (dmesg)：</strong> 在 Linux 系统中，使用 <code class="language-plaintext highlighter-rouge collapsible-container">dmesg | grep -i 'out of memory'</code> 通常能找到线索，内核会打印出哪个进程因为内存不足而被杀死。</p>
 
-    <p>例如：<code class="language-plaintext highlighter-rouge">[12345.678901] Out of memory: Kill process 1234 (my-service) score 456 or sacrifice child</code></p>
+    <p>例如：<code class="language-plaintext highlighter-rouge collapsible-container">[12345.678901] Out of memory: Kill process 1234 (my-service) score 456 or sacrifice child</code></p>
   </li>
   <li>
-    <p><strong>容器环境 (Docker/K8s)：</strong> 容器会直接退出，状态变为 <code class="language-plaintext highlighter-rouge">OOMKilled</code>。</p>
+    <p><strong>容器环境 (Docker/K8s)：</strong> 容器会直接退出，状态变为 <code class="language-plaintext highlighter-rouge collapsible-container">OOMKilled</code>。</p>
   </li>
   <li>
     <p><strong>监控告警：</strong> 如果有完善的监控系统（如 Prometheus + Grafana, Zabbix 等），会收到内存使用率 100% 或接近 100% 的告警，随后是服务可用性下降或端口监听消失的告警</p>
@@ -978,8 +981,8 @@
     <p><strong>检查系统日志（如果是容器部署，此步骤可忽略）：</strong></p>
 
     <ul>
-      <li><code class="language-plaintext highlighter-rouge">dmesg -T | grep -E 'oom|Out of memory'</code>: 这是首要步骤，确认是否是内核触发的 OOM Killer。记录下被杀死的进程 ID (PID)、时间、以及当时系统的内存状况。</li>
-      <li><code class="language-plaintext highlighter-rouge">journalctl -u &lt;your-service-name&gt; -f</code>: 查看系统服务管理器（如 systemd）记录的日志，可能会有一些线索。</li>
+      <li><code class="language-plaintext highlighter-rouge collapsible-container">dmesg -T | grep -E 'oom|Out of memory'</code>: 这是首要步骤，确认是否是内核触发的 OOM Killer。记录下被杀死的进程 ID (PID)、时间、以及当时系统的内存状况。</li>
+      <li><code class="language-plaintext highlighter-rouge collapsible-container">journalctl -u &lt;your-service-name&gt; -f</code>: 查看系统服务管理器（如 systemd）记录的日志，可能会有一些线索。</li>
     </ul>
   </li>
   <li>
@@ -988,7 +991,7 @@
     <p><strong>直接部署应用：</strong></p>
 
     <ul>
-      <li>仔细查看 OOM 发生前后的应用日志。虽然 OOM 本身不会产生堆栈，但在 OOM 发生前，应用可能已经出现了一些异常，如<span style="color: red;">大量的 <code class="language-plaintext highlighter-rouge">GC overhead limit exceeded</code> (JVM)、数据库连接池耗尽、第三方服务超时等</span>，这些都可能是内存暴增的诱因。</li>
+      <li>仔细查看 OOM 发生前后的应用日志。虽然 OOM 本身不会产生堆栈，但在 OOM 发生前，应用可能已经出现了一些异常，如<span style="color: red;">大量的 <code class="language-plaintext highlighter-rouge collapsible-container">GC overhead limit exceeded</code> (JVM)、数据库连接池耗尽、第三方服务超时等</span>，这些都可能是内存暴增的诱因。</li>
       <li>注意日志中<span style="color: red;">是否有大量重复的错误、异常，或者处理大批次数据的记录。</span></li>
     </ul>
 
@@ -998,7 +1001,7 @@
       <li>
         <p>k8s：</p>
 
-        <div class="language-bash highlighter-rouge"><div class="code-header">
+        <div class="language-bash highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1015,7 +1018,7 @@ kubectl describe pod &lt;pod_name&gt; <span class="nt">-n</span> &lt;namespace&g
       <li>
         <p>docker：</p>
 
-        <div class="language-bash highlighter-rouge"><div class="code-header">
+        <div class="language-bash highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1048,7 +1051,7 @@ docker logs <span class="nt">--tail</span> 100 &lt;container_id_or_name&gt;
     <p><strong>分析服务的情况：</strong></p>
 
     <ul>
-      <li><strong>Go 服务：</strong> Go 可以使用 <code class="language-plaintext highlighter-rouge">pprof</code>。通过 <code class="language-plaintext highlighter-rouge">go tool pprof http://&lt;service-ip&gt;:&lt;pprof-port&gt;/debug/pprof/heap</code> 可以交互式地分析内存使用情况，或者在服务退出前通过代码触发内存采样并保存。</li>
+      <li><strong>Go 服务：</strong> Go 可以使用 <code class="language-plaintext highlighter-rouge collapsible-container">pprof</code>。通过 <code class="language-plaintext highlighter-rouge collapsible-container">go tool pprof http://&lt;service-ip&gt;:&lt;pprof-port&gt;/debug/pprof/heap</code> 可以交互式地分析内存使用情况，或者在服务退出前通过代码触发内存采样并保存。</li>
     </ul>
   </li>
 </ol>
@@ -1067,7 +1070,7 @@ docker logs <span class="nt">--tail</span> 100 &lt;container_id_or_name&gt;
 
 <p>代码存储的内存量过大，比如，map、slice存了很多数据，没释放，最常见就是【数据列表查询】，一次性查询的量过多、未做分页查询</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1118,15 +1121,15 @@ docker logs <span class="nt">--tail</span> 100 &lt;container_id_or_name&gt;
 
 <ul>
   <li><strong>物理机 / 虚拟机</strong>：系统总内存不足，服务内存配置超过实际可用资源；</li>
-  <li><strong>容器环境</strong>：Docker/K8s 资源限制过低（如 K8s Pod 配置 <code class="language-plaintext highlighter-rouge">resources.limits.memory=512Mi</code>，但服务实际需要 1Gi）；</li>
+  <li><strong>容器环境</strong>：Docker/K8s 资源限制过低（如 K8s Pod 配置 <code class="language-plaintext highlighter-rouge collapsible-container">resources.limits.memory=512Mi</code>，但服务实际需要 1Gi）；</li>
   <li><strong>第三方依赖占用</strong>：其他进程 / 容器占用大量内存，导致服务可用内存不足。</li>
 </ul>
 
 <h4 id="定位方法"><span class="me-2">定位方法：</span><a href="#定位方法" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
 <ul>
-  <li>物理机执行 <code class="language-plaintext highlighter-rouge">free -h</code> <code class="language-plaintext highlighter-rouge">top</code> 查看总内存和其他进程占用；</li>
-  <li>K8s 执行 <code class="language-plaintext highlighter-rouge">kubectl describe pod 名称</code> 查看资源限制和实际使用情况；</li>
+  <li>物理机执行 <code class="language-plaintext highlighter-rouge collapsible-container">free -h</code> <code class="language-plaintext highlighter-rouge collapsible-container">top</code> 查看总内存和其他进程占用；</li>
+  <li>K8s 执行 <code class="language-plaintext highlighter-rouge collapsible-container">kubectl describe pod 名称</code> 查看资源限制和实际使用情况；</li>
   <li>对比服务正常运行和 OOM 时的资源占用差异，判断配额是否合理。</li>
 </ul>
 
@@ -1141,7 +1144,7 @@ docker logs <span class="nt">--tail</span> 100 &lt;container_id_or_name&gt;
 
 <h3 id="q1-go-服务-oom-无堆栈日志如何快速定位"><span class="me-2">Q1. Go 服务 OOM 无堆栈日志，如何快速定位？</span><a href="#q1-go-服务-oom-无堆栈日志如何快速定位" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>优先通过 <code class="language-plaintext highlighter-rouge">dmesg</code> 确认 OOM 触发，再结合 pprof 内存快照（提前集成 pprof）和监控趋势：若内存缓慢增长，重点查 goroutine 泄漏和全局容器；</p>
+<p>优先通过 <code class="language-plaintext highlighter-rouge collapsible-container">dmesg</code> 确认 OOM 触发，再结合 pprof 内存快照（提前集成 pprof）和监控趋势：若内存缓慢增长，重点查 goroutine 泄漏和全局容器；</p>
 
 <p>若突然飙升，重点查大任务、突发流量和缓存失效。</p>
 
@@ -1149,31 +1152,31 @@ docker logs <span class="nt">--tail</span> 100 &lt;container_id_or_name&gt;
 
 <ol>
   <li>限制 pprof 端口的访问 IP（如通过防火墙只允许内网访问）；</li>
-  <li>使用快照导出（<code class="language-plaintext highlighter-rouge">curl</code> 下载 heap.pprof）替代实时分析，减少性能影响；</li>
+  <li>使用快照导出（<code class="language-plaintext highlighter-rouge collapsible-container">curl</code> 下载 heap.pprof）替代实时分析，减少性能影响；</li>
   <li>避开业务高峰时段采集数据。</li>
 </ol>
 
 <h3 id="q3-dockerk8s-中-oom如何判断是资源不足还是服务泄漏"><span class="me-2">Q3. Docker/K8s 中 OOM，如何判断是资源不足还是服务泄漏？</span><a href="#q3-dockerk8s-中-oom如何判断是资源不足还是服务泄漏" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <ol>
-  <li>查看 Pod 内存使用率趋势：若长期接近 <code class="language-plaintext highlighter-rouge">limits.memory</code> 且缓慢增长，是泄漏；</li>
-  <li>临时调高 <code class="language-plaintext highlighter-rouge">limits.memory</code> 后，若内存仍持续增长，是泄漏；</li>
+  <li>查看 Pod 内存使用率趋势：若长期接近 <code class="language-plaintext highlighter-rouge collapsible-container">limits.memory</code> 且缓慢增长，是泄漏；</li>
+  <li>临时调高 <code class="language-plaintext highlighter-rouge collapsible-container">limits.memory</code> 后，若内存仍持续增长，是泄漏；</li>
   <li>若调高后稳定，是资源配额不足。</li>
 </ol>
 
 <h3 id="q4-go-服务中大切片--map-如何避免内存占用过高"><span class="me-2">Q4. Go 服务中，大切片 / Map 如何避免内存占用过高？</span><a href="#q4-go-服务中大切片--map-如何避免内存占用过高" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <ol>
-  <li>分页处理大数据（如数据库查询 <code class="language-plaintext highlighter-rouge">LIMIT/OFFSET</code>）；</li>
-  <li>使用 <code class="language-plaintext highlighter-rouge">sync.Pool</code> 缓存临时大对象，避免频繁分配；</li>
-  <li>大对象使用后手动置为 <code class="language-plaintext highlighter-rouge">nil</code>，帮助 GC 回收。</li>
+  <li>分页处理大数据（如数据库查询 <code class="language-plaintext highlighter-rouge collapsible-container">LIMIT/OFFSET</code>）；</li>
+  <li>使用 <code class="language-plaintext highlighter-rouge collapsible-container">sync.Pool</code> 缓存临时大对象，避免频繁分配；</li>
+  <li>大对象使用后手动置为 <code class="language-plaintext highlighter-rouge collapsible-container">nil</code>，帮助 GC 回收。</li>
 </ol>
 
 <h3 id="q5-goroutine-泄漏除了通道阻塞还有哪些常见场景"><span class="me-2">Q5. goroutine 泄漏除了通道阻塞，还有哪些常见场景？</span><a href="#q5-goroutine-泄漏除了通道阻塞还有哪些常见场景" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <ol>
-  <li>无退出条件的 <code class="language-plaintext highlighter-rouge">for</code> 循环（如缺少 <code class="language-plaintext highlighter-rouge">break</code> 或退出信号）；</li>
-  <li><code class="language-plaintext highlighter-rouge">sync.WaitGroup</code> 未正确调用 <code class="language-plaintext highlighter-rouge">Done()</code>，导致 <code class="language-plaintext highlighter-rouge">Wait()</code> 阻塞；</li>
+  <li>无退出条件的 <code class="language-plaintext highlighter-rouge collapsible-container">for</code> 循环（如缺少 <code class="language-plaintext highlighter-rouge collapsible-container">break</code> 或退出信号）；</li>
+  <li><code class="language-plaintext highlighter-rouge collapsible-container">sync.WaitGroup</code> 未正确调用 <code class="language-plaintext highlighter-rouge collapsible-container">Done()</code>，导致 <code class="language-plaintext highlighter-rouge collapsible-container">Wait()</code> 阻塞；</li>
   <li>第三方库接口调用阻塞（如无超时的 HTTP 请求）。</li>
 </ol>
 
@@ -1302,6 +1305,27 @@ docker logs <span class="nt">--tail</span> 100 &lt;container_id_or_name&gt;
         
         
         <li class="text-truncate lh-lg">
+          <a href="/%E6%B5%8B%E8%AF%95/%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0%E6%B5%8B%E8%AF%95/">代码折叠功能测试</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/%E6%B5%8B%E8%AF%95/test-code-folding/">测试代码折叠功能</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/agent/langchain-agent%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/agent/langchain%E8%A7%A3%E6%9E%90/LangChain%E8%A7%A3%E6%9E%90/">LangChain解析</a>
         </li>
       
@@ -1309,28 +1333,7 @@ docker logs <span class="nt">--tail</span> 100 &lt;container_id_or_name&gt;
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/context%E4%B8%8A%E4%B8%8B%E6%96%87/%E4%BB%BB%E5%8A%A1%E4%B8%8A%E4%B8%8B%E6%96%87/">Context上下文</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/go/%E5%BC%82%E6%AD%A5/%E9%80%9A%E9%81%93/">通道</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/go/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/OOM/">OMM</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%84%E5%88%99/%E6%96%B9%E6%B3%95/">函数</a>
+          <a href="/agent/langchain-agent%E8%A7%A3%E6%9E%90/LangGraph-agent/">LangChain-Agent解析2</a>
         </li>
       
     </ul>
@@ -1424,6 +1427,45 @@ docker logs <span class="nt">--tail</span> 100 &lt;container_id_or_name&gt;
     
     
     
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -1458,6 +1500,16 @@ docker logs <span class="nt">--tail</span> 100 &lt;container_id_or_name&gt;
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -1477,91 +1529,6 @@ docker logs <span class="nt">--tail</span> 100 &lt;container_id_or_name&gt;
     
     
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
     
   
     
@@ -1667,6 +1634,344 @@ docker logs <span class="nt">--tail</span> 100 &lt;container_id_or_name&gt;
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -1708,142 +2013,6 @@ docker logs <span class="nt">--tail</span> 100 &lt;container_id_or_name&gt;
     
     
       
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
     
   
     
@@ -1874,7 +2043,16 @@ docker logs <span class="nt">--tail</span> 100 &lt;container_id_or_name&gt;
         <a class="post-tag btn btn-outline-primary" href="/tags/jekyll%E4%BD%BF%E7%94%A8/">jekyll使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0/">代码折叠</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/">功能测试</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
@@ -1887,15 +2065,6 @@ docker logs <span class="nt">--tail</span> 100 &lt;container_id_or_name&gt;
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/go-gui%E6%A1%86%E6%9E%B6-fyne/">go-GUI框架-fyne</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/goland/">Goland</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/langchain%E8%A7%A3%E6%9E%90/">LangChain解析</a>
       
     </div>
   </section>
@@ -2317,11 +2486,11 @@ var map3 = map[string]int{&quot;Go&quot;:100,&quot;java&quot;:90} // 有这些�
 
   
     <a
-      href="/agent/langchain%E8%A7%A3%E6%9E%90/LangChain%E8%A7%A3%E6%9E%90/"
+      href="/agent/langchain-agent%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/"
       class="btn btn-outline-primary"
       aria-label="下一篇"
     >
-      <p>LangChain解析</p>
+      <p>LangChain-Agent解析</p>
     </a>
   
 </nav>
@@ -2540,6 +2709,45 @@ var map3 = map[string]int{&quot;Go&quot;:100,&quot;java&quot;:90} // 有这些�
     
     
     
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -2574,6 +2782,16 @@ var map3 = map[string]int{&quot;Go&quot;:100,&quot;java&quot;:90} // 有这些�
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -2593,91 +2811,6 @@ var map3 = map[string]int{&quot;Go&quot;:100,&quot;java&quot;:90} // 有这些�
     
     
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
     
   
     
@@ -2783,6 +2916,344 @@ var map3 = map[string]int{&quot;Go&quot;:100,&quot;java&quot;:90} // 有这些�
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -2824,142 +3295,6 @@ var map3 = map[string]int{&quot;Go&quot;:100,&quot;java&quot;:90} // 有这些�
     
     
       
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
     
   
     
@@ -2990,7 +3325,16 @@ var map3 = map[string]int{&quot;Go&quot;:100,&quot;java&quot;:90} // 有这些�
         <a class="post-tag btn btn-outline-primary" href="/tags/jekyll%E4%BD%BF%E7%94%A8/">jekyll使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0/">代码折叠</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/">功能测试</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
@@ -3003,15 +3347,6 @@ var map3 = map[string]int{&quot;Go&quot;:100,&quot;java&quot;:90} // 有这些�
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/go-gui%E6%A1%86%E6%9E%B6-fyne/">go-GUI框架-fyne</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/goland/">Goland</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/langchain%E8%A7%A3%E6%9E%90/">LangChain解析</a>
       
     </div>
   </section>

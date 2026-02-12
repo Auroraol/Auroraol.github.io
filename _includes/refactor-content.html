@@ -2,6 +2,14 @@
 
 {% assign _content = include.content %}
 
+<!-- Add collapsible code block functionality -->
+{% if _content contains '<div class="language-' and '<div class="content">' %}
+  {% assign _content = _content
+    | replace: 'highlighter-rouge', 'highlighter-rouge collapsible-container'
+    | replace: '<div class="content">', '<script src="/assets/js/dist/collapsible.js"></script><div class="content">'
+  %}
+{% endif %}
+
 <!--
   In order to allow a wide table to scroll horizontally,
   we suround the markdown table with `<div class="table-wrapper">` and `</div>`
