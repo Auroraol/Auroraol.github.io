@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
         trigger.style.cssText = `
             display: block;
             width: auto;
-            max-width: 80px;
             padding: 0.3rem 0.5rem;
             background-color: var(--highlight-bg-color);
             border: 1px solid var(--language-border-color);
