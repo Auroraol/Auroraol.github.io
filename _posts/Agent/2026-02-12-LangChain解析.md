@@ -361,6 +361,8 @@ print(memory.buffer)  # 输出对话历史：包含“小明”
 - **SequentialChain**：按顺序执行多个链。
 - **RouterChain**：根据输入动态选择执行哪个链。
 
+**`chain` 用于连接多个 `Runnable` 组件。如果只有一个组件（如 Agent），直接调用；如果需要串联多个操作（Agent → 解析 → 存储），用 `chain`。**
+
 **作用**：自动化复杂任务，简化开发流程。
 
 ```python
@@ -566,7 +568,7 @@ KimiLlm = ChatOpenAI(
     temperature=0.7,
 )
 
-# 新版方式
+# 新版方式 agent
 executor = create_tool_calling_executor(KimiLlm, [add])
 
 # 执行（新版输入格式可能不同）

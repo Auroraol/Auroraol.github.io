@@ -1228,9 +1228,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="5179 字"
+  title="5227 字"
 >
-  <em>28 分钟</em>阅读</span>
+  <em>29 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -1816,6 +1816,8 @@ DeepWiki 相关资源（LangChain 官方文档）：https://python.langchain.com
   <li><strong>RouterChain</strong>：根据输入动态选择执行哪个链。</li>
 </ul>
 
+<p><strong><code class="language-plaintext highlighter-rouge collapsible-container">chain</code> 用于连接多个 <code class="language-plaintext highlighter-rouge collapsible-container">Runnable</code> 组件。如果只有一个组件（如 Agent），直接调用；如果需要串联多个操作（Agent → 解析 → 存储），用 <code class="language-plaintext highlighter-rouge collapsible-container">chain</code>。</strong></p>
+
 <p><strong>作用</strong>：自动化复杂任务，简化开发流程。</p>
 
 <div class="language-python highlighter-rouge collapsible-container"><div class="code-header">
@@ -2149,7 +2151,7 @@ DeepWiki 相关资源（LangChain 官方文档）：https://python.langchain.com
     <span class="n">temperature</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="c1"># 新版方式
+<span class="c1"># 新版方式 agent
 </span><span class="n">executor</span> <span class="o">=</span> <span class="nf">create_tool_calling_executor</span><span class="p">(</span><span class="n">KimiLlm</span><span class="p">,</span> <span class="p">[</span><span class="n">add</span><span class="p">])</span>
 
 <span class="c1"># 执行（新版输入格式可能不同）
@@ -2398,6 +2400,13 @@ ai: 计算结果为：100 + 200 = **300**
         
         
         <li class="text-truncate lh-lg">
+          <a href="/jekyll/chirpy%E4%BD%BF%E7%94%A8/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/">Chirpy主题的进阶使用</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/jekyll/chirpy%E4%BD%BF%E7%94%A8/colorbox-details-test/">Colorbox 和 Details 功能测试</a>
         </li>
       
@@ -2420,13 +2429,6 @@ ai: 计算结果为：100 + 200 = **300**
         
         <li class="text-truncate lh-lg">
           <a href="/agent/langchain%E8%A7%A3%E6%9E%90/LangChain%E8%A7%A3%E6%9E%90/">LangChain解析</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/agent/langchain-agent%E8%A7%A3%E6%9E%90/LangGraph-agent/">LangChain-Agent解析2</a>
         </li>
       
     </ul>
@@ -2568,50 +2570,6 @@ ai: 计算结果为：100 + 200 = **300**
     
     
     
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
       
         
         
@@ -2657,6 +2615,54 @@ ai: 计算结果为：100 + 200 = **300**
     
     
     
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -2970,10 +2976,10 @@ ai: 计算结果为：100 + 200 = **300**
         <a class="post-tag btn btn-outline-primary" href="/tags/jekyll%E4%BD%BF%E7%94%A8/">jekyll使用</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
@@ -3058,18 +3064,6 @@ ai: 计算结果为：100 + 200 = **300**
   
 
   
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
     
   
 
@@ -3130,91 +3124,6 @@ Agent（代理） 是 LangChain 中更高级的机制，允许 LLM 像“智能�
 
   工具（Tools）：如搜索引擎、计算器、API。
   代理执行器：协调 LLM 和工具，管理...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/agent/langchain-agent%E8%A7%A3%E6%9E%90/LangGraph-agent/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1770883200"
-  data-df="YYYY/MM/DD"
-  
->
-  2026/02/12
-</time>
-
-              <h4 class="pt-0 my-2">LangChain-Agent解析2</h4>
-              <div class="text-muted">
-                <p>短代码块测试
-
-1
-print(&quot;Hello World&quot;)
-
-
-长代码块测试
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-def fibonacci(n):
-   ...</p>
               </div>
             </div>
           </a>
@@ -3283,11 +3192,11 @@ Agent（代理） 是 LangChain 中更高级的机制，允许 LLM 像“智能�
 
   
     <a
-      href="/agent/langchain-agent%E8%A7%A3%E6%9E%90/LangGraph-agent/"
+      href="/agent/langchain-agent%E8%A7%A3%E6%9E%90/MCP/"
       class="btn btn-outline-primary"
       aria-label="下一篇"
     >
-      <p>LangChain-Agent解析2</p>
+      <p>LangChain-Agent解析</p>
     </a>
   
 </nav>
@@ -3554,50 +3463,6 @@ Agent（代理） 是 LangChain 中更高级的机制，允许 LLM 像“智能�
     
     
     
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
       
         
         
@@ -3643,6 +3508,54 @@ Agent（代理） 是 LangChain 中更高级的机制，允许 LLM 像“智能�
     
     
     
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -3956,10 +3869,10 @@ Agent（代理） 是 LangChain 中更高级的机制，允许 LLM 像“智能�
         <a class="post-tag btn btn-outline-primary" href="/tags/jekyll%E4%BD%BF%E7%94%A8/">jekyll使用</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>

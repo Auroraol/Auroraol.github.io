@@ -516,69 +516,6 @@
 <div id="post-list" class="flex-grow-1 px-xl-1">
   
     <article class="card-wrapper card">
-      <a href="/pgsql/%E6%A7%BD%E4%BD%8D/pg%E6%A7%BD%E4%BD%8D/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">PgSQL槽位创建</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>创建槽位
-
--- 1️⃣ 复制标识（必须最先）(一次)
-SELECT set_replica_identity_full_for_partition(&#39;spu&#39;);   -- 主表+分区全部设 FULL  
-
--- 2️⃣ 创建发布（此时无槽，仅元数据）
-CREATE PUBLICATION spu_pub FOR TABLE spu;          -- 主表
-ALTER  PUBLI...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1762180800"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/03
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      PgSQL,
-                      槽位
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
       <a href="/jekyll/jekyll%E4%BD%BF%E7%94%A8/%E6%94%AF%E6%8C%81%E5%A4%9A%E7%BA%A7%E7%9B%AE%E5%BD%95/" class="post-preview row g-0 flex-md-row-reverse">
         
 
@@ -1148,6 +1085,13 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
         
         
         <li class="text-truncate lh-lg">
+          <a href="/jekyll/chirpy%E4%BD%BF%E7%94%A8/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/">Chirpy主题的进阶使用</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/jekyll/chirpy%E4%BD%BF%E7%94%A8/colorbox-details-test/">Colorbox 和 Details 功能测试</a>
         </li>
       
@@ -1170,13 +1114,6 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
         
         <li class="text-truncate lh-lg">
           <a href="/agent/langchain%E8%A7%A3%E6%9E%90/LangChain%E8%A7%A3%E6%9E%90/">LangChain解析</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/agent/langchain-agent%E8%A7%A3%E6%9E%90/LangGraph-agent/">LangChain-Agent解析2</a>
         </li>
       
     </ul>
@@ -1318,50 +1255,6 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
     
     
     
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
       
         
         
@@ -1407,6 +1300,54 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
     
     
     
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -1720,10 +1661,10 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
         <a class="post-tag btn btn-outline-primary" href="/tags/jekyll%E4%BD%BF%E7%94%A8/">jekyll使用</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
@@ -1945,50 +1886,6 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
     
     
     
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
       
         
         
@@ -2034,6 +1931,54 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
     
     
     
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -2347,10 +2292,10 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
         <a class="post-tag btn btn-outline-primary" href="/tags/jekyll%E4%BD%BF%E7%94%A8/">jekyll使用</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>

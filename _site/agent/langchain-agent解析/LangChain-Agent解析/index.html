@@ -516,6 +516,72 @@
 
       
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
 
     
   
@@ -523,6 +589,137 @@
   
   
 
+  
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+
+    
   
 
   
@@ -617,9 +814,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="733 字"
+  title="5072 字"
 >
-  <em>4 分钟</em>阅读</span>
+  <em>28 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -643,24 +840,300 @@
 
 <p><strong>应用场景</strong>：需要动态决策的任务，如联网搜索、数学计算。</p>
 
-<h2 id="工具tools"><span class="me-2">工具（Tools）</span><a href="#工具tools" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h3 id="langchain方式"><span class="me-2">LangChain方式</span><a href="#langchain方式" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<div class="language-python highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="n">langchain.agents</span> <span class="kn">import</span> <span class="n">create_react_agent</span><span class="p">,</span> <span class="n">AgentExecutor</span>  <span class="c1"># 从 langchain.agents 导入
+</span><span class="kn">from</span> <span class="n">langchain_core.prompts</span> <span class="kn">import</span> <span class="n">ChatPromptTemplate</span><span class="p">,</span> <span class="n">MessagesPlaceholder</span>
+<span class="kn">from</span> <span class="n">langchain_openai</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+<span class="kn">from</span> <span class="n">langchain_core.messages</span> <span class="kn">import</span> <span class="n">HumanMessage</span>
+<span class="kn">from</span> <span class="n">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span>
+
+<span class="c1"># ========== 3. 配置模型 ==========
+</span><span class="n">model</span> <span class="o">=</span> <span class="nc">ChatOpenAI</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">gpt-4</span><span class="sh">"</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># ========== 4. 创建 PromptTemplate ==========
+</span><span class="n">prompt</span> <span class="o">=</span> <span class="n">ChatPromptTemplate</span><span class="p">.</span><span class="nf">from_messages</span><span class="p">([</span>
+    <span class="p">(</span><span class="sh">"</span><span class="s">system</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">你是数学专家，必须使用calculator工具计算，然后返回结构化结果</span><span class="sh">"</span><span class="p">),</span>
+    <span class="p">(</span><span class="sh">"</span><span class="s">human</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">{input}</span><span class="sh">"</span><span class="p">),</span>
+    <span class="nc">MessagesPlaceholder</span><span class="p">(</span><span class="sh">"</span><span class="s">agent_scratchpad</span><span class="sh">"</span><span class="p">)</span>  <span class="c1"># ReAct 必需
+</span><span class="p">])</span>
+
+<span class="c1"># ========== 5. 创建 Agent ==========
+</span><span class="n">agent</span> <span class="o">=</span> <span class="nf">create_react_agent</span><span class="p">(</span>
+    <span class="n">llm</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>  <span class="c1"># 注意：参数名是 llm 不是 model
+</span>    <span class="n">tools</span><span class="o">=</span><span class="p">[</span><span class="n">calculator</span><span class="p">],</span>
+    <span class="n">prompt</span><span class="o">=</span><span class="n">prompt</span>
+<span class="p">)</span>
+
+<span class="c1"># ========== 6. 使用 AgentExecutor 执行 ==========
+</span><span class="n">agent_executor</span> <span class="o">=</span> <span class="nc">AgentExecutor</span><span class="p">(</span>
+    <span class="n">agent</span><span class="o">=</span><span class="n">agent</span><span class="p">,</span>
+    <span class="n">tools</span><span class="o">=</span><span class="p">[</span><span class="n">calculator</span><span class="p">],</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">handle_parsing_errors</span><span class="o">=</span><span class="bp">True</span>
+<span class="p">)</span>
+
+<span class="c1"># ========== 7. 执行计算 ==========
+</span><span class="n">result</span> <span class="o">=</span> <span class="n">agent_executor</span><span class="p">.</span><span class="nf">invoke</span><span class="p">({</span><span class="sh">"</span><span class="s">messages</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">计算 100+100</span><span class="sh">"</span><span class="p">})</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="sh">"</span><span class="s">messages</span><span class="sh">"</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="n">content</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h3 id="langgraph方式"><span class="me-2">LangGraph方式</span><a href="#langgraph方式" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<div class="language-python highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td><td class="rouge-code"><pre><span class="c1"># llm
+</span><span class="n">KimiLlm</span> <span class="o">=</span> <span class="nc">ChatOpenAI</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">kimi-k2-turbo-preview</span><span class="sh">"</span><span class="p">,</span>
+    <span class="n">base_url</span><span class="o">=</span><span class="sh">"</span><span class="s">https://api.moonshot.cn/v1</span><span class="sh">"</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="nc">SecretStr</span><span class="p">(</span><span class="sh">"</span><span class="s">sk-32lqdlnpX9CgcRPa7KiMdeoepSaIO6B79BqbyL</span><span class="sh">"</span><span class="p">),</span>
+    <span class="n">temperature</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># 使用LangGraph
+</span><span class="n">agent</span> <span class="o">=</span> <span class="nf">create_agent</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">KimiLlm</span><span class="p">,</span>
+    <span class="n">tools</span><span class="o">=</span><span class="p">[</span><span class="n">calculator</span><span class="p">,</span> <span class="n">get_weather</span><span class="p">],</span>  <span class="c1"># 工具列表
+</span><span class="p">)</span>
+
+<span class="c1"># 直接 invoke，无需 AgentExecutor
+</span><span class="n">result</span> <span class="o">=</span> <span class="n">agent</span><span class="p">.</span><span class="nf">invoke</span><span class="p">({</span>
+    <span class="sh">"</span><span class="s">messages</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="nc">SystemMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="sh">"</span><span class="s">计算 100+100</span><span class="sh">"</span><span class="p">),</span>
+        <span class="nc">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="sh">"</span><span class="s">开始计算</span><span class="sh">"</span><span class="p">)</span>
+    <span class="p">]</span>
+<span class="p">})</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="sh">"</span><span class="s">messages</span><span class="sh">"</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="n">content</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h3 id="prompt-参数"><span class="me-2">prompt 参数</span><a href="#prompt-参数" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<div class="language-python highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="rouge-code"><pre><span class="c1"># 方式1：使用 system_prompt 参数
+</span><span class="n">agent</span> <span class="o">=</span> <span class="nf">create_react_agent</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">llm</span><span class="p">,</span>
+    <span class="n">tools</span><span class="o">=</span><span class="p">[</span><span class="n">get_weather</span><span class="p">],</span>
+    <span class="n">system_prompt</span><span class="o">=</span><span class="sh">"</span><span class="s">你是专业的天气分析师...</span><span class="sh">"</span>  <span class="c1"># 等价于下面的 SystemMessage
+</span><span class="p">)</span>
+
+<span class="c1"># 方式2：手动传入 SystemMessage（等价）
+</span><span class="n">agent</span> <span class="o">=</span> <span class="nf">create_react_agent</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">llm</span><span class="p">,</span>
+    <span class="n">tools</span><span class="o">=</span><span class="p">[</span><span class="n">get_weather</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="c1">#调用时手动添加
+</span><span class="n">result</span> <span class="o">=</span> <span class="n">agent</span><span class="p">.</span><span class="nf">invoke</span><span class="p">({</span>
+    <span class="sh">"</span><span class="s">messages</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="nc">SystemMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="sh">"</span><span class="s">你是专业的天气分析师...</span><span class="sh">"</span><span class="p">),</span>  <span class="c1"># 等价于 system_prompt
+</span>        <span class="nc">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="sh">"</span><span class="s">北京天气怎么样？</span><span class="sh">"</span><span class="p">)</span>
+    <span class="p">]</span>
+<span class="p">})</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="agenttype"><span class="me-2">AgentType</span><a href="#agenttype" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>LangChain提供多种Agent类型，每种类型适用于不同的场景和需求。以下是几种主要Agent类型及其特点：</p>
+
+<p>注意:  <code class="language-plaintext highlighter-rouge collapsible-container">langchain</code>  1.2.10 已废弃AgentType</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th style="text-align: left">场景</th>
+      <th style="text-align: left">推荐 Agent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">快速原型验证</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">ZERO_SHOT_REACT_DESCRIPTION</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">生产环境 + OpenAI</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">OPENAI_FUNCTIONS</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">生产环境 + 非 OpenAI 模型</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">需要记住对话历史</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">CONVERSATIONAL_REACT_DESCRIPTION</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">需要自主分解复杂任务</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">AUTO_GPT</code>（评估稳定性后）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">严格的数据/表单输出</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">STRUCTURED_CHAT</code></td>
+    </tr>
+  </tbody>
+</table></div>
+
+<h2 id="消息类型"><span class="me-2">消息类型</span><a href="#消息类型" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th style="text-align: left">类型</th>
+      <th style="text-align: left">类名</th>
+      <th style="text-align: left">说明</th>
+      <th style="text-align: left">典型使用场景</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">human</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">HumanMessage</code></td>
+      <td style="text-align: left">人类/用户输入</td>
+      <td style="text-align: left">用户提问、指令</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">ai</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">AIMessage</code></td>
+      <td style="text-align: left">AI/助手回复</td>
+      <td style="text-align: left">模型生成内容、工具调用决策</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">tool</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">ToolMessage</code></td>
+      <td style="text-align: left">工具执行结果</td>
+      <td style="text-align: left">计算器、API调用返回值</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">system</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">SystemMessage</code></td>
+      <td style="text-align: left">系统提示词</td>
+      <td style="text-align: left">设定角色、约束条件</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">function</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">FunctionMessage</code></td>
+      <td style="text-align: left">函数调用结果（旧版）</td>
+      <td style="text-align: left">早期 OpenAI 函数调用</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">chat</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">ChatMessage</code></td>
+      <td style="text-align: left">通用聊天消息</td>
+      <td style="text-align: left">指定任意 role（如 assistant）</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre>所有消息类型：
+0. type='system'     | class=SystemMessage      ← 您传入的系统提示
+1. type='human'      | class=HumanMessage       ← 用户输入
+2. type='ai'        | class=AIMessage          ← AI决定调用工具
+3. type='tool'       | class=ToolMessage        ← 计算器返回结果
+4. type='ai'        | class=AIMessage          ← AI总结最终结果
+</pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="工具tools使用"><span class="me-2">工具Tools使用</span><a href="#工具tools使用" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <p>工具（Tool）是一个封装了特定功能的类，它包含四个核心组成部分：</p>
 
 <ul>
   <li>
-    <font style="color:rgb(44, 44, 54);">名称（name）：名称是工具在工具集合中的</font>
-    <p><strong><font style="color:rgb(44, 44, 54);">唯一标识符</font></strong><font style="color:rgb(44, 44, 54);">，必须确保在同一工具集中不重复</font></p>
+    <p>名称（name）：名称是工具在工具集合中的<strong>唯一标识符</strong><font style="color:rgb(44, 44, 54);">，必须确保在同一工具集中不重复</font></p>
   </li>
   <li>
-    <font style="color:rgb(44, 44, 54);">描述（description）：描述用于说明工具的功能，为LLM或代理提供上下文信息，</font>
-    <p><strong><font style="color:rgb(44, 44, 54);">帮助模型理解何时以及如何调用该工具</font></strong></p>
+    <p>描述（description）：描述用于说明工具的功能，为LLM或代理提供上下文信息，<strong>帮助模型理解何时以及如何调用该工具</strong></p>
   </li>
   <li>
-    <font style="color:rgb(44, 44, 54);">参数模式（args_schema）：是使用Pydantic BaseModel定义的输入参数结构，用于验证和解析工具调用的参数</font>
+    <p>参数模式（args_schema）：是使用Pydantic BaseModel定义的输入参数结构，用于验证和解析工具调用的参数</p>
   </li>
   <li>
-    <font style="color:rgb(44, 44, 54);">是否直接返回（return_direct）：布尔值属性，当设置为True时，智能体会在调用工具后立即返回结果给用户，而不继续调用其他工具</font>
+    <p>是否直接返回（return_direct）：布尔值属性，当设置为True时，智能体会在调用工具后立即返回结果给用户，而不继续调用其他工具</p>
   </li>
   <li>
     <div class="language-python highlighter-rouge collapsible-container"><div class="code-header">
@@ -747,62 +1220,280 @@
 44
 45
 46
+</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="n">langgraph.prebuilt</span> <span class="kn">import</span> <span class="n">create_react_agent</span>
+<span class="kn">from</span> <span class="n">langchain_openai</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+<span class="kn">from</span> <span class="n">langchain_core.tools</span> <span class="kn">import</span> <span class="n">tool</span>
+<span class="kn">from</span> <span class="n">langchain_ollama</span> <span class="kn">import</span> <span class="n">OllamaLLM</span>
+
+<span class="c1"># 1. 定义工具（使用@tool装饰器自动解析参数）
+</span><span class="nd">@tool</span>
+<span class="k">def</span> <span class="nf">calculator</span><span class="p">(</span><span class="n">expression</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sh">"""</span><span class="s">计算数学表达式，如</span><span class="sh">'</span><span class="s">2+2*5</span><span class="sh">'"""</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nf">str</span><span class="p">(</span><span class="nf">eval</span><span class="p">(</span><span class="n">expression</span><span class="p">))</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sh">"</span><span class="s">计算错误</span><span class="sh">"</span>
+
+<span class="nd">@tool</span>
+<span class="k">def</span> <span class="nf">get_weather</span><span class="p">(</span><span class="n">location</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sh">"""</span><span class="s">获取指定城市的天气</span><span class="sh">"""</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">location</span><span class="si">}</span><span class="s">天气：晴天，25°C</span><span class="sh">"</span>
+
+<span class="c1"># 2. 工具列表
+</span><span class="n">tools</span> <span class="o">=</span> <span class="p">[</span><span class="n">calculator</span><span class="p">,</span> <span class="n">get_weather</span><span class="p">]</span>
+
+<span class="c1"># 3. 选择模型
+# OpenAI模型
+# model = ChatOpenAI(model="gpt-4", temperature=0)
+</span>
+<span class="c1"># 本地Ollama模型（您已安装langchain-ollama==1.0.1）
+</span><span class="n">model</span> <span class="o">=</span> <span class="nc">OllamaLLM</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">llama3:8b</span><span class="sh">"</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># 4. 创建Agent（一行代码）
+</span><span class="n">agent</span> <span class="o">=</span> <span class="nf">create_react_agent</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+    <span class="n">tools</span><span class="o">=</span><span class="n">tools</span><span class="p">,</span>
+    <span class="c1"># 可选：系统提示词
+</span>    <span class="c1"># prompt="你是一个有用的助手，请用中文回答"
+</span><span class="p">)</span>
+
+<span class="c1"># 5. 运行Agent（注意：输入格式为消息列表）
+</span><span class="kn">from</span> <span class="n">langchain_core.messages</span> <span class="kn">import</span> <span class="n">HumanMessage</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">agent</span><span class="p">.</span><span class="nf">invoke</span><span class="p">({</span>
+    <span class="sh">"</span><span class="s">messages</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="nc">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="sh">"</span><span class="s">北京和上海温度总和是多少？</span><span class="sh">"</span><span class="p">)]</span>
+<span class="p">})</span>
+
+<span class="c1"># 输出结果
+</span><span class="nf">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="sh">"</span><span class="s">messages</span><span class="sh">"</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="n">content</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="agentinvoke使用"><span class="me-2">agent.invoke使用</span><a href="#agentinvoke使用" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<div class="language-python highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="n">result</span> <span class="o">=</span> <span class="n">agent</span><span class="p">.</span><span class="nf">invoke</span><span class="p">({</span>
+    <span class="sh">"</span><span class="s">messages</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="nc">SystemMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="sh">"</span><span class="s">你是数学专家</span><span class="sh">"</span><span class="p">),</span>      <span class="c1"># 系统提示（可选）
+</span>        <span class="nc">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="sh">"</span><span class="s">计算 100+100</span><span class="sh">"</span><span class="p">),</span>       <span class="c1"># 用户输入（必需）
+</span>        <span class="nc">AIMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="sh">"</span><span class="s">...</span><span class="sh">"</span><span class="p">),</span>               <span class="c1"># 历史AI回复（多轮时）
+</span>        <span class="nc">ToolMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="sh">"</span><span class="s">...</span><span class="sh">"</span><span class="p">,</span> <span class="n">tool_call_id</span><span class="o">=</span><span class="sh">"</span><span class="s">...</span><span class="sh">"</span><span class="p">)</span>  <span class="c1"># 历史工具结果（多轮时）
+</span>    <span class="p">]</span>
+<span class="p">})</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p><strong>代码示例</strong>：</p>
+
+<div class="language-python highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
 47
 48
 49
 50
 51
-</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="n">os</span>
-<span class="kn">import</span> <span class="n">warnings</span>
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="n">langchain.agents</span> <span class="kn">import</span> <span class="n">create_agent</span>
 <span class="kn">from</span> <span class="n">langchain_openai</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
-<span class="kn">from</span> <span class="n">langgraph.prebuilt.chat_agent_executor</span> <span class="kn">import</span> <span class="n">create_tool_calling_executor</span>
-<span class="kn">from</span> <span class="n">pydantic</span> <span class="kn">import</span> <span class="n">SecretStr</span>
-<span class="c1"># 设置环境变量以避免多线程问题
-</span><span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">[</span><span class="sh">"</span><span class="s">OMP_NUM_THREADS</span><span class="sh">"</span><span class="p">]</span> <span class="o">=</span> <span class="sh">"</span><span class="s">1</span><span class="sh">"</span>
-<span class="n">warnings</span><span class="p">.</span><span class="nf">filterwarnings</span><span class="p">(</span><span class="sh">"</span><span class="s">ignore</span><span class="sh">"</span><span class="p">)</span>
-
-<span class="c1"># 导入最新版本所需的模块
-</span><span class="kn">from</span> <span class="n">langchain_ollama</span> <span class="kn">import</span> <span class="n">ChatOllama</span>
 <span class="kn">from</span> <span class="n">langchain_core.tools</span> <span class="kn">import</span> <span class="n">tool</span>
-<span class="kn">from</span> <span class="n">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span>
+<span class="kn">from</span> <span class="n">langchain_core.messages</span> <span class="kn">import</span> <span class="n">HumanMessage</span><span class="p">,</span> <span class="n">SystemMessage</span><span class="p">,</span> <span class="n">AIMessage</span>
+<span class="kn">import</span> <span class="n">json</span>
+<span class="kn">from</span> <span class="n">pydantic</span> <span class="kn">import</span> <span class="n">SecretStr</span>
 
-<span class="c1"># 定义工具输入参数 schema
-</span><span class="k">class</span> <span class="nc">AddInputArgs</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-    <span class="n">a</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nc">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="sh">"</span><span class="s">第一个数字</span><span class="sh">"</span><span class="p">)</span>
-    <span class="n">b</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nc">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="sh">"</span><span class="s">第二个数字</span><span class="sh">"</span><span class="p">)</span>
 
-<span class="c1"># 使用 @tool 装饰器定义工具函数
-</span><span class="nd">@tool</span><span class="p">(</span><span class="n">args_schema</span><span class="o">=</span><span class="n">AddInputArgs</span><span class="p">,</span> <span class="n">return_direct</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="sh">"""</span><span class="s">将两个数字相加</span><span class="sh">"""</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="nd">@tool</span>
+<span class="k">def</span> <span class="nf">calculator</span><span class="p">(</span><span class="n">expression</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sh">"""</span><span class="s">计算数学表达式</span><span class="sh">"""</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">🛠️ 工具执行: </span><span class="si">{</span><span class="n">expression</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nf">str</span><span class="p">(</span><span class="nf">eval</span><span class="p">(</span><span class="n">expression</span><span class="p">))</span>
 
-<span class="c1"># 初始化 LLM（适配最新版本）
-# llm = ChatOllama(
-#     model="deepseek-r1:1.5b",
-#     base_url="http://localhost:11434",
-#     temperature=0.7,
-# )
-</span><span class="n">KimiLlm</span> <span class="o">=</span> <span class="nc">ChatOpenAI</span><span class="p">(</span>
+
+<span class="nd">@tool</span>
+<span class="k">def</span> <span class="nf">get_weather</span><span class="p">(</span><span class="n">city</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sh">"""</span><span class="s">获取指定城市的天气</span><span class="sh">"""</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">🌤️ 天气工具被调用: city=</span><span class="si">{</span><span class="n">city</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>  <span class="c1"># 添加日志
+</span>    <span class="k">return</span> <span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">city</span><span class="si">}</span><span class="s">天气：晴天 25°C</span><span class="sh">"</span>
+
+
+<span class="n">KimiLlm</span> <span class="o">=</span> <span class="nc">ChatOpenAI</span><span class="p">(</span>
     <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">kimi-k2-turbo-preview</span><span class="sh">"</span><span class="p">,</span>
     <span class="n">base_url</span><span class="o">=</span><span class="sh">"</span><span class="s">https://api.moonshot.cn/v1</span><span class="sh">"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="nc">SecretStr</span><span class="p">(</span><span class="sh">"</span><span class="s">sk-32lqdlnpX9Cgc7iwAR</span><span class="sh">"</span><span class="p">),</span>
-    <span class="n">temperature</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="nc">SecretStr</span><span class="p">(</span><span class="sh">"</span><span class="s">sk-32lqdlnpX9Cgc7iwpSaIO6B79BqbyL</span><span class="sh">"</span><span class="p">),</span>
+    <span class="n">temperature</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="c1"># 新版方式
-</span><span class="n">executor</span> <span class="o">=</span> <span class="nf">create_tool_calling_executor</span><span class="p">(</span><span class="n">KimiLlm</span><span class="p">,</span> <span class="p">[</span><span class="n">add</span><span class="p">])</span>
+<span class="c1"># LangGraph
+</span><span class="n">agent</span> <span class="o">=</span> <span class="nf">create_agent</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">KimiLlm</span><span class="p">,</span>
+    <span class="n">tools</span><span class="o">=</span><span class="p">[</span><span class="n">calculator</span><span class="p">,</span> <span class="n">get_weather</span><span class="p">],</span>  <span class="c1"># 工具列表
+</span><span class="p">)</span>
 
-<span class="c1"># 执行（新版输入格式可能不同）
-</span><span class="n">result</span> <span class="o">=</span> <span class="n">executor</span><span class="p">.</span><span class="nf">invoke</span><span class="p">({</span>
-    <span class="sh">"</span><span class="s">messages</span><span class="sh">"</span><span class="p">:</span> <span class="p">[(</span><span class="sh">"</span><span class="s">human</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">计算 100 加 200</span><span class="sh">"</span><span class="p">)]</span>
-<span class="p">})</span>
-
-<span class="c1"># 输出结果
-</span><span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">=</span><span class="sh">"</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="sh">"</span><span class="s">messages</span><span class="sh">"</span><span class="p">]:</span>
-    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">msg</span><span class="p">.</span><span class="nb">type</span><span class="si">}</span><span class="s">: </span><span class="si">{</span><span class="n">msg</span><span class="p">.</span><span class="n">content</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+<span class="c1"># ========== 多轮对话（手动维护历史）==========
+</span><span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="sh">"</span> <span class="o">+</span> <span class="sh">"</span><span class="s">=</span><span class="sh">"</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">多轮对话示例：</span><span class="sh">"</span><span class="p">)</span>
 <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">=</span><span class="sh">"</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># 第一轮
+</span><span class="n">result1</span> <span class="o">=</span> <span class="n">agent</span><span class="p">.</span><span class="nf">invoke</span><span class="p">({</span>
+    <span class="sh">"</span><span class="s">messages</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="nc">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="sh">"</span><span class="s">计算 100+100</span><span class="sh">"</span><span class="p">)]</span>
+<span class="p">})</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">result1</span><span class="p">[</span><span class="sh">"</span><span class="s">messages</span><span class="sh">"</span><span class="p">]</span>
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">第一轮: </span><span class="si">{</span><span class="n">history</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="n">content</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+<span class="c1"># 第二轮：带上历史 + 新消息
+</span><span class="n">history</span> <span class="o">=</span> <span class="n">result1</span><span class="p">[</span><span class="sh">"</span><span class="s">messages</span><span class="sh">"</span><span class="p">]</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="n">agent</span><span class="p">.</span><span class="nf">invoke</span><span class="p">({</span>
+    <span class="sh">"</span><span class="s">messages</span><span class="sh">"</span><span class="p">:</span> <span class="n">history</span> <span class="o">+</span> <span class="p">[</span><span class="nc">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="sh">"</span><span class="s">再加 50</span><span class="sh">"</span><span class="p">)]</span>
+<span class="p">})</span>
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">第二轮: </span><span class="si">{</span><span class="n">result2</span><span class="p">[</span><span class="sh">'</span><span class="s">messages</span><span class="sh">'</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="n">content</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+<span class="c1"># 第三轮：天气（明确指定城市）
+</span><span class="n">result3</span> <span class="o">=</span> <span class="n">agent</span><span class="p">.</span><span class="nf">invoke</span><span class="p">({</span>
+    <span class="sh">"</span><span class="s">messages</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="nc">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="sh">"</span><span class="s">北京天气如何？</span><span class="sh">"</span><span class="p">)]</span>
+<span class="p">})</span>
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">第三轮: </span><span class="si">{</span><span class="n">result3</span><span class="p">[</span><span class="sh">'</span><span class="s">messages</span><span class="sh">'</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="n">content</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
+
+<span class="c1"># ========== 带 thread_id（自动持久化）==========
+</span><span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="sh">"</span> <span class="o">+</span> <span class="sh">"</span><span class="s">=</span><span class="sh">"</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">持久化记忆示例：</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">=</span><span class="sh">"</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="n">langgraph.checkpoint.memory</span> <span class="kn">import</span> <span class="n">MemorySaver</span>
+
+<span class="c1"># 创建带检查点的 Agent
+</span><span class="n">agent_with_memory</span> <span class="o">=</span> <span class="nf">create_agent</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">KimiLlm</span><span class="p">,</span>
+    <span class="n">tools</span><span class="o">=</span><span class="p">[</span><span class="n">calculator</span><span class="p">,</span> <span class="n">get_weather</span><span class="p">],</span>  <span class="c1"># 传入所有工具
+</span>    <span class="n">checkpointer</span><span class="o">=</span><span class="nc">MemorySaver</span><span class="p">()</span>  <span class="c1"># 内存存储
+</span><span class="p">)</span>
+
+<span class="c1"># 第一轮 - 指定 thread_id
+</span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="sh">"</span><span class="s">configurable</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="sh">"</span><span class="s">thread_id</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">user_123</span><span class="sh">"</span><span class="p">,</span>  <span class="c1"># 必需：会话ID
+</span>        <span class="c1"># "user_id": "u_789",           # 可选：用户ID
+</span>        <span class="c1"># "checkpoint_ns": "tenant_a"   # 可选：命名空间
+</span>    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">result3</span> <span class="o">=</span> <span class="n">agent_with_memory</span><span class="p">.</span><span class="nf">invoke</span><span class="p">(</span>
+    <span class="p">{</span><span class="sh">"</span><span class="s">messages</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="nc">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="sh">"</span><span class="s">我叫张三, 住在黑龙江</span><span class="sh">"</span><span class="p">)]},</span>
+    <span class="n">config</span><span class="o">=</span><span class="n">config</span>
+<span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">第一轮: </span><span class="si">{</span><span class="n">result3</span><span class="p">[</span><span class="sh">'</span><span class="s">messages</span><span class="sh">'</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="n">content</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># 第二轮 - 同一 thread_id，自动加载历史
+</span><span class="n">result4</span> <span class="o">=</span> <span class="n">agent_with_memory</span><span class="p">.</span><span class="nf">invoke</span><span class="p">(</span>
+    <span class="p">{</span><span class="sh">"</span><span class="s">messages</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="nc">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="sh">"</span><span class="s">我叫什么名字？</span><span class="sh">"</span><span class="p">)]},</span>
+    <span class="n">config</span><span class="o">=</span><span class="n">config</span>
+<span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">第二轮: </span><span class="si">{</span><span class="n">result4</span><span class="p">[</span><span class="sh">'</span><span class="s">messages</span><span class="sh">'</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="n">content</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+<span class="c1"># 第3轮 - 同一 thread_id，自动加载历史
+</span><span class="n">result5</span> <span class="o">=</span> <span class="n">agent_with_memory</span><span class="p">.</span><span class="nf">invoke</span><span class="p">(</span>
+    <span class="p">{</span><span class="sh">"</span><span class="s">messages</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span><span class="nc">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="sh">"</span><span class="s">天气如何？</span><span class="sh">"</span><span class="p">)]},</span>
+    <span class="n">config</span><span class="o">=</span><span class="n">config</span>
+<span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">第三轮: </span><span class="si">{</span><span class="n">result5</span><span class="p">[</span><span class="sh">'</span><span class="s">messages</span><span class="sh">'</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="n">content</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
 </pre></td></tr></tbody></table></code></div></div>
 
 <div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
@@ -813,14 +1504,911 @@
 4
 5
 6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
 </pre></td><td class="rouge-code"><pre>==================================================
-human: 计算 100 加 200
-ai: 我来为您计算 100 加 200。
-tool: 300
-ai: 计算结果为：100 + 200 = **300**
+多轮对话示例：
 ==================================================
+🛠️ 工具执行: 100+100
+第一轮: 计算结果是：200
+🛠️ 工具执行: 200+50
+第二轮: 计算结果是：250（200 + 50 = 250）
+🌤️ 天气工具被调用: city=北京
+第三轮: 北京的天气很好！现在是晴天，气温25摄氏度，非常适合外出活动。
+
+==================================================
+持久化记忆示例：
+==================================================
+第一轮: 你好，张三！很高兴认识你。黑龙江是个美丽的地方，冬天特别冷吧？有什么我可以帮你的吗？
+第二轮: 你叫张三。
+第三轮: 我现在还不知道你在哪个城市，黑龙江很大，各地天气可能差别不小。请告诉我你想查询黑龙江的哪一座城市（比如哈尔滨、齐齐哈尔、大庆、佳木斯等），我就能帮你查实时天气啦！
+
 </pre></td></tr></tbody></table></code></div></div>
 
+<h2 id="返回体结构化"><span class="me-2">返回体结构化</span><a href="#返回体结构化" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<div class="language-python highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="n">langchain.agents</span> <span class="kn">import</span> <span class="n">create_agent</span>
+<span class="c1">#from langgraph.prebuilt import create_react_agent  # 注意：标记为弃用但仍可用
+</span><span class="kn">from</span> <span class="n">langchain_openai</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+<span class="kn">from</span> <span class="n">langchain_core.tools</span> <span class="kn">import</span> <span class="n">tool</span>
+<span class="kn">from</span> <span class="n">langchain_core.messages</span> <span class="kn">import</span> <span class="n">HumanMessage</span><span class="p">,</span> <span class="n">SystemMessage</span>
+<span class="kn">from</span> <span class="n">pydantic</span> <span class="kn">import</span> <span class="n">SecretStr</span>
+
+<span class="nd">@tool</span>
+<span class="k">def</span> <span class="nf">calculator</span><span class="p">(</span><span class="n">expression</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sh">"""</span><span class="s">计算数学表达式</span><span class="sh">"""</span>
+    <span class="k">return</span> <span class="nf">str</span><span class="p">(</span><span class="nf">eval</span><span class="p">(</span><span class="n">expression</span><span class="p">))</span>
+
+<span class="n">KimiLlm</span> <span class="o">=</span> <span class="nc">ChatOpenAI</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">kimi-k2-turbo-preview</span><span class="sh">"</span><span class="p">,</span>
+    <span class="n">base_url</span><span class="o">=</span><span class="sh">"</span><span class="s">https://api.moonshot.cn/v1</span><span class="sh">"</span><span class="p">,</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="nc">SecretStr</span><span class="p">(</span><span class="sh">"</span><span class="s">sk-32lqdlnpX9Cgc7iwAiMdeoepSaIO6B79BqbyL</span><span class="sh">"</span><span class="p">),</span>
+    <span class="n">temperature</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># LangGraph
+</span><span class="n">agent</span> <span class="o">=</span> <span class="nf">create_agent</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">KimiLlm</span><span class="p">,</span>
+    <span class="n">tools</span><span class="o">=</span><span class="p">[</span><span class="n">calculator</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="c1"># 直接 invoke，无需 AgentExecutor
+</span><span class="n">result</span> <span class="o">=</span> <span class="n">agent</span><span class="p">.</span><span class="nf">invoke</span><span class="p">({</span>
+    <span class="sh">"</span><span class="s">messages</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="nc">SystemMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="sh">"</span><span class="s">计算 100+90</span><span class="sh">"</span><span class="p">),</span>
+        <span class="nc">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="sh">"</span><span class="s">开始计算</span><span class="sh">"</span><span class="p">)</span>
+    <span class="p">]</span>
+<span class="p">})</span>
+
+<span class="c1"># ========== 5. 详细查看 result 结构 ==========
+</span><span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">=</span><span class="sh">"</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">📦 result 类型：</span><span class="sh">"</span><span class="p">,</span> <span class="nf">type</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">📦 result 键：</span><span class="sh">"</span><span class="p">,</span> <span class="n">result</span><span class="p">.</span><span class="nf">keys</span><span class="p">())</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">=</span><span class="sh">"</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># 查看 messages 列表
+</span><span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="se">\n</span><span class="s">📨 messages 列表（共 </span><span class="si">{</span><span class="nf">len</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="sh">'</span><span class="s">messages</span><span class="sh">'</span><span class="p">])</span><span class="si">}</span><span class="s"> 条）：</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">=</span><span class="sh">"</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">msg</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="sh">"</span><span class="s">messages</span><span class="sh">"</span><span class="p">]):</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="se">\n</span><span class="s">--- 消息 </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s"> ---</span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">类型：</span><span class="si">{</span><span class="n">msg</span><span class="p">.</span><span class="nb">type</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">角色：</span><span class="si">{</span><span class="nf">getattr</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="sh">'</span><span class="s">role</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">N/A</span><span class="sh">'</span><span class="p">)</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">内容：</span><span class="si">{</span><span class="n">msg</span><span class="p">.</span><span class="n">content</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="c1"># 查看额外字段
+</span>    <span class="k">if</span> <span class="nf">hasattr</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="sh">'</span><span class="s">tool_calls</span><span class="sh">'</span><span class="p">):</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">工具调用：</span><span class="si">{</span><span class="n">msg</span><span class="p">.</span><span class="n">tool_calls</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nf">hasattr</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="sh">'</span><span class="s">name</span><span class="sh">'</span><span class="p">):</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">工具名：</span><span class="si">{</span><span class="n">msg</span><span class="p">.</span><span class="n">name</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nf">hasattr</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="sh">'</span><span class="s">tool_call_id</span><span class="sh">'</span><span class="p">):</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">工具调用ID：</span><span class="si">{</span><span class="n">msg</span><span class="p">.</span><span class="n">tool_call_id</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nf">hasattr</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="sh">'</span><span class="s">additional_kwargs</span><span class="sh">'</span><span class="p">):</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">额外参数：</span><span class="si">{</span><span class="n">msg</span><span class="p">.</span><span class="n">additional_kwargs</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># ========== 6. 最后一条消息详细分析 ==========
+</span><span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="sh">"</span> <span class="o">+</span> <span class="sh">"</span><span class="s">=</span><span class="sh">"</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">🔍 最后一条消息详细分析：</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">=</span><span class="sh">"</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="n">last_msg</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="sh">"</span><span class="s">messages</span><span class="sh">"</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">对象类型：</span><span class="si">{</span><span class="nf">type</span><span class="p">(</span><span class="n">last_msg</span><span class="p">)</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">消息类型：</span><span class="si">{</span><span class="n">last_msg</span><span class="p">.</span><span class="nb">type</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">内容：</span><span class="si">{</span><span class="nf">repr</span><span class="p">(</span><span class="n">last_msg</span><span class="p">.</span><span class="n">content</span><span class="p">)</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># 查看所有属性
+</span><span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="se">\n</span><span class="s">所有属性：</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="nf">dir</span><span class="p">(</span><span class="n">last_msg</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">attr</span><span class="p">.</span><span class="nf">startswith</span><span class="p">(</span><span class="sh">'</span><span class="s">_</span><span class="sh">'</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="nf">getattr</span><span class="p">(</span><span class="n">last_msg</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nf">callable</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+                <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">  </span><span class="si">{</span><span class="n">attr</span><span class="si">}</span><span class="s">: </span><span class="si">{</span><span class="nf">repr</span><span class="p">(</span><span class="n">val</span><span class="p">)[</span><span class="si">:</span><span class="mi">100</span><span class="p">]</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+<span class="c1"># ========== 7. 提取结构化数据示例 ==========
+# print("\n" + "=" * 50)
+# print("📊 提取数据示例：")
+# print("=" * 50)
+#
+# # 提取所有工具消息
+# tool_msgs = [m for m in result["messages"] if m.type == "tool"]
+# print(f"工具消息数量：{len(tool_msgs)}")
+# for tm in tool_msgs:
+#     print(f"  - {tm.name}: {tm.content}")
+#
+# # 提取所有AI消息
+# ai_msgs = [m for m in result["messages"] if m.type == "ai"]
+# print(f"\nAI消息数量：{len(ai_msgs)}")
+# for am in ai_msgs:
+#     print(f"  - 内容：{am.content[:200]}...")
+#     if hasattr(am, 'tool_calls') and am.tool_calls:
+#         print(f"    工具调用：{am.tool_calls}")
+</span></pre></td></tr></tbody></table></code></div></div>
+
+<div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+</pre></td><td class="rouge-code"><pre>==================================================
+📦 result 类型： &lt;class 'dict'&gt;
+📦 result 键： dict_keys(['messages'])
+==================================================
+
+📨 messages 列表（共 5 条）：
+==================================================
+
+--- 消息 0 ---
+类型：system
+角色：N/A
+内容：计算 100+90
+工具名：None
+额外参数：{}
+
+--- 消息 1 ---
+类型：human
+角色：N/A
+内容：开始计算
+工具名：None
+额外参数：{}
+
+--- 消息 2 ---
+类型：ai
+角色：N/A
+内容：我来帮您计算 100 + 90。
+工具调用：[{'name': 'calculator', 'args': {'expression': '100+90'}, 'id': 'calculator:0', 'type': 'tool_call'}]
+工具名：None
+额外参数：{'refusal': None}
+
+--- 消息 3 ---
+类型：tool
+角色：N/A
+内容：190
+工具名：calculator
+工具调用ID：calculator:0
+额外参数：{}
+
+--- 消息 4 ---
+类型：ai
+角色：N/A
+内容：计算结果：100 + 90 = 190
+工具调用：[]
+工具名：None
+额外参数：{'refusal': None}
+
+==================================================
+🔍 最后一条消息详细分析：
+==================================================
+对象类型：&lt;class 'langchain_core.messages.ai.AIMessage'&gt;
+消息类型：ai
+内容：'计算结果：100 + 90 = 190'
+
+所有属性：
+  additional_kwargs: {'refusal': None}
+  content: '计算结果：100 + 90 = 190'
+  content_blocks: [{'type': 'text', 'text': '计算结果：100 + 90 = 190'}]
+  id: 'lc_run--019c55e5-2438-74e0-b1a9-8306f388edaf-0'
+  invalid_tool_calls: []
+  lc_attributes: {'tool_calls': [], 'invalid_tool_calls': []}
+  lc_secrets: {}
+  model_computed_fields: {}
+  model_config: {'extra': 'allow'}
+  model_extra: {}
+  model_fields: {'content': FieldInfo(annotation=Union[str, list[Union[str, dict]]], required=True), 'additional_kwa
+  model_fields_set: {'tool_calls', 'additional_kwargs', 'response_metadata', 'content', 'name', 'usage_metadata', 'id', 
+  name: None
+  response_metadata: {'token_usage': {'completion_tokens': 11, 'prompt_tokens': 100, 'total_tokens': 111, 'completion_tok
+  tool_calls: []
+  type: 'ai'
+  usage_metadata: {'input_tokens': 100, 'output_tokens': 11, 'total_tokens': 111, 'input_token_details': {}, 'output_t
+
+</pre></td></tr></tbody></table></code></div></div>
+
+<h1 id="langchain内置工具">LangChain内置工具</h1>
+
+<p>Tool使用方法：<a href="https://python.langchain.com/docs/integrations/tools/">https://python.langchain.com/docs/integrations/tools/</a></p>
+
+<p>内置Tooltiks：<a href="https://api.python.langchain.com/en/latest/community/agent_toolkits.html">https://api.python.langchain.com/en/latest/community/agent_toolkits.html</a></p>
+
+<h2 id="python-repl"><span class="me-2">Python REPL</span><a href="#python-repl" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>官网：<a href="https://python.langchain.com/docs/integrations/tools/python/">https://python.langchain.com/docs/integrations/tools/python/</a></p>
+
+<p><strong>利用Python REPL开发一个企业官网</strong></p>
+
+<div class="language-python highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="n">langchain.agents</span> <span class="kn">import</span> <span class="n">initialize_agent</span><span class="p">,</span> <span class="n">AgentType</span>
+<span class="kn">from</span> <span class="n">langchain_core.prompts</span> <span class="kn">import</span> <span class="n">PromptTemplate</span>
+<span class="kn">from</span> <span class="n">langchain_experimental.tools.python.tool</span> <span class="kn">import</span> <span class="n">PythonREPLTool</span>
+
+<span class="kn">from</span> <span class="n">app.common</span> <span class="kn">import</span> <span class="n">llm</span>
+
+
+<span class="n">tools</span> <span class="o">=</span> <span class="p">[</span><span class="nc">PythonREPLTool</span><span class="p">()]</span>
+
+<span class="n">tool_names</span> <span class="o">=</span> <span class="p">[</span><span class="sh">"</span><span class="s">PythonREPLTool</span><span class="sh">"</span><span class="p">]</span>
+
+<span class="n">agent</span> <span class="o">=</span> <span class="nf">initialize_agent</span><span class="p">(</span>
+    <span class="n">tools</span><span class="o">=</span><span class="n">tools</span><span class="p">,</span>
+    <span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">,</span>
+    <span class="n">agent</span><span class="o">=</span><span class="n">AgentType</span><span class="p">.</span><span class="n">ZERO_SHOT_REACT_DESCRIPTION</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">prompt_template</span> <span class="o">=</span> <span class="n">PromptTemplate</span><span class="p">.</span><span class="nf">from_template</span><span class="p">(</span><span class="n">template</span><span class="o">=</span><span class="sh">"""</span><span class="s">尽你所能回答以下问题，你可以使用以下工具：
+{tools}
+--
+请按照以下格式：
+问题：你必须回答的输入问题
+思考：你应该始终考虑该怎么做
+行动：要采取的行动，应该是[{tool_names}]中的一个
+行动输入：行动的输入
+观察：行动的结果
+</span><span class="gp">...</span> <span class="p">(</span><span class="n">这个思考</span><span class="o">/</span><span class="n">行动</span><span class="o">/</span><span class="n">行动输入</span><span class="o">/</span><span class="n">观察可以重复N次</span><span class="p">)</span>
+<span class="n">思考</span><span class="err">：</span><span class="n">我现在知道最终答案了</span>
+<span class="n">最终答案</span><span class="err">：</span><span class="n">对原始输入问题的最终答案</span>
+<span class="o">--</span>
+<span class="n">注意</span><span class="err">：</span>
+<span class="o">-</span> <span class="n">PythonREPLTool工具的入参是python代码</span><span class="err">，</span><span class="n">不允许添加</span> <span class="sb">```python 或 ```</span><span class="n">py</span> <span class="n">等标记</span>
+<span class="o">--</span>
+<span class="n">开始吧</span><span class="err">！</span>
+<span class="n">问题</span><span class="err">：</span><span class="p">{</span><span class="nb">input</span><span class="p">}</span><span class="sh">"""</span><span class="p">)</span>
+
+<span class="n">prompt</span> <span class="o">=</span> <span class="n">prompt_template</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span>
+    <span class="n">tools</span><span class="o">=</span><span class="n">tools</span><span class="p">,</span>
+    <span class="n">tool_names</span><span class="o">=</span><span class="n">tool_names</span><span class="p">,</span>
+    <span class="nb">input</span><span class="o">=</span><span class="sh">"</span><span class="s">向/Users/sam/llm/.temp目录下写入一个新文件，名称为：index.html，并写一个企业的官网</span><span class="sh">"</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+
+<span class="n">agent</span><span class="p">.</span><span class="nf">invoke</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>回答结果：</p>
+
+<div class="language-python highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+</pre></td><td class="rouge-code"><pre><span class="o">&gt;</span> <span class="n">Entering</span> <span class="n">new</span> <span class="n">AgentExecutor</span> <span class="n">chain</span><span class="bp">...</span>
+<span class="n">我需要使用Python代码来完成文件的创建和写入操作</span><span class="err">。</span>
+<span class="n">Action</span><span class="p">:</span> <span class="n">Python_REPL</span>
+<span class="n">Action</span> <span class="n">Input</span><span class="p">:</span> 
+<span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="sh">"</span><span class="s">/Users/sam/llm/.temp/index.html</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">w</span><span class="sh">"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="nb">file</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">"""</span><span class="s">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=</span><span class="sh">"</span><span class="s">en</span><span class="sh">"</span><span class="s">&gt;
+&lt;head&gt;
+    &lt;meta charset=</span><span class="sh">"</span><span class="s">UTF-8</span><span class="sh">"</span><span class="s">&gt;
+    &lt;meta name=</span><span class="sh">"</span><span class="s">viewport</span><span class="sh">"</span><span class="s"> content=</span><span class="sh">"</span><span class="s">width=device-width, initial-scale=1.0</span><span class="sh">"</span><span class="s">&gt;
+    &lt;title&gt;Our Company - Home&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background: #2c3e50;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav {
+            background: #34495e;
+            color: white;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Welcome to Our Company&lt;/h1&gt;
+    &lt;/header&gt;
+    &lt;nav&gt;
+        &lt;a href=</span><span class="sh">"</span><span class="s">#home</span><span class="sh">"</span><span class="s">&gt;Home&lt;/a&gt;
+        &lt;a href=</span><span class="sh">"</span><span class="s">#services</span><span class="sh">"</span><span class="s">&gt;Services&lt;/a&gt;
+        &lt;a href=</span><span class="sh">"</span><span class="s">#about</span><span class="sh">"</span><span class="s">&gt;About Us&lt;/a&gt;
+        &lt;a href=</span><span class="sh">"</span><span class="s">#contact</span><span class="sh">"</span><span class="s">&gt;Contact&lt;/a&gt;
+    &lt;/nav&gt;
+    &lt;section id=</span><span class="sh">"</span><span class="s">home</span><span class="sh">"</span><span class="s">&gt;
+        &lt;h2&gt;Your Success is Our Mission&lt;/h2&gt;
+        &lt;p&gt;We provide cutting-edge solutions tailored to your needs.&lt;/p&gt;
+    &lt;/section&gt;
+    &lt;footer&gt;
+        &amp;copy; 2023 Our Company. All rights reserved.
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+    </span><span class="sh">"""</span><span class="p">)</span>
+<span class="n">Python</span> <span class="n">REPL</span> <span class="n">can</span> <span class="n">execute</span> <span class="n">arbitrary</span> <span class="n">code</span><span class="p">.</span> <span class="n">Use</span> <span class="k">with</span> <span class="n">caution</span><span class="p">.</span>
+<span class="n">Observation</span><span class="p">:</span> 
+<span class="n">Thought</span><span class="p">:</span><span class="n">我现在知道最终答案了</span><span class="err">。</span>
+<span class="n">Final</span> <span class="n">Answer</span><span class="p">:</span> <span class="n">已成功在目录</span> <span class="sb">`/Users/sam/llm/.temp`</span> <span class="n">下创建了一个名为</span> <span class="sb">`index.html`</span> <span class="n">的文件</span><span class="err">，</span><span class="n">并写入了一个企业官网的HTML代码</span><span class="err">。</span><span class="n">该页面包含一个欢迎标题</span><span class="err">、</span><span class="n">导航栏</span><span class="err">、</span><span class="n">主页内容以及页脚信息</span><span class="err">，</span><span class="n">展示了基本的企业官网结构</span><span class="err">。</span>
+
+<span class="o">&gt;</span> <span class="n">Finished</span> <span class="n">chain</span><span class="p">.</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="langchain-output_parsers库详解"><span class="me-2">LangChain output_parsers库详解</span><a href="#langchain-output_parsers库详解" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>LangChain输出解析器（Output Parsers）是将大语言模型（LLM）的原始文本响应转换为结构化、可操作数据的关键组件。输出解析器通过提供格式化指令并解析模型输出，实现<strong><font style="color:rgb(44, 44, 54);">文本到结构化数据</font></strong><font style="color:rgb(44, 44, 54);">的高效转换。</font></p>
+
+<h3 id="基础解析器"><span class="me-2">基础解析器</span><a href="#基础解析器" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>基础解析器处理最简单的数据格式转换：</p>
+
+<ul>
+  <li><strong>StrOutputParser</strong>：直接提取模型返回的原始文本，不做任何结构化处理。</li>
+  <li><strong>CommaSeparatedListOutputParser</strong>：将逗号分隔的文本转换为Python列表。例如，将”apples, bananas, oranges”解析为[‘apples’, ‘bananas’, ‘oranges’]。</li>
+  <li><strong>BooleanOutputParser</strong>：解析文本为布尔值（True/False）。模型输出必须是”yes”或”no”（不区分大小写），解析器会统一转为大写后判断。</li>
+  <li><strong>SimpleJsonOutputParser</strong>：将文本简单处理后转换为JSON格式，通常用于模型已经正确输出JSON的情况。</li>
+</ul>
+
+<p>这些基础解析器适合处理简单数据结构，但缺乏验证和容错机制，适用于对格式要求不严格的场景。</p>
+
+<h3 id="pydantic解析器"><span class="me-2">Pydantic解析器</span><a href="#pydantic解析器" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>Pydantic解析器通过Pydantic模型定义复杂结构，提供更严格的验证和数据校验：</p>
+
+<ul>
+  <li><strong>PydanticOutputParser</strong>：将模型输出解析为Pydantic定义的模型对象。需要预先定义Pydantic模型，支持嵌套数据结构和类型验证。</li>
+  <li><strong>PydanticToolsParser</strong>：专门处理OpenAI工具调用中的Pydantic对象，将工具调用参数解析为Pydantic模型。</li>
+</ul>
+
+<p>Pydantic解析器适合需要严格验证的数据结构，如用户信息、订单详情等，确保输出的完整性和正确性。</p>
+
+<h3 id="函数调用解析器"><span class="me-2"><font style="color:rgb(44, 44, 54);">函数调用解析器</font></span><a href="#函数调用解析器" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<font style="color:rgb(44, 44, 54);">函数调用解析器处理支持OpenAI函数调用的模型（如GPT-4）的响应：</font>
+
+<ul>
+  <li><strong><font style="color:rgb(44, 44, 54);">OutputFunctionsParser</font></strong><font style="color:rgb(44, 44, 54);">：解析模型返回的函数调用参数，通常返回JSON格式的函数参数。</font></li>
+  <li><strong><font style="color:rgb(44, 44, 54);">JsonOutputFunctionsParser</font></strong><font style="color:rgb(44, 44, 54);">：提取函数调用中的JSON参数。</font></li>
+</ul>
+
+<font style="color:rgb(44, 44, 54);">这些解析器专为需要调用特定函数或工具的场景设计，常见于Agent系统或复杂任务处理。</font>
+
+<h3 id="时间枚举解析器"><span class="me-2"><font style="color:rgb(44, 44, 54);">时间/枚举解析器</font></span><a href="#时间枚举解析器" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<font style="color:rgb(44, 44, 54);">处理特定类型的数据：</font>
+
+<ul>
+  <li><strong><font style="color:rgb(44, 44, 54);">DatetimeOutputParser</font></strong>：将文本解析为标准日期时间格式（”%Y-%m-%dT%H:%M:%S.%fZ”）。</li>
+</ul>
+
+<div class="language-python highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="n">langchain.output_parsers</span> <span class="kn">import</span> <span class="n">DatetimeOutputParser</span>
+<span class="kn">from</span> <span class="n">langchain.prompts</span> <span class="kn">import</span> <span class="n">ChatPromptTemplate</span>
+
+<span class="kn">from</span> <span class="n">app.common</span> <span class="kn">import</span> <span class="n">llm</span>
+
+<span class="c1"># 创建DatetimeOutputParser
+</span><span class="n">output_parser</span> <span class="o">=</span> <span class="nc">DatetimeOutputParser</span><span class="p">()</span>
+
+<span class="c1"># 获取格式指令
+</span><span class="n">format_instructions</span> <span class="o">=</span> <span class="n">output_parser</span><span class="p">.</span><span class="nf">get_format_instructions</span><span class="p">()</span>
+
+<span class="c1"># 创建提示模板
+</span><span class="n">prompt</span> <span class="o">=</span> <span class="n">ChatPromptTemplate</span><span class="p">.</span><span class="nf">from_messages</span><span class="p">([</span>
+    <span class="p">(</span><span class="sh">"</span><span class="s">system</span><span class="sh">"</span><span class="p">,</span> <span class="sa">f</span><span class="sh">"</span><span class="s">你必须按照以下格式返回日期时间：</span><span class="si">{</span><span class="n">format_instructions</span><span class="si">}</span><span class="sh">"</span><span class="p">),</span>
+    <span class="p">(</span><span class="sh">"</span><span class="s">human</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">请将以下自然语言转换为标准日期时间格式：</span><span class="se">\n</span><span class="s">###{text}###</span><span class="sh">"</span><span class="p">)</span>
+<span class="p">])</span>
+
+
+<span class="n">chain</span> <span class="o">=</span> <span class="n">prompt</span> <span class="o">|</span> <span class="n">llm</span> <span class="o">|</span> <span class="n">output_parser</span>
+
+<span class="n">resp</span> <span class="o">=</span> <span class="n">chain</span><span class="p">.</span><span class="nf">invoke</span><span class="p">({</span><span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">转换一下：2025年5月15日</span><span class="sh">"</span><span class="p">})</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">type</span><span class="p">(</span><span class="n">resp</span><span class="p">))</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<ul>
+  <li><strong><font style="color:rgb(44, 44, 54);">EnumOutputParser</font></strong><font style="color:rgb(44, 44, 54);">：将文本解析为预定义的枚举值，适用于需要严格限制输出选项的场景。</font></li>
+</ul>
+
+<div class="language-python highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="n">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">from</span> <span class="n">langchain.output_parsers</span> <span class="kn">import</span> <span class="n">EnumOutputParser</span>
+<span class="kn">from</span> <span class="n">langchain_core.prompts</span> <span class="kn">import</span> <span class="n">ChatPromptTemplate</span>
+
+<span class="kn">from</span> <span class="n">app.common</span> <span class="kn">import</span> <span class="n">llm</span>
+
+
+<span class="c1"># 定义枚举类
+</span><span class="k">class</span> <span class="nc">Color</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">RED</span> <span class="o">=</span> <span class="sh">"</span><span class="s">red</span><span class="sh">"</span>
+    <span class="n">GREEN</span> <span class="o">=</span> <span class="sh">"</span><span class="s">green</span><span class="sh">"</span>
+    <span class="n">BLUE</span> <span class="o">=</span> <span class="sh">"</span><span class="s">blue</span><span class="sh">"</span>
+
+<span class="c1"># 创建解析器
+</span><span class="n">output_parser</span> <span class="o">=</span> <span class="nc">EnumOutputParser</span><span class="p">(</span><span class="n">enum</span><span class="o">=</span><span class="n">Color</span><span class="p">)</span>
+
+<span class="c1"># 提示模板
+</span><span class="n">prompt</span> <span class="o">=</span> <span class="n">ChatPromptTemplate</span><span class="p">.</span><span class="nf">from_messages</span><span class="p">([</span>
+    <span class="p">(</span><span class="sh">"</span><span class="s">system</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">请选择一种颜色：</span><span class="sh">"</span><span class="p">),</span>
+    <span class="p">(</span><span class="sh">"</span><span class="s">human</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">选项：{options}，直接返回颜色文本</span><span class="sh">"</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="c1"># 构建链
+</span><span class="n">chain</span> <span class="o">=</span> <span class="n">prompt</span> <span class="o">|</span> <span class="n">llm</span> <span class="o">|</span> <span class="n">output_parser</span>
+
+<span class="c1"># 测试输入
+</span><span class="n">result</span> <span class="o">=</span> <span class="n">chain</span><span class="p">.</span><span class="nf">invoke</span><span class="p">({</span><span class="sh">"</span><span class="s">options</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">red, green, blue</span><span class="sh">"</span><span class="p">})</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">解析后的枚举值：</span><span class="sh">"</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">type</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<font style="color:rgb(44, 44, 54);">这些解析器针对特定数据类型进行了优化，提供更精准的解析结果。</font>
+
+<h3 id="正则解析器"><span class="me-2"><font style="color:rgb(44, 44, 54);">正则解析器</font></span><a href="#正则解析器" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<font style="color:rgb(44, 44, 54);">通过正则表达式提取特定模式的数据：</font>
+
+<ul>
+  <li><strong><font style="color:rgb(44, 44, 54);">RegexParser</font></strong><font style="color:rgb(44, 44, 54);">：单字段正则匹配。</font></li>
+  <li><strong><font style="color:rgb(44, 44, 54);">RegexDictParser</font></strong><font style="color:rgb(44, 44, 54);">：多字段正则提取为字典。</font></li>
+</ul>
+
+<font style="color:rgb(44, 44, 54);">正则解析器适合需要灵活匹配文本模式的场景，如提取电话号码、邮箱地址等。</font>
+
+<h3 id="复合解析器"><span class="me-2"><font style="color:rgb(44, 44, 54);">复合解析器</font></span><a href="#复合解析器" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<font style="color:rgb(44, 44, 54);">处理复杂或多部分的输出：</font>
+
+<ul>
+  <li><strong><font style="color:rgb(44, 44, 54);">CombiningOutputParser</font></strong><font style="color:rgb(44, 44, 54);">：组合多个解析器，将文本通过分隔符拆分后分别解析。</font></li>
+  <li><strong><font style="color:rgb(44, 44, 54);">RetryWithErrorOutputParser</font></strong><font style="color:rgb(44, 44, 54);">：在解析失败时重试并尝试修复输出。</font></li>
+</ul>
+
+<font style="color:rgb(44, 44, 54);">复合解析器提供了更强大的处理能力，可以应对复杂或多任务的输出场景。</font>
+
+<h3 id="强校验解析器"><span class="me-2"><font style="color:rgb(44, 44, 54);">强校验解析器</font></span><a href="#强校验解析器" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<font style="color:rgb(44, 44, 54);">提供更严格的输出验证：</font>
+
+<ul>
+  <li><strong><font style="color:rgb(44, 44, 54);">GuardrailsOutputParser</font></strong><font style="color:rgb(44, 44, 54);">：基于Guardrails库，对输出进行强校验，支持自定义规则（如过滤不当内容、校验数据格式）。</font></li>
+</ul>
+
+<p>Guardrails解析器特别适合安全敏感场景，确保输出内容符合预设规则和标准。</p>
+
+<h3 id="代码示例"><span class="me-2">代码示例</span><a href="#代码示例" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th style="text-align: left">解析器</th>
+      <th style="text-align: left">用途</th>
+      <th style="text-align: left">输入示例</th>
+      <th style="text-align: left">输出类型</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">StrOutputParser</code></td>
+      <td style="text-align: left">纯文本</td>
+      <td style="text-align: left">“你好”</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">str</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">CommaSeparatedListOutputParser</code></td>
+      <td style="text-align: left">逗号列表</td>
+      <td style="text-align: left">“a,b,c”</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">list[str]</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">JsonOutputParser</code></td>
+      <td style="text-align: left">通用JSON</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">{"a":1}</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">dict</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">PydanticOutputParser</code></td>
+      <td style="text-align: left">强类型结构</td>
+      <td style="text-align: left">JSON</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">BaseModel</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">DatetimeOutputParser</code></td>
+      <td style="text-align: left">日期时间</td>
+      <td style="text-align: left">“2025-05-15”</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">datetime</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">EnumOutputParser</code></td>
+      <td style="text-align: left">枚举值</td>
+      <td style="text-align: left">“positive”</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">Enum</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">BooleanOutputParser</code></td>
+      <td style="text-align: left">布尔值</td>
+      <td style="text-align: left">“yes/no”</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">bool</code></td>
+    </tr>
+  </tbody>
+</table></div>
 
   </div>
 
@@ -927,6 +2515,13 @@ ai: 计算结果为：100 + 200 = **300**
         
         
         <li class="text-truncate lh-lg">
+          <a href="/jekyll/chirpy%E4%BD%BF%E7%94%A8/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/">Chirpy主题的进阶使用</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/jekyll/chirpy%E4%BD%BF%E7%94%A8/colorbox-details-test/">Colorbox 和 Details 功能测试</a>
         </li>
       
@@ -949,13 +2544,6 @@ ai: 计算结果为：100 + 200 = **300**
         
         <li class="text-truncate lh-lg">
           <a href="/agent/langchain%E8%A7%A3%E6%9E%90/LangChain%E8%A7%A3%E6%9E%90/">LangChain解析</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/agent/langchain-agent%E8%A7%A3%E6%9E%90/LangGraph-agent/">LangChain-Agent解析2</a>
         </li>
       
     </ul>
@@ -1097,50 +2685,6 @@ ai: 计算结果为：100 + 200 = **300**
     
     
     
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
       
         
         
@@ -1186,6 +2730,54 @@ ai: 计算结果为：100 + 200 = **300**
     
     
     
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -1499,10 +3091,10 @@ ai: 计算结果为：100 + 200 = **300**
         <a class="post-tag btn btn-outline-primary" href="/tags/jekyll%E4%BD%BF%E7%94%A8/">jekyll使用</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
@@ -1599,18 +3191,6 @@ ai: 计算结果为：100 + 200 = **300**
   
 
   
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
     
 
 
@@ -1625,91 +3205,6 @@ ai: 计算结果为：100 + 200 = **300**
   <aside id="related-posts" aria-labelledby="related-label">
     <h3 class="mb-4" id="related-label">相关文章</h3>
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
-      
-        <article class="col">
-          <a href="/agent/langchain-agent%E8%A7%A3%E6%9E%90/LangGraph-agent/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1770883200"
-  data-df="YYYY/MM/DD"
-  
->
-  2026/02/12
-</time>
-
-              <h4 class="pt-0 my-2">LangChain-Agent解析2</h4>
-              <div class="text-muted">
-                <p>短代码块测试
-
-1
-print(&quot;Hello World&quot;)
-
-
-长代码块测试
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-def fibonacci(n):
-   ...</p>
-              </div>
-            </div>
-          </a>
-        </article>
       
         <article class="col">
           <a href="/agent/langchain-agent%E8%A7%A3%E6%9E%90/MCP/" class="post-preview card h-100">
@@ -2075,50 +3570,6 @@ LangChain 是一个强大的开源框架，旨在帮助开发者基于大型语�
     
     
     
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
       
         
         
@@ -2164,6 +3615,54 @@ LangChain 是一个强大的开源框架，旨在帮助开发者基于大型语�
     
     
     
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -2477,10 +3976,10 @@ LangChain 是一个强大的开源框架，旨在帮助开发者基于大型语�
         <a class="post-tag btn btn-outline-primary" href="/tags/jekyll%E4%BD%BF%E7%94%A8/">jekyll使用</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
