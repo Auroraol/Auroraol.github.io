@@ -1,6 +1,3 @@
----
----
-
 @import 'main';
 
 /* append your custom style below */
@@ -11,67 +8,3 @@
 //     background-repeat: no-repeat; /* <- no-repeat */
 //     background-position: top; /* <- image position */
 // }
-
-// Code collapse styles
-.collapsible-container {
-  position: relative;
-  margin-bottom: 1rem;
-  border-radius: 0.625rem;
-}
-
-.collapsible-trigger {
-  display: block;
-  width: auto;
-  padding: 0.3rem 0.5rem;
-  background-color: var(--highlight-bg-color);
-  border: 1px solid var(--language-border-color);
-  border-radius: 0 0 0.625rem 0.625rem;
-  cursor: pointer;
-  font-weight: 600;
-  color: var(--code-header-text-color);
-  text-align: center;
-  transition: all 0.3s ease;
-  margin: 0 auto;
-  font-size: 0.85rem;
-  line-height: 1;
-  
-  &:hover {
-    background-color: rgba(128, 128, 128, 0.37);
-    color: white;
-  }
-}
-
-.collapsible-content {
-  overflow: hidden;
-  max-height: 456px; /* 默认显示19行，每行24px */
-  border: 1px solid var(--language-border-color);
-  border-top: none;
-  border-radius: 0 0 0.625rem 0.625rem;
-  transition: max-height 0.3s ease-out;
-  
-  .highlight {
-    margin: 0;
-    border-radius: 0;
-    
-    table {
-      width: 100%;
-      margin: 0;
-      
-      tr {
-        td {
-          padding: 0;
-        }
-      }
-    }
-  }
-}
-
-/* 移除滚动条样式 - 保持代码框无滚动条 */
-.collapsible-content::-webkit-scrollbar {
-  display: none;
-}
-
-.collapsible-content {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
