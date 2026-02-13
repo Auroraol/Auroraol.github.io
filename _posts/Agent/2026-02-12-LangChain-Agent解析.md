@@ -1,6 +1,6 @@
 ---
 title: LangChain-Agent解析
-date: 2026-02-12 16:00:00 +0800
+date: 2026-02-13 16:00:00 +0800
 categories: [Agent, LangChain-Agent解析]
 tags: [LangChain-Agent解析]
 ---
@@ -834,7 +834,7 @@ from langchain_core.prompts import ChatPromptTemplate
 llm = ChatOpenAI(
     model="kimi-k2-turbo-preview",
     base_url="https://api.moonshot.cn/v1",
-    api_key=SecretStr("sk-32lqdlnpX9C7KiMdeoepSaIO6B79BqbyL"),
+    api_key=SecretStr("sk-32lqdlnpX9C7KiMdeoepSaIO79BqbyL"),
     temperature=1,
 )
 
