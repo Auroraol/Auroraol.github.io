@@ -33,7 +33,7 @@
   transition: all 0.3s ease;
   margin: 0 auto;
   font-size: 0.85rem;
-  line-height: 1.4; /* 保持高度不变 */
+  line-height: 1; /* 保持高度不变 */
   
   &:hover {
     background-color: rgba(128, 128, 128, 0.37);
