@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>L</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2026-02-13T13:45:02+08:00</updated>
+  <updated>2026-02-13T14:22:41+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -20,27 +20,108 @@
 
   
   <entry>
-    <title>代码折叠功能测试</title>
-    <link href="http://localhost:4000/%E6%B5%8B%E8%AF%95/%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0%E6%B5%8B%E8%AF%95/" rel="alternate" type="text/html" title="代码折叠功能测试" />
-    <published>2026-02-13T00:00:00+08:00</published>
+    <title>Colorbox 和 Details 功能测试</title>
+    <link href="http://localhost:4000/jekyll/chirpy%E4%BD%BF%E7%94%A8/colorbox-details-test/" rel="alternate" type="text/html" title="Colorbox 和 Details 功能测试" />
+    <published>2026-02-13T14:12:00+08:00</published>
   
-    <updated>2026-02-13T00:00:00+08:00</updated>
+    <updated>2026-02-13T14:12:00+08:00</updated>
   
-    <id>http://localhost:4000/%E6%B5%8B%E8%AF%95/%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0%E6%B5%8B%E8%AF%95/</id>
-    <content src="http://localhost:4000/%E6%B5%8B%E8%AF%95/%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0%E6%B5%8B%E8%AF%95/" />
+    <id>http://localhost:4000/jekyll/chirpy%E4%BD%BF%E7%94%A8/colorbox-details-test/</id>
+    <content src="http://localhost:4000/jekyll/chirpy%E4%BD%BF%E7%94%A8/colorbox-details-test/" />
     <author>
       <name>lfj</name>
     </author>
 
   
     
-    <category term="测试" />
+    <category term="jekyll" />
+    
+    <category term="Chirpy使用" />
+    
+  
+
+  <summary>本文档用于测试新增的 colorbox 提示框和 details 折叠块功能。
+
+Colorbox 提示框测试
+
+
+  测试
+
+
+Info 提示框
+
+
+  Info 提示框标题
+
+  这是一个 info 类型的提示框，通常用于提供一般性信息。
+
+
+Tip 提示框
+
+
+  Tip 提示框标题
+
+  这是一个 tip 类型的提示框，通常用于提供技巧或建议。
+
+
+Warning 提示框
+
+
+  Warning 提示框标题
+
+  这是一个 warning 类型的提示框，通常用于警告重要信息。
+
+
+Danger 提示框
+
+
+  Danger 提示框标题
+
+  这是一个 danger 类型的提示框，通常用于显示错误或危险信息。
+
+
+
+  这是一个 danger 类型的提示框，通常用于显示错误或危险信息。
+
+
+Details 折叠块测试
+
+基础折叠块
+
+
+  点击查看详细信息
+
+  这里是一些详细...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>代码折叠功能测试</title>
+    <link href="http://localhost:4000/jekyll/chirpy%E4%BD%BF%E7%94%A8/%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0%E6%B5%8B%E8%AF%95/" rel="alternate" type="text/html" title="代码折叠功能测试" />
+    <published>2026-02-13T00:00:00+08:00</published>
+  
+    <updated>2026-02-13T00:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/jekyll/chirpy%E4%BD%BF%E7%94%A8/%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0%E6%B5%8B%E8%AF%95/</id>
+    <content src="http://localhost:4000/jekyll/chirpy%E4%BD%BF%E7%94%A8/%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0%E6%B5%8B%E8%AF%95/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="jekyll" />
+    
+    <category term="Chirpy使用" />
     
   
 
   <summary>代码折叠功能测试
 
-这是一个测试代码折叠功能的文章。
+
+  这是一个测试代码折叠功能的文章。
+
 
 短代码块（应该不显示折叠按钮）
 
@@ -64,58 +145,7 @@ def main():
     # 一些额外的代码行来测试折叠功能
     print(&amp;quot;这是第1行&amp;quot;)
     print(&amp;quot;这是第2行&amp;quot;)
-    print(&amp;quot;这是第3...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>测试代码折叠功能</title>
-    <link href="http://localhost:4000/%E6%B5%8B%E8%AF%95/test-code-folding/" rel="alternate" type="text/html" title="测试代码折叠功能" />
-    <published>2026-02-12T23:00:00+08:00</published>
-  
-    <updated>2026-02-12T23:00:00+08:00</updated>
-  
-    <id>http://localhost:4000/%E6%B5%8B%E8%AF%95/test-code-folding/</id>
-    <content src="http://localhost:4000/%E6%B5%8B%E8%AF%95/test-code-folding/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="测试" />
-    
-  
-
-  <summary>这是一个测试代码折叠功能的文章。
-
-短代码块测试
-
-print(&amp;quot;Hello World&amp;quot;)
-
-
-长代码块测试
-
-def fibonacci(n):
-    &amp;quot;&amp;quot;&amp;quot;计算斐波那契数列的第n项&amp;quot;&amp;quot;&amp;quot;
-    if n &amp;amp;lt;= 0:
-        return 0
-    elif n == 1:
-        return 1
-    else:
-        a, b = 0, 1
-        for i in range(2, n + 1):
-            a, b = b, a + b
-        return b
-
-def main():
-    # 计算前20个斐波那契数
-    for i in range(20):
-        print(f&amp;quot;F({i}) = {fibonacci(i)}&amp;quot;)
-    
-    # 一些额外的代码来增加长度
-...</summary>
+    print(&amp;quot;...</summary>
 
   </entry>
 

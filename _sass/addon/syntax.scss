@@ -94,6 +94,43 @@ html {
   }
 } /* .highlight */
 
+/* === Code Block Scrollbar Fix for Collapsible === */
+/* 1. Hide scrollbar on highlight container (critical) */
+.highlight {
+  overflow: hidden !important;
+}
+
+/* 2. Ensure collapsible-container (added via refactor-content.html) controls overflow */
+.collapsible-container {
+  overflow: hidden !important;
+  position: relative;
+
+  /* Optional: add subtle fade-out when collapsed (enhancement) */
+  &.collapsed {
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50px;
+      background: linear-gradient(transparent, var(--highlight-bg-color));
+      pointer-events: none;
+    }
+  }
+
+  /* When expanded, allow full height but still hide scrollbar */
+  &:not(.collapsed) {
+    overflow: hidden !important;
+  }
+}
+
+/* 3. Override any nested overflow:auto in tables or pre */
+.highlight table td pre,
+.highlight pre {
+  overflow: visible !important;
+}
+
 // Code collapse styles
 .collapsible-code {
   transition: max-height 0.3s ease-out;

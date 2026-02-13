@@ -1,3 +1,5 @@
+> 基于 Chirpy 主题的 Jekyll 博客
+
 发布新的文章，遵循以下步骤：
 
 - 在`_posts`目录中添加新的Markdown文件。
