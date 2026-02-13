@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
             transition: all 0.3s ease;
             margin: 0 auto;
             font-size: 0.85rem;
-            line-height: 1.4;
+            line-height: 1;
         `;
         
         trigger.addEventListener('mouseenter', function() {

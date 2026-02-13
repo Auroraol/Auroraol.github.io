@@ -33,7 +33,7 @@
   transition: all 0.3s ease;
   margin: 0 auto;
   font-size: 0.85rem;
-  line-height: 1; /* 保持高度不变 */
+  line-height: 1;
   
   &:hover {
     background-color: rgba(128, 128, 128, 0.37);
@@ -66,29 +66,12 @@
   }
 }
 
-/* 滚动条样式 */
+/* 移除滚动条样式 - 保持代码框无滚动条 */
 .collapsible-content::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  display: none;
 }
 
-.collapsible-content::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
-}
-
-.collapsible-content::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-.collapsible-content::-webkit-scrollbar-track {
-  background-color: #f1f1f1;
-  border-radius: 6px;
-}
-
-/* 触发器额外样式 */
-.collapsible-trigger-css {
-  color: gray;
-  text-align: center;
-  font-size: 0.8rem;
+.collapsible-content {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
