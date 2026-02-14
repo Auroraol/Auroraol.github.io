@@ -1971,14 +1971,28 @@ String()  : Order&lt;Alice,ID=10086 CreatedAt=2009-11-10 23:00:00 +0000 UTC m=+0
         
         
         <li class="text-truncate lh-lg">
-          <a href="/agent/langchain-agent%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
+          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/MCP/">03_LangChain-MCP解析</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/LangChain%E8%A7%A3%E6%9E%90/">LangChain解析</a>
+          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/">02_LangChain-Agent解析</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/go/%E8%A7%84%E5%88%99/%E5%86%85%E5%AD%98/">内存分析</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/LangChain%E8%A7%A3%E6%9E%90/">01_LangChain解析</a>
         </li>
       
         
@@ -1986,20 +2000,6 @@ String()  : Order&lt;Alice,ID=10086 CreatedAt=2009-11-10 23:00:00 +0000 UTC m=+0
         
         <li class="text-truncate lh-lg">
           <a href="/jekyll/chirpy%E4%BD%BF%E7%94%A8/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/">Chirpy主题的进阶使用</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/jekyll/chirpy%E4%BD%BF%E7%94%A8/colorbox-details-test/">Colorbox 和 Details 功能测试</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/jekyll/chirpy%E4%BD%BF%E7%94%A8/%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0%E6%B5%8B%E8%AF%95/">代码折叠功能测试</a>
         </li>
       
     </ul>
@@ -2098,35 +2098,6 @@ String()  : Order&lt;Alice,ID=10086 CreatedAt=2009-11-10 23:00:00 +0000 UTC m=+0
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2141,6 +2112,31 @@ String()  : Order&lt;Alice,ID=10086 CreatedAt=2009-11-10 23:00:00 +0000 UTC m=+0
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -2151,6 +2147,25 @@ String()  : Order&lt;Alice,ID=10086 CreatedAt=2009-11-10 23:00:00 +0000 UTC m=+0
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -2701,6 +2716,18 @@ String()  : Order&lt;Alice,ID=10086 CreatedAt=2009-11-10 23:00:00 +0000 UTC m=+0
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
   
 
@@ -2849,44 +2876,6 @@ String()  : Order&lt;Alice,ID=10086 CreatedAt=2009-11-10 23:00:00 +0000 UTC m=+0
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
-          <a href="/go/%E8%A7%84%E5%88%99/%E5%AD%97%E5%85%B8/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1764212400"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/27
-</time>
-
-              <h4 class="pt-0 my-2">字典</h4>
-              <div class="text-muted">
-                <p>创建
-
-Map创建了没有赋值，编译器会报错
-
-//1.make函数创建 (推荐)
-var map2 = make(map[string]string)   //make创建会直接初始化，值为nil
-
-//2.创建同时初始化 (有确定的键值时推荐)
-var map3 = map[string]int{&quot;Go&quot;:100,&quot;java&quot;:90} // 有这些键值时使用
-
-//3.var常量定义 (不...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
           <a href="/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/" class="post-preview card h-100">
             <div class="card-body">
               <!--
@@ -2976,6 +2965,57 @@ func 函数名字 (参数列表) (返回值列表）{
   返回值列表返回值类型可以不用写变量名
   如果只有一个返回值且不声明类型，可以省略返回值列表与括号
   如果有返回值，函数内必须有...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/go/%E8%A7%84%E5%88%99/%E5%88%87%E7%89%87/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1766224800"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/12/20
+</time>
+
+              <h4 class="pt-0 my-2">切片</h4>
+              <div class="text-muted">
+                <p>创建
+
+1
+2
+3
+4
+5
+6
+7
+8
+//1.make函数创建 (推荐)
+切片名称 := make([]切片类型, 0, 指定容量) 
+
+//2.创建同时初始化 (有确定的数据时推荐)
+var 切片名称 = []切片类型{}
+
+//3.var常量定义 (不推荐)
+var 切片名称 [] 切片类型
+
+
+修改
+
+值类型切片 → 必须拿索引才能改
+指针切片 → 循环变量本身就是原对象地址，直接改...</p>
               </div>
             </div>
           </a>
@@ -3234,35 +3274,6 @@ func 函数名字 (参数列表) (返回值列表）{
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -3277,6 +3288,31 @@ func 函数名字 (参数列表) (返回值列表）{
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -3287,6 +3323,25 @@ func 函数名字 (参数列表) (返回值列表）{
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     

@@ -959,14 +959,28 @@ ext.RsReports = append(ext.RsReports[:i], ext.RsReports[i+1:]...)
         
         
         <li class="text-truncate lh-lg">
-          <a href="/agent/langchain-agent%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
+          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/MCP/">03_LangChain-MCP解析</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/LangChain%E8%A7%A3%E6%9E%90/">LangChain解析</a>
+          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/">02_LangChain-Agent解析</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/go/%E8%A7%84%E5%88%99/%E5%86%85%E5%AD%98/">内存分析</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/LangChain%E8%A7%A3%E6%9E%90/">01_LangChain解析</a>
         </li>
       
         
@@ -974,20 +988,6 @@ ext.RsReports = append(ext.RsReports[:i], ext.RsReports[i+1:]...)
         
         <li class="text-truncate lh-lg">
           <a href="/jekyll/chirpy%E4%BD%BF%E7%94%A8/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/">Chirpy主题的进阶使用</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/jekyll/chirpy%E4%BD%BF%E7%94%A8/colorbox-details-test/">Colorbox 和 Details 功能测试</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/jekyll/chirpy%E4%BD%BF%E7%94%A8/%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0%E6%B5%8B%E8%AF%95/">代码折叠功能测试</a>
         </li>
       
     </ul>
@@ -1086,35 +1086,6 @@ ext.RsReports = append(ext.RsReports[:i], ext.RsReports[i+1:]...)
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1129,6 +1100,31 @@ ext.RsReports = append(ext.RsReports[:i], ext.RsReports[i+1:]...)
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -1139,6 +1135,25 @@ ext.RsReports = append(ext.RsReports[:i], ext.RsReports[i+1:]...)
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -1653,6 +1668,18 @@ ext.RsReports = append(ext.RsReports[:i], ext.RsReports[i+1:]...)
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
   
 
@@ -1837,44 +1864,6 @@ ext.RsReports = append(ext.RsReports[:i], ext.RsReports[i+1:]...)
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
-          <a href="/go/%E8%A7%84%E5%88%99/%E5%AD%97%E5%85%B8/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1764212400"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/27
-</time>
-
-              <h4 class="pt-0 my-2">字典</h4>
-              <div class="text-muted">
-                <p>创建
-
-Map创建了没有赋值，编译器会报错
-
-//1.make函数创建 (推荐)
-var map2 = make(map[string]string)   //make创建会直接初始化，值为nil
-
-//2.创建同时初始化 (有确定的键值时推荐)
-var map3 = map[string]int{&quot;Go&quot;:100,&quot;java&quot;:90} // 有这些键值时使用
-
-//3.var常量定义 (不...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
           <a href="/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/" class="post-preview card h-100">
             <div class="card-body">
               <!--
@@ -1967,6 +1956,52 @@ type FImpl interface {
   
   结构体T方法为接收者方法：      只有 *T 可以赋给接口
   接口类型前面永远不要加 * (接口用值，不加星；加星就废，没...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/go/%E8%A7%84%E5%88%99/%E6%96%B9%E6%B3%95/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1765080000"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/12/07
+</time>
+
+              <h4 class="pt-0 my-2">函数</h4>
+              <div class="text-muted">
+                <p>函数
+
+定义函数
+
+func 函数名字 (参数列表) (返回值列表）{
+	// 函数体
+	return 返回值列表
+}
+
+
+注意：
+
+
+  函数名首字母小写为私有，大写为公有；
+  参数列表可以有0-多个，多参数使用逗号分隔，不支持默认参数；
+  返回值列表返回值类型可以不用写变量名
+  如果只有一个返回值且不声明类型，可以省略返回值列表与括号
+  如果有返回值，函数内必须有return　
+...</p>
               </div>
             </div>
           </a>
@@ -2225,35 +2260,6 @@ type FImpl interface {
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2268,6 +2274,31 @@ type FImpl interface {
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -2278,6 +2309,25 @@ type FImpl interface {
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     

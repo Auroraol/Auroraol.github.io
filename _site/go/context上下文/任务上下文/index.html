@@ -3618,14 +3618,28 @@ ctx（原始请求上下文）
         
         
         <li class="text-truncate lh-lg">
-          <a href="/agent/langchain-agent%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
+          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/MCP/">03_LangChain-MCP解析</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/LangChain%E8%A7%A3%E6%9E%90/">LangChain解析</a>
+          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/">02_LangChain-Agent解析</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/go/%E8%A7%84%E5%88%99/%E5%86%85%E5%AD%98/">内存分析</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/LangChain%E8%A7%A3%E6%9E%90/">01_LangChain解析</a>
         </li>
       
         
@@ -3633,20 +3647,6 @@ ctx（原始请求上下文）
         
         <li class="text-truncate lh-lg">
           <a href="/jekyll/chirpy%E4%BD%BF%E7%94%A8/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/">Chirpy主题的进阶使用</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/jekyll/chirpy%E4%BD%BF%E7%94%A8/colorbox-details-test/">Colorbox 和 Details 功能测试</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/jekyll/chirpy%E4%BD%BF%E7%94%A8/%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0%E6%B5%8B%E8%AF%95/">代码折叠功能测试</a>
         </li>
       
     </ul>
@@ -3745,35 +3745,6 @@ ctx（原始请求上下文）
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -3788,6 +3759,31 @@ ctx（原始请求上下文）
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -3798,6 +3794,25 @@ ctx（原始请求上下文）
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -4480,6 +4495,18 @@ ctx（原始请求上下文）
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
 
 
@@ -4494,53 +4521,6 @@ ctx（原始请求上下文）
   <aside id="related-posts" aria-labelledby="related-label">
     <h3 class="mb-4" id="related-label">相关文章</h3>
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
-      
-        <article class="col">
-          <a href="/go/%E8%A7%84%E5%88%99/%E5%AD%97%E5%85%B8/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1764212400"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/27
-</time>
-
-              <h4 class="pt-0 my-2">字典</h4>
-              <div class="text-muted">
-                <p>创建
-
-Map创建了没有赋值，编译器会报错
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-//1.make函数创建 (推荐)
-var map2 = make(map[string]string)   //make创建会直接初始化，值为nil
-
-//2.创建同时初始化 (有确定的键值时推荐)
-var map3 = map[string]int{&quot;Go&quot;:100,&quot;java&quot;:90} // ...</p>
-              </div>
-            </div>
-          </a>
-        </article>
       
         <article class="col">
           <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/protojson%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview card h-100">
@@ -4649,6 +4629,65 @@ var map3 = map[string]int{&quot;Go&quot;:100,&quot;java&quot;:90} // ...</p>
 26
 type F interface {
 ...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/go/%E8%A7%84%E5%88%99/%E6%8E%A5%E5%8F%A3/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1764734400"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/12/03
+</time>
+
+              <h4 class="pt-0 my-2">接口/结构体的组合</h4>
+              <div class="text-muted">
+                <p>接口
+
+
+  接口 = 定义方法集
+
+
+1
+2
+3
+4
+5
+6
+7
+type FImpl interface {
+	f1()
+	f2()
+	f3()
+	f4()
+}
+
+
+
+实现
+
+结构体实现遵循规则:
+
+
+  
+    结构体T方法为值接收者方法：   T 和 *T 都可以赋给接口
+  
+  结构体T方法为接收者方法：      只有 *T 可以赋给接口
+  接口类型前面永远不要加 * (接...</p>
               </div>
             </div>
           </a>
@@ -4907,35 +4946,6 @@ type F interface {
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -4950,6 +4960,31 @@ type F interface {
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -4960,6 +4995,25 @@ type F interface {
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     

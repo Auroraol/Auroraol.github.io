@@ -2,7 +2,7 @@
 title: Colorbox 和 Details 功能测试
 date: 2026-02-13 14:12:00 +0800
 categories: [jekyll, Chirpy使用]
-pin: true
+pin: false
 ---
 
 本文档用于测试新增的 colorbox 提示框和 details 折叠块功能。

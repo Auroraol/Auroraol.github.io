@@ -1,7 +1,7 @@
 ---
-title: LangChain-Agent解析
+title: 02_LangChain-Agent解析
 date: 2026-02-13 16:00:00 +0800
-categories: [Agent, LangChain-Agent解析]
+categories: [Agent, LangChain解析]
 tags: [LangChain-Agent解析]
 ---
 

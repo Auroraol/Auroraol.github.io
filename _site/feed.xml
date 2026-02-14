@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>L</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2026-02-14T14:47:33+08:00</updated>
+  <updated>2026-02-14T15:20:44+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -20,14 +20,14 @@
 
   
   <entry>
-    <title>LangChain-Agent解析</title>
-    <link href="http://localhost:4000/agent/langchain-agent%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/" rel="alternate" type="text/html" title="LangChain-Agent解析" />
-    <published>2026-02-13T16:00:00+08:00</published>
+    <title>03_LangChain-MCP解析</title>
+    <link href="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/" rel="alternate" type="text/html" title="03_LangChain-MCP解析" />
+    <published>2026-02-14T15:00:00+08:00</published>
   
-    <updated>2026-02-14T14:42:01+08:00</updated>
+    <updated>2026-02-14T14:47:53+08:00</updated>
   
-    <id>http://localhost:4000/agent/langchain-agent%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/</id>
-    <content src="http://localhost:4000/agent/langchain-agent%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/" />
+    <id>http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/</id>
+    <content src="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/" />
     <author>
       <name>lfj</name>
     </author>
@@ -36,7 +36,79 @@
     
     <category term="Agent" />
     
-    <category term="LangChain-Agent解析" />
+    <category term="LangChain解析" />
+    
+  
+
+  <summary>LangChain-MCP</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>内存分析</title>
+    <link href="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E5%86%85%E5%AD%98/" rel="alternate" type="text/html" title="内存分析" />
+    <published>2026-02-14T11:00:00+08:00</published>
+  
+    <updated>2026-02-14T11:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/go/%E8%A7%84%E5%88%99/%E5%86%85%E5%AD%98/</id>
+    <content src="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E5%86%85%E5%AD%98/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="GO" />
+    
+    <category term="规则" />
+    
+  
+
+  <summary>能栈则栈，逃逸才堆
+
+Go 编译器会在编译时进行逃逸分析，以此决定对象应该分配在栈上还是堆上：
+
+
+  分配在栈上（高效）：如果编译器能确定函数返回后，该变量不再被引用，就会把它分配在栈上。栈的分配和回收只是移动两个指针，开销极低，且无需垃圾回收介入。
+  分配在堆上（代价高）：如果变量在函数返回后仍有其他部分引用，就必须分配在堆上。堆分配需要寻找空闲内存，且最终依赖垃圾回收器来清理，开销相对较大。
+
+
+
+  栈随着线程的创建而创建，jvm一启动就创建堆内存，方法一调用就放进栈里面，对象一new就放到堆里面 真的吗
+
+
+“栈随着线程的创建而创建”
+
+
+  
+    无论是Java还是Go中的 goroutine都有自己的栈。线程启动时，系统会分配一块连续的内存作为栈，用来存放该方法调用链上的局部变量和方法参数。
+  
+  
+    Java 栈：通常大小固定（可通过 -Xss 设置）...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>02_LangChain-Agent解析</title>
+    <link href="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/" rel="alternate" type="text/html" title="02_LangChain-Agent解析" />
+    <published>2026-02-13T16:00:00+08:00</published>
+  
+    <updated>2026-02-14T14:42:01+08:00</updated>
+  
+    <id>http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/</id>
+    <content src="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="Agent" />
+    
+    <category term="LangChain解析" />
     
   
 
@@ -191,82 +263,6 @@ def main():
     print(&amp;quot;这是第1行&amp;quot;)
     print(&amp;quot;这是第2行&amp;quot;)
     print(&amp;quot;...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>LangChain解析</title>
-    <link href="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/LangChain%E8%A7%A3%E6%9E%90/" rel="alternate" type="text/html" title="LangChain解析" />
-    <published>2026-02-12T16:00:00+08:00</published>
-  
-    <updated>2026-02-13T17:49:38+08:00</updated>
-  
-    <id>http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/LangChain%E8%A7%A3%E6%9E%90/</id>
-    <content src="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/LangChain%E8%A7%A3%E6%9E%90/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="Agent" />
-    
-    <category term="LangChain解析" />
-    
-  
-
-  <summary>LangChain 解析
-
-LangChain 是一个强大的开源框架，旨在帮助开发者基于大型语言模型（LLM）构建智能应用程序。它不仅简化了与 LLM 的交互，还通过模块化设计和丰富的工具集，让开发者能够轻松集成外部数据源、工具和上下文信息，从而创建更智能、更实用的 AI 应用。文章演示pip install --upgrade langchain langchain-community langchain-ollama langchain-text-splitters
-
-一、什么是 LangChain？
-
-1. LangChain 的定义
-
-LangChain 是一个开源的 Python 框架（也支持 JavaScript/TypeScript），用于构建基于大型语言模型（LLM）的应用程序。它通过提供标准化的接口、工具和组件，帮助开发者将 LLM 与外部数据源（如数据库、文档、A...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>OMM</title>
-    <link href="http://localhost:4000/go/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/OOM/" rel="alternate" type="text/html" title="OMM" />
-    <published>2026-01-31T20:00:00+08:00</published>
-  
-    <updated>2026-01-31T22:21:44+08:00</updated>
-  
-    <id>http://localhost:4000/go/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/OOM/</id>
-    <content src="http://localhost:4000/go/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/OOM/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="GO" />
-    
-    <category term="线上问题" />
-    
-  
-
-  <summary>服务 OOM 排查指南：从现象到根因的系统分析与解决 - 五岁博客
-
-一、OOM 典型现象
-
-OOM（Out of Memory）即内存溢出，指服务进程所需内存超过系统或容器分配的最大限制，被内核的 OOM Killer 强制终止，或因内存耗尽主动崩溃。
-
-
-  
-    服务进程消失： ps 或 top 命令看不到对应的进程了。
-  
-  
-    日志中断： 应用日志在某个时间点突然停止，没有任何异常堆栈或错误信息（这是最常见的情况）。
-  
-  
-    系统日志 (dmesg)： 在 Linux 系统中，使用 dmesg | grep -i &amp;#39;out of memory&amp;#39; 通常能找到线索，内核会打印出哪个进程因为内存不足而被杀死。
-
-    例如：[12345.678901] Out of memory: Kill process 1234 (my-service) scor...</summary>
 
   </entry>
 

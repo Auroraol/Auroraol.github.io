@@ -1400,14 +1400,28 @@
         
         
         <li class="text-truncate lh-lg">
-          <a href="/agent/langchain-agent%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
+          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/MCP/">03_LangChain-MCP解析</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/LangChain%E8%A7%A3%E6%9E%90/">LangChain解析</a>
+          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/">02_LangChain-Agent解析</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/go/%E8%A7%84%E5%88%99/%E5%86%85%E5%AD%98/">内存分析</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/LangChain%E8%A7%A3%E6%9E%90/">01_LangChain解析</a>
         </li>
       
         
@@ -1415,20 +1429,6 @@
         
         <li class="text-truncate lh-lg">
           <a href="/jekyll/chirpy%E4%BD%BF%E7%94%A8/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/">Chirpy主题的进阶使用</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/jekyll/chirpy%E4%BD%BF%E7%94%A8/colorbox-details-test/">Colorbox 和 Details 功能测试</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/jekyll/chirpy%E4%BD%BF%E7%94%A8/%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0%E6%B5%8B%E8%AF%95/">代码折叠功能测试</a>
         </li>
       
     </ul>
@@ -1527,35 +1527,6 @@
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1570,6 +1541,31 @@
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -1580,6 +1576,25 @@
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -2070,6 +2085,18 @@
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
   
 
@@ -2317,44 +2344,6 @@ OOM（Out of Memory）即内存溢出，指服务进程所需内存超过系统�
         </article>
       
         <article class="col">
-          <a href="/go/%E8%A7%84%E5%88%99/%E5%AD%97%E5%85%B8/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1764212400"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/27
-</time>
-
-              <h4 class="pt-0 my-2">字典</h4>
-              <div class="text-muted">
-                <p>创建
-
-Map创建了没有赋值，编译器会报错
-
-//1.make函数创建 (推荐)
-var map2 = make(map[string]string)   //make创建会直接初始化，值为nil
-
-//2.创建同时初始化 (有确定的键值时推荐)
-var map3 = map[string]int{&quot;Go&quot;:100,&quot;java&quot;:90} // 有这些键值时使用
-
-//3.var常量定义 (不...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
           <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/protojson%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview card h-100">
             <div class="card-body">
               <!--
@@ -2394,6 +2383,52 @@ var map3 = map[string]int{&quot;Go&quot;:100,&quot;java&quot;:90} // 有这些�
       encoding/json
       可以，但有限
       否...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1764644400"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/12/02
+</time>
+
+              <h4 class="pt-0 my-2">指针</h4>
+              <div class="text-muted">
+                <p>📌 结论
+
+
+  
+    值接收者方法：   T 和 *T 都可以赋给接口
+  
+  指针接收者方法：只有 *T 可以赋给接口
+  接口类型前面永远不要加 * (接口用值，不加星；加星就废，没方法)
+
+
+示例1:
+
+type F interface {
+    f()
+}
+
+type S1 struct{}
+
+func (s S1) f() {}    // 值接收者方法，属于 S1 的值...</p>
               </div>
             </div>
           </a>
@@ -2652,35 +2687,6 @@ var map3 = map[string]int{&quot;Go&quot;:100,&quot;java&quot;:90} // 有这些�
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2695,6 +2701,31 @@ var map3 = map[string]int{&quot;Go&quot;:100,&quot;java&quot;:90} // 有这些�
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -2705,6 +2736,25 @@ var map3 = map[string]int{&quot;Go&quot;:100,&quot;java&quot;:90} // 有这些�
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
