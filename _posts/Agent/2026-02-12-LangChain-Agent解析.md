@@ -7,7 +7,7 @@ tags: [LangChain-Agent解析]
 
 # LangChain-Agent 解析
 
-## Agent
+## 创建Agent
 
 **Agent（代理）** 是 LangChain 中更高级的机制，允许 LLM 像“智能助手”一样，根据输入动态选择和使用工具，完成复杂任务。代理的核心是“推理 + 行动”，它会分析输入，决定需要调用哪些工具，并循环执行直到任务完成。
 
@@ -110,7 +110,7 @@ result = agent.invoke({
 })
 ```
 
-## AgentType
+### AgentType
 
 LangChain提供多种Agent类型，每种类型适用于不同的场景和需求。以下是几种主要Agent类型及其特点：
 
@@ -225,7 +225,7 @@ result = agent.invoke({
 print(result["messages"][-1].content)
 ```
 
-## agent.invoke使用
+## invoke使用
 
 ```python
 result = agent.invoke({
@@ -541,13 +541,13 @@ for attr in dir(last_msg):
 
 ```
 
-# LangChain内置工具
+## LangChain内置工具
 
 Tool使用方法：[https://python.langchain.com/docs/integrations/tools/](https://python.langchain.com/docs/integrations/tools/)
 
 内置Tooltiks：[https://api.python.langchain.com/en/latest/community/agent_toolkits.html](https://api.python.langchain.com/en/latest/community/agent_toolkits.html)
 
-## Python REPL
+### Python REPL
 
 官网：[https://python.langchain.com/docs/integrations/tools/python/](https://python.langchain.com/docs/integrations/tools/python/)
 
@@ -685,11 +685,11 @@ Final Answer: 已成功在目录 `/Users/sam/llm/.temp` 下创建了一个名为
 > Finished chain.
 ```
 
-## LangChain output_parsers库详解
+### 解析器
 
 LangChain输出解析器（Output Parsers）是将大语言模型（LLM）的原始文本响应转换为结构化、可操作数据的关键组件。输出解析器通过提供格式化指令并解析模型输出，实现**<font style="color:rgb(44, 44, 54);">文本到结构化数据</font>**<font style="color:rgb(44, 44, 54);">的高效转换。</font>
 
-### 基础解析器
+**基础解析器**
 
 基础解析器处理最简单的数据格式转换：
 
@@ -700,7 +700,7 @@ LangChain输出解析器（Output Parsers）是将大语言模型（LLM）的原
 
 这些基础解析器适合处理简单数据结构，但缺乏验证和容错机制，适用于对格式要求不严格的场景。
 
-### Pydantic解析器
+**Pydantic解析器**
 
 Pydantic解析器通过Pydantic模型定义复杂结构，提供更严格的验证和数据校验：
 
@@ -709,7 +709,7 @@ Pydantic解析器通过Pydantic模型定义复杂结构，提供更严格的验�
 
 Pydantic解析器适合需要严格验证的数据结构，如用户信息、订单详情等，确保输出的完整性和正确性。
 
-### <font style="color:rgb(44, 44, 54);">函数调用解析器</font>
+**函数调用解析器**
 
 <font style="color:rgb(44, 44, 54);">函数调用解析器处理支持OpenAI函数调用的模型（如GPT-4）的响应：</font>
 
@@ -718,7 +718,7 @@ Pydantic解析器适合需要严格验证的数据结构，如用户信息、订
 
 <font style="color:rgb(44, 44, 54);">这些解析器专为需要调用特定函数或工具的场景设计，常见于Agent系统或复杂任务处理。</font>
 
-### <font style="color:rgb(44, 44, 54);">时间/枚举解析器</font>
+**时间/枚举解析器**
 
 <font style="color:rgb(44, 44, 54);">处理特定类型的数据：</font>
 
@@ -787,7 +787,7 @@ print(type(result))
 
 <font style="color:rgb(44, 44, 54);">这些解析器针对特定数据类型进行了优化，提供更精准的解析结果。</font>
 
-### <font style="color:rgb(44, 44, 54);">正则解析器</font>
+**正则解析器**
 
 <font style="color:rgb(44, 44, 54);">通过正则表达式提取特定模式的数据：</font>
 
@@ -796,7 +796,7 @@ print(type(result))
 
 <font style="color:rgb(44, 44, 54);">正则解析器适合需要灵活匹配文本模式的场景，如提取电话号码、邮箱地址等。</font>
 
-### <font style="color:rgb(44, 44, 54);">复合解析器</font>
+**复合解析器**
 
 <font style="color:rgb(44, 44, 54);">处理复杂或多部分的输出：</font>
 
@@ -805,7 +805,7 @@ print(type(result))
 
 <font style="color:rgb(44, 44, 54);">复合解析器提供了更强大的处理能力，可以应对复杂或多任务的输出场景。</font>
 
-### <font style="color:rgb(44, 44, 54);">强校验解析器</font>
+**强校验解析器**
 
 <font style="color:rgb(44, 44, 54);">提供更严格的输出验证：</font>
 
@@ -834,7 +834,7 @@ from langchain_core.prompts import ChatPromptTemplate
 llm = ChatOpenAI(
     model="kimi-k2-turbo-preview",
     base_url="https://api.moonshot.cn/v1",
-    api_key=SecretStr("sk-32lqdlnpX9C7KiMdeoepSaIO79BqbyL"),
+    api_key=SecretStr("sk-32lqdlnpX9C7KiMdeoepSaIO6B79BqbyL"),
     temperature=1,
 )
 
@@ -892,7 +892,7 @@ class Person(BaseModel):
 # 创建解析器
 parser = PydanticOutputParser(pydantic_object=Person)
 raw_instructions = parser.get_format_instructions()
-escaped_instructions = raw_instructions.replace("{", "{{").replace("}", "}}")
+#escaped_instructions = raw_instructions.replace("{T)
 
 # 现在可以安全地使用 f-string
 prompt = ChatPromptTemplate.from_messages([
@@ -954,7 +954,7 @@ print(f"类型: {type(result)}")
 
 ```
 
-# 综合
+## 综合代码
 
 ```python
 from langchain.agents import create_agent
@@ -987,7 +987,7 @@ class WeatherReport(BaseModel):
 
 parser = PydanticOutputParser(pydantic_object=WeatherReport)
 format_instructions = parser.get_format_instructions()
-escaped_instructions = format_instructions.replace("{", "{{").replace("}", "}}")
+#escaped_instructions = format_instructions.replace("TODO")
 
 
 @tool
@@ -1007,6 +1007,7 @@ def get_weather(city: str) -> str:
         "哈尔滨": {"temp": -5, "condition": "雪天", "humidity": 80, "wind": "5级"},
     }
     data = weather_data.get(city, {"temp": 20, "condition": "晴天", "humidity": 50, "wind": "2级"})
+    #.get(key, default) 是 Python 字典的安全取值方法，当 key 不存在时不会报错，而是返回指定的默认值
     return json.dumps(data, ensure_ascii=False)
 
 # ========== Agent ==========
