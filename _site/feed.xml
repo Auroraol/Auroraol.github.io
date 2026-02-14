@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>L</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2026-02-14T15:20:44+08:00</updated>
+  <updated>2026-02-14T16:01:55+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -24,7 +24,7 @@
     <link href="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/" rel="alternate" type="text/html" title="03_LangChain-MCP解析" />
     <published>2026-02-14T15:00:00+08:00</published>
   
-    <updated>2026-02-14T14:47:53+08:00</updated>
+    <updated>2026-02-14T15:21:37+08:00</updated>
   
     <id>http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/</id>
     <content src="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/" />
@@ -40,7 +40,34 @@
     
   
 
-  <summary>LangChain-MCP</summary>
+  <summary>LangChain-MCP
+
+
+  大模型和外部工具交互的标准化协议
+
+
+模型上下文协议(MCP ModelContextProtocol)正迅速成为AI领域的核心基础设施标准，它通过标准化大语言模型与外部工具的交互方式，解决了AI应用开发中的关键瓶颈，推动了智能体从实验室走向商业化的进程
+
+MCP的原理
+
+MCP的核心原理：
+
+
+
+与上一张图异曲同工：
+
+
+
+MCP 的核心原理是将互联网服务（高德、谷歌）或本地操作系统 API（文件系统、数据库、终端）封装成 AI 智能体能够理解和使用的 Tools 工具，让 AI 智能体能够自由地调用这些 Tools 工具实现复杂的业务逻辑和功能。
+
+基于MCP的智能体架构
+
+
+
+langchain==1.2.10
+langchain-classic==1.0.1
+langchain-community==0.4.1
+langchain-core...</summary>
 
   </entry>
 
@@ -96,7 +123,7 @@ Go 编译器会在编译时进行逃逸分析，以此决定对象应该分配�
     <link href="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/" rel="alternate" type="text/html" title="02_LangChain-Agent解析" />
     <published>2026-02-13T16:00:00+08:00</published>
   
-    <updated>2026-02-14T14:42:01+08:00</updated>
+    <updated>2026-02-14T15:21:37+08:00</updated>
   
     <id>http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/</id>
     <content src="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/" />
@@ -141,7 +168,7 @@ from langchain_core.prompts import Cha...</summary>
     <link href="http://localhost:4000/jekyll/chirpy%E4%BD%BF%E7%94%A8/colorbox-details-test/" rel="alternate" type="text/html" title="Colorbox 和 Details 功能测试" />
     <published>2026-02-13T14:12:00+08:00</published>
   
-    <updated>2026-02-13T14:12:00+08:00</updated>
+    <updated>2026-02-14T15:21:37+08:00</updated>
   
     <id>http://localhost:4000/jekyll/chirpy%E4%BD%BF%E7%94%A8/colorbox-details-test/</id>
     <content src="http://localhost:4000/jekyll/chirpy%E4%BD%BF%E7%94%A8/colorbox-details-test/" />

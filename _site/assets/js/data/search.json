@@ -5,7 +5,7 @@
     "url": "/agent/langchain%E8%A7%A3%E6%9E%90/MCP/",
     "date": "2026-02-14 15:00:00 +0800",
     "categories": "Agent, LangChain解析",
-    "content": "LangChain-MCP . "
+    "content": "LangChain-MCP . 大模型和外部工具交互的标准化协议 . 模型上下文协议(MCP ModelContextProtocol)正迅速成为AI领域的核心基础设施标准，它通过标准化大语言模型与外部工具的交互方式，解决了AI应用开发中的关键瓶颈，推动了智能体从实验室走向商业化的进程 . MCP的原理 . MCP的核心原理： . 与上一张图异曲同工： . MCP 的核心原理是将互联网服务（高德、谷歌）或本地操作系统 API（文件系统、数据库、终端）封装成 AI 智能体能够理解和使用的 Tools 工具，让 AI 智能体能够自由地调用这些 Tools 工具实现复杂的业务逻辑和功能。 . 基于MCP的智能体架构 . | 1 2 3 4 5 6 7 8 9 10 11 . | langchain==1.2.10 langchain-classic==1.0.1 langchain-community==0.4.1 langchain-core==1.2.11 langchain-ollama==1.0.1 langchain-openai==1.1.9 langchain-text-splitters==1.1.0 langgraph==1.0.8 langgraph-checkpoint==4.0.0 langgraph-prebuilt==1.0.7 langgraph-sdk==0.3.5 . | . "
   },
   
   {
