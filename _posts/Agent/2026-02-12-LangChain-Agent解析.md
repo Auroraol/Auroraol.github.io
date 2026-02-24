@@ -21,46 +21,11 @@ tags: [LangChain-Agent解析]
 
 ### LangChain方式
 
-```python
-from langchain.agents import create_react_agent, AgentExecutor  # 从 langchain.agents 导入
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain_openai import ChatOpenAI
-from langchain_core.messages import HumanMessage
-from pydantic import BaseModel, Field
-
-# ========== 3. 配置模型 ==========
-model = ChatOpenAI(model="gpt-4", temperature=0)
-
-# ========== 4. 创建 PromptTemplate ==========
-prompt = ChatPromptTemplate.from_messages([
-    ("system", "你是数学专家，必须使用calculator工具计算，然后返回结构化结果"),
-    ("human", "{input}"),
-    MessagesPlaceholder("agent_scratchpad")  # ReAct 必需
-])
-
-# ========== 5. 创建 Agent ==========
-agent = create_react_agent(
-    llm=model,  # 注意：参数名是 llm 不是 model
-    tools=[calculator],
-    prompt=prompt
-)
-
-# ========== 6. 使用 AgentExecutor 执行 ==========
-agent_executor = AgentExecutor(
-    agent=agent,
-    tools=[calculator],
-    verbose=True,
-    handle_parsing_errors=True
-)
-
-# ========== 7. 执行计算 ==========
-result = agent_executor.invoke({"messages": "计算 100+100"})
-print(result["messages"][-1].content)
-```
-
-### LangGraph方式
+使用文档: [Agents - Docs by LangChain](https://docs.langchain.com/oss/python/langchain/agents)
 
 ```python
+from langchain.agents import create_agent
+
 # llm
 KimiLlm = ChatOpenAI(
     model="kimi-k2-turbo-preview",
@@ -69,7 +34,6 @@ KimiLlm = ChatOpenAI(
     temperature=1,
 )
 
-# 使用LangGraph
 agent = create_agent(
     model=KimiLlm,
     tools=[calculator, get_weather],  # 工具列表
@@ -174,7 +138,25 @@ LangChain提供多种Agent类型，每种类型适用于不同的场景和需求
       return a + b
   ```
 
-**代码示例**：
++ LangChain内置工具
+
+  ```
+  Tool使用方法：https://python.langchain.com/docs/integrations/tools/
+  内置Tooltiks：https://api.python.langchain.com/en/latest/community/agent_toolkits.html
+  ```
+
+### 内置工具
+
+```python
+from langchain_community.agent_toolkits import FileManagementToolkit
+
+file_toolkit = FileManagementToolkit(
+    root_dir=os.getenv("TEMP_DIR", "./temp"),
+    selected_tools=["write_file", "read_file", "list_directory"]
+)
+```
+
+### 自定义工具
 
 ```python
 from langgraph.prebuilt import create_react_agent
@@ -364,6 +346,17 @@ print(f"第三轮: {result5['messages'][-1].content}")
 ```
 
 ## 返回体结构化
+
+**响应的键值不固定为 `messages`**，这取决于你使用的 Agent 类型和调用方式。
+
+## 常见的响应格式对比
+
+| Agent/执行器类型            | 典型响应键                                     | 说明                           |
+| :-------------------------- | :--------------------------------------------- | :----------------------------- |
+| `AgentExecutor`             | `['output', 'messages', 'intermediate_steps']` | 最常用，包含最终输出和消息历史 |
+| `create_react_agent` (新版) | `['messages']`                                 | LangGraph 风格，只返回消息列表 |
+| `initialize_agent` (旧版)   | `['output']`                                   | 直接返回字符串输出             |
+| 自定义 Agent                | 自定义键                                       | 取决于实现                     |
 
 ```python
 from langchain.agents import create_agent

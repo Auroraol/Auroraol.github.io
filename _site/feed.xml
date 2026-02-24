@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>L</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2026-02-14T16:01:55+08:00</updated>
+  <updated>2026-02-14T17:50:07+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -24,7 +24,7 @@
     <link href="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/" rel="alternate" type="text/html" title="03_LangChain-MCP解析" />
     <published>2026-02-14T15:00:00+08:00</published>
   
-    <updated>2026-02-14T15:21:37+08:00</updated>
+    <updated>2026-02-14T16:02:50+08:00</updated>
   
     <id>http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/</id>
     <content src="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/" />
@@ -157,8 +157,13 @@ Agent（代理） 是 LangChain 中更高级的机制，允许 LLM 像“智能�
 
 LangChain方式
 
-from langchain.agents import create_react_agent, AgentExecutor  # 从 langchain.agents 导入
-from langchain_core.prompts import Cha...</summary>
+使用文档: Agents - Docs by LangChain
+
+from langchain.agents import create_agent
+
+# llm
+KimiLlm = ChatOpenAI(
+    model=&amp;quot;kimi-k2-tu...</summary>
 
   </entry>
 
