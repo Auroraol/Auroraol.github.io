@@ -217,4 +217,3 @@ jekyll-archives:
     tag: tag
   permalinks:
     category: /categories/:name/
-    tag: /tags/:name/

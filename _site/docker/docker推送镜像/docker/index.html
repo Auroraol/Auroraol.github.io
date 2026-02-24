@@ -263,6 +263,27 @@
 
   
 
+  <!-- Set default theme to dark -->
+  <script>
+    (function() {
+      // Check if user has already set a theme preference
+      const savedMode = sessionStorage.getItem('mode');
+      
+      // If no preference saved, set default to dark
+      if (!savedMode) {
+        const html = document.documentElement;
+        html.setAttribute('data-mode', 'dark');
+        sessionStorage.setItem('mode', 'dark');
+        
+        // Also update the toggle button state if it exists
+        const toggleBtn = document.getElementById('mode-toggle');
+        if (toggleBtn) {
+          toggleBtn.classList.add('mode-dark');
+        }
+      }
+    })();
+  </script>
+
   <!-- A placeholder to allow defining custom metadata -->
 
 </head>
@@ -931,14 +952,14 @@ docker run -d --name ecrobot-xxx-dy \
         
         
         <li class="text-truncate lh-lg">
-          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/">02_LangChain-Agent解析</a>
+          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/MCP/">03_LangChain-MCP解析</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/MCP/">03_LangChain-MCP解析</a>
+          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/">02_LangChain-Agent解析</a>
         </li>
       
         

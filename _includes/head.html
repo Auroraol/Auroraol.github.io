@@ -108,5 +108,26 @@
     {% include mode-toggle.html %}
   {% endunless %}
 
+  <!-- Set default theme to dark -->
+  <script>
+    (function() {
+      // Check if user has already set a theme preference
+      const savedMode = sessionStorage.getItem('mode');
+      
+      // If no preference saved, set default to dark
+      if (!savedMode) {
+        const html = document.documentElement;
+        html.setAttribute('data-mode', 'dark');
+        sessionStorage.setItem('mode', 'dark');
+        
+        // Also update the toggle button state if it exists
+        const toggleBtn = document.getElementById('mode-toggle');
+        if (toggleBtn) {
+          toggleBtn.classList.add('mode-dark');
+        }
+      }
+    })();
+  </script>
+
   {% include metadata-hook.html %}
 </head>
