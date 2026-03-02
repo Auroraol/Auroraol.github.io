@@ -1,17 +1,17 @@
 
 
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <id>http://localhost:4000/</id>
+  <id>https://auroraol.github.io/</id>
   <title>&amp;#8203;</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2026-03-02T23:24:27+08:00</updated>
+  <updated>2026-03-02T23:31:02+08:00</updated>
   <author>
     <name>lfj</name>
-    <uri>http://localhost:4000/</uri>
+    <uri>https://auroraol.github.io/</uri>
   </author>
-  <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml"/>
+  <link rel="self" type="application/atom+xml" href="https://auroraol.github.io/feed.xml"/>
   <link rel="alternate" type="text/html" hreflang="zh-CN"
-    href="http://localhost:4000/"/>
+    href="https://auroraol.github.io/"/>
   <generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator>
   <rights> © 2026 lfj </rights>
   <icon>/assets/img/favicons/favicon.ico</icon>
@@ -21,13 +21,13 @@
   
   <entry>
     <title>结构体</title>
-    <link href="http://localhost:4000/go/%E7%BB%93%E6%9E%84%E4%BD%93/%E7%BB%93%E6%9E%84%E4%BD%93/" rel="alternate" type="text/html" title="结构体" />
+    <link href="https://auroraol.github.io/go/%E7%BB%93%E6%9E%84%E4%BD%93/%E7%BB%93%E6%9E%84%E4%BD%93/" rel="alternate" type="text/html" title="结构体" />
     <published>2026-03-02T10:40:00+08:00</published>
   
     <updated>2026-03-02T23:18:15+08:00</updated>
   
-    <id>http://localhost:4000/go/%E7%BB%93%E6%9E%84%E4%BD%93/%E7%BB%93%E6%9E%84%E4%BD%93/</id>
-    <content src="http://localhost:4000/go/%E7%BB%93%E6%9E%84%E4%BD%93/%E7%BB%93%E6%9E%84%E4%BD%93/" />
+    <id>https://auroraol.github.io/go/%E7%BB%93%E6%9E%84%E4%BD%93/%E7%BB%93%E6%9E%84%E4%BD%93/</id>
+    <content src="https://auroraol.github.io/go/%E7%BB%93%E6%9E%84%E4%BD%93/%E7%BB%93%E6%9E%84%E4%BD%93/" />
     <author>
       <name>lfj</name>
     </author>
@@ -82,13 +82,13 @@ var per Person
   
   <entry>
     <title>03_LangChain-MCP解析</title>
-    <link href="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/" rel="alternate" type="text/html" title="03_LangChain-MCP解析" />
+    <link href="https://auroraol.github.io/agent/langchain%E8%A7%A3%E6%9E%90/MCP/" rel="alternate" type="text/html" title="03_LangChain-MCP解析" />
     <published>2026-02-14T15:00:00+08:00</published>
   
     <updated>2026-02-27T17:20:19+08:00</updated>
   
-    <id>http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/</id>
-    <content src="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/" />
+    <id>https://auroraol.github.io/agent/langchain%E8%A7%A3%E6%9E%90/MCP/</id>
+    <content src="https://auroraol.github.io/agent/langchain%E8%A7%A3%E6%9E%90/MCP/" />
     <author>
       <name>lfj</name>
     </author>
@@ -138,13 +138,13 @@ MCP 的核心原理是将互联网服务（高德、谷歌）或本地操作系�
   
   <entry>
     <title>内存分析</title>
-    <link href="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E5%86%85%E5%AD%98/" rel="alternate" type="text/html" title="内存分析" />
+    <link href="https://auroraol.github.io/go/%E8%A7%84%E5%88%99/%E5%86%85%E5%AD%98/" rel="alternate" type="text/html" title="内存分析" />
     <published>2026-02-14T11:00:00+08:00</published>
   
     <updated>2026-02-14T11:00:00+08:00</updated>
   
-    <id>http://localhost:4000/go/%E8%A7%84%E5%88%99/%E5%86%85%E5%AD%98/</id>
-    <content src="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E5%86%85%E5%AD%98/" />
+    <id>https://auroraol.github.io/go/%E8%A7%84%E5%88%99/%E5%86%85%E5%AD%98/</id>
+    <content src="https://auroraol.github.io/go/%E8%A7%84%E5%88%99/%E5%86%85%E5%AD%98/" />
     <author>
       <name>lfj</name>
     </author>
@@ -184,13 +184,13 @@ Go 编译器会在编译时进行逃逸分析，以此决定对象应该分配�
   
   <entry>
     <title>02_LangChain-Agent解析</title>
-    <link href="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/" rel="alternate" type="text/html" title="02_LangChain-Agent解析" />
+    <link href="https://auroraol.github.io/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/" rel="alternate" type="text/html" title="02_LangChain-Agent解析" />
     <published>2026-02-13T16:00:00+08:00</published>
   
     <updated>2026-02-24T11:53:41+08:00</updated>
   
-    <id>http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/</id>
-    <content src="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/" />
+    <id>https://auroraol.github.io/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/</id>
+    <content src="https://auroraol.github.io/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/" />
     <author>
       <name>lfj</name>
     </author>
@@ -234,13 +234,13 @@ KimiLlm = ChatOpenAI(
   
   <entry>
     <title>Colorbox 和 Details 功能测试</title>
-    <link href="http://localhost:4000/jekyll/chirpy%E4%BD%BF%E7%94%A8/colorbox-details-test/" rel="alternate" type="text/html" title="Colorbox 和 Details 功能测试" />
+    <link href="https://auroraol.github.io/jekyll/chirpy%E4%BD%BF%E7%94%A8/colorbox-details-test/" rel="alternate" type="text/html" title="Colorbox 和 Details 功能测试" />
     <published>2026-02-13T14:12:00+08:00</published>
   
     <updated>2026-02-14T15:21:37+08:00</updated>
   
-    <id>http://localhost:4000/jekyll/chirpy%E4%BD%BF%E7%94%A8/colorbox-details-test/</id>
-    <content src="http://localhost:4000/jekyll/chirpy%E4%BD%BF%E7%94%A8/colorbox-details-test/" />
+    <id>https://auroraol.github.io/jekyll/chirpy%E4%BD%BF%E7%94%A8/colorbox-details-test/</id>
+    <content src="https://auroraol.github.io/jekyll/chirpy%E4%BD%BF%E7%94%A8/colorbox-details-test/" />
     <author>
       <name>lfj</name>
     </author>
