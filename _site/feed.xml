@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>&amp;#8203;</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2026-03-02T23:06:17+08:00</updated>
+  <updated>2026-03-02T23:15:55+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,67 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>结构体</title>
+    <link href="http://localhost:4000/go/%E7%BB%93%E6%9E%84%E4%BD%93/%E7%BB%93%E6%9E%84%E4%BD%93/" rel="alternate" type="text/html" title="结构体" />
+    <published>2026-03-02T10:40:00+08:00</published>
+  
+    <updated>2026-03-02T10:40:00+08:00</updated>
+  
+    <id>http://localhost:4000/go/%E7%BB%93%E6%9E%84%E4%BD%93/%E7%BB%93%E6%9E%84%E4%BD%93/</id>
+    <content src="http://localhost:4000/go/%E7%BB%93%E6%9E%84%E4%BD%93/%E7%BB%93%E6%9E%84%E4%BD%93/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="GO" />
+    
+    <category term="结构体" />
+    
+  
+
+  <summary>结构体
+
+
+  Go语言提供了一种自定义数据类型，可以封装多个基本数据类型，这种数据类型叫结构体（struct），Go语言中通过结构体来实现面向对象
+
+
+规范:
+
+
+  采用驼峰命名方式，首字母根据访问权限, 来决定使用大写或小写(包括结构体名称、属性、方法)
+  结构体名不应该是动词，应该是名词
+  避免使用 Data、Info 这类无意义的结构体名
+  结构体的声明和初始化应采用多行
+
+
+结构体定义
+
+type Person struct {
+	Name string
+	Age int
+	Sex int
+}
+
+
+**注意：结构体定义时结构体字段的可见性规则: ** 结构体中字段大写开头表示可公开访问，小写表示私有
+
+实例化(声明)结构体
+
+var 结构体实例 结构体类型
+
+var per Person
+
+
+创建结构体
+
+工作中一般使用 u:= &amp;amp;amp;User{name: “y...</summary>
+
+  </entry>
 
   
   <entry>
@@ -244,60 +305,6 @@ Details 折叠块测试
   点击查看详细信息
 
   这里是一些详细...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>代码折叠功能测试</title>
-    <link href="http://localhost:4000/jekyll/chirpy%E4%BD%BF%E7%94%A8/%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0%E6%B5%8B%E8%AF%95/" rel="alternate" type="text/html" title="代码折叠功能测试" />
-    <published>2026-02-13T00:00:00+08:00</published>
-  
-    <updated>2026-02-13T00:00:00+08:00</updated>
-  
-    <id>http://localhost:4000/jekyll/chirpy%E4%BD%BF%E7%94%A8/%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0%E6%B5%8B%E8%AF%95/</id>
-    <content src="http://localhost:4000/jekyll/chirpy%E4%BD%BF%E7%94%A8/%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0%E6%B5%8B%E8%AF%95/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="jekyll" />
-    
-    <category term="Chirpy使用" />
-    
-  
-
-  <summary>代码折叠功能测试
-
-
-  这是一个测试代码折叠功能的文章。
-
-
-短代码块（应该不显示折叠按钮）
-
-console.log(&amp;quot;Hello World&amp;quot;);
-
-
-长代码块（应该显示折叠按钮）
-
-def fibonacci(n):
-    &amp;quot;&amp;quot;&amp;quot;计算斐波那契数列&amp;quot;&amp;quot;&amp;quot;
-    if n &amp;amp;lt;= 1:
-        return n
-    else:
-        return fibonacci(n-1) + fibonacci(n-2)
-
-def main():
-    # 计算前20个斐波那契数
-    for i in range(20):
-        print(f&amp;quot;F({i}) = {fibonacci(i)}&amp;quot;)
-    
-    # 一些额外的代码行来测试折叠功能
-    print(&amp;quot;这是第1行&amp;quot;)
-    print(&amp;quot;这是第2行&amp;quot;)
-    print(&amp;quot;...</summary>
 
   </entry>
 
