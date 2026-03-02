@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>&amp;#8203;</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2026-02-25T16:38:30+08:00</updated>
+  <updated>2026-03-02T23:06:17+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -24,7 +24,7 @@
     <link href="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/" rel="alternate" type="text/html" title="03_LangChain-MCP解析" />
     <published>2026-02-14T15:00:00+08:00</published>
   
-    <updated>2026-02-24T14:43:36+08:00</updated>
+    <updated>2026-02-27T17:20:19+08:00</updated>
   
     <id>http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/</id>
     <content src="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/" />
@@ -64,10 +64,13 @@ MCP 的核心原理是将互联网服务（高德、谷歌）或本地操作系�
 
 
 
-langchain==1.2.10
-langchain-classic==1.0.1
-langchain-community==0.4.1
-langchain-core...</summary>
+案例-高德地图API
+
+
+  
+    
+      [概述-MCP Server
+      高德地图API](https://lbs.amap.com/api/mc...</summary>
 
   </entry>
 

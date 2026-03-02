@@ -14,7 +14,7 @@
 
 
 <!-- `site.alt_lang` can specify a language different from the UI -->
-<html lang="zh-CN" data-mode="dark">
+<html lang="zh-CN" >
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
@@ -42,7 +42,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="03_LangChain-MCP解析" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-02-24T14:43:36+08:00","datePublished":"2026-02-14T15:00:00+08:00","description":"LangChain-MCP","headline":"03_LangChain-MCP解析","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/"},"url":"http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-02-27T17:20:19+08:00","datePublished":"2026-02-14T15:00:00+08:00","description":"LangChain-MCP","headline":"03_LangChain-MCP解析","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/"},"url":"http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -115,6 +115,151 @@
   
 
   <!-- JavaScript -->
+
+  
+    <!-- Switch the mode between dark and light. -->
+
+<script type="text/javascript">
+  class ModeToggle {
+    static get MODE_KEY() {
+      return 'mode';
+    }
+    static get MODE_ATTR() {
+      return 'data-mode';
+    }
+    static get DARK_MODE() {
+      return 'dark';
+    }
+    static get LIGHT_MODE() {
+      return 'light';
+    }
+    static get ID() {
+      return 'mode-toggle';
+    }
+
+    constructor() {
+      if (this.hasMode) {
+        if (this.isDarkMode) {
+          if (!this.isSysDarkPrefer) {
+            this.setDark();
+          }
+        } else {
+          if (this.isSysDarkPrefer) {
+            this.setLight();
+          }
+        }
+      }
+
+      let self = this;
+      
+      /* always follow the system prefers */
+      this.sysDarkPrefers.addEventListener('change', () => {
+        if (self.hasMode) {
+          if (self.isDarkMode) {
+            if (!self.isSysDarkPrefer) {
+              self.setDark();
+            }
+          } else {
+            if (self.isSysDarkPrefer) {
+              self.setLight();
+            }
+          }
+
+          self.clearMode();
+        }
+
+        self.notify();
+      });
+    } /* constructor() */
+
+    get sysDarkPrefers() {
+      return window.matchMedia('(prefers-color-scheme: dark)');
+    }
+
+    get isSysDarkPrefer() {
+      return this.sysDarkPrefers.matches;
+    }
+
+    get isDarkMode() {
+      return this.mode === ModeToggle.DARK_MODE;
+    }
+
+    get isLightMode() {
+      return this.mode === ModeToggle.LIGHT_MODE;
+    }
+
+    get hasMode() {
+      return this.mode != null;
+    }
+
+    get mode() {
+      return sessionStorage.getItem(ModeToggle.MODE_KEY);
+    }
+
+    /* get the current mode on screen */
+    get modeStatus() {
+      if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) {
+        return ModeToggle.DARK_MODE;
+      } else {
+        return ModeToggle.LIGHT_MODE;
+      }
+    }
+
+    setDark() {
+      document.documentElement.setAttribute(ModeToggle.MODE_ATTR, ModeToggle.DARK_MODE);
+      sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE);
+    }
+
+    setLight() {
+      document.documentElement.setAttribute(ModeToggle.MODE_ATTR, ModeToggle.LIGHT_MODE);
+      sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE);
+    }
+
+    clearMode() {
+      document.documentElement.removeAttribute(ModeToggle.MODE_ATTR);
+      sessionStorage.removeItem(ModeToggle.MODE_KEY);
+    }
+
+    /* Notify another plugins that the theme mode has changed */
+    notify() {
+      window.postMessage(
+        {
+          direction: ModeToggle.ID,
+          message: this.modeStatus
+        },
+        '*'
+      );
+    }
+
+    flipMode() {
+      if (this.hasMode) {
+        if (this.isSysDarkPrefer) {
+          if (this.isLightMode) {
+            this.clearMode();
+          } else {
+            this.setLight();
+          }
+        } else {
+          if (this.isDarkMode) {
+            this.clearMode();
+          } else {
+            this.setDark();
+          }
+        }
+      } else {
+        if (this.isSysDarkPrefer) {
+          this.setLight();
+        } else {
+          this.setDark();
+        }
+      }
+
+      this.notify();
+    } /* flipMode() */
+  } /* ModeToggle */
+
+  const modeToggle = new ModeToggle();
+</script>
 
   
 
@@ -208,6 +353,14 @@
   </nav>
 
   <div class="sidebar-bottom d-flex flex-wrap  align-items-center w-100">
+    
+      <button type="button" class="btn" aria-label="Switch Mode" id="mode-toggle">
+        <i class="fas fa-adjust"></i>
+      </button>
+
+      
+        <span class="icon-border"></span>
+      
     
 
     
@@ -615,6 +768,60 @@
   
 
   
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+
+    
+  
 
   
   
@@ -683,13 +890,13 @@
 
 <time
   
-  data-ts="1771915416"
+  data-ts="1772184019"
   data-df="YYYY/MM/DD"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  2026/02/24
+  2026/02/27
 </time>
 
         </span>
@@ -736,9 +943,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="250 字"
+  title="2959 字"
 >
-  <em>1 分钟</em>阅读</span>
+  <em>16 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -746,7 +953,7 @@
   </header>
 
   <script src="/assets/js/dist/collapsible.js"></script><div class="content">
-    <h1 id="langchain-mcp">LangChain-MCP</h1>
+    <h2 id="langchain-mcp"><span class="me-2">LangChain-MCP</span><a href="#langchain-mcp" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <blockquote>
   <p><strong><font style="color:#DF2A3F;">大模型和外部工具交互的标准化协议</font></strong></p>
@@ -754,7 +961,7 @@
 
 <p>模型上下文协议(MCP ModelContextProtocol)正迅速成为AI领域的核心基础设施标准，它通过标准化大语言模型与外部工具的交互方式，解决了AI应用开发中的关键瓶颈，推动了智能体从实验室走向商业化的进程</p>
 
-<h1 id="mcp的原理"><font style="color:rgb(44, 44, 54);">MCP的原理</font></h1>
+<h2 id="mcp的原理"><span class="me-2"><font style="color:rgb(44, 44, 54);">MCP的原理</font></span><a href="#mcp的原理" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <p>MCP的核心原理：</p>
 
@@ -766,12 +973,23 @@
 
 <p>MCP 的核心原理是将互联网服务（高德、谷歌）或本地操作系统 API（文件系统、数据库、终端）封装成 <strong><u><font style="color:#DF2A3F;">AI 智能体能够理解和使用的 Tools 工具</font></u></strong>，让 AI 智能体能够自由地调用这些 Tools 工具实现复杂的业务逻辑和功能。</p>
 
-<h1 id="基于mcp的智能体架构">基于MCP的智能体架构</h1>
+<h2 id="基于mcp的智能体架构"><span class="me-2">基于MCP的智能体架构</span><a href="#基于mcp的智能体架构" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <p><a href="https://github.com/Auroraol/Drawing-bed/raw/main/img/image-20260214153337725.png" class="popup img-link  shimmer"><img src="https://github.com/Auroraol/Drawing-bed/raw/main/img/image-20260214153337725.png" alt="image-20260214153337725" loading="lazy"></a></p>
 
-<div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
-        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+<h2 id="案例-高德地图api"><span class="me-2">案例-高德地图API</span><a href="#案例-高德地图api" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<div class="table-wrapper"><table>
+  <tbody>
+    <tr>
+      <td>[概述-MCP Server</td>
+      <td>高德地图API](https://lbs.amap.com/api/mcp-server/summary)</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<div class="language-python highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -783,27 +1001,750 @@
 9
 10
 11
-</pre></td><td class="rouge-code"><pre>langchain==1.2.10
-langchain-classic==1.0.1
-langchain-community==0.4.1
-langchain-core==1.2.11
-langchain-ollama==1.0.1
-langchain-openai==1.1.9
-langchain-text-splitters==1.1.0
-langgraph==1.0.8
-langgraph-checkpoint==4.0.0
-langgraph-prebuilt==1.0.7
-langgraph-sdk==0.3.5
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="n">asyncio</span>
+<span class="kn">import</span> <span class="n">json</span>
+<span class="kn">import</span> <span class="n">os</span>
+<span class="kn">from</span> <span class="n">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">from</span> <span class="n">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
+<span class="kn">from</span> <span class="n">langchain_core.prompts</span> <span class="kn">import</span> <span class="n">PromptTemplate</span><span class="p">,</span> <span class="n">ChatPromptTemplate</span><span class="p">,</span> <span class="n">MessagesPlaceholder</span>
+<span class="kn">from</span> <span class="n">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span><span class="p">,</span> <span class="n">SecretStr</span>
+<span class="kn">from</span> <span class="n">langchain.agents</span> <span class="kn">import</span> <span class="n">create_agent</span>
+<span class="c1"># LangChain核心组件
+</span><span class="kn">from</span> <span class="n">langchain_openai</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+<span class="kn">from</span> <span class="n">langchain_core.tools</span> <span class="kn">import</span> <span class="n">tool</span>
+
+<span class="c1"># MCP相关组件
+</span><span class="kn">from</span> <span class="n">langchain_mcp_adapters.client</span> <span class="kn">import</span> <span class="n">MultiServerMCPClient</span>
+
+<span class="c1"># 文件管理工具
+</span><span class="kn">from</span> <span class="n">langchain_community.agent_toolkits</span> <span class="kn">import</span> <span class="n">FileManagementToolkit</span>
+
+<span class="c1"># 其他工具
+</span><span class="kn">import</span> <span class="n">aiofiles</span>
+<span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="c1"># 加载环境变量
+</span><span class="nf">load_dotenv</span><span class="p">()</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">正在导入依赖模块...</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">load_model_config</span><span class="p">(</span><span class="n">config_path</span><span class="o">=</span><span class="sh">"</span><span class="s">../config.json</span><span class="sh">"</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">从JSON配置文件加载模型配置</span><span class="sh">"""</span>
+    <span class="c1"># 获取当前脚本所在目录
+</span>    <span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">dirname</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">abspath</span><span class="p">(</span><span class="n">__file__</span><span class="p">))</span>
+    <span class="c1"># 构建配置文件的绝对路径
+</span>    <span class="n">config_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">current_dir</span><span class="p">,</span> <span class="n">config_path</span><span class="p">)</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">config_file_path</span><span class="p">,</span> <span class="sh">'</span><span class="s">r</span><span class="sh">'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="sh">'</span><span class="s">utf-8</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="nf">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        
+        <span class="c1"># 获取默认模型配置
+</span>        <span class="n">default_model</span> <span class="o">=</span> <span class="n">config</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">default_model</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">kimi</span><span class="sh">"</span><span class="p">)</span>
+        <span class="n">model_config</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="sh">"</span><span class="s">models</span><span class="sh">"</span><span class="p">][</span><span class="n">default_model</span><span class="p">]</span>
+        
+        <span class="k">return</span> <span class="n">model_config</span>
+    <span class="k">except</span> <span class="nb">FileNotFoundError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nc">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">配置文件未找到: </span><span class="si">{</span><span class="n">config_file_path</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">except</span> <span class="nb">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nc">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">配置文件格式错误，缺少必要字段: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">load_service_config</span><span class="p">(</span><span class="n">service_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">config_path</span><span class="o">=</span><span class="sh">"</span><span class="s">../config.json</span><span class="sh">"</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">从JSON配置文件加载服务配置</span><span class="sh">"""</span>
+    <span class="c1"># 获取当前脚本所在目录
+</span>    <span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">dirname</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">abspath</span><span class="p">(</span><span class="n">__file__</span><span class="p">))</span>
+    <span class="c1"># 构建配置文件的绝对路径
+</span>    <span class="n">config_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">current_dir</span><span class="p">,</span> <span class="n">config_path</span><span class="p">)</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">config_file_path</span><span class="p">,</span> <span class="sh">'</span><span class="s">r</span><span class="sh">'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="sh">'</span><span class="s">utf-8</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="nf">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        
+        <span class="c1"># 获取服务配置
+</span>        <span class="n">service_config</span> <span class="o">=</span> <span class="n">config</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">services</span><span class="sh">"</span><span class="p">,</span> <span class="p">{}).</span><span class="nf">get</span><span class="p">(</span><span class="n">service_name</span><span class="p">,</span> <span class="p">{})</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">service_config</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="nc">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">配置文件中未找到服务 </span><span class="sh">'</span><span class="si">{</span><span class="n">service_name</span><span class="si">}</span><span class="sh">'</span><span class="s"> 的配置</span><span class="sh">"</span><span class="p">)</span>
+            
+        <span class="k">return</span> <span class="n">service_config</span>
+    <span class="k">except</span> <span class="nb">FileNotFoundError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nc">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">配置文件未找到: </span><span class="si">{</span><span class="n">config_file_path</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">except</span> <span class="nb">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nc">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">配置文件格式错误: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">load_file_management_config</span><span class="p">(</span><span class="n">config_path</span><span class="o">=</span><span class="sh">"</span><span class="s">../config.json</span><span class="sh">"</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">从JSON配置文件加载文件管理工具配置</span><span class="sh">"""</span>
+    <span class="c1"># 获取当前脚本所在目录
+</span>    <span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">dirname</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">abspath</span><span class="p">(</span><span class="n">__file__</span><span class="p">))</span>
+    <span class="c1"># 构建配置文件的绝对路径
+</span>    <span class="n">config_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">current_dir</span><span class="p">,</span> <span class="n">config_path</span><span class="p">)</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">config_file_path</span><span class="p">,</span> <span class="sh">'</span><span class="s">r</span><span class="sh">'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="sh">'</span><span class="s">utf-8</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="nf">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        
+        <span class="c1"># 获取文件管理配置
+</span>        <span class="n">file_config</span> <span class="o">=</span> <span class="n">config</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">file_management</span><span class="sh">"</span><span class="p">,</span> <span class="p">{})</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">file_config</span><span class="p">:</span>
+            <span class="c1"># 如果没有配置，则使用默认值
+</span>            <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">没有找到文件管理配置...</span><span class="sh">"</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">file_config</span>
+    <span class="k">except</span> <span class="nb">FileNotFoundError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nc">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">配置文件未找到: </span><span class="si">{</span><span class="n">config_file_path</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">except</span> <span class="nb">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nc">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">配置文件格式错误: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># ========== MCP客户端实现 ==========
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">create_mcp_client</span><span class="p">(</span><span class="n">max_retries</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">创建高德MCP客户端，带重试机制和模拟工具后备</span><span class="sh">"""</span>
+    <span class="c1"># 从配置文件读取高德地图配置
+</span>    <span class="k">try</span><span class="p">:</span>
+        <span class="n">amap_config</span> <span class="o">=</span> <span class="nf">load_service_config</span><span class="p">(</span><span class="sh">"</span><span class="s">amap</span><span class="sh">"</span><span class="p">)</span>
+        <span class="n">amap_key</span> <span class="o">=</span> <span class="n">amap_config</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">api_key</span><span class="sh">"</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">amap_key</span> <span class="ow">or</span> <span class="n">amap_key</span> <span class="o">==</span> <span class="sh">"</span><span class="s">your_amap_key_here</span><span class="sh">"</span><span class="p">:</span>
+            <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">⚠️  API密钥无效，使用模拟工具</span><span class="sh">"</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[]</span>
+
+        <span class="n">amap_base_url</span> <span class="o">=</span> <span class="n">amap_config</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">base_url</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">https://mcp.amap.com</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">读取配置失败: </span><span class="si">{</span><span class="nf">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s">，使用模拟工具</span><span class="sh">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[]</span>
+
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">正在连接高德MCP服务...</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="c1"># 尝试连接，带重试机制
+</span>    <span class="k">for</span> <span class="n">attempt</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">max_retries</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">client</span> <span class="o">=</span> <span class="nc">MultiServerMCPClient</span><span class="p">({</span>
+                <span class="sh">"</span><span class="s">amap</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="sh">"</span><span class="s">url</span><span class="sh">"</span><span class="p">:</span> <span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">amap_base_url</span><span class="si">}</span><span class="s">/sse?key=</span><span class="si">{</span><span class="n">amap_key</span><span class="si">}</span><span class="sh">"</span><span class="p">,</span>
+                    <span class="sh">"</span><span class="s">transport</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">sse</span><span class="sh">"</span><span class="p">,</span>
+                <span class="p">}</span>
+            <span class="p">})</span>
+
+            <span class="c1"># 获取可用工具
+</span>            <span class="n">tools</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="p">.</span><span class="nf">get_tools</span><span class="p">()</span>
+            <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">✅ 成功连接，已获取 </span><span class="si">{</span><span class="nf">len</span><span class="p">(</span><span class="n">tools</span><span class="p">)</span><span class="si">}</span><span class="s"> 个MCP工具</span><span class="sh">"</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">client</span><span class="p">,</span> <span class="n">tools</span>
+
+        <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">第 </span><span class="si">{</span><span class="n">attempt</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s"> 次连接尝试失败: </span><span class="si">{</span><span class="nf">type</span><span class="p">(</span><span class="n">e</span><span class="p">).</span><span class="n">__name__</span><span class="si">}</span><span class="s">: </span><span class="si">{</span><span class="nf">str</span><span class="p">(</span><span class="n">e</span><span class="p">)[</span><span class="si">:</span><span class="mi">100</span><span class="p">]</span><span class="si">}</span><span class="s">...</span><span class="sh">"</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">attempt</span> <span class="o">&lt;</span> <span class="n">max_retries</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">等待2秒后重试...</span><span class="sh">"</span><span class="p">)</span>
+                <span class="k">await</span> <span class="n">asyncio</span><span class="p">.</span><span class="nf">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">❌ 连接高德MCP服务失败，切换到模拟工具模式</span><span class="sh">"</span><span class="p">)</span>
+                <span class="k">return</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[]</span>
+
+    <span class="k">return</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[]</span>
+
+<span class="c1"># ========== 数据结构定义 ==========
+</span><span class="k">class</span> <span class="nc">TravelPlan</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">destination</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="nc">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="sh">"</span><span class="s">目的地城市</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">duration_days</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nc">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="sh">"</span><span class="s">旅行天数</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">weather_forecast</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="nc">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="sh">"</span><span class="s">天气预报信息</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">daily_schedule</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="nc">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="sh">"</span><span class="s">每日行程安排</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">transportation_links</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nc">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="sh">"</span><span class="s">交通链接(打车、导航等)</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">map_links</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nc">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="sh">"</span><span class="s">地图相关链接</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">recommendations</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nc">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="sh">"</span><span class="s">旅行建议</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># ========== 本地工具定义（未使用）  ==========
+</span><span class="nd">@tool</span>
+<span class="k">def</span> <span class="nf">save_to_file</span><span class="p">(</span><span class="n">content</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sh">"""</span><span class="s">将内容保存到文件</span><span class="sh">"""</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># 从配置文件获取输出目录配置
+</span>        <span class="k">try</span><span class="p">:</span>
+            <span class="n">file_config</span> <span class="o">=</span> <span class="nf">load_file_management_config</span><span class="p">()</span>
+            <span class="n">output_dir</span> <span class="o">=</span> <span class="n">file_config</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">output_dir</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">./output</span><span class="sh">"</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="c1"># 如果配置读取失败，使用环境变量或默认值
+</span>            <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">如果配置读取失败...</span><span class="sh">"</span><span class="p">)</span>
+
+        <span class="c1"># 确保输出目录存在
+</span>        <span class="n">os</span><span class="p">.</span><span class="nf">makedirs</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+        <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+        <span class="c1"># 异步写入文件
+</span>        <span class="k">async</span> <span class="k">def</span> <span class="nf">write_file</span><span class="p">():</span>
+            <span class="k">async</span> <span class="k">with</span> <span class="n">aiofiles</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="sh">'</span><span class="s">w</span><span class="sh">'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="sh">'</span><span class="s">utf-8</span><span class="sh">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="k">await</span> <span class="n">f</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+
+        <span class="c1"># 在事件循环中运行
+</span>        <span class="k">if</span> <span class="n">asyncio</span><span class="p">.</span><span class="nf">get_event_loop</span><span class="p">().</span><span class="nf">is_running</span><span class="p">():</span>
+            <span class="n">asyncio</span><span class="p">.</span><span class="nf">create_task</span><span class="p">(</span><span class="nf">write_file</span><span class="p">())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">asyncio</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="nf">write_file</span><span class="p">())</span>
+
+        <span class="k">return</span> <span class="sa">f</span><span class="sh">"</span><span class="s">文件已保存到: </span><span class="si">{</span><span class="n">filepath</span><span class="si">}</span><span class="sh">"</span>
+    <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="sh">"</span><span class="s">保存文件失败: </span><span class="si">{</span><span class="nf">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="sh">"</span>
+
+<span class="c1"># ========== 本地工具(模拟MCP工具)（未使用） ==========
+</span><span class="nd">@tool</span>
+<span class="k">def</span> <span class="nf">mock_poi_search</span><span class="p">(</span><span class="n">city</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">keywords</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="sh">"</span><span class="s">旅游景点</span><span class="sh">"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sh">"""</span><span class="s">模拟POI搜索工具</span><span class="sh">"""</span>
+    <span class="n">mock_results</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="sh">"</span><span class="s">杭州</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">西湖</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">address</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">杭州市西湖区</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">风景名胜</span><span class="sh">"</span><span class="p">},</span>
+            <span class="p">{</span><span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">灵隐寺</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">address</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">杭州市西湖区</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">宗教场所</span><span class="sh">"</span><span class="p">},</span>
+            <span class="p">{</span><span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">千岛湖</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">address</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">杭州市淳安县</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">自然景观</span><span class="sh">"</span><span class="p">},</span>
+            <span class="p">{</span><span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">宋城</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">address</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">杭州市西湖区</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">文化娱乐</span><span class="sh">"</span><span class="p">}</span>
+        <span class="p">],</span>
+        <span class="sh">"</span><span class="s">default</span><span class="sh">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">市中心广场</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">address</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">市中心</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">地标建筑</span><span class="sh">"</span><span class="p">},</span>
+            <span class="p">{</span><span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">博物馆</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">address</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">文化区</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">文化场所</span><span class="sh">"</span><span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">mock_results</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="n">mock_results</span><span class="p">[</span><span class="sh">"</span><span class="s">default</span><span class="sh">"</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">json</span><span class="p">.</span><span class="nf">dumps</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="nd">@tool</span>
+<span class="k">def</span> <span class="nf">mock_route_planning</span><span class="p">(</span><span class="n">start</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">end</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="sh">"</span><span class="s">driving</span><span class="sh">"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sh">"""</span><span class="s">模拟路线规划工具</span><span class="sh">"""</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="sh">"</span><span class="s">从</span><span class="si">{</span><span class="n">start</span><span class="si">}</span><span class="s">到</span><span class="si">{</span><span class="n">end</span><span class="si">}</span><span class="s">的</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s">路线规划已完成，预计耗时30分钟，距离15公里</span><span class="sh">"</span>
+
+<span class="nd">@tool</span>
+<span class="k">def</span> <span class="nf">mock_weather_query</span><span class="p">(</span><span class="n">city</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">date</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sh">"""</span><span class="s">模拟天气查询工具</span><span class="sh">"""</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">city</span><span class="si">}</span><span class="s">在</span><span class="si">{</span><span class="n">date</span><span class="si">}</span><span class="s">的天气：晴天，气温25-30°C，适合户外活动</span><span class="sh">"</span>
+
+<span class="nd">@tool</span>
+<span class="k">def</span> <span class="nf">mock_geocode</span><span class="p">(</span><span class="n">address</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sh">"""</span><span class="s">模拟地理编码工具</span><span class="sh">"""</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">address</span><span class="si">}</span><span class="s">的坐标：经度120.1551，纬度30.2741</span><span class="sh">"</span>
+
+<span class="c1"># ========== 主要功能实现 ==========
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">create_travel_agent</span><span class="p">():</span>
+    <span class="sh">"""</span><span class="s">创建集成MCP工具的旅行规划智能体</span><span class="sh">"""</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">正在创建旅行规划智能体...</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="c1"># 1. 获取MCP工具(高德地图)
+</span>    <span class="n">client</span><span class="p">,</span> <span class="n">mcp_tools</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">create_mcp_client</span><span class="p">()</span>
+
+    <span class="c1"># 如果MCP连接失败，使用模拟工具
+</span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">mcp_tools</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">⚠️ MCP连接失败...</span><span class="sh">"</span><span class="p">)</span>
+
+
+    <span class="c1"># 2. 获取文件管理工具配置
+</span>    <span class="k">try</span><span class="p">:</span>
+        <span class="n">file_config</span> <span class="o">=</span> <span class="nf">load_file_management_config</span><span class="p">()</span>
+        <span class="n">root_dir</span> <span class="o">=</span> <span class="n">file_config</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">root_dir</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">./temp</span><span class="sh">"</span><span class="p">)</span>
+        <span class="n">selected_tools</span> <span class="o">=</span> <span class="n">file_config</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">selected_tools</span><span class="sh">"</span><span class="p">,</span> <span class="p">[</span><span class="sh">"</span><span class="s">write_file</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">read_file</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">list_directory</span><span class="sh">"</span><span class="p">])</span>
+
+    <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">读取文件管理配置失败，使用默认配置: </span><span class="si">{</span><span class="nf">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="c1"># 3. 获取文件管理工具(内置工具)
+</span>    <span class="n">file_toolkit</span> <span class="o">=</span> <span class="nc">FileManagementToolkit</span><span class="p">(</span>
+        <span class="n">root_dir</span><span class="o">=</span><span class="n">root_dir</span><span class="p">,</span>
+        <span class="n">selected_tools</span><span class="o">=</span><span class="n">selected_tools</span>
+    <span class="p">)</span>
+    <span class="n">file_tools</span> <span class="o">=</span> <span class="n">file_toolkit</span><span class="p">.</span><span class="nf">get_tools</span><span class="p">()</span>
+
+    <span class="c1"># 4. 合并所有工具
+</span>    <span class="n">all_tools</span> <span class="o">=</span> <span class="n">mcp_tools</span> <span class="o">+</span> <span class="n">file_tools</span> <span class="o">+</span> <span class="p">[</span><span class="n">save_to_file</span><span class="p">]</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">总共可用工具数量: </span><span class="si">{</span><span class="nf">len</span><span class="p">(</span><span class="n">all_tools</span><span class="p">)</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="c1"># 5. 加载LLM配置
+</span>    <span class="n">model_config</span> <span class="o">=</span> <span class="nf">load_model_config</span><span class="p">()</span>
+    <span class="n">llm</span> <span class="o">=</span> <span class="nc">ChatOpenAI</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">model_config</span><span class="p">[</span><span class="sh">"</span><span class="s">model</span><span class="sh">"</span><span class="p">],</span>
+        <span class="n">base_url</span><span class="o">=</span><span class="n">model_config</span><span class="p">[</span><span class="sh">"</span><span class="s">base_url</span><span class="sh">"</span><span class="p">],</span>
+        <span class="n">api_key</span><span class="o">=</span><span class="nc">SecretStr</span><span class="p">(</span><span class="n">model_config</span><span class="p">[</span><span class="sh">"</span><span class="s">api_key</span><span class="sh">"</span><span class="p">]),</span>
+        <span class="n">temperature</span><span class="o">=</span><span class="n">model_config</span><span class="p">[</span><span class="sh">"</span><span class="s">temperature</span><span class="sh">"</span><span class="p">],</span>
+    <span class="p">)</span>
+
+    <span class="c1"># 6. 创建智能体
+</span>    <span class="n">agent</span> <span class="o">=</span> <span class="nf">create_agent</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">llm</span><span class="p">,</span>
+        <span class="n">tools</span><span class="o">=</span><span class="n">all_tools</span><span class="p">,</span>
+        <span class="n">system_prompt</span><span class="o">=</span><span class="n">SYSTEM_PROMPT</span> <span class="c1"># 这是agent的默认系统提示
+</span>    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">agent</span><span class="p">,</span> <span class="n">client</span>
+
+<span class="c1"># ========== 提示词模板 ==========
+# 定义系统提示（不变的部分）
+</span><span class="n">SYSTEM_PROMPT</span> <span class="o">=</span> <span class="sh">"""</span><span class="s">你是一个专业的旅行规划助手，现在必须立即使用高德MCP工具为用户制定详细的旅行计划。
+
+强制要求：
+1. 必须主动调用工具，不允许只提供文字说明
+2. 必须按顺序执行以下工具调用：
+   - POI搜索：查询目的地热门景点
+   - 地理编码：获取景点精确坐标
+   - 路线规划：设计每日行程路线
+   - 天气查询：获取出行期间天气
+   - 生成导航链接和地图链接
+   - 保存为HTML文件
+3. 每次工具调用后都要分析结果并继续下一步
+4. 最终输出完整的结构化旅行计划
+
+要求:
+- 考虑天气状况和出行时间
+- 提供具体的景区位置和路线规划
+- 生成可以直接使用的导航链接
+- 最终结果要结构化输出并保存到文件</span><span class="sh">"""</span>
+
+
+<span class="c1"># ========== 主函数 ==========
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="sh">"""</span><span class="s">主函数：执行完整的旅行规划流程</span><span class="sh">"""</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">=</span><span class="sh">"</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">开始执行高德MCP旅行规划系统</span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">=</span><span class="sh">"</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># 1. 创建智能体
+</span>        <span class="n">agent</span><span class="p">,</span> <span class="n">client</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">create_travel_agent</span><span class="p">()</span>
+
+        <span class="c1"># 2. 准备用户输入 - 更加强制性的指令
+</span>        <span class="n">user_input</span> <span class="o">=</span> <span class="sh">"""</span><span class="s">现在立即执行以下操作，必须调用工具：
+
+操作1: 调用POI搜索工具，查询杭州的热门旅游景点
+操作2: 调用地理编码工具，获取西湖的精确坐标
+操作3: 调用路线规划工具，规划从西湖到灵隐寺的路线
+操作4: 调用天气查询工具，查询杭州未来一周的天气
+
+每完成一个操作后继续下一个，不要等待确认。
+最终生成包含所有信息的旅行计划。</span><span class="sh">"""</span>
+
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="s">正在处理请求...</span><span class="sh">"</span><span class="p">)</span>
+
+        <span class="c1"># 4. 使用提示词模板格式化输入，然后执行智能体
+</span>        <span class="n">prompt</span> <span class="o">=</span> <span class="n">ChatPromptTemplate</span><span class="p">.</span><span class="nf">from_messages</span><span class="p">([</span>
+            <span class="p">(</span><span class="sh">"</span><span class="s">system</span><span class="sh">"</span><span class="p">,</span> <span class="n">SYSTEM_PROMPT</span><span class="p">),</span>  <span class="c1"># 系统指令
+</span>            <span class="p">(</span><span class="sh">"</span><span class="s">human</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">{input}</span><span class="sh">"</span><span class="p">),</span>  <span class="c1"># 用户输入占位符
+</span>        <span class="p">])</span>
+        <span class="n">formatted_input</span> <span class="o">=</span> <span class="n">prompt</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="n">user_input</span><span class="p">)</span> <span class="c1"># 动态注入用户输入
+</span>        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">prompt: </span><span class="si">{</span><span class="n">formatted_input</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">agent</span><span class="p">.</span><span class="nf">ainvoke</span><span class="p">({</span><span class="sh">"</span><span class="s">input</span><span class="sh">"</span><span class="p">:</span> <span class="n">formatted_input</span><span class="p">})</span><span class="c1"># 传递格式化后的完整
+</span>
+        <span class="c1"># 调试：打印响应结构
+</span>        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="se">\n</span><span class="s">响应类型: </span><span class="si">{</span><span class="nf">type</span><span class="p">(</span><span class="n">response</span><span class="p">)</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">响应键值: </span><span class="si">{</span><span class="nf">list</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">keys</span><span class="p">())</span> <span class="k">if</span> <span class="nf">isinstance</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="k">else</span> <span class="sh">'</span><span class="s">Not a dict</span><span class="sh">'</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
+        <span class="c1"># 详细查看消息内容和工具调用
+</span>        <span class="k">if</span> <span class="nf">isinstance</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="sh">"</span><span class="s">messages</span><span class="sh">"</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
+            <span class="n">messages</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="sh">"</span><span class="s">messages</span><span class="sh">"</span><span class="p">]</span>
+            <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="se">\n</span><span class="s">消息数量: </span><span class="si">{</span><span class="nf">len</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">msg</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="n">messages</span><span class="p">):</span>
+                <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="se">\n</span><span class="s">--- 消息 </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s"> ---</span><span class="sh">"</span><span class="p">)</span>
+                <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">类型: </span><span class="si">{</span><span class="nf">type</span><span class="p">(</span><span class="n">msg</span><span class="p">).</span><span class="n">__name__</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nf">hasattr</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="sh">'</span><span class="s">content</span><span class="sh">'</span><span class="p">):</span>
+                    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">内容长度: </span><span class="si">{</span><span class="nf">len</span><span class="p">(</span><span class="nf">str</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">content</span><span class="p">))</span><span class="si">}</span><span class="s"> 字符</span><span class="sh">"</span><span class="p">)</span>
+                    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">内容预览: </span><span class="si">{</span><span class="nf">str</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">content</span><span class="p">)[</span><span class="si">:</span><span class="mi">200</span><span class="p">]</span><span class="si">}</span><span class="s">...</span><span class="sh">"</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nf">hasattr</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="sh">'</span><span class="s">tool_calls</span><span class="sh">'</span><span class="p">)</span> <span class="ow">and</span> <span class="n">msg</span><span class="p">.</span><span class="n">tool_calls</span><span class="p">:</span>
+                    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">工具调用: </span><span class="si">{</span><span class="n">msg</span><span class="p">.</span><span class="n">tool_calls</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nf">hasattr</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="sh">'</span><span class="s">additional_kwargs</span><span class="sh">'</span><span class="p">):</span>
+                    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">额外信息: </span><span class="si">{</span><span class="n">msg</span><span class="p">.</span><span class="n">additional_kwargs</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="se">\n</span><span class="s">完整响应: </span><span class="si">{</span><span class="n">response</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
+        <span class="c1"># 获取最终消息
+</span>        <span class="k">if</span> <span class="nf">isinstance</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="sh">"</span><span class="s">messages</span><span class="sh">"</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
+            <span class="n">last_msg</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="sh">"</span><span class="s">messages</span><span class="sh">"</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="se">\n</span><span class="s">最终内容：</span><span class="si">{</span><span class="nf">repr</span><span class="p">(</span><span class="n">last_msg</span><span class="p">.</span><span class="n">content</span><span class="p">)</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
+            <span class="c1"># 检查是否有工具调用
+</span>            <span class="k">if</span> <span class="nf">hasattr</span><span class="p">(</span><span class="n">last_msg</span><span class="p">,</span> <span class="sh">'</span><span class="s">tool_calls</span><span class="sh">'</span><span class="p">)</span> <span class="ow">and</span> <span class="n">last_msg</span><span class="p">.</span><span class="n">tool_calls</span><span class="p">:</span>
+                <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">✅ 检测到工具调用: </span><span class="si">{</span><span class="nf">len</span><span class="p">(</span><span class="n">last_msg</span><span class="p">.</span><span class="n">tool_calls</span><span class="p">)</span><span class="si">}</span><span class="s"> 个</span><span class="sh">"</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">tool_call</span> <span class="ow">in</span> <span class="n">last_msg</span><span class="p">.</span><span class="n">tool_calls</span><span class="p">:</span>
+                    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">  - 工具: </span><span class="si">{</span><span class="n">tool_call</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">name</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">unknown</span><span class="sh">'</span><span class="p">)</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">⚠️  未检测到工具调用</span><span class="sh">"</span><span class="p">)</span>
+        <span class="c1"># 5. 输出结果
+</span>        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="sh">"</span> <span class="o">+</span> <span class="sh">"</span><span class="s">=</span><span class="sh">"</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">旅行规划完成!</span><span class="sh">"</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">=</span><span class="sh">"</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+
+
+    <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="se">\n</span><span class="s">执行过程中出现错误: </span><span class="si">{</span><span class="nf">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+        <span class="kn">import</span> <span class="n">traceback</span>
+        <span class="n">traceback</span><span class="p">.</span><span class="nf">print_exc</span><span class="p">()</span>
+
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="s">程序执行完毕</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># ========== 运行入口 ==========
+</span><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">启动基于高德MCP的复杂路径规划 + 可视化展示...</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">asyncio</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="nf">main</span><span class="p">())</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<div class="table-wrapper"><table>
-  <tbody>
-    <tr>
-      <td>[概述-MCP Server</td>
-      <td>高德地图API](https://lbs.amap.com/api/mcp-server/summary)</td>
-    </tr>
-  </tbody>
-</table></div>
+<p><strong>效果</strong></p>
 
 <p><a href="https://github.com/Auroraol/Drawing-bed/raw/main/img/image-20260214174940676.png" class="popup img-link  shimmer"><img src="https://github.com/Auroraol/Drawing-bed/raw/main/img/image-20260214174940676.png" alt="image-20260214174940676" loading="lazy"></a></p>
 
@@ -1543,6 +2484,11 @@ langgraph-sdk==0.3.5
               
 
 
+
+  <section id="toc-wrapper" class="ps-0 pe-4">
+    <h2 class="panel-heading ps-3 pt-2 mb-2">文章内容</h2>
+    <nav id="toc"></nav>
+  </section>
 
 
             
@@ -2560,9 +3506,16 @@ Agent（代理） 是 LangChain 中更高级的机制，允许 LLM 像“智能�
 
   
 
+  
+    
+
+    
+
+  
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.10/dayjs.min.js,npm/dayjs@1.11.10/locale/zh.min.js,npm/dayjs@1.11.10/plugin/relativeTime.min.js,npm/dayjs@1.11.10/plugin/localizedFormat.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/combine/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.10/dayjs.min.js,npm/dayjs@1.11.10/locale/zh.min.js,npm/dayjs@1.11.10/plugin/relativeTime.min.js,npm/dayjs@1.11.10/plugin/localizedFormat.min.js,npm/tocbot@4.25.0/dist/tocbot.min.js"></script>
 
 
 
