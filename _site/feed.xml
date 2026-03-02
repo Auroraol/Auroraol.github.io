@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>&amp;#8203;</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2026-03-02T23:15:55+08:00</updated>
+  <updated>2026-03-02T23:24:27+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -24,7 +24,7 @@
     <link href="http://localhost:4000/go/%E7%BB%93%E6%9E%84%E4%BD%93/%E7%BB%93%E6%9E%84%E4%BD%93/" rel="alternate" type="text/html" title="结构体" />
     <published>2026-03-02T10:40:00+08:00</published>
   
-    <updated>2026-03-02T10:40:00+08:00</updated>
+    <updated>2026-03-02T23:18:15+08:00</updated>
   
     <id>http://localhost:4000/go/%E7%BB%93%E6%9E%84%E4%BD%93/%E7%BB%93%E6%9E%84%E4%BD%93/</id>
     <content src="http://localhost:4000/go/%E7%BB%93%E6%9E%84%E4%BD%93/%E7%BB%93%E6%9E%84%E4%BD%93/" />
