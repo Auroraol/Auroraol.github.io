@@ -1,17 +1,17 @@
 
 
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <id>https://auroraol.github.io/</id>
+  <id>http://localhost:4000/</id>
   <title>&amp;#8203;</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2026-03-02T23:49:07+08:00</updated>
+  <updated>2026-03-22T19:36:09+08:00</updated>
   <author>
     <name>lfj</name>
-    <uri>https://auroraol.github.io/</uri>
+    <uri>http://localhost:4000/</uri>
   </author>
-  <link rel="self" type="application/atom+xml" href="https://auroraol.github.io/feed.xml"/>
+  <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml"/>
   <link rel="alternate" type="text/html" hreflang="zh-CN"
-    href="https://auroraol.github.io/"/>
+    href="http://localhost:4000/"/>
   <generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator>
   <rights> © 2026 lfj </rights>
   <icon>/assets/img/favicons/favicon.ico</icon>
@@ -20,14 +20,64 @@
 
   
   <entry>
+    <title>项目文件说明</title>
+    <link href="http://localhost:4000/openclaw/openclaw-docker-deployment/" rel="alternate" type="text/html" title="项目文件说明" />
+    <published>2026-03-22T19:19:00+08:00</published>
+  
+    <updated>2026-03-22T19:19:00+08:00</updated>
+  
+    <id>http://localhost:4000/openclaw/openclaw-docker-deployment/</id>
+    <content src="http://localhost:4000/openclaw/openclaw-docker-deployment/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="OpenClaw" />
+    
+  
+
+  <summary>项目文件说明
+
+
+  Dockerfile - Docker 镜像构建文件
+  init.sh - 容器初始化脚本（作为主程序运行）
+  docker-compose.yml - Docker Compose 配置文件
+  .env.example - 环境变量配置模板
+  .dockerignore - Docker 构建忽略文件
+  openclaw.json.example - OpenClaw 默认配置文件示例
+
+
+参考项目
+
+https://github.com/justlovemaki/OpenClaw-Docker-CN-IM
+
+部署
+
+镜像源配置
+
+docker镜像源
+
+mkdir -p /etc/docker
+
+cat &amp;amp;gt; /etc/docker/daemon.json &amp;amp;lt;&amp;amp;lt; &amp;#39;EOF&amp;#39;
+{
+  &amp;quot;registry-mirrors&amp;quot;: [
+    ...</summary>
+
+  </entry>
+
+  
+  <entry>
     <title>结构体</title>
-    <link href="https://auroraol.github.io/go/%E7%BB%93%E6%9E%84%E4%BD%93/%E7%BB%93%E6%9E%84%E4%BD%93/" rel="alternate" type="text/html" title="结构体" />
+    <link href="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E7%BB%93%E6%9E%84%E4%BD%93/" rel="alternate" type="text/html" title="结构体" />
     <published>2026-03-02T10:40:00+08:00</published>
   
-    <updated>2026-03-02T23:18:15+08:00</updated>
+    <updated>2026-03-02T23:57:42+08:00</updated>
   
-    <id>https://auroraol.github.io/go/%E7%BB%93%E6%9E%84%E4%BD%93/%E7%BB%93%E6%9E%84%E4%BD%93/</id>
-    <content src="https://auroraol.github.io/go/%E7%BB%93%E6%9E%84%E4%BD%93/%E7%BB%93%E6%9E%84%E4%BD%93/" />
+    <id>http://localhost:4000/go/%E8%A7%84%E5%88%99/%E7%BB%93%E6%9E%84%E4%BD%93/</id>
+    <content src="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E7%BB%93%E6%9E%84%E4%BD%93/" />
     <author>
       <name>lfj</name>
     </author>
@@ -36,7 +86,7 @@
     
     <category term="GO" />
     
-    <category term="结构体" />
+    <category term="规则" />
     
   
 
@@ -82,13 +132,13 @@ var per Person
   
   <entry>
     <title>03_LangChain-MCP解析</title>
-    <link href="https://auroraol.github.io/agent/langchain%E8%A7%A3%E6%9E%90/MCP/" rel="alternate" type="text/html" title="03_LangChain-MCP解析" />
+    <link href="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/" rel="alternate" type="text/html" title="03_LangChain-MCP解析" />
     <published>2026-02-14T15:00:00+08:00</published>
   
     <updated>2026-02-27T17:20:19+08:00</updated>
   
-    <id>https://auroraol.github.io/agent/langchain%E8%A7%A3%E6%9E%90/MCP/</id>
-    <content src="https://auroraol.github.io/agent/langchain%E8%A7%A3%E6%9E%90/MCP/" />
+    <id>http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/</id>
+    <content src="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/" />
     <author>
       <name>lfj</name>
     </author>
@@ -138,13 +188,13 @@ MCP 的核心原理是将互联网服务（高德、谷歌）或本地操作系�
   
   <entry>
     <title>内存分析</title>
-    <link href="https://auroraol.github.io/go/%E8%A7%84%E5%88%99/%E5%86%85%E5%AD%98/" rel="alternate" type="text/html" title="内存分析" />
+    <link href="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E5%86%85%E5%AD%98/" rel="alternate" type="text/html" title="内存分析" />
     <published>2026-02-14T11:00:00+08:00</published>
   
     <updated>2026-02-14T11:00:00+08:00</updated>
   
-    <id>https://auroraol.github.io/go/%E8%A7%84%E5%88%99/%E5%86%85%E5%AD%98/</id>
-    <content src="https://auroraol.github.io/go/%E8%A7%84%E5%88%99/%E5%86%85%E5%AD%98/" />
+    <id>http://localhost:4000/go/%E8%A7%84%E5%88%99/%E5%86%85%E5%AD%98/</id>
+    <content src="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E5%86%85%E5%AD%98/" />
     <author>
       <name>lfj</name>
     </author>
@@ -184,13 +234,13 @@ Go 编译器会在编译时进行逃逸分析，以此决定对象应该分配�
   
   <entry>
     <title>02_LangChain-Agent解析</title>
-    <link href="https://auroraol.github.io/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/" rel="alternate" type="text/html" title="02_LangChain-Agent解析" />
+    <link href="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/" rel="alternate" type="text/html" title="02_LangChain-Agent解析" />
     <published>2026-02-13T16:00:00+08:00</published>
   
     <updated>2026-02-24T11:53:41+08:00</updated>
   
-    <id>https://auroraol.github.io/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/</id>
-    <content src="https://auroraol.github.io/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/" />
+    <id>http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/</id>
+    <content src="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/" />
     <author>
       <name>lfj</name>
     </author>
@@ -228,83 +278,6 @@ from langchain.agents import create_agent
 # llm
 KimiLlm = ChatOpenAI(
     model=&amp;quot;kimi-k2-tu...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Colorbox 和 Details 功能测试</title>
-    <link href="https://auroraol.github.io/jekyll/chirpy%E4%BD%BF%E7%94%A8/colorbox-details-test/" rel="alternate" type="text/html" title="Colorbox 和 Details 功能测试" />
-    <published>2026-02-13T14:12:00+08:00</published>
-  
-    <updated>2026-02-14T15:21:37+08:00</updated>
-  
-    <id>https://auroraol.github.io/jekyll/chirpy%E4%BD%BF%E7%94%A8/colorbox-details-test/</id>
-    <content src="https://auroraol.github.io/jekyll/chirpy%E4%BD%BF%E7%94%A8/colorbox-details-test/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="jekyll" />
-    
-    <category term="Chirpy使用" />
-    
-  
-
-  <summary>本文档用于测试新增的 colorbox 提示框和 details 折叠块功能。
-
-Colorbox 提示框测试
-
-
-  测试
-
-
-Info 提示框
-
-
-  Info 提示框标题
-
-  这是一个 info 类型的提示框，通常用于提供一般性信息。
-
-
-Tip 提示框
-
-
-  Tip 提示框标题
-
-  这是一个 tip 类型的提示框，通常用于提供技巧或建议。
-
-
-Warning 提示框
-
-
-  Warning 提示框标题
-
-  这是一个 warning 类型的提示框，通常用于警告重要信息。
-
-
-Danger 提示框
-
-
-  Danger 提示框标题
-
-  这是一个 danger 类型的提示框，通常用于显示错误或危险信息。
-
-
-
-  这是一个 danger 类型的提示框，通常用于显示错误或危险信息。
-
-
-Details 折叠块测试
-
-基础折叠块
-
-
-  点击查看详细信息
-
-  这里是一些详细...</summary>
 
   </entry>
 

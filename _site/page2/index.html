@@ -34,16 +34,16 @@
 <meta property="og:locale" content="zh_CN" />
 <meta name="description" content="A personal blog for recording pieces of thoughts." />
 <meta property="og:description" content="A personal blog for recording pieces of thoughts." />
-<link rel="canonical" href="https://auroraol.github.io/page2/" />
-<meta property="og:url" content="https://auroraol.github.io/page2/" />
+<link rel="canonical" href="http://localhost:4000/page2/" />
+<meta property="og:url" content="http://localhost:4000/page2/" />
 <meta property="og:site_name" content="​" />
 <meta property="og:type" content="website" />
-<link rel="prev" href="https://auroraol.github.io/" />
-<link rel="next" href="https://auroraol.github.io/page3" />
+<link rel="prev" href="http://localhost:4000/" />
+<link rel="next" href="http://localhost:4000/page3" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="​" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"A personal blog for recording pieces of thoughts.","headline":"​","url":"https://auroraol.github.io/page2/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"A personal blog for recording pieces of thoughts.","headline":"​","url":"http://localhost:4000/page2/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -534,6 +534,72 @@
 
 
 <div id="post-list" class="flex-grow-1 px-xl-1">
+  
+    <article class="card-wrapper card">
+      <a href="/go/%E5%BC%82%E6%AD%A5/%E9%80%9A%E9%81%93/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">通道</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>内存泄露
+
+对于一个channel来说，如果没有任何goroutine(轻量级线程)引用，gc会对其进行回收，不会引起内存泄露。
+
+// goroutine
+go func() {
+    fmt.Println(&quot;hello from a goroutine&quot;)
+}()
+
+
+而当goroutine处于接收或发送阻塞状态，channel处于空或满状态时，一直得不到改变，gc则无法回收这类一直...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1768840800"
+  data-df="YYYY/MM/DD"
+  
+>
+  2026/01/20
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      GO,
+                      异步
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
   
     <article class="card-wrapper card">
       <a href="/go/%E8%A7%84%E5%88%99/%E5%88%87%E7%89%87/" class="post-preview row g-0 flex-md-row-reverse">
@@ -1183,79 +1249,6 @@ Protobuf 常用于以下场景：
       </a>
     </article>
   
-    <article class="card-wrapper card">
-      <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/protojson%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">protojson解析库</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>json 和 protojson使用
-
-不是直接使用encoding/json库的原因:
-
-
-  
-    
-      序列化器
-      能否用于 Protobuf GO 结构体
-      输出标准 Protobuf JSON
-      能正确处理特殊 proto 类型
-    
-  
-  
-    
-      encoding/json
-      可以，但有限
-      否...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1764385200"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/29
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      GO,
-                      解析库
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
 </div>
 <!-- #post-list -->
 
@@ -1419,7 +1412,14 @@ Protobuf 常用于以下场景：
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E7%BB%93%E6%9E%84%E4%BD%93/%E7%BB%93%E6%9E%84%E4%BD%93/">结构体</a>
+          <a href="/openclaw/openclaw-docker-deployment/">项目文件说明</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/go/%E8%A7%84%E5%88%99/%E7%BB%93%E6%9E%84%E4%BD%93/">结构体</a>
         </li>
       
         
@@ -1441,13 +1441,6 @@ Protobuf 常用于以下场景：
         
         <li class="text-truncate lh-lg">
           <a href="/agent/langchain%E8%A7%A3%E6%9E%90/MCP/">03_LangChain-MCP解析</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/">02_LangChain-Agent解析</a>
         </li>
       
     </ul>
@@ -1551,35 +1544,6 @@ Protobuf 常用于以下场景：
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1594,6 +1558,31 @@ Protobuf 常用于以下场景：
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -1604,6 +1593,20 @@ Protobuf 常用于以下场景：
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
     
   
     
@@ -2196,35 +2199,6 @@ Protobuf 常用于以下场景：
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2239,6 +2213,31 @@ Protobuf 常用于以下场景：
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -2249,6 +2248,20 @@ Protobuf 常用于以下场景：
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
     
   
     

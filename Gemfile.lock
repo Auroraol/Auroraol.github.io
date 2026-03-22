@@ -156,7 +156,7 @@ DEPENDENCIES
   base64
   bigdecimal
   csv
-  html-proofer
+  html-proofer (~> 5.0)
   http_parser.rb (~> 0.6.0)
   jekyll-theme-chirpy!
   logger
