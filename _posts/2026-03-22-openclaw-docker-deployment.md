@@ -18,15 +18,7 @@ tags:
 
 注意：[`PRIMARY_MODEL`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/.env.example) 和 [`IMAGE_MODEL_ID`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/.env.example) 都可以填写完整引用，即 `provider/model` 格式，例如：
 
-# 参考项目
-
- https://github.com/justlovemaki/OpenClaw-Docker-CN-IM
-
-# 部署
-
-## 镜像源配置
-
-**docker镜像源**
+- `default/dashscope/qwen3.5-plus`
 
 ```bash
 mkdir -p /etc/docker
