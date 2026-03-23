@@ -21,5 +21,5 @@ jobs:
         run: |
           bundle exec htmlproofer _site \
             --ignore-missing true \
-            --ignore_files "Dockerfile,init.sh,docker-compose.yml,.env.example,.dockerignore,openclaw.json.example,README.md" \
+            --ignore_files "Dockerfile,init\.sh,docker-compose\.yml,\.env\.example,\.dockerignore,openclaw\.json\.example,README\.md" \
             --url_ignore "fonts\.googleapis\.com,fonts\.gstatic\.com"
