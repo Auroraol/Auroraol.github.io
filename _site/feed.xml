@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>&amp;#8203;</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2026-03-23T21:35:57+08:00</updated>
+  <updated>2026-03-23T22:17:25+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -24,7 +24,7 @@
     <link href="http://localhost:4000/openclaw/openclaw-docker-deployment/" rel="alternate" type="text/html" title="项目文件说明" />
     <published>2026-03-22T19:19:00+08:00</published>
   
-    <updated>2026-03-23T20:34:01+08:00</updated>
+    <updated>2026-03-23T21:43:39+08:00</updated>
   
     <id>http://localhost:4000/openclaw/openclaw-docker-deployment/</id>
     <content src="http://localhost:4000/openclaw/openclaw-docker-deployment/" />
@@ -51,19 +51,15 @@
 
 注意：PRIMARY_MODEL 和 IMAGE_MODEL_ID 都可以填写完整引用，即 provider/model 格式，例如：
 
-参考项目
 
-https://github.com/justlovemaki/OpenClaw-Docker-CN-IM
+  default/dashscope/qwen3.5-plus
 
-部署
-
-镜像源配置
-
-docker镜像源
 
 mkdir -p /etc/docker
 
-cat &amp;amp;gt; /...</summary>
+cat &amp;amp;gt; /etc/docker/daemon.json &amp;amp;lt;&amp;amp;lt; &amp;#39;EOF&amp;#39;
+{
+  &amp;quot;regi...</summary>
 
   </entry>
 
