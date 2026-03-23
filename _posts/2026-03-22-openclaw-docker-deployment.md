@@ -9,12 +9,14 @@ tags:
 # 项目文件说明
 
 
-- [`Dockerfile`](Dockerfile) - Docker 镜像构建文件
-- [`init.sh`](init.sh) - 容器初始化脚本（作为主程序运行）
-- [`docker-compose.yml`](docker-compose.yml) - Docker Compose 配置文件
-- [`.env.example`](.env.example) - 环境变量配置模板
-- [`.dockerignore`](.dockerignore) - Docker 构建忽略文件
-- [`openclaw.json.example`](openclaw.json.example) - OpenClaw 默认配置文件示例
+- [`Dockerfile`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/Dockerfile) - Docker镜像构建文件
+- [`init.sh`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/init.sh) - 容器初始化脚本（作为主程序运行）
+- [`docker-compose.yml`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/docker-compose.yml) - Docker Compose 配置文件
+- [`.env.example`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/.env.example) - 环境变量配置模板
+- [`.dockerignore`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/.dockerignore) - Docker 构建忽略文件
+- [`openclaw.json.example`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/openclaw.json.example) - OpenClaw 默认配置文件示例
+
+注意：[`PRIMARY_MODEL`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/.env.example) 和 [`IMAGE_MODEL_ID`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/.env.example) 都可以填写完整引用，即 `provider/model` 格式，例如：
 
 # 参考项目
 
@@ -99,7 +101,7 @@ docker-compose logs -f
 
 ### 5. 更新 / 升级建议
 
-推荐直接克隆项目进行维护，这样后续升级时可以先同步项目内的 [`README.md`](README.md)、[`docker-compose.yml`](docker-compose.yml) 和 [`.env.example`](.env.example) 等文件，再强制拉取最新镜像并重建启动，避免遗漏新的配置项或编排变更。
+推荐直接克隆项目进行维护，这样后续升级时可以先同步项目内的 [`README.md`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/README.md)、[`docker-compose.yml`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/docker-compose.yml) 和 [`.env.example`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/.env.example) 等文件，再强制拉取最新镜像并重建启动，避免遗漏新的配置项或编排变更。
 
 **推荐升级流程**：
 
@@ -118,7 +120,7 @@ docker compose pull
 docker compose up -d --force-recreate
 ```
 
-> 💡 **说明**：如果你是通过单独下载 [`docker-compose.yml`](docker-compose.yml) 和 [`.env.example`](.env.example) 的方式部署，升级时也建议优先同步这两个文件，再执行 [`docker compose pull`](README.md:117) 与 [`docker compose up -d --force-recreate`](README.md:118)。
+> 💡 **说明**：如果你是通过单独下载 [`docker-compose.yml`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/docker-compose.yml) 和 [`.env.example`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/.env.example) 的方式部署，升级时也建议优先同步这两个文件，再执行 [`docker compose pull`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/README.md) 与 [`docker compose up -d --force-recreate`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/README.md)。
 
 ![image-20260314175037619](https://github.com/Auroraol/Drawing-bed/raw/main/img/image-20260314175037619.png)
 
@@ -605,11 +607,11 @@ docker compose up -d
 
 ## 本项目已做的稳态处理
 
-- [`docker-compose.yml`](docker-compose.yml) 新增可选 `user` 配置：`OPENCLAW_RUN_USER`（默认 `0:0`）
-- [`init.sh`](init.sh) 启动时会：
+- [`docker-compose.yml`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/docker-compose.yml) 新增可选 `user` 配置：`OPENCLAW_RUN_USER`（默认 `0:0`）
+- [`init.sh`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/init.sh) 启动时会：
   - 打印挂载目录当前 UID/GID 与目标 UID/GID
   - 尝试自动修复 `/home/node/.openclaw` 权限
-  - 若仍不可写，输出明确的修复命令并失败退出，避免“有时成功有时报错”的隐性状态
+  - 若仍不可写，输出明确的修复命令并失败退出，避免"有时成功有时报错"的隐性状态
 
 [手把手教你看日志修 Bug](https://juejin.cn/post/7615165093509431306)
 
@@ -791,7 +793,7 @@ docker compose up -d
 
 ### 单账号快捷配置
 
-在 [`.env`](.env.example) 文件中添加：
+在 [`.env`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/.env.example) 文件中添加：
 
 ```bash
 FEISHU_DEFAULT_ACCOUNT=default
@@ -807,11 +809,11 @@ FEISHU_REQUIRE_MENTION=true
 FEISHU_OFFICIAL_PLUGIN_ENABLED=true
 ```
 
-> 💡 **提示**：单账号环境变量会自动写入 [`channels.feishu.accounts.default`](openclaw.json.example:152) 或 [`FEISHU_DEFAULT_ACCOUNT`](.env.example) 指定的账号节点，同时保留 [`channels.feishu.appId`](openclaw.json.example:140) / [`channels.feishu.appSecret`](openclaw.json.example:141) 作为默认机器人兜底配置。
+> 💡 **提示**：单账号环境变量会自动写入 [`channels.feishu.accounts.default`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/openclaw.json.example) 或 [`FEISHU_DEFAULT_ACCOUNT`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/.env.example) 指定的账号节点，同时保留 [`channels.feishu.appId`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/openclaw.json.example) / [`channels.feishu.appSecret`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/openclaw.json.example) 作为默认机器人兜底配置。
 
 ### 多账号配置（推荐）
 
-如需配置多个飞书机器人，可使用 [`FEISHU_ACCOUNTS_JSON`](.env.example) 环境变量，结构与企业微信多账号类似。
+如需配置多个飞书机器人，可使用 [`FEISHU_ACCOUNTS_JSON`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/.env.example) 环境变量，结构与企业微信多账号类似。
 
 ```bash
 FEISHU_ACCOUNTS_JSON={"default":{"appId":"cli_xxx","appSecret":"xxx","botName":"OpenClaw Bot"},"work":{"appId":"cli_work_yyy","appSecret":"work_secret_yyy","botName":"工作机器人","dmPolicy":"allowlist","allowFrom":["ou_5b990e213988b9bcf396f955a50b2a22","ou_1234567890abcdef"]},"support":{"appId":"cli_support_zzz","appSecret":"support_secret_zzz","botName":"客服机器人","dmPolicy":"open","allowFrom":["*"]}}
@@ -820,8 +822,8 @@ FEISHU_GROUPS_JSON={"*":{"requireMention":true},"oc_83e1c0d069b94efc09ad22e05bc0
 
 说明：
 - 账号 ID（如 `default`、`work`、`support`）仅支持小写字母、数字、`-`、`_`。
-- [`FEISHU_ACCOUNTS_JSON`](.env.example) 会与现有配置深度合并。
-- [`FEISHU_GROUPS_JSON`](.env.example) 用于单独维护群聊规则，不必把 [`groups`](openclaw.json.example:175) 硬编码在主配置里。
+- [`FEISHU_ACCOUNTS_JSON`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/.env.example) 会与现有配置深度合并。
+- [`FEISHU_GROUPS_JSON`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/.env.example) 用于单独维护群聊规则，不必把 [`groups`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/openclaw.json.example) 硬编码在主配置里。
 - 若同时配置单账号环境变量与多账号 JSON，则单账号配置先写入默认账号，再由多账号 JSON 覆盖同名字段。
 - 启动时会校验重复的 `appId`，避免多机器人路由冲突。
 
@@ -872,10 +874,10 @@ FEISHU_GROUPS_JSON={"*":{"requireMention":true},"oc_83e1c0d069b94efc09ad22e05bc0
 ```
 
 说明：
-- 顶层 [`channels.feishu`](openclaw.json.example:138) 作为共享默认配置，会同步默认账号的 `appId` / `appSecret` 供插件初始化使用。
-- [`channels.feishu.accounts`](openclaw.json.example:151) 中每个账号可独立定义 `botName`、`dmPolicy`、`allowFrom` 等字段。
-- [`channels.feishu.groups`](openclaw.json.example:174) 用于按群聊 ID 细化 `requireMention`、`groupPolicy` 与 `allowFrom`。
-- 逻辑上与 [`channels.wecom`](openclaw.json.example:223) 的账号中心配置保持一致，便于统一维护。
+- 顶层 [`channels.feishu`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/openclaw.json.example) 作为共享默认配置，会同步默认账号的 `appId` / `appSecret` 供插件初始化使用。
+- [`channels.feishu.accounts`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/openclaw.json.example) 中每个账号可独立定义 `botName`、`dmPolicy`、`allowFrom` 等字段。
+- [`channels.feishu.groups`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/openclaw.json.example) 用于按群聊 ID 细化 `requireMention`、`groupPolicy` 与 `allowFrom`。
+- 逻辑上与 [`channels.wecom`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/openclaw.json.example) 的账号中心配置保持一致，便于统一维护。
 
 > 💡 **openclaw官方插件**：[clawdbot-feishu](https://github.com/openclaw/openclaw/blob/main/docs/channels/feishu.md) - 飞书机器人完整实现示例
 > 
@@ -885,12 +887,12 @@ FEISHU_GROUPS_JSON={"*":{"requireMention":true},"oc_83e1c0d069b94efc09ad22e05bc0
 
 ### 飞书官方团队插件配置
 
-本项目已集成飞书官方团队插件 CLI 工具，但**不会在镜像构建阶段自动执行** [`npx @larksuite/openclaw-lark-tools install`](README.md:719)，因为该命令会进入交互式向导（如“Create a new bot / Use an existing bot linked to OpenClaw”），在 [`docker build`](README.md:1038) 中无法回答提示，最终会以退出码 `130` 失败。
+本项目已集成飞书官方团队插件 CLI 工具，但**不会在镜像构建阶段自动执行** [`npx @larksuite/openclaw-lark-tools install`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/README.md)，因为该命令会进入交互式向导（如"Create a new bot / Use an existing bot linked to OpenClaw"），在 [`docker build`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/README.md) 中无法回答提示，最终会以退出码 `130` 失败。
 
 因此当前策略是：**构建阶段只预装 CLI 与基础依赖，真正的飞书官方插件注册放到容器运行后手动完成**。
 
 1. **不要在主服务容器内执行安装**：
-   [`npx @larksuite/openclaw-lark-tools install`](README.md:719) 会主动触发 OpenClaw 服务重载/重启；如果直接在 [`openclaw-gateway`](docker-compose.yml:4) 容器内执行，会打断当前容器里的主进程。
+   [`npx @larksuite/openclaw-lark-tools install`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/README.md) 会主动触发 OpenClaw 服务重载/重启；如果直接在 [`openclaw-gateway`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/docker-compose.yml) 容器内执行，会打断当前容器里的主进程。
 2. **使用独立安装容器执行向导**：
    先启动主服务：`docker compose up -d openclaw-gateway`
 
@@ -910,9 +912,9 @@ FEISHU_GROUPS_JSON={"*":{"requireMention":true},"oc_83e1c0d069b94efc09ad22e05bc0
    - 程序会询问是否卸载旧的 `lark-office` MCP，输入 `Y`。
    - 输入您的飞书应用 `AppID` 和 `AppSecret`。
    
-   由于 [`openclaw-installer`](docker-compose.yml:82) 只是一次性工具容器，不承载 Gateway 主进程，因此这里发生服务重启不会把主网关容器安装流程打断。
+   由于 [`openclaw-installer`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/docker-compose.yml) 只是一次性工具容器，不承载 Gateway 主进程，因此这里发生服务重启不会把主网关容器安装流程打断。
    
-   如果出现 `plugin not found: openclaw-lark`，说明**飞书官方团队插件尚未完成交互式安装**。这是预期行为：当前镜像不会在构建阶段自动完成插件注册。此时请继续在工具容器内执行交互式命令 [`npx -y @larksuite/openclaw-lark-tools install`](README.md:721)，安装完成后再在 [`.env`](.env.example) 中配置 `FEISHU_OFFICIAL_PLUGIN_ENABLED=true` 显式开启官方插件。
+   如果出现 `plugin not found: openclaw-lark`，说明**飞书官方团队插件尚未完成交互式安装**。这是预期行为：当前镜像不会在构建阶段自动完成插件注册。此时请继续在工具容器内执行交互式命令 [`npx -y @larksuite/openclaw-lark-tools install`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/README.md)，安装完成后再在 [`.env`](https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/.env.example) 中配置 `FEISHU_OFFICIAL_PLUGIN_ENABLED=true` 显式开启官方插件.
    
    如有以下报错：`Error: OpenClaw version mismatch. Expected >= 2026.2.26, found OpenClaw 2026.3.8 (3caab92). Please upgrade.`
    运行 `npx -y @larksuite/openclaw-lark-tools update` 代替安装命令。

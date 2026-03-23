@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>&amp;#8203;</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2026-03-23T16:27:45+08:00</updated>
+  <updated>2026-03-23T20:32:58+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -41,13 +41,15 @@
   <summary>项目文件说明
 
 
-  Dockerfile - Docker 镜像构建文件
+  Dockerfile - Docker镜像构建文件
   init.sh - 容器初始化脚本（作为主程序运行）
   docker-compose.yml - Docker Compose 配置文件
   .env.example - 环境变量配置模板
   .dockerignore - Docker 构建忽略文件
   openclaw.json.example - OpenClaw 默认配置文件示例
 
+
+注意：PRIMARY_MODEL 和 IMAGE_MODEL_ID 都可以填写完整引用，即 provider/model 格式，例如：
 
 参考项目
 
@@ -61,10 +63,7 @@ docker镜像源
 
 mkdir -p /etc/docker
 
-cat &amp;amp;gt; /etc/docker/daemon.json &amp;amp;lt;&amp;amp;lt; &amp;#39;EOF&amp;#39;
-{
-  &amp;quot;registry-mirrors&amp;quot;: [
-    ...</summary>
+cat &amp;amp;gt; /...</summary>
 
   </entry>
 

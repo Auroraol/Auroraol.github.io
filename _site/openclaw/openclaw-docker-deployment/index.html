@@ -2954,7 +2954,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="8375 字"
+  title="8398 字"
 >
   <em>46 分钟</em>阅读</span>
 
@@ -2967,13 +2967,15 @@
     <h1 id="项目文件说明">项目文件说明</h1>
 
 <ul>
-  <li><a href="Dockerfile"><code class="language-plaintext highlighter-rouge collapsible-container">Dockerfile</code></a> - Docker 镜像构建文件</li>
-  <li><a href="init.sh"><code class="language-plaintext highlighter-rouge collapsible-container">init.sh</code></a> - 容器初始化脚本（作为主程序运行）</li>
-  <li><a href="docker-compose.yml"><code class="language-plaintext highlighter-rouge collapsible-container">docker-compose.yml</code></a> - Docker Compose 配置文件</li>
-  <li><a href=".env.example"><code class="language-plaintext highlighter-rouge collapsible-container">.env.example</code></a> - 环境变量配置模板</li>
-  <li><a href=".dockerignore"><code class="language-plaintext highlighter-rouge collapsible-container">.dockerignore</code></a> - Docker 构建忽略文件</li>
-  <li><a href="openclaw.json.example"><code class="language-plaintext highlighter-rouge collapsible-container">openclaw.json.example</code></a> - OpenClaw 默认配置文件示例</li>
+  <li><a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/Dockerfile"><code class="language-plaintext highlighter-rouge collapsible-container">Dockerfile</code></a> - Docker镜像构建文件</li>
+  <li><a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/init.sh"><code class="language-plaintext highlighter-rouge collapsible-container">init.sh</code></a> - 容器初始化脚本（作为主程序运行）</li>
+  <li><a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/docker-compose.yml"><code class="language-plaintext highlighter-rouge collapsible-container">docker-compose.yml</code></a> - Docker Compose 配置文件</li>
+  <li><a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/.env.example"><code class="language-plaintext highlighter-rouge collapsible-container">.env.example</code></a> - 环境变量配置模板</li>
+  <li><a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/.dockerignore"><code class="language-plaintext highlighter-rouge collapsible-container">.dockerignore</code></a> - Docker 构建忽略文件</li>
+  <li><a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/openclaw.json.example"><code class="language-plaintext highlighter-rouge collapsible-container">openclaw.json.example</code></a> - OpenClaw 默认配置文件示例</li>
 </ul>
+
+<p>注意：<a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/.env.example"><code class="language-plaintext highlighter-rouge collapsible-container">PRIMARY_MODEL</code></a> 和 <a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/.env.example"><code class="language-plaintext highlighter-rouge collapsible-container">IMAGE_MODEL_ID</code></a> 都可以填写完整引用，即 <code class="language-plaintext highlighter-rouge collapsible-container">provider/model</code> 格式，例如：</p>
 
 <h1 id="参考项目">参考项目</h1>
 
@@ -3118,7 +3120,7 @@ nano .env
 
 <h3 id="5-更新--升级建议"><span class="me-2">5. 更新 / 升级建议</span><a href="#5-更新--升级建议" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>推荐直接克隆项目进行维护，这样后续升级时可以先同步项目内的 <a href="README.md"><code class="language-plaintext highlighter-rouge collapsible-container">README.md</code></a>、<a href="docker-compose.yml"><code class="language-plaintext highlighter-rouge collapsible-container">docker-compose.yml</code></a> 和 <a href=".env.example"><code class="language-plaintext highlighter-rouge collapsible-container">.env.example</code></a> 等文件，再强制拉取最新镜像并重建启动，避免遗漏新的配置项或编排变更。</p>
+<p>推荐直接克隆项目进行维护，这样后续升级时可以先同步项目内的 <a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/README.md"><code class="language-plaintext highlighter-rouge collapsible-container">README.md</code></a>、<a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/docker-compose.yml"><code class="language-plaintext highlighter-rouge collapsible-container">docker-compose.yml</code></a> 和 <a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/.env.example"><code class="language-plaintext highlighter-rouge collapsible-container">.env.example</code></a> 等文件，再强制拉取最新镜像并重建启动，避免遗漏新的配置项或编排变更。</p>
 
 <p><strong>推荐升级流程</strong>：</p>
 
@@ -3151,7 +3153,7 @@ docker compose up <span class="nt">-d</span> <span class="nt">--force-recreate</
 </pre></td></tr></tbody></table></code></div></div>
 
 <blockquote>
-  <p>💡 <strong>说明</strong>：如果你是通过单独下载 <a href="docker-compose.yml"><code class="language-plaintext highlighter-rouge collapsible-container">docker-compose.yml</code></a> 和 <a href=".env.example"><code class="language-plaintext highlighter-rouge collapsible-container">.env.example</code></a> 的方式部署，升级时也建议优先同步这两个文件，再执行 <a href="README.md:117"><code class="language-plaintext highlighter-rouge collapsible-container">docker compose pull</code></a> 与 <a href="README.md:118"><code class="language-plaintext highlighter-rouge collapsible-container">docker compose up -d --force-recreate</code></a>。</p>
+  <p>💡 <strong>说明</strong>：如果你是通过单独下载 <a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/docker-compose.yml"><code class="language-plaintext highlighter-rouge collapsible-container">docker-compose.yml</code></a> 和 <a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/.env.example"><code class="language-plaintext highlighter-rouge collapsible-container">.env.example</code></a> 的方式部署，升级时也建议优先同步这两个文件，再执行 <a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/README.md"><code class="language-plaintext highlighter-rouge collapsible-container">docker compose pull</code></a> 与 <a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/README.md"><code class="language-plaintext highlighter-rouge collapsible-container">docker compose up -d --force-recreate</code></a>。</p>
 </blockquote>
 
 <p><a href="https://github.com/Auroraol/Drawing-bed/raw/main/img/image-20260314175037619.png" class="popup img-link  shimmer"><img src="https://github.com/Auroraol/Drawing-bed/raw/main/img/image-20260314175037619.png" alt="image-20260314175037619" loading="lazy"></a></p>
@@ -3943,12 +3945,12 @@ docker run <span class="nt">--rm</span> justlikemaki/openclaw-docker-cn-im:lates
 <h2 id="本项目已做的稳态处理"><span class="me-2">本项目已做的稳态处理</span><a href="#本项目已做的稳态处理" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <ul>
-  <li><a href="docker-compose.yml"><code class="language-plaintext highlighter-rouge collapsible-container">docker-compose.yml</code></a> 新增可选 <code class="language-plaintext highlighter-rouge collapsible-container">user</code> 配置：<code class="language-plaintext highlighter-rouge collapsible-container">OPENCLAW_RUN_USER</code>（默认 <code class="language-plaintext highlighter-rouge collapsible-container">0:0</code>）</li>
-  <li><a href="init.sh"><code class="language-plaintext highlighter-rouge collapsible-container">init.sh</code></a> 启动时会：
+  <li><a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/docker-compose.yml"><code class="language-plaintext highlighter-rouge collapsible-container">docker-compose.yml</code></a> 新增可选 <code class="language-plaintext highlighter-rouge collapsible-container">user</code> 配置：<code class="language-plaintext highlighter-rouge collapsible-container">OPENCLAW_RUN_USER</code>（默认 <code class="language-plaintext highlighter-rouge collapsible-container">0:0</code>）</li>
+  <li><a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/init.sh"><code class="language-plaintext highlighter-rouge collapsible-container">init.sh</code></a> 启动时会：
     <ul>
       <li>打印挂载目录当前 UID/GID 与目标 UID/GID</li>
       <li>尝试自动修复 <code class="language-plaintext highlighter-rouge collapsible-container">/home/node/.openclaw</code> 权限</li>
-      <li>若仍不可写，输出明确的修复命令并失败退出，避免“有时成功有时报错”的隐性状态</li>
+      <li>若仍不可写，输出明确的修复命令并失败退出，避免”有时成功有时报错”的隐性状态</li>
     </ul>
   </li>
 </ul>
@@ -4370,7 +4372,7 @@ docker run <span class="nt">--rm</span> justlikemaki/openclaw-docker-cn-im:lates
 
 <h3 id="单账号快捷配置"><span class="me-2">单账号快捷配置</span><a href="#单账号快捷配置" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>在 <a href=".env.example"><code class="language-plaintext highlighter-rouge collapsible-container">.env</code></a> 文件中添加：</p>
+<p>在 <a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/.env.example"><code class="language-plaintext highlighter-rouge collapsible-container">.env</code></a> 文件中添加：</p>
 
 <div class="language-bash highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
@@ -4399,12 +4401,12 @@ docker run <span class="nt">--rm</span> justlikemaki/openclaw-docker-cn-im:lates
 </pre></td></tr></tbody></table></code></div></div>
 
 <blockquote>
-  <p>💡 <strong>提示</strong>：单账号环境变量会自动写入 <a href="openclaw.json.example:152"><code class="language-plaintext highlighter-rouge collapsible-container">channels.feishu.accounts.default</code></a> 或 <a href=".env.example"><code class="language-plaintext highlighter-rouge collapsible-container">FEISHU_DEFAULT_ACCOUNT</code></a> 指定的账号节点，同时保留 <a href="openclaw.json.example:140"><code class="language-plaintext highlighter-rouge collapsible-container">channels.feishu.appId</code></a> / <a href="openclaw.json.example:141"><code class="language-plaintext highlighter-rouge collapsible-container">channels.feishu.appSecret</code></a> 作为默认机器人兜底配置。</p>
+  <p>💡 <strong>提示</strong>：单账号环境变量会自动写入 <a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/openclaw.json.example"><code class="language-plaintext highlighter-rouge collapsible-container">channels.feishu.accounts.default</code></a> 或 <a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/.env.example"><code class="language-plaintext highlighter-rouge collapsible-container">FEISHU_DEFAULT_ACCOUNT</code></a> 指定的账号节点，同时保留 <a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/openclaw.json.example"><code class="language-plaintext highlighter-rouge collapsible-container">channels.feishu.appId</code></a> / <a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/openclaw.json.example"><code class="language-plaintext highlighter-rouge collapsible-container">channels.feishu.appSecret</code></a> 作为默认机器人兜底配置。</p>
 </blockquote>
 
 <h3 id="多账号配置推荐"><span class="me-2">多账号配置（推荐）</span><a href="#多账号配置推荐" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>如需配置多个飞书机器人，可使用 <a href=".env.example"><code class="language-plaintext highlighter-rouge collapsible-container">FEISHU_ACCOUNTS_JSON</code></a> 环境变量，结构与企业微信多账号类似。</p>
+<p>如需配置多个飞书机器人，可使用 <a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/.env.example"><code class="language-plaintext highlighter-rouge collapsible-container">FEISHU_ACCOUNTS_JSON</code></a> 环境变量，结构与企业微信多账号类似。</p>
 
 <div class="language-bash highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
@@ -4417,8 +4419,8 @@ docker run <span class="nt">--rm</span> justlikemaki/openclaw-docker-cn-im:lates
 <p>说明：</p>
 <ul>
   <li>账号 ID（如 <code class="language-plaintext highlighter-rouge collapsible-container">default</code>、<code class="language-plaintext highlighter-rouge collapsible-container">work</code>、<code class="language-plaintext highlighter-rouge collapsible-container">support</code>）仅支持小写字母、数字、<code class="language-plaintext highlighter-rouge collapsible-container">-</code>、<code class="language-plaintext highlighter-rouge collapsible-container">_</code>。</li>
-  <li><a href=".env.example"><code class="language-plaintext highlighter-rouge collapsible-container">FEISHU_ACCOUNTS_JSON</code></a> 会与现有配置深度合并。</li>
-  <li><a href=".env.example"><code class="language-plaintext highlighter-rouge collapsible-container">FEISHU_GROUPS_JSON</code></a> 用于单独维护群聊规则，不必把 <a href="openclaw.json.example:175"><code class="language-plaintext highlighter-rouge collapsible-container">groups</code></a> 硬编码在主配置里。</li>
+  <li><a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/.env.example"><code class="language-plaintext highlighter-rouge collapsible-container">FEISHU_ACCOUNTS_JSON</code></a> 会与现有配置深度合并。</li>
+  <li><a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/.env.example"><code class="language-plaintext highlighter-rouge collapsible-container">FEISHU_GROUPS_JSON</code></a> 用于单独维护群聊规则，不必把 <a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/openclaw.json.example"><code class="language-plaintext highlighter-rouge collapsible-container">groups</code></a> 硬编码在主配置里。</li>
   <li>若同时配置单账号环境变量与多账号 JSON，则单账号配置先写入默认账号，再由多账号 JSON 覆盖同名字段。</li>
   <li>启动时会校验重复的 <code class="language-plaintext highlighter-rouge collapsible-container">appId</code>，避免多机器人路由冲突。</li>
 </ul>
@@ -4513,10 +4515,10 @@ docker run <span class="nt">--rm</span> justlikemaki/openclaw-docker-cn-im:lates
 
 <p>说明：</p>
 <ul>
-  <li>顶层 <a href="openclaw.json.example:138"><code class="language-plaintext highlighter-rouge collapsible-container">channels.feishu</code></a> 作为共享默认配置，会同步默认账号的 <code class="language-plaintext highlighter-rouge collapsible-container">appId</code> / <code class="language-plaintext highlighter-rouge collapsible-container">appSecret</code> 供插件初始化使用。</li>
-  <li><a href="openclaw.json.example:151"><code class="language-plaintext highlighter-rouge collapsible-container">channels.feishu.accounts</code></a> 中每个账号可独立定义 <code class="language-plaintext highlighter-rouge collapsible-container">botName</code>、<code class="language-plaintext highlighter-rouge collapsible-container">dmPolicy</code>、<code class="language-plaintext highlighter-rouge collapsible-container">allowFrom</code> 等字段。</li>
-  <li><a href="openclaw.json.example:174"><code class="language-plaintext highlighter-rouge collapsible-container">channels.feishu.groups</code></a> 用于按群聊 ID 细化 <code class="language-plaintext highlighter-rouge collapsible-container">requireMention</code>、<code class="language-plaintext highlighter-rouge collapsible-container">groupPolicy</code> 与 <code class="language-plaintext highlighter-rouge collapsible-container">allowFrom</code>。</li>
-  <li>逻辑上与 <a href="openclaw.json.example:223"><code class="language-plaintext highlighter-rouge collapsible-container">channels.wecom</code></a> 的账号中心配置保持一致，便于统一维护。</li>
+  <li>顶层 <a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/openclaw.json.example"><code class="language-plaintext highlighter-rouge collapsible-container">channels.feishu</code></a> 作为共享默认配置，会同步默认账号的 <code class="language-plaintext highlighter-rouge collapsible-container">appId</code> / <code class="language-plaintext highlighter-rouge collapsible-container">appSecret</code> 供插件初始化使用。</li>
+  <li><a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/openclaw.json.example"><code class="language-plaintext highlighter-rouge collapsible-container">channels.feishu.accounts</code></a> 中每个账号可独立定义 <code class="language-plaintext highlighter-rouge collapsible-container">botName</code>、<code class="language-plaintext highlighter-rouge collapsible-container">dmPolicy</code>、<code class="language-plaintext highlighter-rouge collapsible-container">allowFrom</code> 等字段。</li>
+  <li><a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/openclaw.json.example"><code class="language-plaintext highlighter-rouge collapsible-container">channels.feishu.groups</code></a> 用于按群聊 ID 细化 <code class="language-plaintext highlighter-rouge collapsible-container">requireMention</code>、<code class="language-plaintext highlighter-rouge collapsible-container">groupPolicy</code> 与 <code class="language-plaintext highlighter-rouge collapsible-container">allowFrom</code>。</li>
+  <li>逻辑上与 <a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/openclaw.json.example"><code class="language-plaintext highlighter-rouge collapsible-container">channels.wecom</code></a> 的账号中心配置保持一致，便于统一维护。</li>
 </ul>
 
 <blockquote>
@@ -4529,13 +4531,13 @@ docker run <span class="nt">--rm</span> justlikemaki/openclaw-docker-cn-im:lates
 
 <h3 id="飞书官方团队插件配置"><span class="me-2">飞书官方团队插件配置</span><a href="#飞书官方团队插件配置" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>本项目已集成飞书官方团队插件 CLI 工具，但<strong>不会在镜像构建阶段自动执行</strong> <a href="README.md:719"><code class="language-plaintext highlighter-rouge collapsible-container">npx @larksuite/openclaw-lark-tools install</code></a>，因为该命令会进入交互式向导（如“Create a new bot / Use an existing bot linked to OpenClaw”），在 <a href="README.md:1038"><code class="language-plaintext highlighter-rouge collapsible-container">docker build</code></a> 中无法回答提示，最终会以退出码 <code class="language-plaintext highlighter-rouge collapsible-container">130</code> 失败。</p>
+<p>本项目已集成飞书官方团队插件 CLI 工具，但<strong>不会在镜像构建阶段自动执行</strong> <a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/README.md"><code class="language-plaintext highlighter-rouge collapsible-container">npx @larksuite/openclaw-lark-tools install</code></a>，因为该命令会进入交互式向导（如”Create a new bot / Use an existing bot linked to OpenClaw”），在 <a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/README.md"><code class="language-plaintext highlighter-rouge collapsible-container">docker build</code></a> 中无法回答提示，最终会以退出码 <code class="language-plaintext highlighter-rouge collapsible-container">130</code> 失败。</p>
 
 <p>因此当前策略是：<strong>构建阶段只预装 CLI 与基础依赖，真正的飞书官方插件注册放到容器运行后手动完成</strong>。</p>
 
 <ol>
   <li><strong>不要在主服务容器内执行安装</strong>：
-<a href="README.md:719"><code class="language-plaintext highlighter-rouge collapsible-container">npx @larksuite/openclaw-lark-tools install</code></a> 会主动触发 OpenClaw 服务重载/重启；如果直接在 <a href="docker-compose.yml:4"><code class="language-plaintext highlighter-rouge collapsible-container">openclaw-gateway</code></a> 容器内执行，会打断当前容器里的主进程。</li>
+<a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/README.md"><code class="language-plaintext highlighter-rouge collapsible-container">npx @larksuite/openclaw-lark-tools install</code></a> 会主动触发 OpenClaw 服务重载/重启；如果直接在 <a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/docker-compose.yml"><code class="language-plaintext highlighter-rouge collapsible-container">openclaw-gateway</code></a> 容器内执行，会打断当前容器里的主进程。</li>
   <li>
     <p><strong>使用独立安装容器执行向导</strong>：
 先启动主服务：<code class="language-plaintext highlighter-rouge collapsible-container">docker compose up -d openclaw-gateway</code></p>
@@ -4560,9 +4562,9 @@ docker run <span class="nt">--rm</span> justlikemaki/openclaw-docker-cn-im:lates
       <li>输入您的飞书应用 <code class="language-plaintext highlighter-rouge collapsible-container">AppID</code> 和 <code class="language-plaintext highlighter-rouge collapsible-container">AppSecret</code>。</li>
     </ul>
 
-    <p>由于 <a href="docker-compose.yml:82"><code class="language-plaintext highlighter-rouge collapsible-container">openclaw-installer</code></a> 只是一次性工具容器，不承载 Gateway 主进程，因此这里发生服务重启不会把主网关容器安装流程打断。</p>
+    <p>由于 <a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/docker-compose.yml"><code class="language-plaintext highlighter-rouge collapsible-container">openclaw-installer</code></a> 只是一次性工具容器，不承载 Gateway 主进程，因此这里发生服务重启不会把主网关容器安装流程打断。</p>
 
-    <p>如果出现 <code class="language-plaintext highlighter-rouge collapsible-container">plugin not found: openclaw-lark</code>，说明<strong>飞书官方团队插件尚未完成交互式安装</strong>。这是预期行为：当前镜像不会在构建阶段自动完成插件注册。此时请继续在工具容器内执行交互式命令 <a href="README.md:721"><code class="language-plaintext highlighter-rouge collapsible-container">npx -y @larksuite/openclaw-lark-tools install</code></a>，安装完成后再在 <a href=".env.example"><code class="language-plaintext highlighter-rouge collapsible-container">.env</code></a> 中配置 <code class="language-plaintext highlighter-rouge collapsible-container">FEISHU_OFFICIAL_PLUGIN_ENABLED=true</code> 显式开启官方插件。</p>
+    <p>如果出现 <code class="language-plaintext highlighter-rouge collapsible-container">plugin not found: openclaw-lark</code>，说明<strong>飞书官方团队插件尚未完成交互式安装</strong>。这是预期行为：当前镜像不会在构建阶段自动完成插件注册。此时请继续在工具容器内执行交互式命令 <a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/README.md"><code class="language-plaintext highlighter-rouge collapsible-container">npx -y @larksuite/openclaw-lark-tools install</code></a>，安装完成后再在 <a href="https://github.com/justlovemaki/OpenClaw-Docker-CN-IM/blob/main/.env.example"><code class="language-plaintext highlighter-rouge collapsible-container">.env</code></a> 中配置 <code class="language-plaintext highlighter-rouge collapsible-container">FEISHU_OFFICIAL_PLUGIN_ENABLED=true</code> 显式开启官方插件.</p>
 
     <p>如有以下报错：<code class="language-plaintext highlighter-rouge collapsible-container">Error: OpenClaw version mismatch. Expected &gt;= 2026.2.26, found OpenClaw 2026.3.8 (3caab92). Please upgrade.</code>
 运行 <code class="language-plaintext highlighter-rouge collapsible-container">npx -y @larksuite/openclaw-lark-tools update</code> 代替安装命令。</p>
