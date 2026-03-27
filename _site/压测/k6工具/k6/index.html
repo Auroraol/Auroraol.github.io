@@ -36,7 +36,7 @@
 <meta property="og:description" content="安装" />
 <link rel="canonical" href="http://localhost:4000/%E5%8E%8B%E6%B5%8B/k6%E5%B7%A5%E5%85%B7/k6/" />
 <meta property="og:url" content="http://localhost:4000/%E5%8E%8B%E6%B5%8B/k6%E5%B7%A5%E5%85%B7/k6/" />
-<meta property="og:site_name" content="L" />
+<meta property="og:site_name" content="​" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-11-07T12:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
@@ -46,8 +46,7 @@
 <!-- End Jekyll SEO tag -->
 
 
-  <title>K6工具 | L
-  </title>
+  <title>K6工具</title>
 
   <!--
   The Favicons for Web, Android, Microsoft, and iOS (iPhone and iPad) Apps
@@ -63,8 +62,8 @@
   <link rel="manifest" href="/assets/img/favicons/site.webmanifest">
 
 <link rel="shortcut icon" href="/assets/img/favicons/favicon.ico">
-<meta name="apple-mobile-web-app-title" content="L">
-<meta name="application-name" content="L">
+<meta name="apple-mobile-web-app-title" content="&#8203;">
+<meta name="application-name" content="&#8203;">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
@@ -264,18 +263,38 @@
 
   
 
+  <!-- Set default theme to dark -->
+  <script>
+    (function() {
+      // Check if user has already set a theme preference
+      const savedMode = sessionStorage.getItem('mode');
+      
+      // If no preference saved, set default to dark
+      if (!savedMode) {
+        const html = document.documentElement;
+        html.setAttribute('data-mode', 'dark');
+        sessionStorage.setItem('mode', 'dark');
+        
+        // Also update the toggle button state if it exists
+        const toggleBtn = document.getElementById('mode-toggle');
+        if (toggleBtn) {
+          toggleBtn.classList.add('mode-dark');
+        }
+      }
+    })();
+  </script>
+
   <!-- A placeholder to allow defining custom metadata -->
 
 </head>
-
 
   <body>
     <!-- The Side Bar -->
 
 <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
   <header class="profile-wrapper"><h1 class="site-title">
-        <a href="/">L</a>
-      </h1><p class="site-subtitle mb-0">随便写写</p>
+        <a href="/">&#8203;</a>
+      </h1><p class="site-subtitle mb-0">叹隙中骑，石中火，梦中身。</p>
   </header>
   <!-- .profile-wrapper -->
 
@@ -443,6 +462,9 @@
             
               <!-- Refactor the HTML structure -->
 
+
+
+<!-- Add collapsible code block functionality -->
 
 
 <!--
@@ -1064,12 +1086,12 @@
     </div>
   </header>
 
-  <div class="content">
+  <script src="/assets/js/dist/collapsible.js"></script><div class="content">
     <h2 id="安装"><span class="me-2">安装</span><a href="#安装" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <p>Win 11 操作系统内置了 winget 安装工具，所以笔者直接使用 winget 安装 k6：</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="code-header">
+<div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>winget install k6
@@ -1083,9 +1105,9 @@
 
 <h3 id="k6-的-hello-world"><span class="me-2">k6 的 Hello World</span><a href="#k6-的-hello-world" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>创建一个测试脚本<code class="language-plaintext highlighter-rouge">hello-world.js</code>：</p>
+<p>创建一个测试脚本<code class="language-plaintext highlighter-rouge collapsible-container">hello-world.js</code>：</p>
 
-<div class="language-javascript highlighter-rouge"><div class="code-header">
+<div class="language-javascript highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="JavaScript"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1113,7 +1135,7 @@ k6 run hello-world.js
 
 <p>模拟 10 个虚拟用户(VU)，连续压测 30 秒：</p>
 
-<div class="language-css highlighter-rouge"><div class="code-header">
+<div class="language-css highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="CSS"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="nt">k6</span> <span class="nt">run</span> <span class="nt">--vus</span> <span class="err">10</span> <span class="nt">--duration</span> <span class="err">30</span><span class="nt">s</span> <span class="nt">hello-world</span><span class="nc">.js</span>
@@ -1121,7 +1143,7 @@ k6 run hello-world.js
 
 <p>也可以把这些参数写到脚本里(效果和上面命令行一样)：</p>
 
-<div class="language-javascript highlighter-rouge"><div class="code-header">
+<div class="language-javascript highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="JavaScript"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1147,7 +1169,7 @@ k6 run hello-world.js
 
 <h3 id="k6-压测结果数据解读"><span class="me-2">k6 压测结果数据解读</span><a href="#k6-压测结果数据解读" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>下面的测试结果是运行上述 <code class="language-plaintext highlighter-rouge">hello-world.js</code>测试脚本所得的，测试结果由多个数据汇总而成，下面解读一下各个数据表示什么意思。</p>
+<p>下面的测试结果是运行上述 <code class="language-plaintext highlighter-rouge collapsible-container">hello-world.js</code>测试脚本所得的，测试结果由多个数据汇总而成，下面解读一下各个数据表示什么意思。</p>
 
 <p><a href="https://github.com/Auroraol/Drawing-bed/raw/main/img/image-20251109130212890.png" class="popup img-link  shimmer"><img src="https://github.com/Auroraol/Drawing-bed/raw/main/img/image-20251109130212890.png" alt="image-20251109130212890" loading="lazy"></a></p>
 
@@ -1175,9 +1197,9 @@ k6 run hello-world.js
 
 <h3 id="get-请求"><span class="me-2">Get 请求</span><a href="#get-请求" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>Get 请求的语法是<code class="language-plaintext highlighter-rouge">get(url,[params])</code></p>
+<p>Get 请求的语法是<code class="language-plaintext highlighter-rouge collapsible-container">get(url,[params])</code></p>
 
-<div class="language-csharp highlighter-rouge"><div class="code-header">
+<div class="language-csharp highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="C#"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1207,9 +1229,9 @@ k6 run hello-world.js
 
 <h3 id="post-请求"><span class="me-2">Post 请求</span><a href="#post-请求" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>Post 请求的语法是<code class="language-plaintext highlighter-rouge">post(url,[body],[params]</code></p>
+<p>Post 请求的语法是<code class="language-plaintext highlighter-rouge collapsible-container">post(url,[body],[params]</code></p>
 
-<div class="language-javascript highlighter-rouge"><div class="code-header">
+<div class="language-javascript highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="JavaScript"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1261,9 +1283,9 @@ k6 run hello-world.js
 
 <h3 id="通用-request"><span class="me-2">通用 Request</span><a href="#通用-request" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>通用 Request 的语法是<code class="language-plaintext highlighter-rouge">request(method,url,[body],[params])</code></p>
+<p>通用 Request 的语法是<code class="language-plaintext highlighter-rouge collapsible-container">request(method,url,[body],[params])</code></p>
 
-<div class="language-javascript highlighter-rouge"><div class="code-header">
+<div class="language-javascript highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="JavaScript"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1315,7 +1337,7 @@ k6 run hello-world.js
 
 <p>检查非常适合编码与 HTTP 请求和响应相关的断言。例如，此代码段确保 HTTP 响应代码为 200：</p>
 
-<div class="language-javascript highlighter-rouge"><div class="code-header">
+<div class="language-javascript highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="JavaScript"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1339,7 +1361,7 @@ k6 run hello-world.js
 
 <p>当脚本包含检查时，摘要报告会显示通过了多少测试检查：</p>
 
-<div class="language-erlang highlighter-rouge"><div class="code-header">
+<div class="language-erlang highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Erlang"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1365,7 +1387,7 @@ k6 run hello-world.js
 
 <p>有时，即使是 HTTP 200 响应也包含错误消息。在这些情况下，考虑添加一个检查来验证响应主体，如下所示：</p>
 
-<div class="language-javascript highlighter-rouge"><div class="code-header">
+<div class="language-javascript highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="JavaScript"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1391,7 +1413,7 @@ k6 run hello-world.js
 
 <p>若请求结果以 JSON 格式返回，我们可以校验 JSON 对象的：</p>
 
-<div class="language-javascript highlighter-rouge"><div class="code-header">
+<div class="language-javascript highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="JavaScript"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1437,13 +1459,13 @@ k6 run hello-world.js
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<p><code class="language-plaintext highlighter-rouge">res.json([select])</code>函数的更多内容可以参考[Response.json( <a href="https://link.juejin.cn?target=https%3A%2F%2Fk6.io%2Fdocs%2Fjavascript-api%2Fk6-http%2Fresponse%2Fresponse-json%2F">selector] )</a>。</p>
+<p><code class="language-plaintext highlighter-rouge collapsible-container">res.json([select])</code>函数的更多内容可以参考[Response.json( <a href="https://link.juejin.cn?target=https%3A%2F%2Fk6.io%2Fdocs%2Fjavascript-api%2Fk6-http%2Fresponse%2Fresponse-json%2F">selector] )</a>。</p>
 
 <h3 id="检查响应主体大小"><span class="me-2">检查响应主体大小</span><a href="#检查响应主体大小" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <p>要验证响应主体的大小，您可以使用如下检查：</p>
 
-<div class="language-javascript highlighter-rouge"><div class="code-header">
+<div class="language-javascript highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="JavaScript"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1469,7 +1491,7 @@ k6 run hello-world.js
 
 <p>您还可以在单个<a href="https://link.juejin.cn?target=https%3A%2F%2Fk6.io%2Fdocs%2Fjavascript-api%2Fk6%2Fcheck">check()</a>语句中添加多个检查：</p>
 
-<div class="language-javascript highlighter-rouge"><div class="code-header">
+<div class="language-javascript highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="JavaScript"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1495,7 +1517,7 @@ k6 run hello-world.js
 
 <p>执行此测试时，输出将如下所示：</p>
 
-<div class="language-python highlighter-rouge"><div class="code-header">
+<div class="language-python highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Python"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1523,7 +1545,7 @@ k6 run hello-world.js
 
 <p>Vus：指定要同时运行的虚拟用户数量，必须是一个整数，和 duration 搭配使用。默认值：1</p>
 
-<div class="language-bash highlighter-rouge"><div class="code-header">
+<div class="language-bash highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1543,7 +1565,7 @@ k6 run <span class="nt">--vus</span> 10 test.js
 
 <p>Duration：一个字符串，指定测试运行的总持续时间，与 vus 选项一起使用。默认值：null</p>
 
-<div class="language-bash highlighter-rouge"><div class="code-header">
+<div class="language-bash highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1565,7 +1587,7 @@ k6 run <span class="nt">--vus</span> 10 <span class="nt">--duration</span> 20s  
 
 <p>不推荐使用这个选项，因为它有可能不正确；例如，在云端或分布式执行中，此选项独立影响每个 k6 实例。也就是说，它不像 VU 那样被分片。我们强烈建议<a href="https://link.juejin.cn?target=https%3A%2F%2Fk6.io%2Fdocs%2Fusing-k6%2Fscenarios%2Farrival-rate">到达率执行</a>器模拟恒定 RPS，而不是这个选项。</p>
 
-<div class="language-ini highlighter-rouge"><div class="code-header">
+<div class="language-ini highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Ini"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1577,7 +1599,7 @@ k6 run <span class="nt">--vus</span> 10 <span class="nt">--duration</span> 20s  
 
 <p>模拟多测试阶段</p>
 
-<div class="language-javascript highlighter-rouge"><div class="code-header">
+<div class="language-javascript highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="JavaScript"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1617,7 +1639,7 @@ k6 run <span class="nt">--vus</span> 10 <span class="nt">--duration</span> 20s  
 
 <h2 id="趋势汇总统计"><span class="me-2">趋势汇总统计</span><a href="#趋势汇总统计" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p>k6 默认的趋势汇总统计格式是：<code class="language-plaintext highlighter-rouge">avg,min,med,max,p(90),p(95)</code>，我们可以自定义趋势汇总统计，例如我们需要关注<code class="language-plaintext highlighter-rouge">p(99)</code>这个指标，那么我们可以自定义<code class="language-plaintext highlighter-rouge">summaryTrendStats</code>的值：</p>
+<p>k6 默认的趋势汇总统计格式是：<code class="language-plaintext highlighter-rouge collapsible-container">avg,min,med,max,p(90),p(95)</code>，我们可以自定义趋势汇总统计，例如我们需要关注<code class="language-plaintext highlighter-rouge collapsible-container">p(99)</code>这个指标，那么我们可以自定义<code class="language-plaintext highlighter-rouge collapsible-container">summaryTrendStats</code>的值：</p>
 
 <pre><code class="language-arduino"># 添加 p(99) 指标
 export const options = {
@@ -1629,7 +1651,7 @@ export const options = {
 
 <p>输出到控制台：</p>
 
-<div class="language-javascript highlighter-rouge"><div class="code-header">
+<div class="language-javascript highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="JavaScript"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1663,7 +1685,7 @@ export const options = {
 
 <p>输出到文件，输出到文件的同时控制台不再输出：</p>
 
-<div class="language-ini highlighter-rouge"><div class="code-header">
+<div class="language-ini highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Ini"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre> <span class="err">run</span>  <span class="err">test.js</span> <span class="py">--console-output</span><span class="p">=</span><span class="s">test.log</span>
@@ -1790,35 +1812,35 @@ export const options = {
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/">字典解析库</a>
+          <a href="/openclaw/openclaw-docker-deployment/">openclaw项目文件说明</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
+          <a href="/go/%E8%A7%84%E5%88%99/%E7%BB%93%E6%9E%84%E4%BD%93/">结构体</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/">toml配置文件</a>
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E9%BB%98%E8%AE%A4%E5%80%BC/">默认值</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%84%E5%88%99/%E5%AD%97%E5%85%B8/">字典</a>
+          <a href="/go/%E8%A7%84%E5%88%99/%E5%88%87%E7%89%87/">切片</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/">指针</a>
+          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/MCP/">03_LangChain-MCP解析</a>
         </li>
       
     </ul>
@@ -1907,6 +1929,26 @@ export const options = {
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -1959,6 +2001,217 @@ export const options = {
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -2136,67 +2389,6 @@ export const options = {
     
     
     
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -2230,6 +2422,9 @@ export const options = {
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/context/">Context</a>
       
         
@@ -2245,10 +2440,7 @@ export const options = {
         <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/mongodb%E8%AF%AD%E6%B3%95/">mongodb语法</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/pgsql%E6%A7%BD%E4%BD%8D/">PgSQL槽位</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
     </div>
   </section>
@@ -2496,7 +2688,7 @@ export const options = {
   "
 >
   <p>©
-    2024-<time>2025</time>
+    2024-<time>2026</time>
 
     
       <a href="https://github.com/Auroraol">lfj</a>
@@ -2512,14 +2704,7 @@ export const options = {
     -->
   </p>
 
-  <p>本站采用 <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> 主题 <a
-        data-bs-toggle="tooltip"
-        data-bs-placement="top"
-        title="v6.5.5"
-        href="https://github.com/cotes2020/jekyll-theme-chirpy"
-        target="_blank"
-        rel="noopener"
-      >Chirpy</a>
+  <p>
   </p>
 </footer>
 
@@ -2612,6 +2797,26 @@ export const options = {
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -2664,6 +2869,217 @@ export const options = {
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -2841,67 +3257,6 @@ export const options = {
     
     
     
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -2935,6 +3290,9 @@ export const options = {
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/context/">Context</a>
       
         
@@ -2950,10 +3308,7 @@ export const options = {
         <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/mongodb%E8%AF%AD%E6%B3%95/">mongodb语法</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/pgsql%E6%A7%BD%E4%BD%8D/">PgSQL槽位</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
     </div>
   </section>

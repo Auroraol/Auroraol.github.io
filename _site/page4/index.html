@@ -30,24 +30,24 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="L" />
+<meta property="og:title" content="​" />
 <meta property="og:locale" content="zh_CN" />
 <meta name="description" content="A personal blog for recording pieces of thoughts." />
 <meta property="og:description" content="A personal blog for recording pieces of thoughts." />
 <link rel="canonical" href="http://localhost:4000/page4/" />
 <meta property="og:url" content="http://localhost:4000/page4/" />
-<meta property="og:site_name" content="L" />
+<meta property="og:site_name" content="​" />
 <meta property="og:type" content="website" />
 <link rel="prev" href="http://localhost:4000/page3" />
+<link rel="next" href="http://localhost:4000/page5" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="L" />
+<meta property="twitter:title" content="​" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"A personal blog for recording pieces of thoughts.","headline":"L","url":"http://localhost:4000/page4/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"A personal blog for recording pieces of thoughts.","headline":"​","url":"http://localhost:4000/page4/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>L
-  </title>
+  <title>&#8203;</title>
 
   <!--
   The Favicons for Web, Android, Microsoft, and iOS (iPhone and iPad) Apps
@@ -63,8 +63,8 @@
   <link rel="manifest" href="/assets/img/favicons/site.webmanifest">
 
 <link rel="shortcut icon" href="/assets/img/favicons/favicon.ico">
-<meta name="apple-mobile-web-app-title" content="L">
-<meta name="application-name" content="L">
+<meta name="apple-mobile-web-app-title" content="&#8203;">
+<meta name="application-name" content="&#8203;">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
@@ -259,18 +259,38 @@
 
   
 
+  <!-- Set default theme to dark -->
+  <script>
+    (function() {
+      // Check if user has already set a theme preference
+      const savedMode = sessionStorage.getItem('mode');
+      
+      // If no preference saved, set default to dark
+      if (!savedMode) {
+        const html = document.documentElement;
+        html.setAttribute('data-mode', 'dark');
+        sessionStorage.setItem('mode', 'dark');
+        
+        // Also update the toggle button state if it exists
+        const toggleBtn = document.getElementById('mode-toggle');
+        if (toggleBtn) {
+          toggleBtn.classList.add('mode-dark');
+        }
+      }
+    })();
+  </script>
+
   <!-- A placeholder to allow defining custom metadata -->
 
 </head>
-
 
   <body>
     <!-- The Side Bar -->
 
 <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
   <header class="profile-wrapper"><h1 class="site-title">
-        <a href="/">L</a>
-      </h1><p class="site-subtitle mb-0">随便写写</p>
+        <a href="/">&#8203;</a>
+      </h1><p class="site-subtitle mb-0">叹隙中骑，石中火，梦中身。</p>
   </header>
   <!-- .profile-wrapper -->
 
@@ -394,7 +414,7 @@
     </button>
 
     <div id="topbar-title">
-      L
+      &#8203;
     </div>
 
     <button type="button" id="search-trigger" class="btn btn-link">
@@ -422,6 +442,9 @@
             
               <!-- Refactor the HTML structure -->
 
+
+
+<!-- Add collapsible code block functionality -->
 
 
 <!--
@@ -513,24 +536,47 @@
 <div id="post-list" class="flex-grow-1 px-xl-1">
   
     <article class="card-wrapper card">
-      <a href="/pgsql/%E6%A7%BD%E4%BD%8D/pg%E6%A7%BD%E4%BD%8D/" class="post-preview row g-0 flex-md-row-reverse">
+      <a href="/go/goland%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/goland/" class="post-preview row g-0 flex-md-row-reverse">
         
 
         
 
         <div class="col-md-12">
           <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">PgSQL槽位创建</h1>
+            <h1 class="card-title my-2 mt-md-0">Goland常用快捷键</h1>
 
             <div class="card-text content mt-0 mb-3">
-              <p>创建槽位
+              <p>Goland 常用快捷键
 
--- 1️⃣ 复制标识（必须最先）(一次)
-SELECT set_replica_identity_full_for_partition(&#39;spu&#39;);   -- 主表+分区全部设 FULL  
+文件操作相关的快捷键
 
--- 2️⃣ 创建发布（此时无槽，仅元数据）
-CREATE PUBLICATION spu_pub FOR TABLE spu;          -- 主表
-ALTER  PUBLI...</p>
+
+  
+    
+      快捷键
+      作用
+    
+  
+  
+    
+      Ctrl + E
+      打开最近浏览过的文件
+    
+    
+      F2
+      重命名文件夹、文件、方法、变量名等
+    
+  
+
+
+代码格式化相关的快捷键
+
+
+  
+    
+      快捷键
+      作用
+ ...</p>
             </div>
 
             <div class="post-meta flex-grow-1 d-flex align-items-end">
@@ -547,11 +593,70 @@ ALTER  PUBLI...</p>
 
 <time
   
-  data-ts="1762180800"
+  data-ts="1762965600"
   data-df="YYYY/MM/DD"
   
 >
-  2025/11/03
+  2025/11/13
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      GO,
+                      Goland常用快捷键
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/pgsql/%E8%AF%AD%E6%B3%95/pg%E8%AF%AD%E6%B3%95/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">PgSQL语法</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>基本格式 JavaScript 复制 db..find({  })
+  等值匹配 JavaScript 复制 { field: value } 例： JavaScript 复制 { id: “3393633870761476271” }
+  嵌套字段（用点号） JavaScript 复制 { “state.status”: “running” }
+  比较运算 JavaScript 复制 {...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1762699200"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/09
 </time>
 
 
@@ -561,7 +666,7 @@ ALTER  PUBLI...</p>
                   <span class="categories">
                     
                       PgSQL,
-                      槽位
+                      语法
                   </span>
                 
               </div>
@@ -576,21 +681,23 @@ ALTER  PUBLI...</p>
     </article>
   
     <article class="card-wrapper card">
-      <a href="/jekyll/jekyll%E4%BD%BF%E7%94%A8/%E6%94%AF%E6%8C%81%E5%A4%9A%E7%BA%A7%E7%9B%AE%E5%BD%95/" class="post-preview row g-0 flex-md-row-reverse">
+      <a href="/redis/redis%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/" class="post-preview row g-0 flex-md-row-reverse">
         
 
         
 
         <div class="col-md-12">
           <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">支持多目录</h1>
+            <h1 class="card-title my-2 mt-md-0">4.Redis模式总结</h1>
 
             <div class="card-text content mt-0 mb-3">
-              <p>_config.yml文件
+              <p>分工
 
-
-
-md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</p>
+        ┌-------- 高可用 ---------------------┐
+        │                         │
+   +----+-----+             +-----+----+
+   │  Master  │◀---failover─│  Slave   │  Slave 随时
+   │  写+读   │       ...</p>
             </div>
 
             <div class="post-meta flex-grow-1 d-flex align-items-end">
@@ -607,11 +714,11 @@ md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</p>
 
 <time
   
-  data-ts="1762179600"
+  data-ts="1762693320"
   data-df="YYYY/MM/DD"
   
 >
-  2025/11/03
+  2025/11/09
 </time>
 
 
@@ -620,8 +727,8 @@ md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</p>
                   <i class="far fa-folder-open fa-fw me-1"></i>
                   <span class="categories">
                     
-                      jekyll,
-                      jekyll使用
+                      Redis,
+                      Redis模式
                   </span>
                 
               </div>
@@ -636,34 +743,32 @@ md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</p>
     </article>
   
     <article class="card-wrapper card">
-      <a href="/jekyll/jekyll%E4%BD%BF%E7%94%A8/blog-google-search-include/" class="post-preview row g-0 flex-md-row-reverse">
+      <a href="/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E9%9B%86%E7%BE%A4/" class="post-preview row g-0 flex-md-row-reverse">
         
 
         
 
         <div class="col-md-12">
           <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">Blog可以被Google搜索到</h1>
+            <h1 class="card-title my-2 mt-md-0">3.Redis集群</h1>
 
             <div class="card-text content mt-0 mb-3">
-              <p>Google
-
-
-  
-    确认自己的blog确实未被Google搜索收录
-
-    浏览器输入如下网址：
-
-     site:https://your_github_id.github.io/
+              <p>业务规模
+      推荐架构
     
-
-    如果没有被Google搜索收录，那会出现如下图所示，跟着笔者往下一步一步配置吧
-
+  
+  
     
-
-    如果被收录了，那就会出现如下图所示，忽略本文章的后续步骤吧
-  
-  ...</p>
+      小型业务（缓存 &amp;lt; 10GB）
+      一主二从 + 三哨兵（高可用即可）
+    
+    
+      中型业务（10GB~100GB）
+      三主三从集群（分片 + 高可用）
+    
+    
+      大型业务（&amp;gt;100GB，高并发）
+      多组集群 或 Redis Proxy...</p>
             </div>
 
             <div class="post-meta flex-grow-1 d-flex align-items-end">
@@ -680,11 +785,11 @@ md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</p>
 
 <time
   
-  data-ts="1762074000"
+  data-ts="1762689600"
   data-df="YYYY/MM/DD"
   
 >
-  2025/11/02
+  2025/11/09
 </time>
 
 
@@ -693,8 +798,8 @@ md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</p>
                   <i class="far fa-folder-open fa-fw me-1"></i>
                   <span class="categories">
                     
-                      jekyll,
-                      jekyll使用
+                      Redis,
+                      Redis模式
                   </span>
                 
               </div>
@@ -709,31 +814,21 @@ md文件强制格式:  _posts\XX\XX\2025-11-03-XXXXX.md</p>
     </article>
   
     <article class="card-wrapper card">
-      <a href="/jekyll/jekyll%E4%BD%BF%E7%94%A8/config-blog-comment/" class="post-preview row g-0 flex-md-row-reverse">
+      <a href="/redis/redis%E6%A8%A1%E5%BC%8F/%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/" class="post-preview row g-0 flex-md-row-reverse">
         
 
         
 
         <div class="col-md-12">
           <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">使用giscus配置GitHub Pages评论功能</h1>
+            <h1 class="card-title my-2 mt-md-0">2.Redis哨兵机制</h1>
 
             <div class="card-text content mt-0 mb-3">
-              <p>评论能力开通
+              <p>概述
+Redis的高可用机制有持久化、复制、哨兵和集群。其主要的作用和解决的问题分别是：
 
-GitHub仓库配置
-
-首先需要在自己的仓库中开通Discussion功能，一般新仓库默认不会打开，需要手动开通然后再添加对应的模块即可
-
-
-  
-    开通Discussion功能
-
-    进入自己的GitHub pages所在仓库，找到setting界面和里面的General选项
-
-    下滑找到Feature中勾选Discussion即可打开
-
-    创建com...</p>
+  持久化：持久化是最简单的高可用方法(有时甚至不被归为高可用的手段)，主要作用是数据备份，即将数据存储在硬盘，保证数据不会因进程退出而丢失。
+  复制：复制是高可用Redis的基础，哨兵和集群都是在复制基础上实现高可用的。复制主要实现了数据的多机备份，以及对于读操作的负载均衡和简单的故障恢复。缺陷：...</p>
             </div>
 
             <div class="post-meta flex-grow-1 d-flex align-items-end">
@@ -750,11 +845,11 @@ GitHub仓库配置
 
 <time
   
-  data-ts="1762052400"
+  data-ts="1762675200"
   data-df="YYYY/MM/DD"
   
 >
-  2025/11/02
+  2025/11/09
 </time>
 
 
@@ -763,8 +858,8 @@ GitHub仓库配置
                   <i class="far fa-folder-open fa-fw me-1"></i>
                   <span class="categories">
                     
-                      jekyll,
-                      jekyll使用
+                      Redis,
+                      Redis模式
                   </span>
                 
               </div>
@@ -779,28 +874,31 @@ GitHub仓库配置
     </article>
   
     <article class="card-wrapper card">
-      <a href="/jekyll/chirpy%E4%BD%BF%E7%94%A8/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%AA%E6%80%A7%E5%8C%96%E8%87%AA%E5%AE%9A%E4%B9%89/" class="post-preview row g-0 flex-md-row-reverse">
+      <a href="/linux/%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-preview row g-0 flex-md-row-reverse">
         
 
         
 
         <div class="col-md-12">
           <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">Chirpy主题的个性化自定义</h1>
+            <h1 class="card-title my-2 mt-md-0">命令行快捷键</h1>
 
             <div class="card-text content mt-0 mb-3">
-              <p>更改_data文件夹中contact.yml文件
+              <p>命令行快捷键：
 
-contact.yml直接关联着网站左下角的链接，只保留github和email。后面自行可以添加
 
-- type: github
-  icon: &quot;fab fa-github&quot;
-
-#- type: twitter
-#  icon: &quot;fa-brands fa-x-twitter&quot;
-
-- type: email
-  icon: &quot;fas f...</p>
+  常用：
+    
+      Ctrl L ：清屏
+      Ctrl M ：等效于回车
+      Ctrl C : 中断正在当前正在执行的程序
+    
+  
+  历史命令：
+    
+      Ctrl P : 上一条命令，可以一直按表示一直往前翻
+      Ctrl N : 下一条命令
+      Ctrl R，再按历史命令中出现过的字符串：按字符串寻找...</p>
             </div>
 
             <div class="post-meta flex-grow-1 d-flex align-items-end">
@@ -817,11 +915,11 @@ contact.yml直接关联着网站左下角的链接，只保留github和email。�
 
 <time
   
-  data-ts="1761976800"
+  data-ts="1762657200"
   data-df="YYYY/MM/DD"
   
 >
-  2025/11/01
+  2025/11/09
 </time>
 
 
@@ -830,8 +928,7 @@ contact.yml直接关联着网站左下角的链接，只保留github和email。�
                   <i class="far fa-folder-open fa-fw me-1"></i>
                   <span class="categories">
                     
-                      jekyll,
-                      Chirpy使用
+                      linux
                   </span>
                 
               </div>
@@ -846,28 +943,33 @@ contact.yml直接关联着网站左下角的链接，只保留github和email。�
     </article>
   
     <article class="card-wrapper card">
-      <a href="/jekyll/chirpy%E4%BD%BF%E7%94%A8/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/" class="post-preview row g-0 flex-md-row-reverse">
+      <a href="/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" class="post-preview row g-0 flex-md-row-reverse">
         
 
         
 
         <div class="col-md-12">
           <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">Chirpy主题的进阶使用</h1>
+            <h1 class="card-title my-2 mt-md-0">1.Redis主从复制</h1>
 
             <div class="card-text content mt-0 mb-3">
-              <p>参考: ittousei (MsEspeon)
+              <p>本地缓存带来的挑战
+
+分布式缓存相比于本地缓存，在实现层面需要关注的点有哪些不同。梳理如下：
 
 
-自定义网页布局
-
-Favicon设置
-
-Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使用Favicon Generator生成favicon文件，再替换掉目录中的预设favicon即可。
-
-语言和字体
-
-博客的默认语言为英语，可以设置_config.yml中的lang变量来修改，变量取值详见...</p>
+  
+    
+      维度
+      本地缓存
+      集中式缓存
+    
+  
+  
+    
+      缓存量
+      受限于单机内存大小，存储数据有限
+      需要提供给分布式系统里面所有节点共同使用，对于大型系统而言，对集中式缓存的容量诉求非常的大，远超单机内存的...</p>
             </div>
 
             <div class="post-meta flex-grow-1 d-flex align-items-end">
@@ -884,11 +986,11 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
 
 <time
   
-  data-ts="1761969600"
+  data-ts="1762653600"
   data-df="YYYY/MM/DD"
   
 >
-  2025/11/01
+  2025/11/09
 </time>
 
 
@@ -897,8 +999,8 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
                   <i class="far fa-folder-open fa-fw me-1"></i>
                   <span class="categories">
                     
-                      jekyll,
-                      Chirpy使用
+                      Redis,
+                      Redis模式
                   </span>
                 
               </div>
@@ -913,31 +1015,35 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
     </article>
   
     <article class="card-wrapper card">
-      <a href="/jekyll/jekyll%E4%BD%BF%E7%94%A8/jekyll%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8/" class="post-preview row g-0 flex-md-row-reverse">
+      <a href="/%E5%8E%8B%E6%B5%8B/k6%E5%B7%A5%E5%85%B7/k6/" class="post-preview row g-0 flex-md-row-reverse">
         
 
         
 
         <div class="col-md-12">
           <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">jekyll主题使用</h1>
+            <h1 class="card-title my-2 mt-md-0">K6工具</h1>
 
             <div class="card-text content mt-0 mb-3">
-              <p>本地部署环境和调试
+              <p>安装
 
-不同的操作系统可能会不太一样，这里以Windows举例，配置本地调试环境：
+Win 11 操作系统内置了 winget 安装工具，所以笔者直接使用 winget 安装 k6：
+
+winget install k6
 
 
-  
-    安装RUBY
 
-    访问 Ruby Installer 下载
 
-    记得下载带devkit的版本
+其他的安装方式可以参考安装文档。
 
-    安装过程中，如果有类似MSYS2 and MINGW development tool chain的选项，记得勾选
+k6 的使
 
-    安装成功后，使用命令行验证安装结果：...</p>
+k6 的 Hello World
+
+创建一个测试脚本hello-world.js：
+
+import http from &#39;k6/http&#39;;
+import { sleep } from &#39;k...</p>
             </div>
 
             <div class="post-meta flex-grow-1 d-flex align-items-end">
@@ -954,11 +1060,11 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
 
 <time
   
-  data-ts="1761966000"
+  data-ts="1762488000"
   data-df="YYYY/MM/DD"
   
 >
-  2025/11/01
+  2025/11/07
 </time>
 
 
@@ -967,8 +1073,141 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
                   <i class="far fa-folder-open fa-fw me-1"></i>
                   <span class="categories">
                     
-                      jekyll,
-                      jekyll使用
+                      压测,
+                      K6工具
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/%E5%8E%8B%E6%B5%8B/%E5%8E%8B%E6%B5%8B%E8%AF%B4%E6%98%8E/%E5%8E%8B%E6%B5%8B/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">压测</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>压测
+
+压测是什么
+
+压测，即压力测试，是确立系统稳定性的一种测试方法，通常在系统正常运作范围之外进行，以考察其功能极限和隐患。
+
+主要检测服务器的承受能力，包括用户承受能力（多少用户同时玩基本不影响质量）、流量承受等。
+
+为什么要压测
+
+
+  压测的目的就是通过压测(模拟真实用户的行为)，测算出机器的性能(单台机器的 QPS)，从而推算出系统在承受指定用户数(100W)时，需要多少机器能支...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1762484400"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/07
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      压测,
+                      压测说明
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/go/context%E4%B8%8A%E4%B8%8B%E6%96%87/%E4%BB%BB%E5%8A%A1%E4%B8%8A%E4%B8%8B%E6%96%87/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">Context上下文</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>Context
+
+Context 概要
+
+Go 1.7 标准库引入 Context，中文名为上下文，是一个跨 API 和进程用来传递截止日期、取消信号和请求范围的值的接口。
+
+context.Context 定义如下：
+
+type Context interface {
+	Deadline() (deadline time.Time, ok bool)
+	Done() &amp;lt;-chan s...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1762447200"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/07
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      GO,
+                      Context上下文
                   </span>
                 
               </div>
@@ -1031,13 +1270,13 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
       
 
       
-        <!-- show number -->
-        <li class="page-item ">
-          <a
-            class="page-link"
-            href="/page2"
-          >2</a>
-        </li>
+        <!-- hide number -->
+        
+          <li class="page-item disabled">
+            <span class="page-link">...</span>
+          </li>
+          
+        
       
     
       
@@ -1076,18 +1315,36 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
         </li>
       
     
+      
+      
+      
+      
+      
+
+      
+
+      
+        <!-- show number -->
+        <li class="page-item ">
+          <a
+            class="page-link"
+            href="/page5"
+          >5</a>
+        </li>
+      
+    
 
     <!-- mobile pagination -->
     <li class="page-index align-middle">
       <span>4</span>
-      <span class="text-muted">/ 4</span>
+      <span class="text-muted">/ 5</span>
     </li>
 
     <!-- right arrow -->
     
 
-    <li class="page-item disabled">
-      <a class="page-link" href="#" aria-label="next-page">
+    <li class="page-item ">
+      <a class="page-link" href="/page5" aria-label="next-page">
         <i class="fas fa-angle-right"></i>
       </a>
     </li>
@@ -1127,35 +1384,35 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/">字典解析库</a>
+          <a href="/openclaw/openclaw-docker-deployment/">openclaw项目文件说明</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
+          <a href="/go/%E8%A7%84%E5%88%99/%E7%BB%93%E6%9E%84%E4%BD%93/">结构体</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/">toml配置文件</a>
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E9%BB%98%E8%AE%A4%E5%80%BC/">默认值</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%84%E5%88%99/%E5%AD%97%E5%85%B8/">字典</a>
+          <a href="/go/%E8%A7%84%E5%88%99/%E5%88%87%E7%89%87/">切片</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/">指针</a>
+          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/MCP/">03_LangChain-MCP解析</a>
         </li>
       
     </ul>
@@ -1244,6 +1501,26 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -1296,6 +1573,217 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -1473,67 +1961,6 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
     
     
     
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1567,6 +1994,9 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/context/">Context</a>
       
         
@@ -1582,10 +2012,7 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
         <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/mongodb%E8%AF%AD%E6%B3%95/">mongodb语法</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/pgsql%E6%A7%BD%E4%BD%8D/">PgSQL槽位</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
     </div>
   </section>
@@ -1620,7 +2047,7 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
   "
 >
   <p>©
-    2024-<time>2025</time>
+    2024-<time>2026</time>
 
     
       <a href="https://github.com/Auroraol">lfj</a>
@@ -1636,14 +2063,7 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
     -->
   </p>
 
-  <p>本站采用 <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> 主题 <a
-        data-bs-toggle="tooltip"
-        data-bs-placement="top"
-        title="v6.5.5"
-        href="https://github.com/cotes2020/jekyll-theme-chirpy"
-        target="_blank"
-        rel="noopener"
-      >Chirpy</a>
+  <p>
   </p>
 </footer>
 
@@ -1736,6 +2156,26 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -1788,6 +2228,217 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -1965,67 +2616,6 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
     
     
     
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -2059,6 +2649,9 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/context/">Context</a>
       
         
@@ -2074,10 +2667,7 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
         <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/mongodb%E8%AF%AD%E6%B3%95/">mongodb语法</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/pgsql%E6%A7%BD%E4%BD%8D/">PgSQL槽位</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
     </div>
   </section>

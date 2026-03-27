@@ -32,22 +32,21 @@
 <meta name="generator" content="Jekyll v4.3.3" />
 <meta property="og:title" content="toml配置文件" />
 <meta property="og:locale" content="zh_CN" />
-<meta name="description" content="配置管理神器Viper" />
-<meta property="og:description" content="配置管理神器Viper" />
+<meta name="description" content="总结" />
+<meta property="og:description" content="总结" />
 <link rel="canonical" href="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/" />
 <meta property="og:url" content="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/" />
-<meta property="og:site_name" content="L" />
+<meta property="og:site_name" content="​" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-12-07T17:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="toml配置文件" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-12-07T17:00:00+08:00","datePublished":"2025-12-07T17:00:00+08:00","description":"配置管理神器Viper","headline":"toml配置文件","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/"},"url":"http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-12-28T19:26:48+08:00","datePublished":"2025-12-07T17:00:00+08:00","description":"总结","headline":"toml配置文件","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/"},"url":"http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>toml配置文件 | L
-  </title>
+  <title>toml配置文件</title>
 
   <!--
   The Favicons for Web, Android, Microsoft, and iOS (iPhone and iPad) Apps
@@ -63,8 +62,8 @@
   <link rel="manifest" href="/assets/img/favicons/site.webmanifest">
 
 <link rel="shortcut icon" href="/assets/img/favicons/favicon.ico">
-<meta name="apple-mobile-web-app-title" content="L">
-<meta name="application-name" content="L">
+<meta name="apple-mobile-web-app-title" content="&#8203;">
+<meta name="application-name" content="&#8203;">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
@@ -264,18 +263,38 @@
 
   
 
+  <!-- Set default theme to dark -->
+  <script>
+    (function() {
+      // Check if user has already set a theme preference
+      const savedMode = sessionStorage.getItem('mode');
+      
+      // If no preference saved, set default to dark
+      if (!savedMode) {
+        const html = document.documentElement;
+        html.setAttribute('data-mode', 'dark');
+        sessionStorage.setItem('mode', 'dark');
+        
+        // Also update the toggle button state if it exists
+        const toggleBtn = document.getElementById('mode-toggle');
+        if (toggleBtn) {
+          toggleBtn.classList.add('mode-dark');
+        }
+      }
+    })();
+  </script>
+
   <!-- A placeholder to allow defining custom metadata -->
 
 </head>
-
 
   <body>
     <!-- The Side Bar -->
 
 <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
   <header class="profile-wrapper"><h1 class="site-title">
-        <a href="/">L</a>
-      </h1><p class="site-subtitle mb-0">随便写写</p>
+        <a href="/">&#8203;</a>
+      </h1><p class="site-subtitle mb-0">叹隙中骑，石中火，梦中身。</p>
   </header>
   <!-- .profile-wrapper -->
 
@@ -445,6 +464,9 @@
 
 
 
+<!-- Add collapsible code block functionality -->
+
+
 <!--
   In order to allow a wide table to scroll horizontally,
   we suround the markdown table with `<div class="table-wrapper">` and `</div>`
@@ -491,6 +513,17 @@
       
         
         
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
       
 
       
@@ -583,6 +616,29 @@
 
       <!-- lastmod date -->
       
+        <span>
+          更新于
+          <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1766921208"
+  data-df="YYYY/MM/DD"
+  
+    data-bs-toggle="tooltip" data-bs-placement="bottom"
+  
+>
+  2025/12/28
+</time>
+
+        </span>
+      
 
       
 
@@ -625,19 +681,70 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="529 字"
+  title="827 字"
 >
-  <em>2 分钟</em>阅读</span>
+  <em>4 分钟</em>阅读</span>
 
         </div>
       </div>
     </div>
   </header>
 
-  <div class="content">
-    <h2 id="配置管理神器viper"><span class="me-2">配置管理神器Viper</span><a href="#配置管理神器viper" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+  <script src="/assets/js/dist/collapsible.js"></script><div class="content">
+    <h2 id="总结"><span class="me-2">总结</span><a href="#总结" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Go 类型特征</th>
+      <th>tag 出现的关键字</th>
+      <th>生成的 TOML</th>
+      <th>备注</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>非匿名 struct</td>
+      <td>无 squash</td>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">[xxx]</code></td>
+      <td>字段继续往下写</td>
+    </tr>
+    <tr>
+      <td>匿名 struct</td>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">,squash</code></td>
+      <td>没有 <code class="language-plaintext highlighter-rouge collapsible-container">[xxx]</code>，字段直接摊平到上层</td>
+      <td>俗称“扁平化”</td>
+    </tr>
+    <tr>
+      <td>切片/数组</td>
+      <td>无特殊关键字</td>
+      <td>两种等价写法：<br />① <code class="language-plaintext highlighter-rouge collapsible-container">[[xxx]]</code> 多次出现<br />② <code class="language-plaintext highlighter-rouge collapsible-container">xxx = [{…}, {…}]</code></td>
+      <td>① 易读；② 省行</td>
+    </tr>
+    <tr>
+      <td>map[K]V 且 K=string</td>
+      <td>无特殊关键字</td>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">[parent.xxx]</code> 下再挂任意子键</td>
+      <td>子键名就是 map 的 key</td>
+    </tr>
+    <tr>
+      <td>基本类型、字符串、数字、bool、duration</td>
+      <td>任意</td>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">key = value</code></td>
+      <td>直接写</td>
+    </tr>
+    <tr>
+      <td>嵌套指针</td>
+      <td>任意</td>
+      <td>与值类型写法完全一样</td>
+      <td>TOML 无指针概念</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<h2 id="配置管理神器viper"><span class="me-2">配置管理神器Viper</span><a href="#配置管理神器viper" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -679,12 +786,44 @@
 38
 39
 40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
 </pre></td><td class="rouge-code"><pre><span class="k">type</span> <span class="n">Config</span> <span class="k">struct</span> 
 	<span class="n">Spu</span>                 <span class="n">SpuConfig</span>                       <span class="s">`mapstructure:"spu"`</span>
 	<span class="n">Sdks</span>                <span class="p">[]</span><span class="n">SDKConf</span>                        <span class="s">`mapstructure:"sdks"`</span> <span class="c">//</span>
 	<span class="n">SpiHttpClients</span> <span class="n">SpiHttpClientConfig</span> <span class="s">`mapstructure:"spi_http_clients"`</span>
 	<span class="n">Person</span>  <span class="c">//</span>
 	<span class="n">MockConfig</span> <span class="s">`mapstructure:",squash"`</span> <span class="c">//</span>
+	<span class="n">QueueConfig</span> <span class="n">QueueConfig</span>         <span class="s">`mapstructure:"queue_config"`</span> 
+<span class="p">}</span>
+
+<span class="k">type</span> <span class="n">QueueConfig</span> <span class="k">struct</span> <span class="p">{</span>
+	<span class="n">Subscribers</span> <span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="n">QueueSubConfig</span> <span class="s">`mapstructure:"subscribers"`</span>
+	<span class="n">Publishers</span>  <span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="n">QueuePubConfig</span> <span class="s">`mapstructure:"publishers"`</span>
+<span class="p">}</span>
+
+<span class="k">type</span> <span class="n">QueuePubConfig</span> <span class="k">struct</span> <span class="p">{</span>
+	<span class="n">QueueType</span>              <span class="n">QueueType</span> <span class="s">`mapstructure:"queue_type,omitempty" json:"queue_type,omitempty"`</span>
+	<span class="n">pubsub</span><span class="o">.</span><span class="n">QueuePubOptions</span> <span class="s">`mapstructure:",squash"`</span>
+<span class="p">}</span>
+
+<span class="k">type</span> <span class="n">QueueSubConfig</span> <span class="k">struct</span> <span class="p">{</span>
+	<span class="n">QueueType</span>              <span class="n">QueueType</span> <span class="s">`mapstructure:"queue_type,omitempty" json:"queue_type,omitempty"`</span>
+	<span class="n">pubsub</span><span class="o">.</span><span class="n">QueueSubOptions</span> <span class="s">`mapstructure:",squash"`</span>
 <span class="p">}</span>
 
 <span class="k">type</span> <span class="n">Person</span> <span class="k">struct</span> <span class="p">{</span>
@@ -723,7 +862,7 @@
 
 <h2 id="写法1"><span class="me-2">写法1</span><a href="#写法1" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<div class="language-toml highlighter-rouge"><div class="code-header">
+<div class="language-toml highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="TOML"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -770,6 +909,16 @@
 43
 44
 45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
 </pre></td><td class="rouge-code"><pre><span class="c"># 1. Person 段（没有 squash，所以必须独立一层）</span>
 <span class="nn">[person]</span>
 <span class="py">name</span> <span class="p">=</span> <span class="s">"demo-instance"</span>
@@ -815,11 +964,21 @@
 <span class="py">name</span> <span class="p">=</span> <span class="s">"sdk-dy"</span>
 <span class="py">address</span> <span class="p">=</span> <span class="s">"http://localhost:8092"</span>
 <span class="py">timeout</span> <span class="p">=</span> <span class="mi">30</span>
-</pre></td></tr></tbody></table></code></div></div>
+
+<span class="nn">[queue_config]</span>
+<span class="c"># 订阅者列表</span>
+<span class="nn">[queue_config.subscribers.goods_sub]</span> <span class="c">#商品增量同步</span>
+<span class="py">queue_type</span> <span class="p">=</span> <span class="s">"rocketmq"</span>
+<span class="py">url</span> <span class="p">=</span> <span class="s">""</span>
+<span class="c"># 发布者列表</span>
+<span class="nn">[queue_config.publishers.goods_notify_pub]</span>
+<span class="py">queue_type</span> <span class="p">=</span> <span class="s">"rocketmq"</span>
+<span class="py">url</span> <span class="p">=</span> <span class="s">"</span><span class="err">
+</span></pre></td></tr></tbody></table></code></div></div>
 
 <h2 id="写法2推荐"><span class="me-2">写法2(推荐)</span><a href="#写法2推荐" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<div class="language-toml highlighter-rouge"><div class="code-header">
+<div class="language-toml highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="TOML"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -850,6 +1009,16 @@
 27
 28
 29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
 </pre></td><td class="rouge-code"><pre><span class="c"># 1.Person 段（没有 squash，所以必须独立一层）</span>
 <span class="nn">[person]</span>
 <span class="py">name</span> <span class="p">=</span> <span class="s">"demo-instance"</span>
@@ -879,6 +1048,16 @@
   <span class="err">{</span> <span class="py">name</span> <span class="p">=</span> <span class="s">"message-receiver"</span><span class="p">,</span> <span class="py">address</span> <span class="p">=</span> <span class="s">"http://localhost:8095"</span><span class="p">,</span> <span class="py">timeout</span> <span class="p">=</span> <span class="mi">30</span> <span class="err">}</span><span class="p">,</span>
   <span class="err">{</span> <span class="py">name</span> <span class="p">=</span> <span class="s">"sdk-dy"</span><span class="p">,</span>        <span class="py">address</span> <span class="p">=</span> <span class="s">"http://sdk-dy-test-service:8080"</span><span class="p">,</span> <span class="py">timeout</span> <span class="p">=</span> <span class="mi">30</span> <span class="err">}</span>
 <span class="p">]</span>
+
+<span class="nn">[queue_config]</span>
+<span class="c"># 订阅者列表</span>
+<span class="nn">[queue_config.subscribers.goods_sub]</span> <span class="c">#商品增量同步</span>
+<span class="py">queue_type</span> <span class="p">=</span> <span class="s">"rocketmq"</span>
+<span class="py">url</span> <span class="p">=</span> <span class="s">""</span>
+<span class="c"># 发布者列表</span>
+<span class="nn">[queue_config.publishers.goods_notify_pub]</span>
+<span class="py">queue_type</span> <span class="p">=</span> <span class="s">"rocketmq"</span>
+<span class="py">url</span> <span class="p">=</span> <span class="s">""</span>
 </pre></td></tr></tbody></table></code></div></div>
 
 
@@ -987,35 +1166,35 @@
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/">字典解析库</a>
+          <a href="/openclaw/openclaw-docker-deployment/">openclaw项目文件说明</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
+          <a href="/go/%E8%A7%84%E5%88%99/%E7%BB%93%E6%9E%84%E4%BD%93/">结构体</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/">toml配置文件</a>
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E9%BB%98%E8%AE%A4%E5%80%BC/">默认值</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%84%E5%88%99/%E5%AD%97%E5%85%B8/">字典</a>
+          <a href="/go/%E8%A7%84%E5%88%99/%E5%88%87%E7%89%87/">切片</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/">指针</a>
+          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/MCP/">03_LangChain-MCP解析</a>
         </li>
       
     </ul>
@@ -1104,6 +1283,26 @@
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -1156,6 +1355,217 @@
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -1333,67 +1743,6 @@
     
     
     
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1427,6 +1776,9 @@
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/context/">Context</a>
       
         
@@ -1442,10 +1794,7 @@
         <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/mongodb%E8%AF%AD%E6%B3%95/">mongodb语法</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/pgsql%E6%A7%BD%E4%BD%8D/">PgSQL槽位</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
     </div>
   </section>
@@ -1500,19 +1849,79 @@
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
   
 
   
@@ -1684,6 +2093,104 @@
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/json%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1763743200"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/22
+</time>
+
+              <h4 class="pt-0 my-2">json解析库</h4>
+              <div class="text-muted">
+                <p>json库
+
+
+  
+    JSON 编码: 将 Go 的数据结构转换为 JSON 格式的字符串。通过 json.Marshal 函数实现。
+    JSON 解码: 将 JSON 格式的字符串转换为 Go 的数据结构。通过 json.Unmarshal 函数实现。
+  
+
+
+相关的包：
+
+import {
+	&quot;encoding/json&quot;
+}
+
+
+语法
+
+json.Marshal(待解析...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E7%BB%93%E6%9E%84%E4%BD%93%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1763743800"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/22
+</time>
+
+              <h4 class="pt-0 my-2">结构体解析库</h4>
+              <div class="text-muted">
+                <p>copier库
+
+
+  用 github.com/jinzhu/copier 进行结构体之间数据拷贝
+
+
+相关的包：
+
+import (
+	&quot;github.com/jinzhu/copier&quot;
+)
+
+
+语法
+
+copier.Copy(&amp;amp;目标, &amp;amp;源)
+
+
+基础使用
+
+package main
+
+import (
+	&quot;fmt&quot;
+	&quot;github.com/jinzhu/copie...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
           <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E9%BB%98%E8%AE%A4%E5%80%BC/" class="post-preview card h-100">
             <div class="card-body">
               <!--
@@ -1705,7 +2212,7 @@
 
               <h4 class="pt-0 my-2">默认值</h4>
               <div class="text-muted">
-                <p>零值的定义取决于字段的类型：
+                <p>零值的定义取决于字段的类型
 
 
   对于 string 类型，零值是空字符串 ““。
@@ -1715,86 +2222,12 @@
   对于数组，零值是 []
 
 
-例子
+不同初始化对应的默认值
 
-type Goods struct {
-	// 基础字段
-	ShopID     string    `json:&quot;shop...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%97%B6%E9%97%B4%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
+// 方式1: 声明但不初始化
+var slice []string  // 默认值: nil
 
-
-
-
-<time
-  
-  data-ts="1763782800"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/22
-</time>
-
-              <h4 class="pt-0 my-2">时间解析库</h4>
-              <div class="text-muted">
-                <p>时间戳
-
-now := time.Now() // 当前本地时间
-
-sec  := now.Unix()    // 秒级（Unix 时间戳）
-msec := now.UnixMilli() // 毫秒级（Go 1.17+）
-usec := now.UnixMicro() // 微秒级（Go 1.17+）
-nsec := now.UnixNano()  // 纳秒级
-
-
-封装
-
-packag...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%95%B0%E5%AD%97_%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1763790000"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/22
-</time>
-
-              <h4 class="pt-0 my-2">数字_字符串转换</h4>
-              <div class="text-muted">
-                <p>数字&amp;amp;字符转换
-
-string 转换 为其他类型
-
-f, _ := strconv.ParseBool(&quot;false&quot;)         // bool
-g, _ := strconv.ParseFloat(&quot;123.23&quot;, 64)     // float
-h, _ := strconv.ParseInt(&quot;-1234&quot;, 10, 64)    // int64
-i, _ := ...</p>
+// 方式...</p>
               </div>
             </div>
           </a>
@@ -1824,9 +2257,13 @@ i, _ := ...</p>
   
 
   
-    <div class="btn btn-outline-primary disabled" aria-label="下一篇">
-      <p>-</p>
-    </div>
+    <a
+      href="/redis/redis%E5%91%BD%E4%BB%A4/%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/"
+      class="btn btn-outline-primary"
+      aria-label="下一篇"
+    >
+      <p>redis常见命令</p>
+    </a>
   
 </nav>
 
@@ -1923,7 +2360,7 @@ i, _ := ...</p>
   "
 >
   <p>©
-    2024-<time>2025</time>
+    2024-<time>2026</time>
 
     
       <a href="https://github.com/Auroraol">lfj</a>
@@ -1939,14 +2376,7 @@ i, _ := ...</p>
     -->
   </p>
 
-  <p>本站采用 <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> 主题 <a
-        data-bs-toggle="tooltip"
-        data-bs-placement="top"
-        title="v6.5.5"
-        href="https://github.com/cotes2020/jekyll-theme-chirpy"
-        target="_blank"
-        rel="noopener"
-      >Chirpy</a>
+  <p>
   </p>
 </footer>
 
@@ -2039,6 +2469,26 @@ i, _ := ...</p>
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -2091,6 +2541,217 @@ i, _ := ...</p>
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -2268,67 +2929,6 @@ i, _ := ...</p>
     
     
     
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -2362,6 +2962,9 @@ i, _ := ...</p>
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/context/">Context</a>
       
         
@@ -2377,10 +2980,7 @@ i, _ := ...</p>
         <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/mongodb%E8%AF%AD%E6%B3%95/">mongodb语法</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/pgsql%E6%A7%BD%E4%BD%8D/">PgSQL槽位</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
     </div>
   </section>

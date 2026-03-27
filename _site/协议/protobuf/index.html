@@ -36,7 +36,7 @@
 <meta property="og:description" content="Protobuf" />
 <link rel="canonical" href="http://localhost:4000/%E5%8D%8F%E8%AE%AE/protobuf/" />
 <meta property="og:url" content="http://localhost:4000/%E5%8D%8F%E8%AE%AE/protobuf/" />
-<meta property="og:site_name" content="L" />
+<meta property="og:site_name" content="​" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-11-29T12:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
@@ -46,8 +46,7 @@
 <!-- End Jekyll SEO tag -->
 
 
-  <title>protobuf协议 | L
-  </title>
+  <title>protobuf协议</title>
 
   <!--
   The Favicons for Web, Android, Microsoft, and iOS (iPhone and iPad) Apps
@@ -63,8 +62,8 @@
   <link rel="manifest" href="/assets/img/favicons/site.webmanifest">
 
 <link rel="shortcut icon" href="/assets/img/favicons/favicon.ico">
-<meta name="apple-mobile-web-app-title" content="L">
-<meta name="application-name" content="L">
+<meta name="apple-mobile-web-app-title" content="&#8203;">
+<meta name="application-name" content="&#8203;">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
@@ -264,18 +263,38 @@
 
   
 
+  <!-- Set default theme to dark -->
+  <script>
+    (function() {
+      // Check if user has already set a theme preference
+      const savedMode = sessionStorage.getItem('mode');
+      
+      // If no preference saved, set default to dark
+      if (!savedMode) {
+        const html = document.documentElement;
+        html.setAttribute('data-mode', 'dark');
+        sessionStorage.setItem('mode', 'dark');
+        
+        // Also update the toggle button state if it exists
+        const toggleBtn = document.getElementById('mode-toggle');
+        if (toggleBtn) {
+          toggleBtn.classList.add('mode-dark');
+        }
+      }
+    })();
+  </script>
+
   <!-- A placeholder to allow defining custom metadata -->
 
 </head>
-
 
   <body>
     <!-- The Side Bar -->
 
 <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
   <header class="profile-wrapper"><h1 class="site-title">
-        <a href="/">L</a>
-      </h1><p class="site-subtitle mb-0">随便写写</p>
+        <a href="/">&#8203;</a>
+      </h1><p class="site-subtitle mb-0">叹隙中骑，石中火，梦中身。</p>
   </header>
   <!-- .profile-wrapper -->
 
@@ -441,6 +460,9 @@
             
               <!-- Refactor the HTML structure -->
 
+
+
+<!-- Add collapsible code block functionality -->
 
 
 <!--
@@ -987,7 +1009,7 @@
     </div>
   </header>
 
-  <div class="content">
+  <script src="/assets/js/dist/collapsible.js"></script><div class="content">
     <h2 id="protobuf"><span class="me-2">Protobuf</span><a href="#protobuf" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <p>Protobuf 提供了一种紧凑的二进制格式，序列化后的数据体积小，解析速度快，适合高性能场景。它支持多种编程语言，包括 C++、Java、Python、Go 等，能够实现跨语言的数据交换。</p>
@@ -1053,7 +1075,7 @@
 
 <p>再来看一个小例子。我们需要传输一个结构体类型的数据，结构体如下：</p>
 
-<div class="language-c++ highlighter-rouge"><div class="code-header">
+<div class="language-c++ highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="C++"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1067,7 +1089,7 @@
 
 <p>使用XML序列化：</p>
 
-<div class="language-xml highlighter-rouge"><div class="code-header">
+<div class="language-xml highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="XML"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1081,7 +1103,7 @@
 
 <p>使用json序列化：</p>
 
-<div class="language-json highlighter-rouge"><div class="code-header">
+<div class="language-json highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="JSON"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1095,7 +1117,7 @@
 
 <p>使用Protobuf二进制序列化：</p>
 
-<div class="language-protobuf highlighter-rouge"><div class="code-header">
+<div class="language-protobuf highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Protobuf"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre> <span class="mi">08</span> <span class="mi">65</span> <span class="mi">12</span> <span class="mo">06</span> <span class="mi">48</span> <span class="mi">65</span> <span class="mi">6</span><span class="n">C</span> <span class="mi">6</span><span class="n">C</span> <span class="mf">6F</span> <span class="mi">77</span>
@@ -1105,7 +1127,7 @@
 
 <p>message 的定义语法:</p>
 
-<div class="language-protobuf highlighter-rouge"><div class="code-header">
+<div class="language-protobuf highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Protobuf"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1131,7 +1153,7 @@
 <h3 id="字段编号规则"><span class="me-2"><strong>字段编号规则</strong></span><a href="#字段编号规则" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <ul>
-  <li>必须为正整数，范围 <code class="language-plaintext highlighter-rouge">1 ~ 2^29-1</code>（<code class="language-plaintext highlighter-rouge">19000~19999</code> 保留给 protobuf 实现）。</li>
+  <li>必须为正整数，范围 <code class="language-plaintext highlighter-rouge collapsible-container">1 ~ 2^29-1</code>（<code class="language-plaintext highlighter-rouge collapsible-container">19000~19999</code> 保留给 protobuf 实现）。</li>
   <li>不能重复，不能随意变更（已上线字段只能 deprecate / reserve）。</li>
   <li>可以乱序</li>
   <li>1-15 占 1 byte，16-2047占 2 byte；高频字段尽量用 1-15。</li>
@@ -1139,7 +1161,7 @@
 
 <p>示例</p>
 
-<div class="language-protobuf highlighter-rouge"><div class="code-header">
+<div class="language-protobuf highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Protobuf"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1163,7 +1185,7 @@
 
 <p>示例</p>
 
-<div class="language-protobuf highlighter-rouge"><div class="code-header">
+<div class="language-protobuf highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Protobuf"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1187,7 +1209,7 @@
 
 <p>枚举声明语法:</p>
 
-<div class="language-protobuf highlighter-rouge"><div class="code-header">
+<div class="language-protobuf highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Protobuf"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1205,7 +1227,7 @@
 
 <p>示例</p>
 
-<div class="language-protobuf highlighter-rouge"><div class="code-header">
+<div class="language-protobuf highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Protobuf"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1231,7 +1253,7 @@
 
 <p>如果的确有2个同名的枚举需求: 比如 TaskStatus 和 PipelineStatus 都需要Running，就可以添加一个: option allow_alias = true;</p>
 
-<div class="language-protobuf highlighter-rouge"><div class="code-header">
+<div class="language-protobuf highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Protobuf"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1267,9 +1289,9 @@
 
 <h3 id="预留值"><span class="me-2">预留值</span><a href="#预留值" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>可以使用<code class="language-plaintext highlighter-rouge">max</code>关键字指定保留的数值范围达到最大可能值。</p>
+<p>可以使用<code class="language-plaintext highlighter-rouge collapsible-container">max</code>关键字指定保留的数值范围达到最大可能值。</p>
 
-<div class="language-protobuf highlighter-rouge"><div class="code-header">
+<div class="language-protobuf highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Protobuf"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1291,7 +1313,7 @@
 
 <h3 id="数组类型"><span class="me-2">数组类型</span><a href="#数组类型" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<div class="language-protobuf highlighter-rouge"><div class="code-header">
+<div class="language-protobuf highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Protobuf"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1339,7 +1361,7 @@
 
 <h3 id="map"><span class="me-2">Map</span><a href="#map" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<div class="language-protobuf highlighter-rouge"><div class="code-header">
+<div class="language-protobuf highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Protobuf"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1389,7 +1411,7 @@
 
 <h3 id="oneof"><span class="me-2">Oneof</span><a href="#oneof" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<div class="language-protobuf highlighter-rouge"><div class="code-header">
+<div class="language-protobuf highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Protobuf"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1459,7 +1481,7 @@
 
 <p>示例</p>
 
-<div class="language-protobuf highlighter-rouge"><div class="code-header">
+<div class="language-protobuf highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Protobuf"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1479,7 +1501,7 @@
 
 <p>生成对应go代码</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1541,7 +1563,7 @@
 
 <p>当无法明确定义数据类型的时候， 可以使用Any表示:</p>
 
-<div class="language-protobuf highlighter-rouge"><div class="code-header">
+<div class="language-protobuf highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Protobuf"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1587,7 +1609,7 @@
 
 <p>可以再message里面嵌套message</p>
 
-<div class="language-protobuf highlighter-rouge"><div class="code-header">
+<div class="language-protobuf highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Protobuf"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1628,18 +1650,18 @@
 <ul>
   <li>对于 <strong>字符串</strong>，默认值为空字符串</li>
   <li>对于 <strong>字节</strong>，默认值为空字节</li>
-  <li>对于 <strong>布尔值</strong>，默认值为 <strong><code class="language-plaintext highlighter-rouge">false</code></strong></li>
-  <li>对于 <strong>数值类型</strong>，默认值为 <strong><code class="language-plaintext highlighter-rouge">0</code></strong></li>
+  <li>对于 <strong>布尔值</strong>，默认值为 <strong><code class="language-plaintext highlighter-rouge collapsible-container">false</code></strong></li>
+  <li>对于 <strong>数值类型</strong>，默认值为 <strong><code class="language-plaintext highlighter-rouge collapsible-container">0</code></strong></li>
   <li>对于 <strong>消息字段</strong>，未设置该字段。它的取值是依赖于语言</li>
-  <li>对于 <strong>设置了 <code class="language-plaintext highlighter-rouge">repeated</code> 的字段</strong> 的默认值是空的（ 通常是相应语言的一个空列表 ）</li>
-  <li>对于 <strong>消息字段 、 <code class="language-plaintext highlighter-rouge">oneof</code> 字段 和 <code class="language-plaintext highlighter-rouge">any</code> 字段</strong> ，<strong><code class="language-plaintext highlighter-rouge">C++</code></strong> 和 <strong><code class="language-plaintext highlighter-rouge">Java</code></strong> 语言中都有 <strong><code class="language-plaintext highlighter-rouge">has_</code></strong> 方法来检测当前字段是否被设置；而对于 <strong>标量数据类型</strong>，在 <strong><code class="language-plaintext highlighter-rouge">proto3</code></strong> 语法下是不会生成 <strong><code class="language-plaintext highlighter-rouge">has_</code></strong> 方法的！</li>
+  <li>对于 <strong>设置了 <code class="language-plaintext highlighter-rouge collapsible-container">repeated</code> 的字段</strong> 的默认值是空的（ 通常是相应语言的一个空列表 ）</li>
+  <li>对于 <strong>消息字段 、 <code class="language-plaintext highlighter-rouge collapsible-container">oneof</code> 字段 和 <code class="language-plaintext highlighter-rouge collapsible-container">any</code> 字段</strong> ，<strong><code class="language-plaintext highlighter-rouge collapsible-container">C++</code></strong> 和 <strong><code class="language-plaintext highlighter-rouge collapsible-container">Java</code></strong> 语言中都有 <strong><code class="language-plaintext highlighter-rouge collapsible-container">has_</code></strong> 方法来检测当前字段是否被设置；而对于 <strong>标量数据类型</strong>，在 <strong><code class="language-plaintext highlighter-rouge collapsible-container">proto3</code></strong> 语法下是不会生成 <strong><code class="language-plaintext highlighter-rouge collapsible-container">has_</code></strong> 方法的！</li>
 </ul>
 
 <h2 id="用于-http-grpc"><span class="me-2">用于 HTTP /gRPC</span><a href="#用于-http-grpc" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <h3 id="案例"><span class="me-2">案例</span><a href="#案例" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p><code class="language-plaintext highlighter-rouge">MsgAnswerSend</code> 的签名要求传入 <code class="language-plaintext highlighter-rouge">*msgAdapterPb.SendMsgByAction</code>，无论 HTTP 还是 gRPC/Protobuf，核心都是构造这份结构体：</p>
+<p><code class="language-plaintext highlighter-rouge collapsible-container">MsgAnswerSend</code> 的签名要求传入 <code class="language-plaintext highlighter-rouge collapsible-container">*msgAdapterPb.SendMsgByAction</code>，无论 HTTP 还是 gRPC/Protobuf，核心都是构造这份结构体：</p>
 
 <pre><code class="language-43:75:handler/msg_adapter.go">func (d *MsgAdapterHandler) SendMsgByActionHttp(c *gin.Context) {
     ...
@@ -1661,12 +1683,12 @@
 
 <h3 id="http-传参示例"><span class="me-2">HTTP 传参示例</span><a href="#http-传参示例" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 <ul>
-  <li>调用地址：<code class="language-plaintext highlighter-rouge">POST /adapter/send_msg</code></li>
-  <li>Header：<code class="language-plaintext highlighter-rouge">Content-Type: application/json</code>（使用 protojson 编码）</li>
+  <li>调用地址：<code class="language-plaintext highlighter-rouge collapsible-container">POST /adapter/send_msg</code></li>
+  <li>Header：<code class="language-plaintext highlighter-rouge collapsible-container">Content-Type: application/json</code>（使用 protojson 编码）</li>
   <li>Body（示例字段含义：平台、会话双方、动作列表等）：</li>
 </ul>
 
-<div class="language-http highlighter-rouge"><div class="code-header">
+<div class="language-http highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Http"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1729,13 +1751,13 @@
 </span></pre></td></tr></tbody></table></code></div></div>
 
 <blockquote>
-  <p><code class="language-plaintext highlighter-rouge">actionList</code> 内使用具体的 <code class="language-plaintext highlighter-rouge">SendMsgAction</code>、<code class="language-plaintext highlighter-rouge">TransferAction</code> 等子结构，字段名与 proto 定义一致（驼峰形式）。如果要带扩展信息，可以补充 <code class="language-plaintext highlighter-rouge">extraData</code>、<code class="language-plaintext highlighter-rouge">business</code> 等字段。</p>
+  <p><code class="language-plaintext highlighter-rouge collapsible-container">actionList</code> 内使用具体的 <code class="language-plaintext highlighter-rouge collapsible-container">SendMsgAction</code>、<code class="language-plaintext highlighter-rouge collapsible-container">TransferAction</code> 等子结构，字段名与 proto 定义一致（驼峰形式）。如果要带扩展信息，可以补充 <code class="language-plaintext highlighter-rouge collapsible-container">extraData</code>、<code class="language-plaintext highlighter-rouge collapsible-container">business</code> 等字段。</p>
 </blockquote>
 
 <h3 id="protobufgrpc-传参示例"><span class="me-2">Protobuf/gRPC 传参示例</span><a href="#protobufgrpc-传参示例" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-<p>通过 gRPC 调用 <code class="language-plaintext highlighter-rouge">AppBusinessToAdapterService.SendMsg</code>，直接传送二进制 Protobuf：</p>
+<p>通过 gRPC 调用 <code class="language-plaintext highlighter-rouge collapsible-container">AppBusinessToAdapterService.SendMsg</code>，直接传送二进制 Protobuf：</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1837,9 +1859,9 @@
 
 <p>关键点：</p>
 <ul>
-  <li>HTTP 入口以 protojson 解析，字段名需与 proto 中的 <code class="language-plaintext highlighter-rouge">json</code> tag 对齐。</li>
+  <li>HTTP 入口以 protojson 解析，字段名需与 proto 中的 <code class="language-plaintext highlighter-rouge collapsible-container">json</code> tag 对齐。</li>
   <li>gRPC 入口直接接收 Protobuf 对象，字段名用 Go 生成的驼峰属性即可。</li>
-  <li>二者最终都会调用 <code class="language-plaintext highlighter-rouge">MsgAnswerSend(ctx, req)</code>，所以 <code class="language-plaintext highlighter-rouge">SendMsgByAction</code> 数据结构保持一致即可。</li>
+  <li>二者最终都会调用 <code class="language-plaintext highlighter-rouge collapsible-container">MsgAnswerSend(ctx, req)</code>，所以 <code class="language-plaintext highlighter-rouge collapsible-container">SendMsgByAction</code> 数据结构保持一致即可。</li>
 </ul>
 
 <hr />
@@ -1862,18 +1884,18 @@
     </tr>
     <tr>
       <td>读取数据</td>
-      <td>手动 <code class="language-plaintext highlighter-rouge">io.ReadAll(c.Request.Body)</code></td>
+      <td>手动 <code class="language-plaintext highlighter-rouge collapsible-container">io.ReadAll(c.Request.Body)</code></td>
       <td>gRPC 框架自动从流中读取</td>
     </tr>
     <tr>
       <td>解析数据</td>
-      <td>手动 <code class="language-plaintext highlighter-rouge">protojson.Unmarshal(body, req)</code></td>
-      <td>gRPC 框架自动调用 <code class="language-plaintext highlighter-rouge">req.Unmarshal()</code></td>
+      <td>手动 <code class="language-plaintext highlighter-rouge collapsible-container">protojson.Unmarshal(body, req)</code></td>
+      <td>gRPC 框架自动调用 <code class="language-plaintext highlighter-rouge collapsible-container">req.Unmarshal()</code></td>
     </tr>
     <tr>
       <td>解析位置</td>
       <td>在你的 handler 代码中（第 60 行）</td>
-      <td>在 gRPC 框架内部（<code class="language-plaintext highlighter-rouge">google.golang.org/grpc</code> 库）</td>
+      <td>在 gRPC 框架内部（<code class="language-plaintext highlighter-rouge collapsible-container">google.golang.org/grpc</code> 库）</td>
     </tr>
     <tr>
       <td>Handler 接收</td>
@@ -1900,13 +1922,13 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">encoding/json</code></td>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">encoding/json</code></td>
       <td>可以，但有限</td>
       <td>否</td>
       <td>否</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">protojson.Marshal</code></td>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">protojson.Marshal</code></td>
       <td>可以</td>
       <td>是</td>
       <td>是</td>
@@ -1916,7 +1938,7 @@
 
 <p><strong>解析区别</strong></p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="n">MsgId</span> <span class="kt">string</span> <span class="s">`protobuf:"bytes,1,opt,name=msg_id,json=msgId,proto3"  json:"msg_id,omitempty"`</span>
@@ -1957,7 +1979,7 @@
 
 <p>相关的包：</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="n">google</span><span class="o">.</span><span class="n">golang</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">protobuf</span><span class="o">/</span><span class="n">encoding</span><span class="o">/</span><span class="n">protojson</span>
@@ -1965,7 +1987,7 @@
 
 <p>语法</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1983,7 +2005,7 @@
 
 <p><strong>protobuf 定义</strong></p>
 
-<div class="language-protobuf highlighter-rouge"><div class="code-header">
+<div class="language-protobuf highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Protobuf"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -2013,7 +2035,7 @@
 
 <p><strong>生成的go代码</strong></p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -2069,7 +2091,7 @@
 
 <p>序列化结果：</p>
 
-<div class="language-json highlighter-rouge"><div class="code-header">
+<div class="language-json highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="JSON"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -2085,7 +2107,7 @@
 
 <p><strong>使用默认配置（UseProtoNames: false, UseEnumNumbers: false）</strong></p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -2097,7 +2119,7 @@
 
 <p>序列化结果：</p>
 
-<div class="language-json highlighter-rouge"><div class="code-header">
+<div class="language-json highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="JSON"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -2220,35 +2242,35 @@
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/">字典解析库</a>
+          <a href="/openclaw/openclaw-docker-deployment/">openclaw项目文件说明</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
+          <a href="/go/%E8%A7%84%E5%88%99/%E7%BB%93%E6%9E%84%E4%BD%93/">结构体</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/">toml配置文件</a>
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E9%BB%98%E8%AE%A4%E5%80%BC/">默认值</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%84%E5%88%99/%E5%AD%97%E5%85%B8/">字典</a>
+          <a href="/go/%E8%A7%84%E5%88%99/%E5%88%87%E7%89%87/">切片</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/">指针</a>
+          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/MCP/">03_LangChain-MCP解析</a>
         </li>
       
     </ul>
@@ -2337,6 +2359,26 @@
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -2389,6 +2431,217 @@
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -2566,67 +2819,6 @@
     
     
     
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -2660,6 +2852,9 @@
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/context/">Context</a>
       
         
@@ -2675,10 +2870,7 @@
         <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/mongodb%E8%AF%AD%E6%B3%95/">mongodb语法</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/pgsql%E6%A7%BD%E4%BD%8D/">PgSQL槽位</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
     </div>
   </section>
@@ -2867,7 +3059,7 @@
   "
 >
   <p>©
-    2024-<time>2025</time>
+    2024-<time>2026</time>
 
     
       <a href="https://github.com/Auroraol">lfj</a>
@@ -2883,14 +3075,7 @@
     -->
   </p>
 
-  <p>本站采用 <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> 主题 <a
-        data-bs-toggle="tooltip"
-        data-bs-placement="top"
-        title="v6.5.5"
-        href="https://github.com/cotes2020/jekyll-theme-chirpy"
-        target="_blank"
-        rel="noopener"
-      >Chirpy</a>
+  <p>
   </p>
 </footer>
 
@@ -2983,6 +3168,26 @@
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -3035,6 +3240,217 @@
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -3212,67 +3628,6 @@
     
     
     
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -3306,6 +3661,9 @@
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/context/">Context</a>
       
         
@@ -3321,10 +3679,7 @@
         <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/mongodb%E8%AF%AD%E6%B3%95/">mongodb语法</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/pgsql%E6%A7%BD%E4%BD%8D/">PgSQL槽位</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
     </div>
   </section>

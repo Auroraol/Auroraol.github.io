@@ -36,18 +36,17 @@
 <meta property="og:description" content="json库" />
 <link rel="canonical" href="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/json%E8%A7%A3%E6%9E%90%E5%BA%93/" />
 <meta property="og:url" content="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/json%E8%A7%A3%E6%9E%90%E5%BA%93/" />
-<meta property="og:site_name" content="L" />
+<meta property="og:site_name" content="​" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-11-22T00:40:00+08:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="json解析库" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-12-07T17:50:20+08:00","datePublished":"2025-11-22T00:40:00+08:00","description":"json库","headline":"json解析库","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/json%E8%A7%A3%E6%9E%90%E5%BA%93/"},"url":"http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/json%E8%A7%A3%E6%9E%90%E5%BA%93/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-01-31T21:46:19+08:00","datePublished":"2025-11-22T00:40:00+08:00","description":"json库","headline":"json解析库","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/json%E8%A7%A3%E6%9E%90%E5%BA%93/"},"url":"http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/json%E8%A7%A3%E6%9E%90%E5%BA%93/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>json解析库 | L
-  </title>
+  <title>json解析库</title>
 
   <!--
   The Favicons for Web, Android, Microsoft, and iOS (iPhone and iPad) Apps
@@ -63,8 +62,8 @@
   <link rel="manifest" href="/assets/img/favicons/site.webmanifest">
 
 <link rel="shortcut icon" href="/assets/img/favicons/favicon.ico">
-<meta name="apple-mobile-web-app-title" content="L">
-<meta name="application-name" content="L">
+<meta name="apple-mobile-web-app-title" content="&#8203;">
+<meta name="application-name" content="&#8203;">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
@@ -264,18 +263,38 @@
 
   
 
+  <!-- Set default theme to dark -->
+  <script>
+    (function() {
+      // Check if user has already set a theme preference
+      const savedMode = sessionStorage.getItem('mode');
+      
+      // If no preference saved, set default to dark
+      if (!savedMode) {
+        const html = document.documentElement;
+        html.setAttribute('data-mode', 'dark');
+        sessionStorage.setItem('mode', 'dark');
+        
+        // Also update the toggle button state if it exists
+        const toggleBtn = document.getElementById('mode-toggle');
+        if (toggleBtn) {
+          toggleBtn.classList.add('mode-dark');
+        }
+      }
+    })();
+  </script>
+
   <!-- A placeholder to allow defining custom metadata -->
 
 </head>
-
 
   <body>
     <!-- The Side Bar -->
 
 <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
   <header class="profile-wrapper"><h1 class="site-title">
-        <a href="/">L</a>
-      </h1><p class="site-subtitle mb-0">随便写写</p>
+        <a href="/">&#8203;</a>
+      </h1><p class="site-subtitle mb-0">叹隙中骑，石中火，梦中身。</p>
   </header>
   <!-- .profile-wrapper -->
 
@@ -445,6 +464,9 @@
 
 
 
+<!-- Add collapsible code block functionality -->
+
+
 <!--
   In order to allow a wide table to scroll horizontally,
   we suround the markdown table with `<div class="table-wrapper">` and `</div>`
@@ -517,6 +539,17 @@
       
         
         
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
       
 
       
@@ -856,13 +889,13 @@
 
 <time
   
-  data-ts="1765101020"
+  data-ts="1769867179"
   data-df="YYYY/MM/DD"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  2025/12/07
+  2026/01/31
 </time>
 
         </span>
@@ -909,7 +942,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="4324 字"
+  title="4404 字"
 >
   <em>24 分钟</em>阅读</span>
 
@@ -918,19 +951,19 @@
     </div>
   </header>
 
-  <div class="content">
+  <script src="/assets/js/dist/collapsible.js"></script><div class="content">
     <h2 id="json库"><span class="me-2">json库</span><a href="#json库" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <blockquote>
   <ol>
-    <li><strong>JSON 编码</strong>: 将 Go 的数据结构转换为 JSON 格式的字符串。通过 <code class="language-plaintext highlighter-rouge">json.Marshal</code> 函数实现。</li>
-    <li><strong>JSON 解码</strong>: 将 JSON 格式的字符串转换为 Go 的数据结构。通过 <code class="language-plaintext highlighter-rouge">json.Unmarshal</code> 函数实现。</li>
+    <li><strong>JSON 编码</strong>: 将 Go 的数据结构转换为 JSON 格式的字符串。通过 <code class="language-plaintext highlighter-rouge collapsible-container">json.Marshal</code> 函数实现。</li>
+    <li><strong>JSON 解码</strong>: 将 JSON 格式的字符串转换为 Go 的数据结构。通过 <code class="language-plaintext highlighter-rouge collapsible-container">json.Unmarshal</code> 函数实现。</li>
   </ol>
 </blockquote>
 
 <p>相关的包：</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -942,7 +975,7 @@
 
 <p>语法</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -950,13 +983,13 @@
 <span class="n">json</span><span class="o">.</span><span class="n">Unmarshal</span><span class="p">(</span><span class="n">待解析json数据</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">结果</span><span class="p">)</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<h3 id="基础使用"><span class="me-2">基础使用</span><a href="#基础使用" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h3 id="基础使用推荐做法始终使用标签"><span class="me-2">基础使用(推荐做法：始终使用标签)</span><a href="#基础使用推荐做法始终使用标签" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <h4 id="一序列化结构体struct-json"><span class="me-2">一、序列化结构体(struct-&gt;json)</span><a href="#一序列化结构体struct-json" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
 <p><strong>使用 json.Marshal 将数据序列化为字节数组。适用于结构体、Map。</strong></p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -992,7 +1025,7 @@
 
 <p>打印出：</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="code-header">
+<div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>{"Name":"xiaoyu","Age":18,"Sex":1}
@@ -1002,7 +1035,7 @@
 
 <p>如果想要输出的结果为小写字母开头的key，可以为结构体添加Tag：</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1018,7 +1051,7 @@
 
 <p>这样的话，就可以输出：</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="code-header">
+<div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>{"name":"xiaoyu","age":18,"sex":1}
@@ -1026,7 +1059,7 @@
 
 <h4 id="二序列化mapmap-json"><span class="me-2">二、序列化Map(map-&gt;json)</span><a href="#二序列化mapmap-json" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1058,7 +1091,7 @@
 
 <p>打印出：</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="code-header">
+<div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>{"age":18,"name":"xiaoyu","sex":1}
@@ -1070,9 +1103,9 @@
 
 <p><strong>使用 json.Unmarshal 将字节数组反序列化。</strong></p>
 
-<p>使用条件:  确定你的 JSON 数据不包含大数字或你可以接受默认的 <code class="language-plaintext highlighter-rouge">float64</code> 处理方式</p>
+<p>使用条件:  确定你的 JSON 数据不包含大数字或你可以接受默认的 <code class="language-plaintext highlighter-rouge collapsible-container">float64</code> 处理方式</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1112,7 +1145,7 @@
 
 <p>打印出：</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="code-header">
+<div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1122,13 +1155,13 @@ xiaoyu
 
 <h5 id="方式2"><span class="me-2">方式2</span><a href="#方式2" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h5>
 
-<p><strong>使用 <code class="language-plaintext highlighter-rouge">json.Decoder</code> 和 <code class="language-plaintext highlighter-rouge">UseNumber</code></strong></p>
+<p><strong>使用 <code class="language-plaintext highlighter-rouge collapsible-container">json.Decoder</code> 和 <code class="language-plaintext highlighter-rouge collapsible-container">UseNumber</code></strong></p>
 
-<p>使用条件: 如果数据中包含大数字或需要更高精度的整数，建议使用 <code class="language-plaintext highlighter-rouge">json.Decoder</code> 和 <code class="language-plaintext highlighter-rouge">UseNumber()</code></p>
+<p>使用条件: 如果数据中包含大数字或需要更高精度的整数，建议使用 <code class="language-plaintext highlighter-rouge collapsible-container">json.Decoder</code> 和 <code class="language-plaintext highlighter-rouge collapsible-container">UseNumber()</code></p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">strings.NewReader</code> 更适合直接从字符串读取数据，使用更方便。</li>
-  <li><code class="language-plaintext highlighter-rouge">bytes.NewReader</code> 适合处理字节切片，提供更大的灵活性。</li>
+  <li><code class="language-plaintext highlighter-rouge collapsible-container">strings.NewReader</code> 更适合直接从字符串读取数据，使用更方便。</li>
+  <li><code class="language-plaintext highlighter-rouge collapsible-container">bytes.NewReader</code> 适合处理字节切片，提供更大的灵活性。</li>
   <li>两者在功能上基本相同，主要区别在于输入数据的处理方式。</li>
 </ul>
 
@@ -1138,7 +1171,7 @@ xiaoyu
   <li>如果反序列化不指定结构体类型或者变量类型，则JSON中的数字类型，默认被反序列化成float64类型</li>
 </ul>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1202,7 +1235,7 @@ xiaoyu
 
 <h4 id="四反序列化为mapjson-map"><span class="me-2"><strong>四、反序列化为Map(json-&gt;map)</strong></span><a href="#四反序列化为mapjson-map" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1230,7 +1263,7 @@ xiaoyu
 
 <p>打印出：</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="code-header">
+<div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1238,9 +1271,65 @@ xiaoyu
 xiaoyu
 </pre></td></tr></tbody></table></code></div></div>
 
-<h3 id="unmarshal-结构体字段赋予默认值"><span class="me-2">Unmarshal 结构体字段赋予默认值</span><a href="#unmarshal-结构体字段赋予默认值" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h3 id="marshal"><span class="me-2">Marshal</span><a href="#marshal" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre><span class="k">func</span> <span class="n">TestJsonMarshalLength</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">tests</span> <span class="o">:=</span> <span class="p">[]</span><span class="k">interface</span><span class="p">{}{</span>
+		<span class="no">nil</span><span class="p">,</span>
+		<span class="k">struct</span><span class="p">{}{},</span>
+		<span class="p">[]</span><span class="k">interface</span><span class="p">{}{},</span>
+		<span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{},</span>
+		<span class="s">""</span><span class="p">,</span>
+		<span class="m">0</span><span class="p">,</span>
+		<span class="no">false</span><span class="p">,</span>
+	<span class="p">}</span>
+
+	<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="n">tests</span> <span class="p">{</span>
+		<span class="n">data</span><span class="p">,</span> <span class="n">_</span> <span class="o">:=</span> <span class="n">json</span><span class="o">.</span><span class="n">Marshal</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>  <span class="c">// 100%完全不需要检查 len(data) == 0</span>
+		<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"%T: len=%d, data=%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">data</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>&lt;nil&gt;: len=4, data=null
+struct {}: len=2, data={}
+[]interface {}: len=2, data=[]
+map[string]interface {}: len=2, data={}
+string: len=2, data=""
+int: len=1, data=0
+bool: len=5, data=false
+</pre></td></tr></tbody></table></code></div></div>
+
+<h3 id="unmarshal-结构体字段赋予默认值-crossed_swords"><span class="me-2">Unmarshal 结构体字段赋予默认值 :crossed_swords:</span><a href="#unmarshal-结构体字段赋予默认值-crossed_swords" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1328,7 +1417,7 @@ xiaoyu
 
 <p>结果</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="code-header">
+<div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>完整输入后：{ShopID: OuterID:0 UpdateTime:2025-11-10 17:05:28.919345 +0800 CST DescPics:[] AllProps:[] CreateTime:&lt;nil&gt; GoodsHot:0xc00009e038 PropsPtr:&lt;nil&gt; Props:[{Source:2 PropName: Value:[IPad Pro（10.5寸）]}]}
@@ -1338,7 +1427,7 @@ xiaoyu
 
 <h4 id="指定字段名"><span class="me-2">指定字段名</span><a href="#指定字段名" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1368,7 +1457,7 @@ xiaoyu
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<div class="language-json highlighter-rouge"><div class="code-header">
+<div class="language-json highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="JSON"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="p">{</span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Alice"</span><span class="p">,</span><span class="nl">"age"</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span><span class="nl">"Height"</span><span class="p">:</span><span class="mf">160.7</span><span class="p">}</span><span class="w">
@@ -1376,7 +1465,7 @@ xiaoyu
 
 <h4 id="忽略某个字段"><span class="me-2">忽略某个字段</span><a href="#忽略某个字段" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1404,7 +1493,7 @@ xiaoyu
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<div class="language-json highlighter-rouge"><div class="code-header">
+<div class="language-json highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="JSON"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1414,18 +1503,17 @@ xiaoyu
 
 <h4 id="忽略空值字段"><span class="me-2">忽略空值字段</span><a href="#忽略空值字段" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
-<p><code class="language-plaintext highlighter-rouge">omitempty</code> 只管 Marshal（编码成 JSON），不管 Unmarshal（解码到 Go）。</p>
+<p><code class="language-plaintext highlighter-rouge collapsible-container">omitempty</code> 只管 Marshal（编码成 JSON），不管 Unmarshal（解码到 Go）。</p>
 
 <ul>
   <li>Marshal时：
-字段如果是零值，且带了 <code class="language-plaintext highlighter-rouge">omitempty</code>，整条 key 都不会写出去，省空间。</li>
-  <li>Unmarshal时：
-JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错，也不会受 <code class="language-plaintext highlighter-rouge">omitempty</code> 影响</li>
+字段如果是零值，且带了 <code class="language-plaintext highlighter-rouge collapsible-container">omitempty</code>，整条 key 都不会写出去，省空间。</li>
+  <li>Unmarshal时：不会受 <code class="language-plaintext highlighter-rouge collapsible-container">omitempty</code> 影响</li>
 </ul>
 
 <p>⭐️ 未忽略空值字段</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1447,7 +1535,7 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<div class="language-json highlighter-rouge"><div class="code-header">
+<div class="language-json highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="JSON"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1457,7 +1545,7 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
 
 <p>✏️ 忽略空值字段</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1513,7 +1601,7 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
 
 <p>📚 嵌套结构体</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1549,7 +1637,7 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<div class="language-json highlighter-rouge"><div class="code-header">
+<div class="language-json highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="JSON"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1557,9 +1645,9 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
 </span><span class="p">{</span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Alice"</span><span class="p">,</span><span class="nl">"hobby"</span><span class="p">:[</span><span class="s2">"足球"</span><span class="p">,</span><span class="s2">"篮球"</span><span class="p">],</span><span class="nl">"site"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"slogan"</span><span class="p">:</span><span class="s2">""</span><span class="p">}</span><span class="w">
 </span></pre></td></tr></tbody></table></code></div></div>
 
-<p>✌ 如果想要变成嵌套的<code class="language-plaintext highlighter-rouge">json</code>串，需要改为具名嵌套或定义字段<code class="language-plaintext highlighter-rouge">tag</code></p>
+<p>✌ 如果想要变成嵌套的<code class="language-plaintext highlighter-rouge collapsible-container">json</code>串，需要改为具名嵌套或定义字段<code class="language-plaintext highlighter-rouge collapsible-container">tag</code></p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1595,7 +1683,7 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<div class="language-json highlighter-rouge"><div class="code-header">
+<div class="language-json highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="JSON"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1603,9 +1691,9 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
 </span><span class="p">{</span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Alice"</span><span class="p">,</span><span class="nl">"hobby"</span><span class="p">:[</span><span class="s2">"足球"</span><span class="p">,</span><span class="s2">"篮球"</span><span class="p">],</span><span class="nl">"profile"</span><span class="p">:{</span><span class="nl">"site"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"slogan"</span><span class="p">:</span><span class="s2">""</span><span class="p">}}</span><span class="w">
 </span></pre></td></tr></tbody></table></code></div></div>
 
-<p>✍ 如果想要忽略嵌套结构体空值字段，仅添加<code class="language-plaintext highlighter-rouge">omitempty</code>是不够的，需要使用嵌套的结构体指针</p>
+<p>✍ 如果想要忽略嵌套结构体空值字段，仅添加<code class="language-plaintext highlighter-rouge collapsible-container">omitempty</code>是不够的，需要使用嵌套的结构体指针</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1641,7 +1729,7 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<div class="language-json highlighter-rouge"><div class="code-header">
+<div class="language-json highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="JSON"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="p">{</span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"七米"</span><span class="p">,</span><span class="nl">"hobby"</span><span class="p">:[</span><span class="s2">"足球"</span><span class="p">,</span><span class="s2">"篮球"</span><span class="p">]}</span><span class="w">
@@ -1649,7 +1737,7 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
 
 <h4 id="不修改原结构体忽略空值字段"><span class="me-2">不修改原结构体忽略空值字段</span><a href="#不修改原结构体忽略空值字段" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1717,7 +1805,7 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
 
 <h4 id="使用匿名结构体添加字段"><span class="me-2">使用匿名结构体添加字段</span><a href="#使用匿名结构体添加字段" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1787,7 +1875,7 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
 
 <h4 id="使用匿名结构体组合多个结构体"><span class="me-2">使用匿名结构体组合多个结构体</span><a href="#使用匿名结构体组合多个结构体" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1907,7 +1995,7 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
 
 <h4 id="处理字符串格式数字"><span class="me-2">处理字符串格式数字</span><a href="#处理字符串格式数字" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1959,7 +2047,7 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
 
 <h4 id="整数变为浮点数"><span class="me-2">整数变为浮点数</span><a href="#整数变为浮点数" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -2015,9 +2103,9 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<p>如果想更合理的处理数字，需要使用<code class="language-plaintext highlighter-rouge">decoder</code>去反序列化，使用<code class="language-plaintext highlighter-rouge">json.Number</code>类型，示例代码如下：</p>
+<p>如果想更合理的处理数字，需要使用<code class="language-plaintext highlighter-rouge collapsible-container">decoder</code>去反序列化，使用<code class="language-plaintext highlighter-rouge collapsible-container">json.Number</code>类型，示例代码如下：</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -2091,9 +2179,9 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<p><code class="language-plaintext highlighter-rouge">json.Number</code>类型的源码定义如下：</p>
+<p><code class="language-plaintext highlighter-rouge collapsible-container">json.Number</code>类型的源码定义如下：</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -2129,7 +2217,7 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
 
 <h4 id="处理不确定层级的-json"><span class="me-2">处理不确定层级的 json</span><a href="#处理不确定层级的-json" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -2191,7 +2279,7 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
 
 <h3 id="自定义序列化反序列化"><span class="me-2">自定义序列化/反序列化</span><a href="#自定义序列化反序列化" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -2219,7 +2307,7 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
 
 <p>问题</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -2303,7 +2391,7 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
 
 <p>解决方法:</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -2459,7 +2547,7 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
 
 <p>问题</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -2557,7 +2645,7 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
 
 <p>使用</p>
 
-<div class="language-json highlighter-rouge"><div class="code-header">
+<div class="language-json highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="JSON"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -2581,7 +2669,7 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
 
 <p>原因:</p>
 
-<div class="language-go highlighter-rouge"><div class="code-header">
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -2726,35 +2814,35 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/">字典解析库</a>
+          <a href="/openclaw/openclaw-docker-deployment/">openclaw项目文件说明</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
+          <a href="/go/%E8%A7%84%E5%88%99/%E7%BB%93%E6%9E%84%E4%BD%93/">结构体</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/">toml配置文件</a>
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E9%BB%98%E8%AE%A4%E5%80%BC/">默认值</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%84%E5%88%99/%E5%AD%97%E5%85%B8/">字典</a>
+          <a href="/go/%E8%A7%84%E5%88%99/%E5%88%87%E7%89%87/">切片</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/">指针</a>
+          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/MCP/">03_LangChain-MCP解析</a>
         </li>
       
     </ul>
@@ -2843,6 +2931,26 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -2895,6 +3003,217 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -3072,67 +3391,6 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
     
     
     
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -3166,6 +3424,9 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/context/">Context</a>
       
         
@@ -3181,10 +3442,7 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
         <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/mongodb%E8%AF%AD%E6%B3%95/">mongodb语法</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/pgsql%E6%A7%BD%E4%BD%8D/">PgSQL槽位</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
     </div>
   </section>
@@ -3371,19 +3629,79 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
   
 
   
@@ -3423,6 +3741,125 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1765098000"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/12/07
+</time>
+
+              <h4 class="pt-0 my-2">toml配置文件</h4>
+              <div class="text-muted">
+                <p>总结
+
+
+  
+    
+      Go 类型特征
+      tag 出现的关键字
+      生成的 TOML
+      备注
+    
+  
+  
+    
+      非匿名 struct
+      无 squash
+      [xxx]
+      字段继续往下写
+    
+    
+      匿名 struct
+      ,squash
+      没有 [xxx]，...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E7%BB%93%E6%9E%84%E4%BD%93%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1763743800"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/11/22
+</time>
+
+              <h4 class="pt-0 my-2">结构体解析库</h4>
+              <div class="text-muted">
+                <p>copier库
+
+
+  用 github.com/jinzhu/copier 进行结构体之间数据拷贝
+
+
+相关的包：
+
+1
+2
+3
+import (
+	&quot;github.com/jinzhu/copier&quot;
+)
+
+
+语法
+
+1
+copier.Copy(&amp;amp;目标, &amp;amp;源)
+
+
+基础使用
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
           <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E9%BB%98%E8%AE%A4%E5%80%BC/" class="post-preview card h-100">
             <div class="card-body">
               <!--
@@ -3444,7 +3881,7 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
 
               <h4 class="pt-0 my-2">默认值</h4>
               <div class="text-muted">
-                <p>零值的定义取决于字段的类型：
+                <p>零值的定义取决于字段的类型
 
 
   对于 string 类型，零值是空字符串 ““。
@@ -3454,7 +3891,7 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
   对于数组，零值是 []
 
 
-例子
+不同初始化对应的默认值
 
 1
 2
@@ -3471,93 +3908,8 @@ JSON 里有没有 key 都行；缺了就给对应字段赋零值，不会报错�
 13
 14
 15
-16
-type Goods struct {
-	//...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%97%B6%E9%97%B4%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1763782800"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/22
-</time>
-
-              <h4 class="pt-0 my-2">时间解析库</h4>
-              <div class="text-muted">
-                <p>时间戳
-
-1
-2
-3
-4
-5
-6
-now := time.Now() // 当前本地时间
-
-sec  := now.Unix()    // 秒级（Unix 时间戳）
-msec := now.UnixMilli() // 毫秒级（Go 1.17+）
-usec := now.UnixMicro() // 微秒级（Go 1.17+）
-nsec := now.UnixNano()  // 纳秒级
-...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%95%B0%E5%AD%97_%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1763790000"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/22
-</time>
-
-              <h4 class="pt-0 my-2">数字_字符串转换</h4>
-              <div class="text-muted">
-                <p>数字&amp;amp;字符转换
-
-string 转换 为其他类型
-
-1
-2
-3
-4
-5
-6
-7
-8
-f, _ := strconv.ParseBool(&quot;false&quot;)         // bool
-g, _ := strconv.ParseFloat(&quot;123.23&quot;, 64)     // float
-h, _ := strconv.ParseInt(&quot;-1234&quot;, 10, 64)    /...</p>
+// 方式1: 声明但不初始化
+va...</p>
               </div>
             </div>
           </a>
@@ -3690,7 +4042,7 @@ h, _ := strconv.ParseInt(&quot;-1234&quot;, 10, 64)    /...</p>
   "
 >
   <p>©
-    2024-<time>2025</time>
+    2024-<time>2026</time>
 
     
       <a href="https://github.com/Auroraol">lfj</a>
@@ -3706,14 +4058,7 @@ h, _ := strconv.ParseInt(&quot;-1234&quot;, 10, 64)    /...</p>
     -->
   </p>
 
-  <p>本站采用 <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> 主题 <a
-        data-bs-toggle="tooltip"
-        data-bs-placement="top"
-        title="v6.5.5"
-        href="https://github.com/cotes2020/jekyll-theme-chirpy"
-        target="_blank"
-        rel="noopener"
-      >Chirpy</a>
+  <p>
   </p>
 </footer>
 
@@ -3806,6 +4151,26 @@ h, _ := strconv.ParseInt(&quot;-1234&quot;, 10, 64)    /...</p>
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -3858,6 +4223,217 @@ h, _ := strconv.ParseInt(&quot;-1234&quot;, 10, 64)    /...</p>
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -4035,67 +4611,6 @@ h, _ := strconv.ParseInt(&quot;-1234&quot;, 10, 64)    /...</p>
     
     
     
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -4129,6 +4644,9 @@ h, _ := strconv.ParseInt(&quot;-1234&quot;, 10, 64)    /...</p>
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/context/">Context</a>
       
         
@@ -4144,10 +4662,7 @@ h, _ := strconv.ParseInt(&quot;-1234&quot;, 10, 64)    /...</p>
         <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/mongodb%E8%AF%AD%E6%B3%95/">mongodb语法</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/pgsql%E6%A7%BD%E4%BD%8D/">PgSQL槽位</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
     </div>
   </section>

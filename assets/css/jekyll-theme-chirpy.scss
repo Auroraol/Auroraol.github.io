@@ -4,3 +4,199 @@
 @import 'main';
 
 /* append your custom style below */
+/* 侧边栏背景图片添加 */
+// #sidebar {
+//     background-image: url(https://cdn.jsdelivr.net/gh/huanyushi/huanyushi.github.io@mainhttps://cdn.jsdelivr.net/gh/huanyushi/blog-images@main/img/background.jpg); /* <- change background image */
+//     background-size: cover; /* <- customize the image size */
+//     background-repeat: no-repeat; /* <- no-repeat */
+//     background-position: top; /* <- image position */
+// }
+
+//  .collapsible-container {
+//  margin-bottom: 10px;
+//  }
+
+//  .collapsible-container p {
+//  cursor: pointer;
+//  margin: 0;
+//  }
+
+//  .collapsible-content {
+//  overflow-x: auto;
+//  overflow-y: hidden;
+//  margin-top: 10px;
+//  max-height: calc(1.6em * 5); /* Adjust this value to show more lines (n) */
+//  }
+//  .collapsible-trigger-css {
+//  color: gray; 
+//  text-align: center; 
+//  font-size: small;
+//  }
+
+//  /* 为代码展示框设置滚动条样式，仅针对WebKit浏览器 */
+//  .collapsible-content::-webkit-scrollbar {
+//  width: 8px; /* 滚动条宽度 */
+//  height: 8px; /* 滚动条高度（对于水平滚动条） */
+//  }
+
+//  .collapsible-content::-webkit-scrollbar-thumb {
+//  background-color: rgba(0, 0, 0, 0.2); /* 滚动条滑块颜色 */
+//  border-radius: 6px; /* 滚动条滑块圆角 */
+//  }
+
+//  .collapsible-content::-webkit-scrollbar-thumb:hover {
+//  background-color: rgba(0, 0, 0, 0.3); /* 滚动条滑块鼠标悬停颜色 */
+//  }
+
+//  .collapsible-content::-webkit-scrollbar-track {
+//  background-color: #f1f1f1; /* 滚动条轨道颜色 */
+//  border-radius: 6px; /* 滚动条轨道圆角 */
+//  }
+
+/* colorbox 样式设计 */
+/* 定义了 box-info, box-tip, box-warning, box-danger 四种 colorbox */
+@mixin colorbox($border-color, $icon-color, $icon-content, $bg-color, $fa-style: 'solid') {
+    border-left: .2rem solid $border-color;
+    border-radius: 0.25rem;
+    color: var(--text-color);
+    padding: .6rem 1rem .6rem 1.5rem;
+    box-shadow: var(--language-border-color) 1px 1px 2px 1px;
+    position: relative;
+    margin-bottom: 1rem;
+  
+    > div.title::before {
+      content: $icon-content;
+      color: $icon-color;
+      font: var(--fa-font-#{$fa-style});
+      text-align: center;
+      width: 3rem;
+      position: absolute;
+      left: .2rem;
+      margin-top: .4rem;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+    }
+  
+    > div.title {
+      background-color: $bg-color;
+      color: $icon-color;
+      padding: .5rem .6rem .5rem 3rem; 
+      margin: -.6rem -1rem .6rem -1.5rem;
+      font-weight: 600;
+    }
+    
+    > p:last-child{
+        margin-bottom: 0;
+    }
+}
+  
+/* box-info 蓝色 */
+.box-info {
+@include colorbox(
+    var(--prompt-info-icon-color),
+    var(--prompt-info-icon-color),
+    "\f06a",
+    var(--prompt-info-bg)
+);
+}
+
+/* box-tip 绿色 */
+.box-tip {
+@include colorbox(
+    var(--prompt-tip-icon-color),
+    var(--prompt-tip-icon-color),
+    "\f0eb",
+    var(--prompt-tip-bg),
+    'regular'
+);
+}
+
+/* box-warning 黄色 */
+.box-warning {
+@include colorbox(
+    var(--prompt-warning-icon-color),
+    var(--prompt-warning-icon-color),
+    "\f06a",
+    var(--prompt-warning-bg)
+);
+}
+
+/* box-danger 红色 */
+.box-danger {
+@include colorbox(
+    var(--prompt-danger-icon-color),
+    var(--prompt-danger-icon-color),
+    "\f071",
+    var(--prompt-danger-bg)
+);
+}
+
+/* details class="details-block" 样式设计 */
+details.details-block {
+    border-radius: .25rem;
+    border-left: .2rem solid var(--prompt-tip-icon-color);
+    box-shadow: var(--language-border-color) 1px 1px 2px 1px; /* 借用了代码框的边框颜色变量 */
+    margin-bottom: 1rem;
+    padding: .6rem 1rem .6rem 1.5rem;
+    > p:last-child{
+        margin-bottom: 0;
+    }
+}
+
+details.details-block > summary {
+    padding: .5rem 1.0rem .5rem 1.0rem; 
+    margin: -.6rem -1rem -.6rem -1.5rem;
+    font-weight: 600;
+    background-color: var(--prompt-tip-bg);
+    color: var(--prompt-tip-icon-color);
+    text-decoration: underline;
+    position: relative;
+    list-style: none; /* 隐藏默认的箭头 */
+}
+
+details.details-block > summary::-webkit-details-marker {
+    display: none; /* IOS 隐藏默认的箭头 */
+}
+details.details-block > summary::marker {
+    content: none; /* 隐藏默认的箭头 */
+}
+
+details.details-block > summary::before {
+    /* 关闭状态下 */
+    /* 也可以用其他符号或自定义图标，比如 Unicode 字符 */
+    // content: '🙈'; 
+    /* content:'\002B9A'; */
+    content: '😼';
+    margin-right: .5rem;
+    display: inline-block;
+}
+details.details-block[open] > summary::before {
+    /* 展开状态下 */
+    /* content: '🐵';*/  
+    /* content: '\002B9B'; */
+    content: '🙀';
+    animation: my-cat .2s ease-in-out; /*  点击会有动画效果 */
+    margin-right: .5rem;
+}
+
+details.details-block > summary::after {
+    font-family: 'Font Awesome 6 Free';
+    content: "\f105"; /* Unicode for fa-angle-down */
+    display: inline-block;
+    transition: transform 0.2s ease; /* 添加旋转动画 */
+    position: absolute;
+    right: 1rem; /* 调整箭头在最右边的位置 */
+}
+
+details.details-block[open] > summary::after {
+    transform: rotate(90deg);
+}
+
+details.details-block[open] > summary{
+    // transition: margin 200ms ease-out; /* 展开会有动画效果 */
+    margin-bottom: .6rem;
+}
+
+@keyframes my-cat {
+    50%  { transform: scale(1.2); } /* 动画效果代码 */
+}

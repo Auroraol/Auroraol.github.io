@@ -36,7 +36,7 @@
 <meta property="og:description" content="业务规模 推荐架构 小型业务（缓存 &lt; 10GB） 一主二从 + 三哨兵（高可用即可） 中型业务（10GB~100GB） 三主三从集群（分片 + 高可用） 大型业务（&gt;100GB，高并发） 多组集群 或 Redis Proxy 方案（如 Codis、Twemproxy）" />
 <link rel="canonical" href="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E9%9B%86%E7%BE%A4/" />
 <meta property="og:url" content="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E9%9B%86%E7%BE%A4/" />
-<meta property="og:site_name" content="L" />
+<meta property="og:site_name" content="​" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-11-09T20:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
@@ -46,8 +46,7 @@
 <!-- End Jekyll SEO tag -->
 
 
-  <title>3.Redis集群 | L
-  </title>
+  <title>3.Redis集群</title>
 
   <!--
   The Favicons for Web, Android, Microsoft, and iOS (iPhone and iPad) Apps
@@ -63,8 +62,8 @@
   <link rel="manifest" href="/assets/img/favicons/site.webmanifest">
 
 <link rel="shortcut icon" href="/assets/img/favicons/favicon.ico">
-<meta name="apple-mobile-web-app-title" content="L">
-<meta name="application-name" content="L">
+<meta name="apple-mobile-web-app-title" content="&#8203;">
+<meta name="application-name" content="&#8203;">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
@@ -264,18 +263,38 @@
 
   
 
+  <!-- Set default theme to dark -->
+  <script>
+    (function() {
+      // Check if user has already set a theme preference
+      const savedMode = sessionStorage.getItem('mode');
+      
+      // If no preference saved, set default to dark
+      if (!savedMode) {
+        const html = document.documentElement;
+        html.setAttribute('data-mode', 'dark');
+        sessionStorage.setItem('mode', 'dark');
+        
+        // Also update the toggle button state if it exists
+        const toggleBtn = document.getElementById('mode-toggle');
+        if (toggleBtn) {
+          toggleBtn.classList.add('mode-dark');
+        }
+      }
+    })();
+  </script>
+
   <!-- A placeholder to allow defining custom metadata -->
 
 </head>
-
 
   <body>
     <!-- The Side Bar -->
 
 <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
   <header class="profile-wrapper"><h1 class="site-title">
-        <a href="/">L</a>
-      </h1><p class="site-subtitle mb-0">随便写写</p>
+        <a href="/">&#8203;</a>
+      </h1><p class="site-subtitle mb-0">叹隙中骑，石中火，梦中身。</p>
   </header>
   <!-- .profile-wrapper -->
 
@@ -443,6 +462,9 @@
             
               <!-- Refactor the HTML structure -->
 
+
+
+<!-- Add collapsible code block functionality -->
 
 
 <!--
@@ -1592,7 +1614,7 @@
     </div>
   </header>
 
-  <div class="content">
+  <script src="/assets/js/dist/collapsible.js"></script><div class="content">
     <div class="table-wrapper"><table>
   <thead>
     <tr>
@@ -1647,7 +1669,7 @@ redis集群：可同时支持高并发(读与写)、高可用，典型部署方�
 
 <p><a href="https://github.com/Auroraol/Drawing-bed/raw/main/img/202411301318769.png" class="popup img-link  shimmer"><img src="https://github.com/Auroraol/Drawing-bed/raw/main/img/202411301318769.png" alt="" loading="lazy"></a></p>
 
-<p>在Redis集群里面，又会划分出<code class="language-plaintext highlighter-rouge">分区</code>的概念，一个集群中可有多个分区。分区有几个特点：</p>
+<p>在Redis集群里面，又会划分出<code class="language-plaintext highlighter-rouge collapsible-container">分区</code>的概念，一个集群中可有多个分区。分区有几个特点：</p>
 
 <ol>
   <li>同一个分区内的Redis节点之间的数据完全一样，多个节点保证了数据有多份副本冗余保存，且可以提供高可用保障。</li>
@@ -1655,13 +1677,13 @@ redis集群：可同时支持高并发(读与写)、高可用，典型部署方�
   <li>通过水平增加多个分片的方式，可以实现整体集群的容量的扩展。</li>
 </ol>
 
-<p>按照Cluster模式进行部署的时候，要求最少需要部署<code class="language-plaintext highlighter-rouge">6个</code>Redis节点（3个分片，每个分片中1主1从），其中集群中每个分片的master节点负责对外提供读写操作，slave节点则作为故障转移使用（master出现故障的时候充当新的master）、对外提供只读请求处理。</p>
+<p>按照Cluster模式进行部署的时候，要求最少需要部署<code class="language-plaintext highlighter-rouge collapsible-container">6个</code>Redis节点（3个分片，每个分片中1主1从），其中集群中每个分片的master节点负责对外提供读写操作，slave节点则作为故障转移使用（master出现故障的时候充当新的master）、对外提供只读请求处理。</p>
 
 <h2 id="集群数据分布策略"><span class="me-2">集群数据分布策略</span><a href="#集群数据分布策略" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <h3 id="redis-sharding数据分片"><span class="me-2">Redis Sharding（数据分片）</span><a href="#redis-sharding数据分片" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p><code class="language-plaintext highlighter-rouge">Redis Sharding</code>（数据分片）一种数据分发的策略。根据key的hash值进行取模，确定最终归属的节点。</p>
+<p><code class="language-plaintext highlighter-rouge collapsible-container">Redis Sharding</code>（数据分片）一种数据分发的策略。根据key的hash值进行取模，确定最终归属的节点。</p>
 
 <p>优点就是比较简单，但是</p>
 
@@ -1676,11 +1698,11 @@ redis集群：可同时支持高并发(读与写)、高可用，典型部署方�
 
 <p><a href="https://github.com/Auroraol/Drawing-bed/raw/main/img/202411301318343.png" class="popup img-link  shimmer"><img src="https://github.com/Auroraol/Drawing-bed/raw/main/img/202411301318343.png" alt="" loading="lazy"></a></p>
 
-<p>如果需要解决这个问题，就需要对原先扩容前已经存储的数据重新进行一次hash计算和取模操作，将全部的数据重新分发到新的正确节点上进行存储。这个操作被称为<code class="language-plaintext highlighter-rouge">重新Sharding</code>，重新sharding期间服务不可用，可能会对业务造成影响。</p>
+<p>如果需要解决这个问题，就需要对原先扩容前已经存储的数据重新进行一次hash计算和取模操作，将全部的数据重新分发到新的正确节点上进行存储。这个操作被称为<code class="language-plaintext highlighter-rouge collapsible-container">重新Sharding</code>，重新sharding期间服务不可用，可能会对业务造成影响。</p>
 
 <h3 id="一致性hash"><span class="me-2">一致性Hash</span><a href="#一致性hash" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>为了降低节点的增加或者移除对于整体已有缓存数据访问的影响，最大限度的保证缓存命中率，改良后的<a href="https://www.seven97.top/microservices/protocol/consistencyhash.html"><code class="language-plaintext highlighter-rouge">一致性Hash</code></a>算法浮出水面。</p>
+<p>为了降低节点的增加或者移除对于整体已有缓存数据访问的影响，最大限度的保证缓存命中率，改良后的<a href="https://www.seven97.top/microservices/protocol/consistencyhash.html"><code class="language-plaintext highlighter-rouge collapsible-container">一致性Hash</code></a>算法浮出水面。</p>
 
 <h3 id="hash槽"><span class="me-2">Hash槽</span><a href="#hash槽" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
@@ -1717,7 +1739,7 @@ redis集群：可同时支持高并发(读与写)、高可用，典型部署方�
 
 <p>保存节点的当前状态，比如节点的创建时间，节点的名字，节点当前的配置纪元，节点的IP和地址，等等。</p>
 
-<div class="language-c highlighter-rouge"><div class="code-header">
+<div class="language-c highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1835,7 +1857,7 @@ redis集群：可同时支持高并发(读与写)、高可用，典型部署方�
 
 <p>记录当前节点所认为的集群目前所处的状态。</p>
 
-<div class="language-c highlighter-rouge"><div class="code-header">
+<div class="language-c highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1989,11 +2011,11 @@ redis集群：可同时支持高并发(读与写)、高可用，典型部署方�
 只有主节点才会返回</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">MOVED</code>（槽已迁走）</li>
-  <li><code class="language-plaintext highlighter-rouge">ASKING</code>（槽正在迁，临时转发）槽迁移是运维/自动均衡命令才会触发</li>
+  <li><code class="language-plaintext highlighter-rouge collapsible-container">MOVED</code>（槽已迁走）</li>
+  <li><code class="language-plaintext highlighter-rouge collapsible-container">ASKING</code>（槽正在迁，临时转发）槽迁移是运维/自动均衡命令才会触发</li>
 </ul>
 
-<p>从节点默认只读且不主动提供路由信息, 默认只对主节点负责；客户端若真想读从，要先发 <code class="language-plaintext highlighter-rouge">READONLY</code> 命令，并且自己保证键落在那台从所复制的槽上，但这属于额外优化，不是默认路径。</p>
+<p>从节点默认只读且不主动提供路由信息, 默认只对主节点负责；客户端若真想读从，要先发 <code class="language-plaintext highlighter-rouge collapsible-container">READONLY</code> 命令，并且自己保证键落在那台从所复制的槽上，但这属于额外优化，不是默认路径。</p>
 
 <p>下面来看看 Redis 客户端是如何通过路由来调用缓存节点的：</p>
 
@@ -2106,7 +2128,7 @@ redis集群：可同时支持高并发(读与写)、高可用，典型部署方�
 
 <p><a href="https://github.com/Auroraol/Drawing-bed/raw/main/img/202406152125478.png" class="popup img-link  shimmer"><img src="https://github.com/Auroraol/Drawing-bed/raw/main/img/202406152125478.png" alt="" loading="lazy"></a></p>
 
-<p>为了安全删除节点，Redis集群只能下线没有负责槽的节点。因此如果要下线有负责槽的master节点，则需要先将它负责的槽迁移到其他节点。迁移的过程也与上线操作类似，不同的是下线的时候需要通知全网的其他节点忘记自己，此时通过命令 <code class="language-plaintext highlighter-rouge">cluster forget {downNodeId}</code> 通知其他的节点。</p>
+<p>为了安全删除节点，Redis集群只能下线没有负责槽的节点。因此如果要下线有负责槽的master节点，则需要先将它负责的槽迁移到其他节点。迁移的过程也与上线操作类似，不同的是下线的时候需要通知全网的其他节点忘记自己，此时通过命令 <code class="language-plaintext highlighter-rouge collapsible-container">cluster forget {downNodeId}</code> 通知其他的节点。</p>
 
 <h2 id="集群的故障检测与故障转恢复机制"><span class="me-2">集群的故障检测与故障转恢复机制：</span><a href="#集群的故障检测与故障转恢复机制" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
@@ -2159,17 +2181,17 @@ redis集群：可同时支持高并发(读与写)、高可用，典型部署方�
         <p>更新配置纪元：每个主节点会去更新配置纪元（clusterNode.configEpoch），这个值是不断增加的整数。这个值记录了每个节点的版本和整个集群的版本。每当发生重要事情的时候（例如：出现新节点，从节点精选）都会增加全局的配置纪元并且赋给相关的主节点，用来记录这个事件。更新这个值目的是，保证所有主节点对这件“大事”保持一致，大家都统一成一个配置纪元，表示大家都知道这个“大事”了。</p>
       </li>
       <li>
-        <p>发起选举：更新完配置纪元以后，从节点会向集群发起广播选举的消息（<code class="language-plaintext highlighter-rouge">CLUSTERMSG_TYPE_FAILOVER_AUTH_REQUEST</code>），要求所有收到这条消息，并且具有投票权的主节点进行投票。每个从节点在一个纪元中只能发起一次选举。</p>
+        <p>发起选举：更新完配置纪元以后，从节点会向集群发起广播选举的消息（<code class="language-plaintext highlighter-rouge collapsible-container">CLUSTERMSG_TYPE_FAILOVER_AUTH_REQUEST</code>），要求所有收到这条消息，并且具有投票权的主节点进行投票。每个从节点在一个纪元中只能发起一次选举。</p>
       </li>
       <li>
-        <p>选举投票：如果一个主节点具有投票权，并且这个主节点尚未投票给其他从节点，那么主节点将向要求投票的从节点返回一条<code class="language-plaintext highlighter-rouge">CLUSTERMSG_TYPE_FAILOVER_AUTH_ACK</code>消息，表示这个主节点支持从节点成为新的主节点。每个参与选举的从节点都会接收<code class="language-plaintext highlighter-rouge">CLUSTERMSG_TYPE_FAILOVER_AUTH_ACK</code>消息，并根据自己收到了多少条这种消息来统计自己获得了多少主节点的支持。如果超过(N/2 + 1)数量的master节点都投票给了某个从节点，那么选举通过，这个从节点可以切换成master，如果在 cluster-node-timeout*2 的时间内从节点没有获得足够数量的票数，本次选举作废，更新配置纪元，并进行第二轮选举，直到选出新的主节点为止。</p>
+        <p>选举投票：如果一个主节点具有投票权，并且这个主节点尚未投票给其他从节点，那么主节点将向要求投票的从节点返回一条<code class="language-plaintext highlighter-rouge collapsible-container">CLUSTERMSG_TYPE_FAILOVER_AUTH_ACK</code>消息，表示这个主节点支持从节点成为新的主节点。每个参与选举的从节点都会接收<code class="language-plaintext highlighter-rouge collapsible-container">CLUSTERMSG_TYPE_FAILOVER_AUTH_ACK</code>消息，并根据自己收到了多少条这种消息来统计自己获得了多少主节点的支持。如果超过(N/2 + 1)数量的master节点都投票给了某个从节点，那么选举通过，这个从节点可以切换成master，如果在 cluster-node-timeout*2 的时间内从节点没有获得足够数量的票数，本次选举作废，更新配置纪元，并进行第二轮选举，直到选出新的主节点为止。</p>
       </li>
     </ol>
   </li>
   <li>
     <p>替换主节点：当满足投票条件的从节点被选出来以后，会触发替换主节点的操作。删除原主节点负责的槽数据，把这些槽数据添加到自己节点上，并且广播让其他的节点都知道这件事情，新的主节点诞生了。</p>
     <ol>
-      <li>被选中的从节点执行<code class="language-plaintext highlighter-rouge">SLAVEOF NO ONE</code>命令，使其成为新的主节点</li>
+      <li>被选中的从节点执行<code class="language-plaintext highlighter-rouge collapsible-container">SLAVEOF NO ONE</code>命令，使其成为新的主节点</li>
       <li>新的主节点会撤销所有对已下线主节点的槽指派，并将这些槽全部指派给自己</li>
       <li>新的主节点对集群进行广播PONG消息，告知其他节点已经成为新的主节点</li>
       <li>的主节点开始接收和处理槽相关的请求</li>
@@ -2250,7 +2272,7 @@ Redis Cluster 的性能瓶颈主要在 <strong>CPU/网卡</strong>，而<strong>
   <li>读写分离 = 想强行让“从节点”也承担读
 集群里想真做到这点得满足：
     <ul>
-      <li>客户端必须支持 <code class="language-plaintext highlighter-rouge">READONLY</code> 命令并维护“槽→从节点”映射；</li>
+      <li>客户端必须支持 <code class="language-plaintext highlighter-rouge collapsible-container">READONLY</code> 命令并维护“槽→从节点”映射；</li>
       <li>业务得接受<strong>读可能滞后</strong>（主从异步复制）；</li>
       <li>跨槽请求、事务、Lua 脚本等依然只能走主；</li>
       <li>一旦主故障提从，读写流量要瞬间重排，复杂度翻倍。</li>
@@ -2379,35 +2401,35 @@ Redis Cluster 的性能瓶颈主要在 <strong>CPU/网卡</strong>，而<strong>
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/">字典解析库</a>
+          <a href="/openclaw/openclaw-docker-deployment/">openclaw项目文件说明</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
+          <a href="/go/%E8%A7%84%E5%88%99/%E7%BB%93%E6%9E%84%E4%BD%93/">结构体</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/">toml配置文件</a>
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E9%BB%98%E8%AE%A4%E5%80%BC/">默认值</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%84%E5%88%99/%E5%AD%97%E5%85%B8/">字典</a>
+          <a href="/go/%E8%A7%84%E5%88%99/%E5%88%87%E7%89%87/">切片</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/">指针</a>
+          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/MCP/">03_LangChain-MCP解析</a>
         </li>
       
     </ul>
@@ -2496,6 +2518,26 @@ Redis Cluster 的性能瓶颈主要在 <strong>CPU/网卡</strong>，而<strong>
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -2548,6 +2590,217 @@ Redis Cluster 的性能瓶颈主要在 <strong>CPU/网卡</strong>，而<strong>
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -2725,67 +2978,6 @@ Redis Cluster 的性能瓶颈主要在 <strong>CPU/网卡</strong>，而<strong>
     
     
     
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -2819,6 +3011,9 @@ Redis Cluster 的性能瓶颈主要在 <strong>CPU/网卡</strong>，而<strong>
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/context/">Context</a>
       
         
@@ -2834,10 +3029,7 @@ Redis Cluster 的性能瓶颈主要在 <strong>CPU/网卡</strong>，而<strong>
         <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/mongodb%E8%AF%AD%E6%B3%95/">mongodb语法</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/pgsql%E6%A7%BD%E4%BD%8D/">PgSQL槽位</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
     </div>
   </section>
@@ -2888,6 +3080,18 @@ Redis Cluster 的性能瓶颈主要在 <strong>CPU/网卡</strong>，而<strong>
 
 
 
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
   
 
@@ -3202,7 +3406,7 @@ Redis的高可用机制有持久化、复制、哨兵和集群。其主要的作
   "
 >
   <p>©
-    2024-<time>2025</time>
+    2024-<time>2026</time>
 
     
       <a href="https://github.com/Auroraol">lfj</a>
@@ -3218,14 +3422,7 @@ Redis的高可用机制有持久化、复制、哨兵和集群。其主要的作
     -->
   </p>
 
-  <p>本站采用 <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> 主题 <a
-        data-bs-toggle="tooltip"
-        data-bs-placement="top"
-        title="v6.5.5"
-        href="https://github.com/cotes2020/jekyll-theme-chirpy"
-        target="_blank"
-        rel="noopener"
-      >Chirpy</a>
+  <p>
   </p>
 </footer>
 
@@ -3318,6 +3515,26 @@ Redis的高可用机制有持久化、复制、哨兵和集群。其主要的作
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -3370,6 +3587,217 @@ Redis的高可用机制有持久化、复制、哨兵和集群。其主要的作
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -3547,67 +3975,6 @@ Redis的高可用机制有持久化、复制、哨兵和集群。其主要的作
     
     
     
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -3641,6 +4008,9 @@ Redis的高可用机制有持久化、复制、哨兵和集群。其主要的作
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/context/">Context</a>
       
         
@@ -3656,10 +4026,7 @@ Redis的高可用机制有持久化、复制、哨兵和集群。其主要的作
         <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/mongodb%E8%AF%AD%E6%B3%95/">mongodb语法</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/pgsql%E6%A7%BD%E4%BD%8D/">PgSQL槽位</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
     </div>
   </section>

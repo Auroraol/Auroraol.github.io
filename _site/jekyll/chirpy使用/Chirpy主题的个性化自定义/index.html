@@ -36,7 +36,7 @@
 <meta property="og:description" content="更改_data文件夹中contact.yml文件" />
 <link rel="canonical" href="http://localhost:4000/jekyll/chirpy%E4%BD%BF%E7%94%A8/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%AA%E6%80%A7%E5%8C%96%E8%87%AA%E5%AE%9A%E4%B9%89/" />
 <meta property="og:url" content="http://localhost:4000/jekyll/chirpy%E4%BD%BF%E7%94%A8/Chirpy%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%AA%E6%80%A7%E5%8C%96%E8%87%AA%E5%AE%9A%E4%B9%89/" />
-<meta property="og:site_name" content="L" />
+<meta property="og:site_name" content="​" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-11-01T14:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
@@ -46,8 +46,7 @@
 <!-- End Jekyll SEO tag -->
 
 
-  <title>Chirpy主题的个性化自定义 | L
-  </title>
+  <title>Chirpy主题的个性化自定义</title>
 
   <!--
   The Favicons for Web, Android, Microsoft, and iOS (iPhone and iPad) Apps
@@ -63,8 +62,8 @@
   <link rel="manifest" href="/assets/img/favicons/site.webmanifest">
 
 <link rel="shortcut icon" href="/assets/img/favicons/favicon.ico">
-<meta name="apple-mobile-web-app-title" content="L">
-<meta name="application-name" content="L">
+<meta name="apple-mobile-web-app-title" content="&#8203;">
+<meta name="application-name" content="&#8203;">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
@@ -264,18 +263,38 @@
 
   
 
+  <!-- Set default theme to dark -->
+  <script>
+    (function() {
+      // Check if user has already set a theme preference
+      const savedMode = sessionStorage.getItem('mode');
+      
+      // If no preference saved, set default to dark
+      if (!savedMode) {
+        const html = document.documentElement;
+        html.setAttribute('data-mode', 'dark');
+        sessionStorage.setItem('mode', 'dark');
+        
+        // Also update the toggle button state if it exists
+        const toggleBtn = document.getElementById('mode-toggle');
+        if (toggleBtn) {
+          toggleBtn.classList.add('mode-dark');
+        }
+      }
+    })();
+  </script>
+
   <!-- A placeholder to allow defining custom metadata -->
 
 </head>
-
 
   <body>
     <!-- The Side Bar -->
 
 <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
   <header class="profile-wrapper"><h1 class="site-title">
-        <a href="/">L</a>
-      </h1><p class="site-subtitle mb-0">随便写写</p>
+        <a href="/">&#8203;</a>
+      </h1><p class="site-subtitle mb-0">叹隙中骑，石中火，梦中身。</p>
   </header>
   <!-- .profile-wrapper -->
 
@@ -443,6 +462,9 @@
             
               <!-- Refactor the HTML structure -->
 
+
+
+<!-- Add collapsible code block functionality -->
 
 
 <!--
@@ -677,12 +699,12 @@
     </div>
   </header>
 
-  <div class="content">
+  <script src="/assets/js/dist/collapsible.js"></script><div class="content">
     <h2 id="更改_data文件夹中contactyml文件"><span class="me-2">更改_data文件夹中contact.yml文件</span><a href="#更改_data文件夹中contactyml文件" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p><code class="language-plaintext highlighter-rouge">contact.yml</code>直接关联着网站左下角的链接，只保留github和email。后面自行可以添加</p>
+<p><code class="language-plaintext highlighter-rouge collapsible-container">contact.yml</code>直接关联着网站左下角的链接，只保留github和email。后面自行可以添加</p>
 
-<div class="language-yaml highlighter-rouge"><div class="code-header">
+<div class="language-yaml highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="YAML"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -712,9 +734,9 @@
 
 <h2 id="更改_data文件夹中的shareyml"><span class="me-2">更改_data文件夹中的share.yml</span><a href="#更改_data文件夹中的shareyml" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p><code class="language-plaintext highlighter-rouge">share.yml</code>是在点进文章之后最底下的分享链接，也注释掉一些不认识的网站，只留下weibo。</p>
+<p><code class="language-plaintext highlighter-rouge collapsible-container">share.yml</code>是在点进文章之后最底下的分享链接，也注释掉一些不认识的网站，只留下weibo。</p>
 
-<div class="language-yaml highlighter-rouge"><div class="code-header">
+<div class="language-yaml highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="YAML"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -728,9 +750,9 @@
 
 <h2 id="更改_tabsaboutmd文件"><span class="me-2">更改_tabs/about.md文件</span><a href="#更改_tabsaboutmd文件" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p><code class="language-plaintext highlighter-rouge">about.md</code>关联着侧边栏的about，改成自己的导航。</p>
+<p><code class="language-plaintext highlighter-rouge collapsible-container">about.md</code>关联着侧边栏的about，改成自己的导航。</p>
 
-<div class="language-yaml highlighter-rouge"><div class="code-header">
+<div class="language-yaml highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="YAML"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -816,9 +838,9 @@
 
 <h2 id="自定义左侧标签"><span class="me-2">自定义左侧标签</span><a href="#自定义左侧标签" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p>在<code class="language-plaintext highlighter-rouge">_tabs/</code>中添加以下MD文件，注意<code class="language-plaintext highlighter-rouge">order: 5</code>中的数字对应</p>
+<p>在<code class="language-plaintext highlighter-rouge collapsible-container">_tabs/</code>中添加以下MD文件，注意<code class="language-plaintext highlighter-rouge collapsible-container">order: 5</code>中的数字对应</p>
 
-<div class="language-yaml highlighter-rouge"><div class="code-header">
+<div class="language-yaml highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="YAML"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -844,20 +866,20 @@
 
 <p>assets/img/favicons/下存放有头像，需要替换成自己的。</p>
 
-<p>事先准备头像图片，前往<a href="https://realfavicongenerator.net/">Real Favicon Generator</a>上传，上传后点击<code class="language-plaintext highlighter-rouge">Generate your Favicons and HTML code</code>即可，解压后删除以下两个文件：</p>
+<p>事先准备头像图片，前往<a href="https://realfavicongenerator.net/">Real Favicon Generator</a>上传，上传后点击<code class="language-plaintext highlighter-rouge collapsible-container">Generate your Favicons and HTML code</code>即可，解压后删除以下两个文件：</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">browserconfig.xml</code></li>
-  <li><code class="language-plaintext highlighter-rouge">site.webmanifest</code></li>
+  <li><code class="language-plaintext highlighter-rouge collapsible-container">browserconfig.xml</code></li>
+  <li><code class="language-plaintext highlighter-rouge collapsible-container">site.webmanifest</code></li>
 </ul>
 
-<p>只保留<code class="language-plaintext highlighter-rouge">.png</code>和<code class="language-plaintext highlighter-rouge">.ico</code>，将其复制到assets/img/favicons/即可。</p>
+<p>只保留<code class="language-plaintext highlighter-rouge collapsible-container">.png</code>和<code class="language-plaintext highlighter-rouge collapsible-container">.ico</code>，将其复制到assets/img/favicons/即可。</p>
 
 <p>自此，网站已经布置成自己的嘞，着手开始安心写博客咯。</p>
 
 <h2 id="更改configyml"><span class="me-2">更改config.yml</span><a href="#更改configyml" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<div class="language-yaml highlighter-rouge"><div class="code-header">
+<div class="language-yaml highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="YAML"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1370,35 +1392,35 @@
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/">字典解析库</a>
+          <a href="/openclaw/openclaw-docker-deployment/">openclaw项目文件说明</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
+          <a href="/go/%E8%A7%84%E5%88%99/%E7%BB%93%E6%9E%84%E4%BD%93/">结构体</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/">toml配置文件</a>
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E9%BB%98%E8%AE%A4%E5%80%BC/">默认值</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%84%E5%88%99/%E5%AD%97%E5%85%B8/">字典</a>
+          <a href="/go/%E8%A7%84%E5%88%99/%E5%88%87%E7%89%87/">切片</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/">指针</a>
+          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/MCP/">03_LangChain-MCP解析</a>
         </li>
       
     </ul>
@@ -1487,6 +1509,26 @@
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -1539,6 +1581,217 @@
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -1716,67 +1969,6 @@
     
     
     
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1810,6 +2002,9 @@
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/context/">Context</a>
       
         
@@ -1825,10 +2020,7 @@
         <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/mongodb%E8%AF%AD%E6%B3%95/">mongodb语法</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/pgsql%E6%A7%BD%E4%BD%8D/">PgSQL槽位</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
     </div>
   </section>
@@ -1879,6 +2071,30 @@
 
 
 
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
   
 
@@ -1998,7 +2214,7 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
         </article>
       
         <article class="col">
-          <a href="/jekyll/jekyll%E4%BD%BF%E7%94%A8/jekyll%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8/" class="post-preview card h-100">
+          <a href="/jekyll/chirpy%E4%BD%BF%E7%94%A8/%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0%E6%B5%8B%E8%AF%95/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -2010,37 +2226,73 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
 
 <time
   
-  data-ts="1761966000"
+  data-ts="1770912000"
   data-df="YYYY/MM/DD"
   
 >
-  2025/11/01
+  2026/02/13
 </time>
 
-              <h4 class="pt-0 my-2">jekyll主题使用</h4>
+              <h4 class="pt-0 my-2">代码折叠功能测试</h4>
               <div class="text-muted">
-                <p>本地部署环境和调试
-
-不同的操作系统可能会不太一样，这里以Windows举例，配置本地调试环境：
+                <p>代码折叠功能测试
 
 
-  
-    安装RUBY
+  这是一个测试代码折叠功能的文章。
 
-    访问 Ruby Installer 下载
 
-    记得下载带devkit的版本
+短代码块（应该不显示折叠按钮）
 
-    安装过程中，如果有类似MSYS2 and MINGW development tool chain的选项，记得勾选
+1
+console.log(&quot;Hello World&quot;);
 
-    安装成功后，使用命令行验证安装结果：...</p>
+
+长代码块（应该显示折叠按钮）
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+3...</p>
               </div>
             </div>
           </a>
         </article>
       
         <article class="col">
-          <a href="/jekyll/jekyll%E4%BD%BF%E7%94%A8/config-blog-comment/" class="post-preview card h-100">
+          <a href="/jekyll/chirpy%E4%BD%BF%E7%94%A8/colorbox-details-test/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -2052,30 +2304,43 @@ Chirpy主题的favicon存放在目录assets/img/favicons/下，用户可以使�
 
 <time
   
-  data-ts="1762052400"
+  data-ts="1770963120"
   data-df="YYYY/MM/DD"
   
 >
-  2025/11/02
+  2026/02/13
 </time>
 
-              <h4 class="pt-0 my-2">使用giscus配置GitHub Pages评论功能</h4>
+              <h4 class="pt-0 my-2">Colorbox 和 Details 功能测试</h4>
               <div class="text-muted">
-                <p>评论能力开通
+                <p>本文档用于测试新增的 colorbox 提示框和 details 折叠块功能。
 
-GitHub仓库配置
-
-首先需要在自己的仓库中开通Discussion功能，一般新仓库默认不会打开，需要手动开通然后再添加对应的模块即可
+Colorbox 提示框测试
 
 
-  
-    开通Discussion功能
+  测试
 
-    进入自己的GitHub pages所在仓库，找到setting界面和里面的General选项
 
-    下滑找到Feature中勾选Discussion即可打开
+Info 提示框
 
-    创建com...</p>
+
+  Info 提示框标题
+
+  这是一个 info 类型的提示框，通常用于提供一般性信息。
+
+
+Tip 提示框
+
+
+  Tip 提示框标题
+
+  这是一个 tip 类型的提示框，通常用于提供技巧或建议。
+
+
+Warning 提示框
+
+
+  W...</p>
               </div>
             </div>
           </a>
@@ -2208,7 +2473,7 @@ GitHub仓库配置
   "
 >
   <p>©
-    2024-<time>2025</time>
+    2024-<time>2026</time>
 
     
       <a href="https://github.com/Auroraol">lfj</a>
@@ -2224,14 +2489,7 @@ GitHub仓库配置
     -->
   </p>
 
-  <p>本站采用 <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> 主题 <a
-        data-bs-toggle="tooltip"
-        data-bs-placement="top"
-        title="v6.5.5"
-        href="https://github.com/cotes2020/jekyll-theme-chirpy"
-        target="_blank"
-        rel="noopener"
-      >Chirpy</a>
+  <p>
   </p>
 </footer>
 
@@ -2324,6 +2582,26 @@ GitHub仓库配置
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -2376,6 +2654,217 @@ GitHub仓库配置
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -2553,67 +3042,6 @@ GitHub仓库配置
     
     
     
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -2647,6 +3075,9 @@ GitHub仓库配置
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/context/">Context</a>
       
         
@@ -2662,10 +3093,7 @@ GitHub仓库配置
         <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/mongodb%E8%AF%AD%E6%B3%95/">mongodb语法</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/pgsql%E6%A7%BD%E4%BD%8D/">PgSQL槽位</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
     </div>
   </section>

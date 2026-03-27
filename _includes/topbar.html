@@ -28,10 +28,17 @@
               <span>{{ page.title }}</span>
             {% endif %}
 
-          {% elsif page.layout == 'category' or page.layout == 'tag' %}
+          {% elsif page.layout == 'category' %}
             <span>
               <a href="{{ item | append: '/' | relative_url }}">
                 {{- site.data.locales[include.lang].tabs[item] | default: page.title -}}
+              </a>
+            </span>
+          {% elsif page.layout == 'tag' and item == 'tag' %}
+            <!-- For tag pages, link to /tags/ instead of /tag/ -->
+            <span>
+              <a href="{{ '/tags/' | relative_url }}">
+                {{- site.data.locales[include.lang].tabs.tags | default: 'Tags' -}}
               </a>
             </span>
           {% endif %}

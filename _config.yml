@@ -3,17 +3,20 @@
 # Import the theme
 theme: jekyll-theme-chirpy
 
-# 全局语言，例如将侧边的“home”改成“主页”等，可选项在_data/locales/下
+# The language of the webpage › http://www.lingala.net/iso-639.html
+# If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
+# otherwise, the layout language will use the default value of 'en'.
 lang: zh-CN
-# 时区
+
+# Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
 timezone: Asia/Shanghai
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: L # the main title
+title: "&#8203;"  # 零宽空格字符 - 视觉上为空但技术上非空
 
-tagline: 随便写写 # it will display as the sub-title
+tagline: 叹隙中骑，石中火，梦中身。 # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   A personal blog for recording pieces of thoughts.

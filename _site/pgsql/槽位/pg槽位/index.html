@@ -36,18 +36,17 @@
 <meta property="og:description" content="创建槽位" />
 <link rel="canonical" href="http://localhost:4000/pgsql/%E6%A7%BD%E4%BD%8D/pg%E6%A7%BD%E4%BD%8D/" />
 <meta property="og:url" content="http://localhost:4000/pgsql/%E6%A7%BD%E4%BD%8D/pg%E6%A7%BD%E4%BD%8D/" />
-<meta property="og:site_name" content="L" />
+<meta property="og:site_name" content="​" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-11-03T22:40:00+08:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="PgSQL槽位创建" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-11-09T14:11:36+08:00","datePublished":"2025-11-03T22:40:00+08:00","description":"创建槽位","headline":"PgSQL槽位创建","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/pgsql/%E6%A7%BD%E4%BD%8D/pg%E6%A7%BD%E4%BD%8D/"},"url":"http://localhost:4000/pgsql/%E6%A7%BD%E4%BD%8D/pg%E6%A7%BD%E4%BD%8D/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-01-31T21:46:19+08:00","datePublished":"2025-11-03T22:40:00+08:00","description":"创建槽位","headline":"PgSQL槽位创建","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/pgsql/%E6%A7%BD%E4%BD%8D/pg%E6%A7%BD%E4%BD%8D/"},"url":"http://localhost:4000/pgsql/%E6%A7%BD%E4%BD%8D/pg%E6%A7%BD%E4%BD%8D/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>PgSQL槽位创建 | L
-  </title>
+  <title>PgSQL槽位创建</title>
 
   <!--
   The Favicons for Web, Android, Microsoft, and iOS (iPhone and iPad) Apps
@@ -63,8 +62,8 @@
   <link rel="manifest" href="/assets/img/favicons/site.webmanifest">
 
 <link rel="shortcut icon" href="/assets/img/favicons/favicon.ico">
-<meta name="apple-mobile-web-app-title" content="L">
-<meta name="application-name" content="L">
+<meta name="apple-mobile-web-app-title" content="&#8203;">
+<meta name="application-name" content="&#8203;">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
@@ -264,18 +263,38 @@
 
   
 
+  <!-- Set default theme to dark -->
+  <script>
+    (function() {
+      // Check if user has already set a theme preference
+      const savedMode = sessionStorage.getItem('mode');
+      
+      // If no preference saved, set default to dark
+      if (!savedMode) {
+        const html = document.documentElement;
+        html.setAttribute('data-mode', 'dark');
+        sessionStorage.setItem('mode', 'dark');
+        
+        // Also update the toggle button state if it exists
+        const toggleBtn = document.getElementById('mode-toggle');
+        if (toggleBtn) {
+          toggleBtn.classList.add('mode-dark');
+        }
+      }
+    })();
+  </script>
+
   <!-- A placeholder to allow defining custom metadata -->
 
 </head>
-
 
   <body>
     <!-- The Side Bar -->
 
 <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
   <header class="profile-wrapper"><h1 class="site-title">
-        <a href="/">L</a>
-      </h1><p class="site-subtitle mb-0">随便写写</p>
+        <a href="/">&#8203;</a>
+      </h1><p class="site-subtitle mb-0">叹隙中骑，石中火，梦中身。</p>
   </header>
   <!-- .profile-wrapper -->
 
@@ -443,6 +462,9 @@
             
               <!-- Refactor the HTML structure -->
 
+
+
+<!-- Add collapsible code block functionality -->
 
 
 <!--
@@ -671,6 +693,17 @@
 
       
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
 
     
   
@@ -679,10 +712,85 @@
   
 
   
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+
+    
+  
 
   
   
 
+  
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+
+    
   
 
   
@@ -742,13 +850,13 @@
 
 <time
   
-  data-ts="1762668696"
+  data-ts="1769867179"
   data-df="YYYY/MM/DD"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  2025/11/09
+  2026/01/31
 </time>
 
         </span>
@@ -795,19 +903,19 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="317 字"
+  title="690 字"
 >
-  <em>1 分钟</em>阅读</span>
+  <em>3 分钟</em>阅读</span>
 
         </div>
       </div>
     </div>
   </header>
 
-  <div class="content">
+  <script src="/assets/js/dist/collapsible.js"></script><div class="content">
     <h2 id="创建槽位"><span class="me-2">创建槽位</span><a href="#创建槽位" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<div class="language-sql highlighter-rouge"><div class="code-header">
+<div class="language-sql highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -831,7 +939,7 @@
 
 <p>函数(设置表复制标识，确保能拿到完整旧值)</p>
 
-<div class="language-sql highlighter-rouge"><div class="code-header">
+<div class="language-sql highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -885,7 +993,7 @@
 
 <h2 id="删除槽位"><span class="me-2">删除槽位</span><a href="#删除槽位" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<div class="language-sql highlighter-rouge"><div class="code-header">
+<div class="language-sql highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="k">SELECT</span> <span class="n">pg_drop_replication_slot</span><span class="p">(</span><span class="s1">'your_slot'</span><span class="p">);</span><span class="c1">-- 若返回空，表示已删除</span>
@@ -893,7 +1001,7 @@
 
 <h2 id="槽位堆积查询"><span class="me-2">槽位堆积查询</span><a href="#槽位堆积查询" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<div class="language-sql highlighter-rouge"><div class="code-header">
+<div class="language-sql highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -909,13 +1017,114 @@
 
 <h2 id="槽位使用查询"><span class="me-2">槽位使用查询</span><a href="#槽位使用查询" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<div class="language-sql highlighter-rouge"><div class="code-header">
+<div class="language-sql highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">pg_replication_slots</span> <span class="k">WHERE</span> <span class="n">slot_name</span> <span class="o">=</span> <span class="s1">'spu_goods_center_notify_new'</span><span class="p">;</span>
 </pre></td></tr></tbody></table></code></div></div>
 
 <p><a href="https://github.com/Auroraol/Drawing-bed/raw/main/img/image-20251109140401149.png" class="popup img-link  shimmer"><img src="https://github.com/Auroraol/Drawing-bed/raw/main/img/image-20251109140401149.png" alt="image-20251109140401149" loading="lazy"></a></p>
+
+<h2 id="pg_publication"><span class="me-2">pg_publication</span><a href="#pg_publication" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>PostgreSQL 逻辑复制（Logical Replication）中 Publication（发布）的表范围指定功能</p>
+
+<div class="language-sql highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="c1">-- 你的版本：复制 spu 表的全部数据, 默认 INSERT + UPDATE + DELETE + TRUNCATE</span>
+<span class="k">CREATE</span> <span class="n">PUBLICATION</span> <span class="n">spu_pub</span> <span class="k">FOR</span> <span class="k">TABLE</span> <span class="n">spu</span><span class="p">;</span>
+
+<span class="c1">-- PostgreSQL 15+ 带行过滤：只复制符合条件的行</span>
+<span class="k">CREATE</span> <span class="n">PUBLICATION</span> <span class="n">spu_pub_filtered</span> 
+<span class="k">FOR</span> <span class="k">TABLE</span> <span class="n">spu</span> <span class="k">WHERE</span> <span class="p">(</span><span class="n">status</span> <span class="o">=</span> <span class="s1">'active'</span><span class="p">);</span>
+
+<span class="c1">-- PostgreSQL 15+ 带列过滤：只复制指定列</span>
+<span class="k">CREATE</span> <span class="n">PUBLICATION</span> <span class="n">spu_pub_columns</span> 
+<span class="k">FOR</span> <span class="k">TABLE</span> <span class="n">spu</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">price</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h3 id="带行过滤row-filter的发布"><span class="me-2"><strong>带行过滤（Row Filter）</strong>的发布</span><a href="#带行过滤row-filter的发布" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<h4 id="1-insert"><span class="me-2">1. INSERT</span><a href="#1-insert" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<div class="language-sql highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="c1">-- 主库执行</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">spu</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'商品A'</span><span class="p">,</span> <span class="s1">'active'</span><span class="p">);</span>    <span class="c1">-- ✅ 会复制到订阅端</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">spu</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'商品B'</span><span class="p">,</span> <span class="s1">'inactive'</span><span class="p">);</span>  <span class="c1">-- ❌ 不会复制</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h4 id="2-update关键行为"><span class="me-2">2. UPDATE（关键行为）</span><a href="#2-update关键行为" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<div class="language-sql highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="c1">-- 场景：把 inactive 改为 active</span>
+<span class="k">UPDATE</span> <span class="n">spu</span> <span class="k">SET</span> <span class="n">status</span> <span class="o">=</span> <span class="s1">'active'</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>  
+<span class="c1">-- 结果：订阅端会执行 INSERT（新增这条数据）</span>
+
+<span class="c1">-- 场景：把 active 改为 inactive  </span>
+<span class="k">UPDATE</span> <span class="n">spu</span> <span class="k">SET</span> <span class="n">status</span> <span class="o">=</span> <span class="s1">'inactive'</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="c1">-- 结果：订阅端会执行 DELETE（删除这条数据）</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h4 id="3-delete"><span class="me-2">3. DELETE</span><a href="#3-delete" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<div class="language-sql highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">spu</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="c1">-- 只有原本满足 status='active' 的行被删除时，才会同步删除</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h4 id="常见使用场景"><span class="me-2">常见使用场景</span><a href="#常见使用场景" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<div class="language-sql highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="c1">-- 1. 只同步上架商品（排除下架/草稿）</span>
+<span class="k">CREATE</span> <span class="n">PUBLICATION</span> <span class="n">online_spu</span> 
+<span class="k">FOR</span> <span class="k">TABLE</span> <span class="n">spu</span> <span class="k">WHERE</span> <span class="p">(</span><span class="n">status</span> <span class="o">=</span> <span class="s1">'active'</span> <span class="k">AND</span> <span class="n">is_deleted</span> <span class="o">=</span> <span class="k">false</span><span class="p">);</span>
+
+<span class="c1">-- 2. 只同步特定品类</span>
+<span class="k">CREATE</span> <span class="n">PUBLICATION</span> <span class="n">electronics_pub</span> 
+<span class="k">FOR</span> <span class="k">TABLE</span> <span class="n">spu</span> <span class="k">WHERE</span> <span class="p">(</span><span class="n">category_id</span> <span class="o">=</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="c1">-- 3. 只同步近期数据</span>
+<span class="k">CREATE</span> <span class="n">PUBLICATION</span> <span class="n">recent_spu</span> 
+<span class="k">FOR</span> <span class="k">TABLE</span> <span class="n">spu</span> <span class="k">WHERE</span> <span class="p">(</span><span class="n">created_at</span> <span class="o">&gt;</span> <span class="s1">'2024-01-01'</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></div></div>
+
 
   </div>
 
@@ -1022,35 +1231,35 @@
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/">字典解析库</a>
+          <a href="/openclaw/openclaw-docker-deployment/">openclaw项目文件说明</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
+          <a href="/go/%E8%A7%84%E5%88%99/%E7%BB%93%E6%9E%84%E4%BD%93/">结构体</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/">toml配置文件</a>
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E9%BB%98%E8%AE%A4%E5%80%BC/">默认值</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%84%E5%88%99/%E5%AD%97%E5%85%B8/">字典</a>
+          <a href="/go/%E8%A7%84%E5%88%99/%E5%88%87%E7%89%87/">切片</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/">指针</a>
+          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/MCP/">03_LangChain-MCP解析</a>
         </li>
       
     </ul>
@@ -1139,6 +1348,26 @@
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -1191,6 +1420,217 @@
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -1368,67 +1808,6 @@
     
     
     
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1462,6 +1841,9 @@
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/context/">Context</a>
       
         
@@ -1477,10 +1859,7 @@
         <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/mongodb%E8%AF%AD%E6%B3%95/">mongodb语法</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/pgsql%E6%A7%BD%E4%BD%8D/">PgSQL槽位</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
     </div>
   </section>
@@ -1725,7 +2104,7 @@
   "
 >
   <p>©
-    2024-<time>2025</time>
+    2024-<time>2026</time>
 
     
       <a href="https://github.com/Auroraol">lfj</a>
@@ -1741,14 +2120,7 @@
     -->
   </p>
 
-  <p>本站采用 <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> 主题 <a
-        data-bs-toggle="tooltip"
-        data-bs-placement="top"
-        title="v6.5.5"
-        href="https://github.com/cotes2020/jekyll-theme-chirpy"
-        target="_blank"
-        rel="noopener"
-      >Chirpy</a>
+  <p>
   </p>
 </footer>
 
@@ -1841,6 +2213,26 @@
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
       
         
         
@@ -1893,6 +2285,217 @@
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -2070,67 +2673,6 @@
     
     
     
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -2164,6 +2706,9 @@
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/context/">Context</a>
       
         
@@ -2179,10 +2724,7 @@
         <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/mongodb%E8%AF%AD%E6%B3%95/">mongodb语法</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/pgsql%E6%A7%BD%E4%BD%8D/">PgSQL槽位</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
     </div>
   </section>

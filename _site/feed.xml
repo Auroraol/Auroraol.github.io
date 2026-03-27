@@ -2,9 +2,9 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>http://localhost:4000/</id>
-  <title>L</title>
+  <title>&amp;#8203;</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2025-12-07T18:11:59+08:00</updated>
+  <updated>2026-03-23T22:36:47+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -13,21 +13,66 @@
   <link rel="alternate" type="text/html" hreflang="zh-CN"
     href="http://localhost:4000/"/>
   <generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator>
-  <rights> © 2025 lfj </rights>
+  <rights> © 2026 lfj </rights>
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
 
   
   <entry>
-    <title>toml配置文件</title>
-    <link href="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/" rel="alternate" type="text/html" title="toml配置文件" />
-    <published>2025-12-07T17:00:00+08:00</published>
+    <title>openclaw项目文件说明</title>
+    <link href="http://localhost:4000/openclaw/openclaw-docker-deployment/" rel="alternate" type="text/html" title="openclaw项目文件说明" />
+    <published>2026-03-22T19:19:00+08:00</published>
   
-    <updated>2025-12-07T17:00:00+08:00</updated>
+    <updated>2026-03-22T19:19:00+08:00</updated>
   
-    <id>http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/</id>
-    <content src="http://localhost:4000/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/" />
+    <id>http://localhost:4000/openclaw/openclaw-docker-deployment/</id>
+    <content src="http://localhost:4000/openclaw/openclaw-docker-deployment/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="openclaw" />
+    
+  
+
+  <summary>项目文件说明
+
+
+  Dockerfile - Docker镜像构建文件
+  init.sh - 容器初始化脚本（作为主程序运行）
+  docker-compose.yml - Docker Compose 配置文件
+  .env.example - 环境变量配置模板
+  .dockerignore - Docker 构建忽略文件
+  openclaw.json.example - OpenClaw 默认配置文件示例
+
+
+注意：PRIMARY_MODEL 和 IMAGE_MODEL_ID 都可以填写完整引用，即 provider/model 格式，例如：
+
+
+  default/dashscope/qwen3.5-plus
+
+
+mkdir -p /etc/docker
+
+cat &amp;amp;gt; /etc/docker/daemon.json &amp;amp;lt;&amp;amp;lt; &amp;#39;EOF&amp;#39;
+{
+  &amp;quot;regi...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>结构体</title>
+    <link href="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E7%BB%93%E6%9E%84%E4%BD%93/" rel="alternate" type="text/html" title="结构体" />
+    <published>2026-03-02T10:40:00+08:00</published>
+  
+    <updated>2026-03-02T23:57:42+08:00</updated>
+  
+    <id>http://localhost:4000/go/%E8%A7%84%E5%88%99/%E7%BB%93%E6%9E%84%E4%BD%93/</id>
+    <content src="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E7%BB%93%E6%9E%84%E4%BD%93/" />
     <author>
       <name>lfj</name>
     </author>
@@ -36,38 +81,115 @@
     
     <category term="GO" />
     
-    <category term="解析库" />
+    <category term="规则" />
     
   
 
-  <summary>配置管理神器Viper
+  <summary>结构体
 
-type Config struct 
-	Spu                 SpuConfig                       `mapstructure:&amp;quot;spu&amp;quot;`
-	Sdks                []SDKConf                        `mapstructure:&amp;quot;sdks&amp;quot;` //
-	SpiHttpClients SpiHttpClientConfig `mapstructure:&amp;quot;spi_http_clients&amp;quot;`
-	Person  //
-	MockConfig `mapstructure:&amp;quot;,squash&amp;quot;` //
-}
+
+  Go语言提供了一种自定义数据类型，可以封装多个基本数据类型，这种数据类型叫结构体（struct），Go语言中通过结构体来实现面向对象
+
+
+规范:
+
+
+  采用驼峰命名方式，首字母根据访问权限, 来决定使用大写或小写(包括结构体名称、属性、方法)
+  结构体名不应该是动词，应该是名词
+  避免使用 Data、Info 这类无意义的结构体名
+  结构体的声明和初始化应采用多行
+
+
+结构体定义
 
 type Person struct {
-	Name            string     `mapstructure:&amp;quot;name&amp;quot;`
+	Name string
+	Age int
+	Sex int
 }
 
-type MockCon...</summary>
+
+**注意：结构体定义时结构体字段的可见性规则: ** 结构体中字段大写开头表示可公开访问，小写表示私有
+
+实例化(声明)结构体
+
+var 结构体实例 结构体类型
+
+var per Person
+
+
+创建结构体
+
+工作中一般使用 u:= &amp;amp;amp;User{name: “y...</summary>
 
   </entry>
 
   
   <entry>
-    <title>函数</title>
-    <link href="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%96%B9%E6%B3%95/" rel="alternate" type="text/html" title="函数" />
-    <published>2025-12-07T12:00:00+08:00</published>
+    <title>03_LangChain-MCP解析</title>
+    <link href="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/" rel="alternate" type="text/html" title="03_LangChain-MCP解析" />
+    <published>2026-02-14T15:00:00+08:00</published>
   
-    <updated>2025-12-07T12:00:00+08:00</updated>
+    <updated>2026-02-27T17:20:19+08:00</updated>
   
-    <id>http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%96%B9%E6%B3%95/</id>
-    <content src="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%96%B9%E6%B3%95/" />
+    <id>http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/</id>
+    <content src="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="Agent" />
+    
+    <category term="LangChain解析" />
+    
+  
+
+  <summary>LangChain-MCP
+
+
+  大模型和外部工具交互的标准化协议
+
+
+模型上下文协议(MCP ModelContextProtocol)正迅速成为AI领域的核心基础设施标准，它通过标准化大语言模型与外部工具的交互方式，解决了AI应用开发中的关键瓶颈，推动了智能体从实验室走向商业化的进程
+
+MCP的原理
+
+MCP的核心原理：
+
+
+
+与上一张图异曲同工：
+
+
+
+MCP 的核心原理是将互联网服务（高德、谷歌）或本地操作系统 API（文件系统、数据库、终端）封装成 AI 智能体能够理解和使用的 Tools 工具，让 AI 智能体能够自由地调用这些 Tools 工具实现复杂的业务逻辑和功能。
+
+基于MCP的智能体架构
+
+
+
+案例-高德地图API
+
+
+  
+    
+      [概述-MCP Server
+      高德地图API](https://lbs.amap.com/api/mc...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>内存分析</title>
+    <link href="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E5%86%85%E5%AD%98/" rel="alternate" type="text/html" title="内存分析" />
+    <published>2026-02-14T11:00:00+08:00</published>
+  
+    <updated>2026-02-14T11:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/go/%E8%A7%84%E5%88%99/%E5%86%85%E5%AD%98/</id>
+    <content src="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E5%86%85%E5%AD%98/" />
     <author>
       <name>lfj</name>
     </author>
@@ -80,231 +202,77 @@ type MockCon...</summary>
     
   
 
-  <summary>函数
+  <summary>能栈则栈，逃逸才堆
 
-定义函数
-
-func 函数名字 (参数列表) (返回值列表）{
-	// 函数体
-	return 返回值列表
-}
+Go 编译器会在编译时进行逃逸分析，以此决定对象应该分配在栈上还是堆上：
 
 
-注意：
+  分配在栈上（高效）：如果编译器能确定函数返回后，该变量不再被引用，就会把它分配在栈上。栈的分配和回收只是移动两个指针，开销极低，且无需垃圾回收介入。
+  分配在堆上（代价高）：如果变量在函数返回后仍有其他部分引用，就必须分配在堆上。堆分配需要寻找空闲内存，且最终依赖垃圾回收器来清理，开销相对较大。
 
 
-  函数名首字母小写为私有，大写为公有；
-  参数列表可以有0-多个，多参数使用逗号分隔，不支持默认参数；
-  返回值列表返回值类型可以不用写变量名
-  如果只有一个返回值且不声明类型，可以省略返回值列表与括号
-  如果有返回值，函数内必须有return　
+
+  栈随着线程的创建而创建，jvm一启动就创建堆内存，方法一调用就放进栈里面，对象一new就放到堆里面 真的吗
 
 
-init函数和mian函数
-
-init函数：init 函数可在package main中，可在其他package中，可在同一个package中出现多次。
-
-main函数:  main 函数只能在package main中
-
-执行顺序
+“栈随着线程的创建而创建”
 
 
-  程序的初始化和执行都起始于main包(注意是main包,不是面函数)
-  先按包的顺序依次自动执行他们的init函数
-  再执行main包init函数, ...</summary>
+  
+    无论是Java还是Go中的 goroutine都有自己的栈。线程启动时，系统会分配一块连续的内存作为栈，用来存放该方法调用链上的局部变量和方法参数。
+  
+  
+    Java 栈：通常大小固定（可通过 -Xss 设置）...</summary>
 
   </entry>
 
   
   <entry>
-    <title>接口/结构体的组合</title>
-    <link href="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%8E%A5%E5%8F%A3/" rel="alternate" type="text/html" title="接口/结构体的组合" />
-    <published>2025-12-03T12:00:00+08:00</published>
+    <title>02_LangChain-Agent解析</title>
+    <link href="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/" rel="alternate" type="text/html" title="02_LangChain-Agent解析" />
+    <published>2026-02-13T16:00:00+08:00</published>
   
-    <updated>2025-12-03T12:00:00+08:00</updated>
+    <updated>2026-02-24T11:53:41+08:00</updated>
   
-    <id>http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%8E%A5%E5%8F%A3/</id>
-    <content src="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%8E%A5%E5%8F%A3/" />
+    <id>http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/</id>
+    <content src="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/LangChain-Agent%E8%A7%A3%E6%9E%90/" />
     <author>
       <name>lfj</name>
     </author>
 
   
     
-    <category term="GO" />
+    <category term="Agent" />
     
-    <category term="规则" />
-    
-  
-
-  <summary>接口
-
-
-  接口 = 定义方法集
-
-
-type FImpl interface {
-	f1()
-	f2()
-	f3()
-	f4()
-}
-
-
-
-实现
-
-结构体实现遵循规则:
-
-
-  
-    结构体T方法为值接收者方法：   T 和 *T 都可以赋给接口
-  
-  结构体T方法为接收者方法：      只有 *T 可以赋给接口
-  接口类型前面永远不要加 * (接口用值，不加星；加星就废，没方法)
-
-
-示例1
-
-
-  结构体T方法为值接收者方法：   T 和 *T 都可以赋给接口
-
-  结构体T方法为接收者方法：只有 *T 可以赋给接口
-
-
-type F interface {
-    f()
-}
-
-type S1 struct{}
-
-func (s S1) f() {}    // 值接收者方法，属于 S1 的值方法集
-
-type S2 struct{}
-
-func (s *S2)...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>指针</title>
-    <link href="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/" rel="alternate" type="text/html" title="指针" />
-    <published>2025-12-02T11:00:00+08:00</published>
-  
-    <updated>2025-12-07T15:47:05+08:00</updated>
-  
-    <id>http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/</id>
-    <content src="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="GO" />
-    
-    <category term="规则" />
+    <category term="LangChain解析" />
     
   
 
-  <summary>📌 结论
+  <summary>LangChain-Agent 解析
+
+创建Agent
+
+Agent（代理） 是 LangChain 中更高级的机制，允许 LLM 像“智能助手”一样，根据输入动态选择和使用工具，完成复杂任务。代理的核心是“推理 + 行动”，它会分析输入，决定需要调用哪些工具，并循环执行直到任务完成。
+
+组成：
 
 
-  
-    值接收者方法：   T 和 *T 都可以赋给接口
-  
-  指针接收者方法：只有 *T 可以赋给接口
-  接口类型前面永远不要加 * (接口用值，不加星；加星就废，没方法)
+  工具（Tools）：如搜索引擎、计算器、API。
+  代理执行器：协调 LLM 和工具，管理执行流程。
+  推理引擎：LLM 负责决定使用哪个工具。
 
 
-示例1:
+应用场景：需要动态决策的任务，如联网搜索、数学计算。
 
-type F interface {
-    f()
-}
+LangChain方式
 
-type S1 struct{}
+使用文档: Agents - Docs by LangChain
 
-func (s S1) f() {}    // 值接收者方法，属于 S1 的值方法集
+from langchain.agents import create_agent
 
-type S2 struct{}
-
-func (s *S2) f() {}   // 指针接收者方法，属于 *S2 的指针方法集
-
-var (
-    i F // 接口
-    
-    //值方法集
-    s1Val = S1{}
-    s1Ptr = &amp;amp;amp;S1{}
-    i = s1Val
-    i = s1Ptr
-
-    //指针方法集 
-    s2Val = ...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>k8s拉取镜像策略</title>
-    <link href="http://localhost:4000/k8s/%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E7%AD%96%E7%95%A5/" rel="alternate" type="text/html" title="k8s拉取镜像策略" />
-    <published>2025-12-01T16:00:00+08:00</published>
-  
-    <updated>2025-12-01T20:22:00+08:00</updated>
-  
-    <id>http://localhost:4000/k8s/%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E7%AD%96%E7%95%A5/</id>
-    <content src="http://localhost:4000/k8s/%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E7%AD%96%E7%95%A5/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="k8s" />
-    
-  
-
-  <summary>镜像拉取策略
-
-
-
-
-  
-    
-      值
-      含义
-    
-  
-  
-    
-      Always
-      每次启动容器时都尝试拉取镜像（忽略本地缓存）。
-    
-    
-      IfNotPresent
-      如果本地已有该镜像，重启 Pod 时则不拉取；否则拉取。
-    
-    
-      Never
-      只使用本地镜像，绝不拉取。
-    
-  
-
-
-问题
-
-配置IfNotPresent, 但是出现偶尔更新镜像后，重启 Pod，代码却更新
-
-
-  ✅ 原因 1：Pod 被调度到了新节点（或清理过镜像的节点）
-    
-      节点 A 有旧镜像 → 用本地缓存
-      节点 B 没有镜像 → 拉取最新版本
-      如果你节点偶尔自动清理镜像（如 kubelet 的镜像回收机制），也可能触发拉取
-    
-...</summary>
+# llm
+KimiLlm = ChatOpenAI(
+    model=&amp;quot;kimi-k2-tu...</summary>
 
   </entry>
 
