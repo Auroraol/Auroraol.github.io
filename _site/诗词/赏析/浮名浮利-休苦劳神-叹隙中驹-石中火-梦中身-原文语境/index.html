@@ -42,7 +42,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="浮名浮利，休苦劳神。叹隙中驹，石中火，梦中身。 ## 原文语境" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-03-23T23:02:00+08:00","datePublished":"2026-03-23T23:02:00+08:00","description":"Kubernetes 完整架构图（含所有核心组件） 🌐 外部访问层 (External Access) 🔀 Ingress 域名路由 + SSL证书 + 负载均衡 👤 外部用户 https://api.example.com Service Types: ClusterIP(内部) | NodePort(节点端口) | LoadBalancer(云负载) | ExternalName(外部域名) NodePort: http://NodeIP:30080 → 映射到 Service:80 🔷 Kubernetes Cluster (集群边界) 🎛️ Master Node (控制平面) - 集群大脑，管理所有资源 🔷 kube-apiserver 集群API网关/入口 认证、授权、访问控制 所有组件通信枢纽 kubectl → apiserver 📅 Scheduler 调度器 监控节点资源 Pod → 最优Node 调度策略：资源最多 🎮 Controller Manager 控制器管理器 管理资源状态 故障检测与恢复 Deployment/StatefulSet 💾 etcd 键值存储 (类似Redis) 存储集群所有状态 Pod/Node/Service配置 不存应用数据 ☁️ Cloud Controller 云控制器 (可选) 对接云平台API AWS/Azure/GCP LoadBalancer provision 🖥️ Worker Node 1 (工作节点) - cd-032112-* 🏷️ 标签: nodetype=common | usage=db | number=112 🔧 kubelet (管理Pod) | 🔀 kube-proxy (网络代理/负载均衡) | 🐳 container runtime (Docker/containerd) 📦 Pod: nginx-xxx Controller: Deployment 🏷️ app=nginx, env=prod, version=v1.2 pod-template-hash=55f89d4fd5 🐳 Container: nginx Image: nginx:latest 🔁 自动重启: 故障时重建 📈 副本控制: 保持3个副本 🔄 滚动更新: 平滑升级 📦 Pod: mysql-0 Controller: StatefulSet 🏷️ app=mysql, statefulset=mysql, ordinal=0 稳定网络ID: mysql-0.mysql-svc 🐳 Container: mysql Image: mysql:8.0 💾 Volume (持久化存储) PVC → PV → 远程存储(OSS/NFS) 🎯 有状态应用: 数据持久化 🔒 稳定标识: 网络ID和存储不变 ⚠️ 注意: Redis内存数据不适合StatefulSet 📋 ConfigMap + 🔐 Secret 配置分离: 修改配置 → 重载Pod (无需重新编译) ConfigMap: 明文配置 (DB_HOST, PORT) Secret: Base64编码敏感信息 (PASSWORD) 🖥️ Worker Node 2 (工作节点) - cd-038118-* 🏷️ 标签: nodetype=common | app=goc | kubernetes.io/hostname=cd-038118-* 🔧 kubelet | 🔀 kube-proxy (同节点Pod路由) | 🐳 container runtime 📦 Pod: goc-app-xxx Controller: Deployment 🏷️ app=goc, env=test, version=v1.2 🐳 Main: goc:v1.2 业务容器 🐳 Sidecar: log-collector 📦 Pod: goc-app-yyy Controller: Deployment 🏷️ app=goc, env=test, version=v1.2 🐳 Main: goc:v1.2 🐳 Sidecar: log-collector 🔗 Service: goc-svc (ClusterIP) Selector: app=goc → 自动关联这两个Pod作为后端 负载均衡: 流量分发到 goc-app-xxx 和 goc-app-yyy 🔄 网络流量路径 &amp; 核心机制: 外部访问: 用户 → Ingress(域名) → Service(NodePort/LoadBalancer) → Pod 内部通信: Pod A → Service(ClusterIP) → kube-proxy(负载均衡) → Pod B (同节点优先路由) Pod IP不稳定: Pod重建后IP变化 → 通过Service稳定访问 → DNS: mysql-svc.production.svc.cluster.local 有状态应用: StatefulSet保证每个Pod有稳定网络ID(mysql-0.mysql-svc)和持久化存储 配置管理: ConfigMap/Secret挂载为环境变量或文件 → 修改后重载Pod → 无需重新编译镜像","headline":"浮名浮利，休苦劳神。叹隙中驹，石中火，梦中身。 ## 原文语境","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/%E8%AF%97%E8%AF%8D/%E8%B5%8F%E6%9E%90/%E6%B5%AE%E5%90%8D%E6%B5%AE%E5%88%A9-%E4%BC%91%E8%8B%A6%E5%8A%B3%E7%A5%9E-%E5%8F%B9%E9%9A%99%E4%B8%AD%E9%A9%B9-%E7%9F%B3%E4%B8%AD%E7%81%AB-%E6%A2%A6%E4%B8%AD%E8%BA%AB-%E5%8E%9F%E6%96%87%E8%AF%AD%E5%A2%83/"},"url":"http://localhost:4000/%E8%AF%97%E8%AF%8D/%E8%B5%8F%E6%9E%90/%E6%B5%AE%E5%90%8D%E6%B5%AE%E5%88%A9-%E4%BC%91%E8%8B%A6%E5%8A%B3%E7%A5%9E-%E5%8F%B9%E9%9A%99%E4%B8%AD%E9%A9%B9-%E7%9F%B3%E4%B8%AD%E7%81%AB-%E6%A2%A6%E4%B8%AD%E8%BA%AB-%E5%8E%9F%E6%96%87%E8%AF%AD%E5%A2%83/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-03-28T17:55:25+08:00","datePublished":"2026-03-23T23:02:00+08:00","description":"Kubernetes 完整架构图（含所有核心组件） 🌐 外部访问层 (External Access) 🔀 Ingress 域名路由 + SSL证书 + 负载均衡 👤 外部用户 https://api.example.com Service Types: ClusterIP(内部) | NodePort(节点端口) | LoadBalancer(云负载) | ExternalName(外部域名) NodePort: http://NodeIP:30080 → 映射到 Service:80 🔷 Kubernetes Cluster (集群边界) 🎛️ Master Node (控制平面) - 集群大脑，管理所有资源 🔷 kube-apiserver 集群API网关/入口 认证、授权、访问控制 所有组件通信枢纽 kubectl → apiserver 📅 Scheduler 调度器 监控节点资源 Pod → 最优Node 调度策略：资源最多 🎮 Controller Manager 控制器管理器 管理资源状态 故障检测与恢复 Deployment/StatefulSet 💾 etcd 键值存储 (类似Redis) 存储集群所有状态 Pod/Node/Service配置 不存应用数据 ☁️ Cloud Controller 云控制器 (可选) 对接云平台API AWS/Azure/GCP LoadBalancer provision 🖥️ Worker Node 1 (工作节点) - cd-032112-* 🏷️ 标签: nodetype=common | usage=db | number=112 🔧 kubelet (管理Pod) | 🔀 kube-proxy (网络代理/负载均衡) | 🐳 container runtime (Docker/containerd) 📦 Pod: nginx-xxx Controller: Deployment 🏷️ app=nginx, env=prod, version=v1.2 pod-template-hash=55f89d4fd5 🐳 Container: nginx Image: nginx:latest 🔁 自动重启: 故障时重建 📈 副本控制: 保持3个副本 🔄 滚动更新: 平滑升级 📦 Pod: mysql-0 Controller: StatefulSet 🏷️ app=mysql, statefulset=mysql, ordinal=0 稳定网络ID: mysql-0.mysql-svc 🐳 Container: mysql Image: mysql:8.0 💾 Volume (持久化存储) PVC → PV → 远程存储(OSS/NFS) 🎯 有状态应用: 数据持久化 🔒 稳定标识: 网络ID和存储不变 ⚠️ 注意: Redis内存数据不适合StatefulSet 📋 ConfigMap + 🔐 Secret 配置分离: 修改配置 → 重载Pod (无需重新编译) ConfigMap: 明文配置 (DB_HOST, PORT) Secret: Base64编码敏感信息 (PASSWORD) 🖥️ Worker Node 2 (工作节点) - cd-038118-* 🏷️ 标签: nodetype=common | app=goc | kubernetes.io/hostname=cd-038118-* 🔧 kubelet | 🔀 kube-proxy (同节点Pod路由) | 🐳 container runtime 📦 Pod: goc-app-xxx Controller: Deployment 🏷️ app=goc, env=test, version=v1.2 🐳 Main: goc:v1.2 业务容器 🐳 Sidecar: log-collector 📦 Pod: goc-app-yyy Controller: Deployment 🏷️ app=goc, env=test, version=v1.2 🐳 Main: goc:v1.2 🐳 Sidecar: log-collector 🔗 Service: goc-svc (ClusterIP) Selector: app=goc → 自动关联这两个Pod作为后端 负载均衡: 流量分发到 goc-app-xxx 和 goc-app-yyy 🔄 网络流量路径 &amp; 核心机制: 外部访问: 用户 → Ingress(域名) → Service(NodePort/LoadBalancer) → Pod 内部通信: Pod A → Service(ClusterIP) → kube-proxy(负载均衡) → Pod B (同节点优先路由) Pod IP不稳定: Pod重建后IP变化 → 通过Service稳定访问 → DNS: mysql-svc.production.svc.cluster.local 有状态应用: StatefulSet保证每个Pod有稳定网络ID(mysql-0.mysql-svc)和持久化存储 配置管理: ConfigMap/Secret挂载为环境变量或文件 → 修改后重载Pod → 无需重新编译镜像","headline":"浮名浮利，休苦劳神。叹隙中驹，石中火，梦中身。 ## 原文语境","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/%E8%AF%97%E8%AF%8D/%E8%B5%8F%E6%9E%90/%E6%B5%AE%E5%90%8D%E6%B5%AE%E5%88%A9-%E4%BC%91%E8%8B%A6%E5%8A%B3%E7%A5%9E-%E5%8F%B9%E9%9A%99%E4%B8%AD%E9%A9%B9-%E7%9F%B3%E4%B8%AD%E7%81%AB-%E6%A2%A6%E4%B8%AD%E8%BA%AB-%E5%8E%9F%E6%96%87%E8%AF%AD%E5%A2%83/"},"url":"http://localhost:4000/%E8%AF%97%E8%AF%8D/%E8%B5%8F%E6%9E%90/%E6%B5%AE%E5%90%8D%E6%B5%AE%E5%88%A9-%E4%BC%91%E8%8B%A6%E5%8A%B3%E7%A5%9E-%E5%8F%B9%E9%9A%99%E4%B8%AD%E9%A9%B9-%E7%9F%B3%E4%B8%AD%E7%81%AB-%E6%A2%A6%E4%B8%AD%E8%BA%AB-%E5%8E%9F%E6%96%87%E8%AF%AD%E5%A2%83/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -355,16 +355,6 @@
         </li>
         <!-- .nav-item -->
       
-        <li class="nav-item">
-          <a href="/sidebar-collapse-guide/" class="nav-link">
-            <i class="fa-fw "></i>
-            
-
-            <span>桌面端侧边栏折叠功能</span>
-          </a>
-        </li>
-        <!-- .nav-item -->
-      
     </ul>
   </nav>
 
@@ -578,6 +568,29 @@
 
       <!-- lastmod date -->
       
+        <span>
+          更新于
+          <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1774691725"
+  data-df="YYYY/MM/DD"
+  
+    data-bs-toggle="tooltip" data-bs-placement="bottom"
+  
+>
+  2026/03/28
+</time>
+
+        </span>
+      
 
       
 
@@ -747,7 +760,7 @@
         
         
         <li class="text-truncate lh-lg">
-          <a href="/%E8%AF%97%E8%AF%8D/%E8%B5%8F%E6%9E%90/%E6%B5%AE%E5%90%8D%E6%B5%AE%E5%88%A9-%E4%BC%91%E8%8B%A6%E5%8A%B3%E7%A5%9E-%E5%8F%B9%E9%9A%99%E4%B8%AD%E9%A9%B9-%E7%9F%B3%E4%B8%AD%E7%81%AB-%E6%A2%A6%E4%B8%AD%E8%BA%AB/">浮名浮利，休苦劳神。叹隙中驹，石中火，梦中身。</a>
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/protojson%E8%A7%A3%E6%9E%90%E5%BA%93/">protojson解析库</a>
         </li>
       
         
@@ -761,21 +774,21 @@
         
         
         <li class="text-truncate lh-lg">
+          <a href="/jekyll/chirpy%E4%BD%BF%E7%94%A8/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%BE%A7%E8%BE%B9%E6%A0%8F%E6%8A%98%E5%8F%A0%E5%8A%9F%E8%83%BD/">桌面端侧边栏折叠功能说明</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/%E8%AF%97%E8%AF%8D/%E8%B5%8F%E6%9E%90/%E6%B5%AE%E5%90%8D%E6%B5%AE%E5%88%A9-%E4%BC%91%E8%8B%A6%E5%8A%B3%E7%A5%9E-%E5%8F%B9%E9%9A%99%E4%B8%AD%E9%A9%B9-%E7%9F%B3%E4%B8%AD%E7%81%AB-%E6%A2%A6%E4%B8%AD%E8%BA%AB/">浮名浮利，休苦劳神。叹隙中驹，石中火，梦中身。</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/openclaw/openclaw-docker-deployment/">openclaw项目文件说明</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%84%E5%88%99/%E7%BB%93%E6%9E%84%E4%BD%93/">结构体</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E9%BB%98%E8%AE%A4%E5%80%BC/">默认值</a>
         </li>
       
     </ul>
