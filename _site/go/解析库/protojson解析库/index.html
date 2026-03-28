@@ -292,6 +292,12 @@
     <!-- The Side Bar -->
 
 <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
+  <!-- Desktop collapse button -->
+  <button id="sidebar-collapse" class="btn" aria-label="Collapse Sidebar" title="折叠侧边栏">
+    <i class="fas fa-angle-double-left"></i>
+  </button>
+  <!-- .sidebar-collapse -->
+
   <header class="profile-wrapper"><h1 class="site-title">
         <a href="/">&#8203;</a>
       </h1><p class="site-subtitle mb-0">叹隙中骑，石中火，梦中身。</p>
@@ -345,6 +351,16 @@
             
 
             <span>工具</span>
+          </a>
+        </li>
+        <!-- .nav-item -->
+      
+        <li class="nav-item">
+          <a href="/sidebar-collapse-guide/" class="nav-link">
+            <i class="fa-fw "></i>
+            
+
+            <span>桌面端侧边栏折叠功能</span>
           </a>
         </li>
         <!-- .nav-item -->
@@ -730,9 +746,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="515 字"
+  title="888 字"
 >
-  <em>2 分钟</em>阅读</span>
+  <em>4 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -970,6 +986,85 @@
 
 <p><a href="https://github.com/Auroraol/Drawing-bed/raw/main/img/image-20251129175112804.png" class="popup img-link  shimmer"><img src="https://github.com/Auroraol/Drawing-bed/raw/main/img/image-20251129175112804.png" alt="image-20251129175112804" loading="lazy"></a></p>
 
+<div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>body: { "msg_id": "1774405167106521", "request_id": "", "user_name": "顺然旗舰店", "vender_id": "", "app": "mindflow", "shop_id": "662f5c2dc38b2037c947a2bc", "from_pin": "顺然旗舰店:慕斯", "to_pin": "one_id_299502931", "action_list": [{ "action_type": "ACTION_TYPE_SEND_MSG", "timestamp": "1774405139496", "timeout": 1, "send_msg_action": { "msg_info": { "msg_type": "SEND_MSG_TYPE_TEXT", "msg_sub_type": "SEND_MSG_SUB_TYPE_DEFAULT", "text": { "content": "好的呢~" }, "ref_msg_id": "" }, "delay": 0, "confirm": false, "is_not_clear_timing": false, "is_not_clear_light": false }, "business": "BUSINESS_ROBOT", "action_id": "900322a1-ddf8-483d-b295-2b889e8f76e1", "only_client": false, "extra_data": { "channel": "pulsar", "msg_scenes_source": "7.18.0" } }], "platform": "tb", "plat_shop_id": "662f5c2dc38b2037c947a2bc", "chat_type": "CHAT_SESSION_TYPE_UNKNOWN", "plat_session_id": "" }
+</pre></td></tr></tbody></table></code></div></div>
+
+<div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>// protobuf tag 中的定义
+protobuf:"bytes,1,opt,name=msg_id,json=msgId,proto3"
+//                      ↑            ↑
+//                   原始名       JSON 映射名
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>protojson.Unmarshal 的智能行为
+关键点：protojson 会同时尝试匹配两种格式！
+优先匹配 JSON 名称（json=msgId）
+如果找不到，会尝试 protobuf 原始名称（name=msg_id）</p>
+
+<p><code class="language-plaintext highlighter-rouge collapsible-container">rotojson.Unmarshal</code> 确实会<strong>同时尝试两种名称格式</strong>，并且遵循<strong>JSON 名称优先</strong>的匹配策略。</p>
+
+<p>匹配优先级（从高到低）</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th style="text-align: left">优先级</th>
+      <th style="text-align: left">名称类型</th>
+      <th style="text-align: left">来源</th>
+      <th style="text-align: left">示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>1</strong></td>
+      <td style="text-align: left"><strong>JSON 名称</strong></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">json_name</code> 选项 或 驼峰自动转换</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">msgId</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>2</strong></td>
+      <td style="text-align: left"><strong>Protobuf 原始名称</strong></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">.proto</code> 文件中的字段名</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge collapsible-container">msg_id</code></td>
+    </tr>
+  </tbody>
+</table></div>
+
+<h1 id="未知字段">未知字段</h1>
+
+<p>默认配置（当前代码）</p>
+
+<p>err = protojson.Unmarshal(body, req)</p>
+
+<p>DiscardUnknown: false（默认）
+行为：会报错，提示遇到未知字段</p>
+
+<p>显式忽略未知字段</p>
+
+<p>unmarshalOpt := protojson.UnmarshalOptions{
+    DiscardUnknown: true,  // ← 忽略未知字段
+}
+err = unmarshalOpt.Unmarshal(body, req)</p>
+
+<p>行为：不会报错，直接忽略 unknown_field</p>
+
+<p>严格模式</p>
+
+<p>unmarshalOpt := protojson.UnmarshalOptions{
+    DiscardUnknown: false,  // 不忽略
+    AllowPartial:   false,  // 严格要求所有必填字段
+}
+err = unmarshalOpt.Unmarshal(body, req)</p>
+
+<p>行为：会报错，如果有未知字段或缺少必填字段</p>
 
   </div>
 
@@ -1076,6 +1171,20 @@
         
         
         <li class="text-truncate lh-lg">
+          <a href="/%E8%AF%97%E8%AF%8D/%E8%B5%8F%E6%9E%90/%E6%B5%AE%E5%90%8D%E6%B5%AE%E5%88%A9-%E4%BC%91%E8%8B%A6%E5%8A%B3%E7%A5%9E-%E5%8F%B9%E9%9A%99%E4%B8%AD%E9%A9%B9-%E7%9F%B3%E4%B8%AD%E7%81%AB-%E6%A2%A6%E4%B8%AD%E8%BA%AB/">浮名浮利，休苦劳神。叹隙中驹，石中火，梦中身。</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/%E8%AF%97%E8%AF%8D/%E8%B5%8F%E6%9E%90/%E6%B5%AE%E5%90%8D%E6%B5%AE%E5%88%A9-%E4%BC%91%E8%8B%A6%E5%8A%B3%E7%A5%9E-%E5%8F%B9%E9%9A%99%E4%B8%AD%E9%A9%B9-%E7%9F%B3%E4%B8%AD%E7%81%AB-%E6%A2%A6%E4%B8%AD%E8%BA%AB-%E5%8E%9F%E6%96%87%E8%AF%AD%E5%A2%83/">浮名浮利，休苦劳神。叹隙中驹，石中火，梦中身。  ## 原文语境</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/openclaw/openclaw-docker-deployment/">openclaw项目文件说明</a>
         </li>
       
@@ -1091,20 +1200,6 @@
         
         <li class="text-truncate lh-lg">
           <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E9%BB%98%E8%AE%A4%E5%80%BC/">默认值</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%84%E5%88%99/%E5%88%87%E7%89%87/">切片</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/agent/langchain%E8%A7%A3%E6%9E%90/MCP/">03_LangChain-MCP解析</a>
         </li>
       
     </ul>
@@ -1432,6 +1527,17 @@
     
     
     
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
   
     
     
@@ -1461,6 +1567,665 @@
     
     
     
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -1517,142 +2282,6 @@
     
     
       
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
     
   
     
@@ -1686,7 +2315,16 @@
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E5%AE%8B%E8%AF%8D/">宋词</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E8%8B%8F%E8%BD%BC/">苏轼</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E8%A1%8C%E9%A6%99%E5%AD%90/">行香子</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/context/">Context</a>
@@ -1696,15 +2334,6 @@
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/go-gui%E6%A1%86%E6%9E%B6-fyne/">go-GUI框架-fyne</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/goland/">Goland</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
     </div>
   </section>
@@ -2624,6 +3253,17 @@ import (
     
     
     
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
   
     
     
@@ -2653,6 +3293,665 @@ import (
     
     
     
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -2709,142 +4008,6 @@ import (
     
     
       
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
     
   
     
@@ -2878,7 +4041,16 @@ import (
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E5%AE%8B%E8%AF%8D/">宋词</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E8%8B%8F%E8%BD%BC/">苏轼</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E8%A1%8C%E9%A6%99%E5%AD%90/">行香子</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/context/">Context</a>
@@ -2888,15 +4060,6 @@ import (
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/go-gui%E6%A1%86%E6%9E%B6-fyne/">go-GUI框架-fyne</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/goland/">Goland</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
     </div>
   </section>

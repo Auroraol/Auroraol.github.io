@@ -200,3 +200,53 @@ details.details-block[open] > summary{
 @keyframes my-cat {
     50%  { transform: scale(1.2); } /* 动画效果代码 */
 }
+
+/* Desktop sidebar collapse functionality */
+$sidebar-collapsed-width: 0;
+
+// Collapse button styling
+#sidebar-collapse {
+  display: none;
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--sidebar-btn-bg);
+  color: var(--sidebar-btn-color);
+  border: 1px solid var(--sidebar-border-color);
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 100;
+
+  &:hover {
+    background-color: var(--sidebar-hover-bg);
+    transform: scale(1.1);
+  }
+
+  i {
+    transition: transform 0.3s ease;
+  }
+}
+
+// Desktop sidebar collapsed state
+@media all and (min-width: 850px) {
+  #sidebar-collapse {
+    display: block;
+  }
+
+  body[data-sidebar-collapsed='true'] {
+    #sidebar {
+      transform: translateX(-$sidebar-width);
+    }
+
+    #main-wrapper {
+      margin-left: 0;
+    }
+
+    #sidebar-collapse i {
+      transform: rotate(180deg);
+    }
+  }
+}
