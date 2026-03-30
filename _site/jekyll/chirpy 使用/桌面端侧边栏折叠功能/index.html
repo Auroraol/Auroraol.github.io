@@ -42,7 +42,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="桌面端侧边栏折叠功能说明" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-03-28T00:00:00+08:00","datePublished":"2026-03-28T00:00:00+08:00","description":"桌面端侧边栏折叠功能说明","headline":"桌面端侧边栏折叠功能说明","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/jekyll/chirpy%20%E4%BD%BF%E7%94%A8/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%BE%A7%E8%BE%B9%E6%A0%8F%E6%8A%98%E5%8F%A0%E5%8A%9F%E8%83%BD/"},"url":"http://localhost:4000/jekyll/chirpy%20%E4%BD%BF%E7%94%A8/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%BE%A7%E8%BE%B9%E6%A0%8F%E6%8A%98%E5%8F%A0%E5%8A%9F%E8%83%BD/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-03-28T18:18:30+08:00","datePublished":"2026-03-28T00:00:00+08:00","description":"桌面端侧边栏折叠功能说明","headline":"桌面端侧边栏折叠功能说明","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/jekyll/chirpy%20%E4%BD%BF%E7%94%A8/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%BE%A7%E8%BE%B9%E6%A0%8F%E6%8A%98%E5%8F%A0%E5%8A%9F%E8%83%BD/"},"url":"http://localhost:4000/jekyll/chirpy%20%E4%BD%BF%E7%94%A8/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%BE%A7%E8%BE%B9%E6%A0%8F%E6%8A%98%E5%8F%A0%E5%8A%9F%E8%83%BD/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -940,6 +940,29 @@
 
       <!-- lastmod date -->
       
+        <span>
+          更新于
+          <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1774693110"
+  data-df="YYYY/MM/DD"
+  
+    data-bs-toggle="tooltip" data-bs-placement="bottom"
+  
+>
+  2026/03/28
+</time>
+
+        </span>
+      
 
       
 
@@ -982,9 +1005,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="2086 字"
+  title="2478 字"
 >
-  <em>11 分钟</em>阅读</span>
+  <em>13 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -1002,11 +1025,13 @@
 
 <h3 id="折叠展开侧边栏"><span class="me-2">折叠/展开侧边栏</span><a href="#折叠展开侧边栏" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<p>在桌面端（屏幕宽度 ≥ 850px），侧边栏右上角会显示一个折叠按钮：</p>
+<p>在桌面端（屏幕宽度 ≥ 850px），将鼠标悬停在<strong>侧边栏顶部区域</strong>时，会显示一个折叠按钮：</p>
 
 <ul>
   <li><strong>点击按钮</strong>：折叠侧边栏，获得更大的内容区域</li>
   <li><strong>再次点击</strong>：展开侧边栏，恢复导航功能</li>
+  <li><strong>精确触发</strong>: 只在侧边栏顶部约 120px 范围内悬停才会显示按钮</li>
+  <li><strong>默认隐藏</strong>: 按钮默认不可见，保持界面简洁</li>
 </ul>
 
 <h3 id="自动记忆状态"><span class="me-2">自动记忆状态</span><a href="#自动记忆状态" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
@@ -1036,10 +1061,13 @@
 <h3 id="2-css-样式"><span class="me-2">2. CSS 样式</span><a href="#2-css-样式" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <ul>
-  <li>按钮默认隐藏在侧边栏右上角</li>
-  <li>折叠时侧边栏向左滑出视野</li>
-  <li>主内容区域自动扩展占满全屏</li>
-  <li>按钮图标会旋转 180 度提示状态</li>
+  <li><strong>触发区域</strong>: 在侧边栏顶部设置 120px 高的隐藏触发区域</li>
+  <li><strong>精确触发</strong>: 只有鼠标悬停在顶部区域时才显示按钮</li>
+  <li><strong>默认隐藏</strong>: 按钮默认透明隐藏，保持界面简洁</li>
+  <li><strong>双重悬停</strong>: 触发区域悬停或按钮自身悬停都会显示</li>
+  <li><strong>折叠动画</strong>: 折叠时侧边栏向左滑出视野</li>
+  <li><strong>内容扩展</strong>: 主内容区域自动扩展占满全屏</li>
+  <li><strong>图标旋转</strong>: 按钮图标会旋转 180 度提示状态</li>
 </ul>
 
 <h3 id="3-javascript-逻辑"><span class="me-2">3. JavaScript 逻辑</span><a href="#3-javascript-逻辑" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
@@ -1117,7 +1145,7 @@
 
 <h2 id="步骤-1-修改侧边栏模板"><span class="me-2">步骤 1: 修改侧边栏模板</span><a href="#步骤-1-修改侧边栏模板" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p>编辑 <code class="language-plaintext highlighter-rouge collapsible-container">_includes/sidebar.html</code> 文件，在侧边栏顶部添加折叠按钮：</p>
+<p>编辑 <code class="language-plaintext highlighter-rouge collapsible-container">_includes/sidebar.html</code> 文件，在侧边栏顶部添加折叠按钮和触发区域:</p>
 
 <div class="language-html highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="HTML"><i class="fas fa-code fa-fw small"></i></span>
@@ -1136,9 +1164,15 @@
 13
 14
 15
+16
+17
+18
 </pre></td><td class="rouge-code"><pre><span class="c">&lt;!-- The Side Bar --&gt;</span>
 
 <span class="nt">&lt;aside</span> <span class="na">aria-label=</span><span class="s">"Sidebar"</span> <span class="na">id=</span><span class="s">"sidebar"</span> <span class="na">class=</span><span class="s">"d-flex flex-column align-items-end"</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- Desktop collapse trigger area --&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"sidebar-collapse-trigger"</span> <span class="na">title=</span><span class="s">"悬停显示折叠按钮"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  
   <span class="c">&lt;!-- Desktop collapse button --&gt;</span>
   <span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"sidebar-collapse"</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">aria-label=</span><span class="s">"Collapse Sidebar"</span> <span class="na">title=</span><span class="s">"折叠侧边栏"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fas fa-angle-double-left"</span><span class="nt">&gt;&lt;/i&gt;</span>
@@ -1155,6 +1189,7 @@
 
 <p><strong>关键点</strong>:</p>
 <ul>
+  <li><code class="language-plaintext highlighter-rouge collapsible-container">sidebar-collapse-trigger</code>: 隐藏的触发区域，只在侧边栏顶部，鼠标悬停时才显示按钮</li>
   <li>按钮 ID 必须为 <code class="language-plaintext highlighter-rouge collapsible-container">sidebar-collapse</code>，以便 JavaScript 能够定位</li>
   <li>使用 Font Awesome 图标 <code class="language-plaintext highlighter-rouge collapsible-container">fa-angle-double-left</code> 表示折叠</li>
   <li>添加 <code class="language-plaintext highlighter-rouge collapsible-container">aria-label</code> 和 <code class="language-plaintext highlighter-rouge collapsible-container">title</code> 提升可访问性</li>
@@ -1215,8 +1250,45 @@
 47
 48
 49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
 </pre></td><td class="rouge-code"><pre><span class="cm">/* Desktop sidebar collapse functionality */</span>
 <span class="nv">$sidebar-collapsed-width</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+
+<span class="c1">// 添加一个悬停触发区域</span>
+<span class="nn">#sidebar-collapse-trigger</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+  <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
+  <span class="nl">top</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">left</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+  <span class="nl">height</span><span class="p">:</span> <span class="m">120px</span><span class="p">;</span> <span class="c1">// 只在顶部 120px 范围内触发</span>
+  <span class="nl">z-index</span><span class="p">:</span> <span class="m">99</span><span class="p">;</span>
+  <span class="nl">cursor</span><span class="p">:</span> <span class="nb">pointer</span><span class="p">;</span>
+<span class="p">}</span>
 
 <span class="c1">// Collapse button styling</span>
 <span class="nn">#sidebar-collapse</span> <span class="p">{</span>
@@ -1233,10 +1305,12 @@
   <span class="nl">cursor</span><span class="p">:</span> <span class="nb">pointer</span><span class="p">;</span>
   <span class="nl">transition</span><span class="p">:</span> <span class="n">all</span> <span class="m">0</span><span class="mi">.3s</span> <span class="n">ease</span><span class="p">;</span>
   <span class="nl">z-index</span><span class="p">:</span> <span class="m">100</span><span class="p">;</span>
+  <span class="nl">opacity</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span> <span class="c1">// 默认透明隐藏</span>
 
   <span class="k">&amp;</span><span class="nd">:hover</span> <span class="p">{</span>
     <span class="nl">background-color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">sidebar-hover-bg</span><span class="p">);</span>
     <span class="nl">transform</span><span class="p">:</span> <span class="nf">scale</span><span class="p">(</span><span class="m">1</span><span class="mi">.1</span><span class="p">);</span>
+    <span class="nl">opacity</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span> <span class="c1">// 悬停时显示</span>
   <span class="p">}</span>
 
   <span class="nt">i</span> <span class="p">{</span>
@@ -1246,8 +1320,19 @@
 
 <span class="c1">// Desktop sidebar collapsed state</span>
 <span class="k">@media</span> <span class="n">all</span> <span class="nf">and</span> <span class="p">(</span><span class="n">min-width</span><span class="o">:</span> <span class="m">850px</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nn">#sidebar-collapse</span> <span class="p">{</span>
+  <span class="nn">#sidebar-collapse</span><span class="o">,</span>
+  <span class="nn">#sidebar-collapse-trigger</span> <span class="p">{</span>
     <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 当鼠标悬停在侧边栏顶部区域时显示按钮</span>
+  <span class="nn">#sidebar-collapse-trigger</span><span class="nd">:hover</span> <span class="o">~</span> <span class="nn">#sidebar-collapse</span> <span class="p">{</span>
+    <span class="nl">opacity</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 按钮自身悬停时也保持显示</span>
+  <span class="nn">#sidebar-collapse</span><span class="nd">:hover</span> <span class="p">{</span>
+    <span class="nl">opacity</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="nt">body</span><span class="o">[</span><span class="nt">data-sidebar-collapsed</span><span class="o">=</span><span class="s1">'true'</span><span class="o">]</span> <span class="p">{</span>
@@ -1268,8 +1353,12 @@
 
 <p><strong>样式说明</strong>:</p>
 <ul>
+  <li><code class="language-plaintext highlighter-rouge collapsible-container">#sidebar-collapse-trigger</code>: 隐藏的触发区域，只在侧边栏顶部 120px 范围</li>
   <li><code class="language-plaintext highlighter-rouge collapsible-container">#sidebar-collapse</code>: 折叠按钮的基本样式，包括位置、颜色、过渡动画</li>
-  <li><code class="language-plaintext highlighter-rouge collapsible-container">@media all and (min-width: 850px)</code>: 仅在桌面端显示按钮</li>
+  <li><code class="language-plaintext highlighter-rouge collapsible-container">opacity: 0</code>: 默认透明隐藏，保持界面简洁</li>
+  <li><code class="language-plaintext highlighter-rouge collapsible-container">#sidebar-collapse-trigger:hover ~ #sidebar-collapse</code>: 当鼠标悬停在顶部区域时显示按钮</li>
+  <li><code class="language-plaintext highlighter-rouge collapsible-container">#sidebar-collapse:hover</code>: 按钮自身悬停时也保持显示</li>
+  <li><code class="language-plaintext highlighter-rouge collapsible-container">@media all and (min-width: 850px)</code>: 仅在桌面端显示按钮和触发区域</li>
   <li><code class="language-plaintext highlighter-rouge collapsible-container">body[data-sidebar-collapsed='true']</code>: 折叠状态下的样式规则
     <ul>
       <li>侧边栏向左平移隐藏 (<code class="language-plaintext highlighter-rouge collapsible-container">translateX(-$sidebar-width)</code>)</li>
@@ -1703,21 +1792,14 @@ bundle <span class="nb">exec </span>jekyll serve
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/protojson%E8%A7%A3%E6%9E%90%E5%BA%93/">protojson解析库</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/%E8%AF%97%E8%AF%8D/%E8%B5%8F%E6%9E%90/%E6%B5%AE%E5%90%8D%E6%B5%AE%E5%88%A9-%E4%BC%91%E8%8B%A6%E5%8A%B3%E7%A5%9E-%E5%8F%B9%E9%9A%99%E4%B8%AD%E9%A9%B9-%E7%9F%B3%E4%B8%AD%E7%81%AB-%E6%A2%A6%E4%B8%AD%E8%BA%AB-%E5%8E%9F%E6%96%87%E8%AF%AD%E5%A2%83/">浮名浮利，休苦劳神。叹隙中驹，石中火，梦中身。  ## 原文语境</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
           <a href="/jekyll/chirpy%20%E4%BD%BF%E7%94%A8/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%BE%A7%E8%BE%B9%E6%A0%8F%E6%8A%98%E5%8F%A0%E5%8A%9F%E8%83%BD/">桌面端侧边栏折叠功能说明</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/protojson%E8%A7%A3%E6%9E%90%E5%BA%93/">protojson解析库</a>
         </li>
       
         
@@ -1732,6 +1814,13 @@ bundle <span class="nb">exec </span>jekyll serve
         
         <li class="text-truncate lh-lg">
           <a href="/openclaw/openclaw-docker-deployment/">openclaw项目文件说明</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/go/%E8%A7%84%E5%88%99/%E7%BB%93%E6%9E%84%E4%BD%93/">结构体</a>
         </li>
       
     </ul>
@@ -2059,657 +2148,11 @@ bundle <span class="nb">exec </span>jekyll serve
     
     
     
-      
-        
-        
-
   
     
     
     
     
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2735,29 +2178,10 @@ bundle <span class="nb">exec </span>jekyll serve
     
     
     
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
-    
     
     
     
-      
     
   
     
@@ -2814,6 +2238,142 @@ bundle <span class="nb">exec </span>jekyll serve
     
     
       
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
     
   
     
@@ -2847,16 +2407,7 @@ bundle <span class="nb">exec </span>jekyll serve
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E5%AE%8B%E8%AF%8D/">宋词</a>
-      
-        
         <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E8%8B%8F%E8%BD%BC/">苏轼</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E8%A1%8C%E9%A6%99%E5%AD%90/">行香子</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/context/">Context</a>
@@ -2866,6 +2417,15 @@ bundle <span class="nb">exec </span>jekyll serve
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/go-gui%E6%A1%86%E6%9E%B6-fyne/">go-GUI框架-fyne</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/goland/">Goland</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
     </div>
   </section>
@@ -3622,657 +3182,11 @@ contact.yml直接关联着网站左下角的链接，只保留github和email。�
     
     
     
-      
-        
-        
-
   
     
     
     
     
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -4298,29 +3212,10 @@ contact.yml直接关联着网站左下角的链接，只保留github和email。�
     
     
     
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
-    
     
     
     
-      
     
   
     
@@ -4377,6 +3272,142 @@ contact.yml直接关联着网站左下角的链接，只保留github和email。�
     
     
       
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
     
   
     
@@ -4410,16 +3441,7 @@ contact.yml直接关联着网站左下角的链接，只保留github和email。�
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E5%AE%8B%E8%AF%8D/">宋词</a>
-      
-        
         <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E8%8B%8F%E8%BD%BC/">苏轼</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E8%A1%8C%E9%A6%99%E5%AD%90/">行香子</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/context/">Context</a>
@@ -4429,6 +3451,15 @@ contact.yml直接关联着网站左下角的链接，只保留github和email。�
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/go-gui%E6%A1%86%E6%9E%B6-fyne/">go-GUI框架-fyne</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/goland/">Goland</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
     </div>
   </section>

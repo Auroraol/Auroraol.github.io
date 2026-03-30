@@ -201,52 +201,118 @@ details.details-block[open] > summary{
     50%  { transform: scale(1.2); } /* 动画效果代码 */
 }
 
-/* Desktop sidebar collapse functionality */
-$sidebar-collapsed-width: 0;
+/* Desktop sidebar collapse button */
 
-// Collapse button styling
-#sidebar-collapse {
-  display: none;
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  padding: 0.25rem 0.5rem;
-  background-color: var(--sidebar-btn-bg);
-  color: var(--sidebar-btn-color);
-  border: 1px solid var(--sidebar-border-color);
-  border-radius: 0.375rem;
-  font-size: 0.875rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 100;
-
-  &:hover {
-    background-color: var(--sidebar-hover-bg);
-    transform: scale(1.1);
-  }
-
-  i {
-    transition: transform 0.3s ease;
-  }
-}
-
-// Desktop sidebar collapsed state
+// Only show on desktop
 @media all and (min-width: 850px) {
+  // The button sits fixed at the sidebar's right edge.
+  // It is invisible by default; it reveals itself only when
+  // the mouse enters its own hit area (a generous invisible padding zone).
   #sidebar-collapse {
-    display: block;
+    position: fixed;
+    top: 50%;
+    left: calc(#{$sidebar-width} - 1rem);
+    transform: translateY(-50%);
+    z-index: 200;
+    // Visible size
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 1px solid var(--sidebar-border-color);
+    background: var(--sidebar-bg);
+    color: var(--sidebar-muted-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    cursor: pointer;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.12);
+    // Hidden by default
+    opacity: 0;
+    // Keep pointer-events ON so the element itself can receive hover
+    pointer-events: auto;
+    transition:
+      opacity 0.2s ease-in-out,
+      background-color 0.2s ease-in-out,
+      color 0.2s ease-in-out,
+      left 0.3s ease-in-out;
+
+    // Expand the mouse hit-area with an invisible pseudo-element
+    // so the user can hover near the edge to trigger the button
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 3rem;   // wider than the button
+      height: 6rem;  // taller than the button — vertical strip
+      border-radius: 0;
+      background: transparent;
+    }
+
+    // Show when mouse is over the button (or its expanded hit area)
+    &:hover {
+      opacity: 1;
+      background-color: var(--sidebar-hover-bg);
+      color: var(--sidebar-active-color);
+    }
+
+    i {
+      font-size: 0.75rem;
+      transition: transform 0.3s ease-in-out;
+    }
   }
 
+  // Collapsed state
   body[data-sidebar-collapsed='true'] {
     #sidebar {
-      transform: translateX(-$sidebar-width);
+      width: 0;
+      overflow: hidden;
+      border-right: none;
     }
 
     #main-wrapper {
       margin-left: 0;
     }
 
-    #sidebar-collapse i {
-      transform: rotate(180deg);
+    #topbar-wrapper {
+      left: 0;
     }
+
+    // When collapsed: always show the button so user can reopen
+    #sidebar-collapse {
+      left: 0;
+      border-radius: 0 50% 50% 0;
+      opacity: 1;
+      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+
+      i {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+// Adjust collapse button position for large sidebar (>= 1650px)
+@media all and (min-width: 1650px) {
+  #sidebar-collapse {
+    left: calc(#{$sidebar-width-large} - 1rem);
+  }
+
+  body[data-sidebar-collapsed='true'] #sidebar-collapse {
+    left: 0;
+  }
+}
+
+
+// Adjust collapse button position for large sidebar (>= 1650px)
+@media all and (min-width: 1650px) {
+  #sidebar-collapse {
+    left: calc(#{-width-large} - 1rem);
+  }
+
+  body[data-sidebar-collapsed="true"] #sidebar-collapse {
+    left: 0;
   }
 }
