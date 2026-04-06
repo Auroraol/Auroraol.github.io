@@ -8,14 +8,12 @@
 - 被映射到了提供这种服务能力的一组容器应用上；
 
 如果 Service 要提供外网服务，需指定公共 IP 和 NodePort，或外部负载均衡器；
-<a name="842d0a87"></a>
 ## 服务中的 3 种端口
 
 - **port** 这里的 port 表示：service 暴露在 cluster ip 上的端口，`<cluster ip>:port` 是提供给集群内部客户访问 service 的入口。
 - **nodePort** nodePort 是 kubernetes 提供给集群外部客户访问 service 入口的一种方式（另一种方式是 LoadBalancer），所以，`<nodeIP>:nodePort` 是提供给集群外部客户访问 service 的入口。
 - **targetPort** targetPort 很好理解，targetPort 是 pod 上的端口，从 port 和 nodePort 上到来的数据最终经过 kube-proxy 流入到后端 pod 的 targetPort 上进入容器。
 
-<a name="e0b6a599"></a>
 ## NodePort Service
 
 NodePort Service 顾名思义，实质上就是通过在集群的每个 node 上暴露一个端口，然后将这个端口映射到某个具体的 service 来实现的，虽然每个 node 的端口有很多(0~65535)，但是由于安全性和易用性(服务多了就乱了，还有端口冲突问题)实际使用可能并不多。
