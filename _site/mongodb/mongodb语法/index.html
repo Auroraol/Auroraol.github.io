@@ -539,6 +539,72 @@
 
       
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
 
     
   
@@ -663,9 +729,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="609 字"
+  title="749 字"
 >
-  <em>3 分钟</em>阅读</span>
+  <em>4 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -675,7 +741,7 @@
   <script src="/assets/js/dist/collapsible.js"></script><div class="content">
     <h1 id="语法">语法</h1>
 
-<p><strong>基本格式</strong></p>
+<h2 id="基本格式"><span class="me-2"><strong>基本格式</strong></span><a href="#基本格式" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
@@ -683,7 +749,7 @@
 </pre></td><td class="rouge-code"><pre>db.集合名.find({ &lt;条件&gt; })
 </pre></td></tr></tbody></table></code></div></div>
 
-<p><strong>等值匹配</strong> { field : value }</p>
+<h2 id="等值匹配--field--value-"><span class="me-2"><strong>等值匹配</strong> { field : value }</span><a href="#等值匹配--field--value-" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
@@ -691,7 +757,7 @@
 </pre></td><td class="rouge-code"><pre>{ "field" : value }
 </pre></td></tr></tbody></table></code></div></div>
 
-<p><strong>普通对象/数组对象嵌套字段</strong> { class.attribute : value }</p>
+<h2 id="普通对象数组对象嵌套字段--classattribute--value-"><span class="me-2"><strong>普通对象/数组对象嵌套字段</strong> { class.attribute : value }</span><a href="#普通对象数组对象嵌套字段--classattribute--value-" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
@@ -701,7 +767,7 @@
 { "数组名.对象名.属性名": value }
 </pre></td></tr></tbody></table></code></div></div>
 
-<p><strong>比较运算</strong>  { field: { $xx : val } }</p>
+<h2 id="比较运算---field--xx--val--"><span class="me-2"><strong>比较运算</strong>  { field: { $xx : val } }</span><a href="#比较运算---field--xx--val--" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
@@ -711,6 +777,82 @@
 </pre></td><td class="rouge-code"><pre>{ field: { $gt: 0.99 } }   // 大于
 { field: { $lt: 100 } }    // 小于 
 { field: { $in: [1, 2] } } // 在数组中
+</pre></td></tr></tbody></table></code></div></div>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>运算符</th>
+      <th>含义</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">$eq</code></td>
+      <td>等于</td>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">{ field: { $eq: value } }</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">$ne</code></td>
+      <td><strong>不等于</strong></td>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">{ field: { $ne: value } }</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">$gt</code></td>
+      <td>大于</td>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">{ field: { $gt: 0.99 } }</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">$gte</code></td>
+      <td>大于等于</td>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">{ field: { $gte: 100 } }</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">$lt</code></td>
+      <td>小于</td>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">{ field: { $lt: 100 } }</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">$lte</code></td>
+      <td>小于等于</td>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">{ field: { $lte: 50 } }</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">$in</code></td>
+      <td>在数组中</td>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">{ field: { $in: [1, 2, 3] } }</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">$nin</code></td>
+      <td>不在数组中</td>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">{ field: { $nin: [1, 2] } }</code></td>
+    </tr>
+  </tbody>
+</table></div>
+
+<h2 id="插入命令"><span class="me-2"><strong>插入命令</strong></span><a href="#插入命令" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<div class="language-sql highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="n">db</span><span class="p">.</span><span class="n">shop</span><span class="p">.</span><span class="n">updateOne</span><span class="p">(</span>
+    <span class="p">{</span> <span class="n">_id</span><span class="p">:</span> <span class="n">ObjectId</span><span class="p">(</span><span class="nv">"61d689b3ff81eb001f3ba9db"</span><span class="p">)</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="err">$</span><span class="k">set</span><span class="p">:</span> <span class="p">{</span> <span class="n">vender_id</span><span class="p">:</span> <span class="nv">""</span> <span class="p">}</span> <span class="p">}</span>
+<span class="p">)</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="排序命令"><span class="me-2">排序命令</span><a href="#排序命令" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<div class="language-sql highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Sql"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="o">#</span> <span class="err">获取最新的</span>
+<span class="n">db</span><span class="p">.</span><span class="n">sdk_ss_goods</span><span class="p">.</span><span class="n">find</span><span class="p">({</span> <span class="n">shop_id</span><span class="p">:</span> <span class="nv">"632d4d68fef90d00191c8a65"</span> <span class="p">}).</span><span class="n">sort</span><span class="p">({</span> <span class="n">_id</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span> <span class="p">}).</span><span class="k">limit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></td></tr></tbody></table></code></div></div>
 
 <h1 id="示例">示例</h1>

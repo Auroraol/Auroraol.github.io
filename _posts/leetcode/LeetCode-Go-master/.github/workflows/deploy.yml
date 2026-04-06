@@ -1,0 +1,38 @@
+name: Deploy《LeetCode-Cookbook》
+
+on:
+  push:
+    branches:
+      - master  # 只在master上push触发部署
+      - add_hugo
+    paths-ignore:   # 下列文件的变更不触发部署，可以自行添加
+      - README.md
+      - LICENSE
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest   # 使用ubuntu系统镜像运行自动化脚本
+
+    steps:  # 自动化步骤
+    - uses: actions/checkout@v2   # 第一步，下载代码仓库
+
+    - name: Setup Hugo  # 第二步，安装 hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: '0.74.3'
+
+    - name: Build  # 第三步，编译 hugo
+      run: |
+        cd ./website
+        hugo -D --minify
+
+    - name: Deploy to Server  # 第四步，rsync推文件
+      uses: appleboy/ssh-action@v0.1.3  # 使用别人包装好的步骤镜像
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.DEPLOY_KEY }}
+        port: ${{ secrets.SERVER_PORT }}
+        script: |
+          rsync -avz --delete --exclude='*.pyc' ./website/public/ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:${{ secrets.SERVER_DESTINATION }}
