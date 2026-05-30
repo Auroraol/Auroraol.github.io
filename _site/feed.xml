@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>&amp;#8203;</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2026-04-06T23:24:55+08:00</updated>
+  <updated>2026-05-30T22:07:47+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,89 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>traefik ingress</title>
+    <link href="http://localhost:4000/k8s/requirements/" rel="alternate" type="text/html" title="traefik ingress" />
+    <published>2026-05-25T11:00:00+08:00</published>
+  
+    <updated>2026-05-25T11:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/k8s/requirements/</id>
+    <content src="http://localhost:4000/k8s/requirements/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="k8s" />
+    
+  
+
+  <summary>requirements.txt
+
+# 删除旧的虚拟环境
+rm -rf .venv
+
+# 创建新的虚拟环境
+python -m venv .venv
+
+# 激活虚拟环境
+.venv\Scripts\activate
+
+# 安装所有依赖项
+pip install -r requirements.txt
+
+
+
+进入虚拟环境
+
+
+
+安装 pipreqs
+pip install pipreqs
+
+扫描项目并生成 requirements.txt
+pipreqs . –force
+
+或者只更新现有文件
+pipreqs . –savepath requirements.txt</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>traefik ingress</title>
+    <link href="http://localhost:4000/k8s/traefik/" rel="alternate" type="text/html" title="traefik ingress" />
+    <published>2026-05-24T11:00:00+08:00</published>
+  
+    <updated>2026-05-24T11:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/k8s/traefik/</id>
+    <content src="http://localhost:4000/k8s/traefik/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="k8s" />
+    
+  
+
+  <summary>traefik ingress
+
+Ingress简介
+
+简单的说，ingress就是从kubernetes集群外访问集群的入口，将用户的URL请求转发到不同的service上。Ingress相当于nginx、apache等负载均衡方向代理服务器，其中还包括规则定义，即URL的路由信息，路由信息得的刷新由Ingress controller来提供。
+
+Ingress Controller 实质上可以理解为是个监视器，Ingress Controller 通过不断地跟 kubernetes API 打交道，实时的感知后端 service、pod 等变化，比如新增和减少 pod，service 增加与减少等；当得到这些变化信息后，Ingress Controller 再结合下文的 Ingress 生成配置，然后更新反向代理负载均衡器，并刷新其配置，达到服务发现的作用。
+
+部署Traefik...</summary>
+
+  </entry>
 
   
   <entry>
@@ -165,123 +248,6 @@ mkdir -p /etc/docker
 cat &amp;amp;gt; /etc/docker/daemon.json &amp;amp;lt;&amp;amp;lt; &amp;#39;EOF&amp;#39;
 {
   &amp;quot;regi...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>结构体</title>
-    <link href="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E7%BB%93%E6%9E%84%E4%BD%93/" rel="alternate" type="text/html" title="结构体" />
-    <published>2026-03-02T10:40:00+08:00</published>
-  
-    <updated>2026-03-02T23:57:42+08:00</updated>
-  
-    <id>http://localhost:4000/go/%E8%A7%84%E5%88%99/%E7%BB%93%E6%9E%84%E4%BD%93/</id>
-    <content src="http://localhost:4000/go/%E8%A7%84%E5%88%99/%E7%BB%93%E6%9E%84%E4%BD%93/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="GO" />
-    
-    <category term="规则" />
-    
-  
-
-  <summary>结构体
-
-
-  Go语言提供了一种自定义数据类型，可以封装多个基本数据类型，这种数据类型叫结构体（struct），Go语言中通过结构体来实现面向对象
-
-
-规范:
-
-
-  采用驼峰命名方式，首字母根据访问权限, 来决定使用大写或小写(包括结构体名称、属性、方法)
-  结构体名不应该是动词，应该是名词
-  避免使用 Data、Info 这类无意义的结构体名
-  结构体的声明和初始化应采用多行
-
-
-结构体定义
-
-type Person struct {
-	Name string
-	Age int
-	Sex int
-}
-
-
-**注意：结构体定义时结构体字段的可见性规则: ** 结构体中字段大写开头表示可公开访问，小写表示私有
-
-实例化(声明)结构体
-
-var 结构体实例 结构体类型
-
-var per Person
-
-
-创建结构体
-
-工作中一般使用 u:= &amp;amp;amp;User{name: “y...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>03_LangChain-MCP解析</title>
-    <link href="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/" rel="alternate" type="text/html" title="03_LangChain-MCP解析" />
-    <published>2026-02-14T15:00:00+08:00</published>
-  
-    <updated>2026-02-27T17:20:19+08:00</updated>
-  
-    <id>http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/</id>
-    <content src="http://localhost:4000/agent/langchain%E8%A7%A3%E6%9E%90/MCP/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="Agent" />
-    
-    <category term="LangChain解析" />
-    
-  
-
-  <summary>LangChain-MCP
-
-
-  大模型和外部工具交互的标准化协议
-
-
-模型上下文协议(MCP ModelContextProtocol)正迅速成为AI领域的核心基础设施标准，它通过标准化大语言模型与外部工具的交互方式，解决了AI应用开发中的关键瓶颈，推动了智能体从实验室走向商业化的进程
-
-MCP的原理
-
-MCP的核心原理：
-
-
-
-与上一张图异曲同工：
-
-
-
-MCP 的核心原理是将互联网服务（高德、谷歌）或本地操作系统 API（文件系统、数据库、终端）封装成 AI 智能体能够理解和使用的 Tools 工具，让 AI 智能体能够自由地调用这些 Tools 工具实现复杂的业务逻辑和功能。
-
-基于MCP的智能体架构
-
-
-
-案例-高德地图API
-
-
-  
-    
-      [概述-MCP Server
-      高德地图API](https://lbs.amap.com/api/mc...</summary>
 
   </entry>
 

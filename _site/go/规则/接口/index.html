@@ -725,6 +725,17 @@
 
       
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
 
     
   
@@ -816,9 +827,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="3136 字"
+  title="3547 字"
 >
-  <em>17 分钟</em>阅读</span>
+  <em>19 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -1747,6 +1758,8 @@
     <ul>
       <li>外层结构体对外暴露内层结构体的方法：<code class="language-plaintext highlighter-rouge collapsible-container">outer.InnerMethod()</code> 这种“转发”自动完成。</li>
       <li>用来实现“代码复用 + 行为扩展”（比继承更灵活）。</li>
+      <li>外层可以“覆盖”内层方法（同名即可)</li>
+      <li>内层方法/字段被自动提升, 相当于外层</li>
     </ul>
   </li>
   <li>
@@ -1814,6 +1827,7 @@
 58
 59
 60
+61
 </pre></td><td class="rouge-code"><pre><span class="k">package</span> <span class="n">main</span>
   
 <span class="k">import</span> <span class="p">(</span>
@@ -1843,7 +1857,7 @@
 <span class="c">// 3. 业务结构体：把 BaseModel 和 Logger 匿名组合进来</span>
 <span class="c">//    现在 Order 就“自动拥有”了 ID/CreatedAt 字段 和 String()/Log() 方法</span>
 <span class="k">type</span> <span class="n">Order</span> <span class="k">struct</span> <span class="p">{</span>
-	<span class="n">BaseModel</span>        <span class="c">// 匿名组合，字段和方法全部提升</span>
+	<span class="n">BaseModel</span>        <span class="c">// 匿名嵌入：直接"拥有" BaseModel 的所有方法</span>
 	<span class="n">Logger</span>           <span class="c">// 再来一个组件</span>
 	<span class="n">Customer</span> <span class="kt">string</span>
 <span class="p">}</span>
@@ -1856,12 +1870,13 @@
 <span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
 	<span class="c">// 5. 创建实例</span>
 	<span class="n">o</span> <span class="o">:=</span> <span class="n">Order</span><span class="p">{</span>
-		<span class="n">BaseModel</span><span class="o">:</span> <span class="n">BaseModel</span><span class="p">{</span>
-			<span class="n">ID</span><span class="o">:</span>        <span class="m">10086</span><span class="p">,</span>
-			<span class="n">CreatedAt</span><span class="o">:</span> <span class="n">time</span><span class="o">.</span><span class="n">Now</span><span class="p">(),</span>
-		<span class="p">},</span>
-		<span class="n">Logger</span><span class="o">:</span>   <span class="n">Logger</span><span class="p">{</span><span class="n">Prefix</span><span class="o">:</span> <span class="s">"Order"</span><span class="p">},</span>
-		<span class="n">Customer</span><span class="o">:</span> <span class="s">"Alice"</span><span class="p">,</span>
+        <span class="c">// 匿名结构体初始化</span>
+        <span class="n">BaseModel</span><span class="o">:</span> <span class="n">BaseModel</span><span class="p">{</span>
+            <span class="n">ID</span><span class="o">:</span>        <span class="m">10086</span><span class="p">,</span>
+            <span class="n">CreatedAt</span><span class="o">:</span> <span class="n">time</span><span class="o">.</span><span class="n">Now</span><span class="p">(),</span>
+        <span class="p">},</span>
+        <span class="n">Logger</span><span class="o">:</span>   <span class="n">Logger</span><span class="p">{</span><span class="n">Prefix</span><span class="o">:</span> <span class="s">"Order"</span><span class="p">},</span>
+        <span class="n">Customer</span><span class="o">:</span> <span class="s">"Alice"</span><span class="p">,</span>
 	<span class="p">}</span>
   
 	<span class="c">// 6. 直接访问被提升的字段</span>
@@ -1886,6 +1901,122 @@
 CreatedAt : 2009-11-10 23:00:00 +0000 UTC m=+0.000000001
 [Order] order created
 String()  : Order&lt;Alice,ID=10086 CreatedAt=2009-11-10 23:00:00 +0000 UTC m=+0.000000001&gt;
+</pre></td></tr></tbody></table></code></div>    </div>
+
+    <h4 id="匿名和具名区别"><span class="me-2">匿名和具名区别</span><a href="#匿名和具名区别" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+    <div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre>// ✅ 推荐：匿名嵌入用于真正的"is-a"关系
+type Model struct {
+    BaseModel           // Model 是一个 BaseModel
+    Logger              // Model 有日志能力
+}
+  
+// ✅ 推荐：具名嵌入用于"has-a"关系或工具类
+type Service struct {
+    db     *sql.DB     // 依赖，不是继承
+    cache  *RedisClient // 另一个依赖
+    logger Logger       // 具名，避免冲突
+}
+</pre></td></tr></tbody></table></code></div>    </div>
+
+    <ol>
+      <li>匿名嵌入（Anonymous Embedding）—— 最常用</li>
+    </ol>
+
+    <div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre><span class="k">type</span> <span class="n">User</span> <span class="k">struct</span> <span class="p">{</span>
+	<span class="n">BaseModel</span>      <span class="c">// 匿名嵌入：直接"拥有" BaseModel 的所有方法</span>
+	<span class="n">Logger</span>         <span class="c">// 可以嵌入多个</span>
+	<span class="n">Name</span>   <span class="kt">string</span>
+<span class="p">}</span>
+  
+<span class="c">// 使用</span>
+<span class="n">u</span> <span class="o">:=</span> <span class="n">User</span><span class="p">{</span>
+    <span class="n">BaseModel</span><span class="o">:</span> <span class="n">BaseModel</span><span class="p">{</span><span class="n">ID</span><span class="o">:</span> <span class="m">1</span><span class="p">,</span> <span class="n">CreatedAt</span><span class="o">:</span> <span class="n">time</span><span class="o">.</span><span class="n">Now</span><span class="p">()},</span>
+    <span class="n">Logger</span><span class="o">:</span>    <span class="n">Logger</span><span class="p">{</span><span class="n">Prefix</span><span class="o">:</span> <span class="s">"USER"</span><span class="p">},</span>
+    <span class="n">Name</span><span class="o">:</span>      <span class="s">"Alice"</span><span class="p">,</span>
+<span class="p">}</span>
+  
+<span class="n">u</span><span class="o">.</span><span class="n">String</span><span class="p">()</span>  <span class="c">// 直接调用 BaseModel 的方法</span>
+<span class="n">u</span><span class="o">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"created"</span><span class="p">)</span>  <span class="c">// 直接调用 Logger 的方法</span>
+<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">ID</span><span class="p">)</span> <span class="c">// 直接访问 BaseModel 的字段</span>
+</pre></td></tr></tbody></table></code></div>    </div>
+
+    <ol>
+      <li>具名嵌入（Named Embedding）—— 显式访问</li>
+    </ol>
+
+    <p>如果你不想方法/字段被自动提升，或者需要嵌入同类型的多个实例：</p>
+
+    <div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="k">type</span> <span class="n">User</span> <span class="k">struct</span> <span class="p">{</span>
+	<span class="n">Base</span> <span class="n">BaseModel</span>  <span class="c">// 具名嵌入：不会提升方法</span>
+	<span class="n">Log</span>  <span class="n">Logger</span>     <span class="c">// 需要显式访问</span>
+	<span class="n">Name</span> <span class="kt">string</span>
+<span class="p">}</span>
+  
+<span class="c">// 使用</span>
+<span class="n">u</span> <span class="o">:=</span> <span class="n">User</span><span class="p">{</span>
+    <span class="n">Base</span><span class="o">:</span> <span class="n">BaseModel</span><span class="p">{</span><span class="n">ID</span><span class="o">:</span> <span class="m">1</span><span class="p">,</span> <span class="n">CreatedAt</span><span class="o">:</span> <span class="n">time</span><span class="o">.</span><span class="n">Now</span><span class="p">()},</span>
+    <span class="n">Log</span><span class="o">:</span>  <span class="n">Logger</span><span class="p">{</span><span class="n">Prefix</span><span class="o">:</span> <span class="s">"USER"</span><span class="p">},</span>
+    <span class="n">Name</span><span class="o">:</span> <span class="s">"Alice"</span><span class="p">,</span>
+<span class="p">}</span>
+  
+<span class="c">// 必须显式访问</span>
+<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">Base</span><span class="o">.</span><span class="n">ID</span><span class="p">)</span>       <span class="c">// ✅ 正确</span>
+<span class="n">u</span><span class="o">.</span><span class="n">Base</span><span class="o">.</span><span class="n">String</span><span class="p">()</span>            <span class="c">// ✅ 必须这样调用</span>
+<span class="c">// u.String()              // ❌ 编译错误：User 没有 String 方法</span>
+<span class="c">// u.ID                  // ❌ 编译错误</span>
 </pre></td></tr></tbody></table></code></div>    </div>
   </li>
 </ul>
@@ -1996,6 +2127,20 @@ String()  : Order&lt;Alice,ID=10086 CreatedAt=2009-11-10 23:00:00 +0000 UTC m=+0
         
         
         <li class="text-truncate lh-lg">
+          <a href="/k8s/requirements/">traefik ingress</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/k8s/traefik/">traefik ingress</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/%E6%9C%AF%E6%95%B0/%E7%B4%AB%E5%BE%AE%E6%96%97%E6%95%B0/">紫薇斗数</a>
         </li>
       
@@ -2011,20 +2156,6 @@ String()  : Order&lt;Alice,ID=10086 CreatedAt=2009-11-10 23:00:00 +0000 UTC m=+0
         
         <li class="text-truncate lh-lg">
           <a href="/mongodb/mongodb%E8%AF%AD%E6%B3%95/">mongodb语法</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/jekyll/chirpy%20%E4%BD%BF%E7%94%A8/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%BE%A7%E8%BE%B9%E6%A0%8F%E6%8A%98%E5%8F%A0%E5%8A%9F%E8%83%BD/">桌面端侧边栏折叠功能说明</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/protojson%E8%A7%A3%E6%9E%90%E5%BA%93/">protojson解析库</a>
         </li>
       
     </ul>
@@ -2282,6 +2413,17 @@ String()  : Order&lt;Alice,ID=10086 CreatedAt=2009-11-10 23:00:00 +0000 UTC m=+0
     
     
     
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
   
     
     
@@ -2366,6 +2508,308 @@ String()  : Order&lt;Alice,ID=10086 CreatedAt=2009-11-10 23:00:00 +0000 UTC m=+0
     
     
     
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -2492,107 +2936,6 @@ String()  : Order&lt;Alice,ID=10086 CreatedAt=2009-11-10 23:00:00 +0000 UTC m=+0
     
     
       
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
     
   
     
@@ -2626,6 +2969,12 @@ String()  : Order&lt;Alice,ID=10086 CreatedAt=2009-11-10 23:00:00 +0000 UTC m=+0
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/traefik/">traefik</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E6%8C%87%E9%92%88/">指针</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
       
         
@@ -2639,12 +2988,6 @@ String()  : Order&lt;Alice,ID=10086 CreatedAt=2009-11-10 23:00:00 +0000 UTC m=+0
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/goland/">Goland</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
     </div>
   </section>
@@ -2796,6 +3139,18 @@ String()  : Order&lt;Alice,ID=10086 CreatedAt=2009-11-10 23:00:00 +0000 UTC m=+0
 
   
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
   
 
   
@@ -3493,6 +3848,17 @@ var 切片名称 [] 切片类型
     
     
     
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
   
     
     
@@ -3577,6 +3943,308 @@ var 切片名称 [] 切片类型
     
     
     
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -3703,107 +4371,6 @@ var 切片名称 [] 切片类型
     
     
       
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
     
   
     
@@ -3837,6 +4404,12 @@ var 切片名称 [] 切片类型
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/traefik/">traefik</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E6%8C%87%E9%92%88/">指针</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
       
         
@@ -3850,12 +4423,6 @@ var 切片名称 [] 切片类型
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/goland/">Goland</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
     </div>
   </section>

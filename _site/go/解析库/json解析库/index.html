@@ -611,6 +611,17 @@
 
       
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
 
     
   
@@ -948,7 +959,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="4404 字"
+  title="4464 字"
 >
   <em>24 分钟</em>阅读</span>
 
@@ -1428,6 +1439,47 @@ bool: len=5, data=false
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>完整输入后：{ShopID: OuterID:0 UpdateTime:2025-11-10 17:05:28.919345 +0800 CST DescPics:[] AllProps:[] CreateTime:&lt;nil&gt; GoodsHot:0xc00009e038 PropsPtr:&lt;nil&gt; Props:[{Source:2 PropName: Value:[IPad Pro（10.5寸）]}]}
 </pre></td></tr></tbody></table></code></div></div>
+
+<h3 id="异常情况"><span class="me-2">异常情况</span><a href="#异常情况" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="n">content</span> <span class="o">:=</span> <span class="n">modelplatform</span><span class="o">.</span><span class="n">KsMsgContent</span><span class="p">{}</span>
+<span class="k">if</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">json</span><span class="o">.</span><span class="n">Unmarshal</span><span class="p">([]</span><span class="kt">byte</span><span class="p">(</span><span class="s">""</span><span class="p">),</span> <span class="o">&amp;</span><span class="n">content</span><span class="p">);</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+    <span class="c">// "" 报错</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>输入</th>
+      <th><code class="language-plaintext highlighter-rouge collapsible-container">err</code></th>
+      <th>是否打印 “11”</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">[]byte("")</code></td>
+      <td>❌ 有错误（unexpected end of JSON input）</td>
+      <td>✅ 打印</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">[]byte("{}")</code></td>
+      <td>✓ nil</td>
+      <td>❌ 不打印</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">[]byte("null")</code></td>
+      <td>✓ nil</td>
+      <td>❌ 不打印</td>
+    </tr>
+  </tbody>
+</table></div>
 
 <h3 id="常用序列化反序列化操作"><span class="me-2">常用序列化/反序列化操作</span><a href="#常用序列化反序列化操作" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
@@ -2820,6 +2872,20 @@ bool: len=5, data=false
         
         
         <li class="text-truncate lh-lg">
+          <a href="/k8s/requirements/">traefik ingress</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/k8s/traefik/">traefik ingress</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/%E6%9C%AF%E6%95%B0/%E7%B4%AB%E5%BE%AE%E6%96%97%E6%95%B0/">紫薇斗数</a>
         </li>
       
@@ -2835,20 +2901,6 @@ bool: len=5, data=false
         
         <li class="text-truncate lh-lg">
           <a href="/mongodb/mongodb%E8%AF%AD%E6%B3%95/">mongodb语法</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/jekyll/chirpy%20%E4%BD%BF%E7%94%A8/%E6%A1%8C%E9%9D%A2%E7%AB%AF%E4%BE%A7%E8%BE%B9%E6%A0%8F%E6%8A%98%E5%8F%A0%E5%8A%9F%E8%83%BD/">桌面端侧边栏折叠功能说明</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/protojson%E8%A7%A3%E6%9E%90%E5%BA%93/">protojson解析库</a>
         </li>
       
     </ul>
@@ -3106,6 +3158,17 @@ bool: len=5, data=false
     
     
     
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
   
     
     
@@ -3190,6 +3253,308 @@ bool: len=5, data=false
     
     
     
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -3316,107 +3681,6 @@ bool: len=5, data=false
     
     
       
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
     
   
     
@@ -3450,6 +3714,12 @@ bool: len=5, data=false
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/traefik/">traefik</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E6%8C%87%E9%92%88/">指针</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
       
         
@@ -3463,12 +3733,6 @@ bool: len=5, data=false
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/goland/">Goland</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
     </div>
   </section>
@@ -3519,6 +3783,18 @@ bool: len=5, data=false
 
 
 
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
   
 
@@ -4346,6 +4622,17 @@ va...</p>
     
     
     
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
   
     
     
@@ -4430,6 +4717,308 @@ va...</p>
     
     
     
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -4556,107 +5145,6 @@ va...</p>
     
     
       
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
     
   
     
@@ -4690,6 +5178,12 @@ va...</p>
         <a class="post-tag btn btn-outline-primary" href="/tags/chirpy%E4%BD%BF%E7%94%A8/">Chirpy使用</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/traefik/">traefik</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/%E6%8C%87%E9%92%88/">指针</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
       
         
@@ -4703,12 +5197,6 @@ va...</p>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/goland/">Goland</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/langchain-agent%E8%A7%A3%E6%9E%90/">LangChain-Agent解析</a>
       
     </div>
   </section>
