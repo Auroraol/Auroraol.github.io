@@ -34,15 +34,15 @@
 <meta property="og:locale" content="zh_CN" />
 <meta name="description" content="概述 Redis的高可用机制有持久化、复制、哨兵和集群。其主要的作用和解决的问题分别是： 持久化：持久化是最简单的高可用方法(有时甚至不被归为高可用的手段)，主要作用是数据备份，即将数据存储在硬盘，保证数据不会因进程退出而丢失。 复制：复制是高可用Redis的基础，哨兵和集群都是在复制基础上实现高可用的。复制主要实现了数据的多机备份，以及对于读操作的负载均衡和简单的故障恢复。缺陷：故障恢复无法自动化；写操作无法负载均衡；存储能力受到单机的限制。 哨兵：哨兵实现了主从复制中故障的自动化恢复。缺陷：写操作无法负载均衡；存储能力受到单机的限制。 集群：通过集群，解决了写操作无法负载均衡，以及存储能力受到单机限制的问题，实现了较为完善的高可用方案。" />
 <meta property="og:description" content="概述 Redis的高可用机制有持久化、复制、哨兵和集群。其主要的作用和解决的问题分别是： 持久化：持久化是最简单的高可用方法(有时甚至不被归为高可用的手段)，主要作用是数据备份，即将数据存储在硬盘，保证数据不会因进程退出而丢失。 复制：复制是高可用Redis的基础，哨兵和集群都是在复制基础上实现高可用的。复制主要实现了数据的多机备份，以及对于读操作的负载均衡和简单的故障恢复。缺陷：故障恢复无法自动化；写操作无法负载均衡；存储能力受到单机的限制。 哨兵：哨兵实现了主从复制中故障的自动化恢复。缺陷：写操作无法负载均衡；存储能力受到单机的限制。 集群：通过集群，解决了写操作无法负载均衡，以及存储能力受到单机限制的问题，实现了较为完善的高可用方案。" />
-<link rel="canonical" href="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/" />
-<meta property="og:url" content="http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/" />
+<link rel="canonical" href="https://auroraol.github.io/redis/redis%E6%A8%A1%E5%BC%8F/%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/" />
+<meta property="og:url" content="https://auroraol.github.io/redis/redis%E6%A8%A1%E5%BC%8F/%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/" />
 <meta property="og:site_name" content="​" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-11-09T16:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="2.Redis哨兵机制" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-11-09T16:00:00+08:00","datePublished":"2025-11-09T16:00:00+08:00","description":"概述 Redis的高可用机制有持久化、复制、哨兵和集群。其主要的作用和解决的问题分别是： 持久化：持久化是最简单的高可用方法(有时甚至不被归为高可用的手段)，主要作用是数据备份，即将数据存储在硬盘，保证数据不会因进程退出而丢失。 复制：复制是高可用Redis的基础，哨兵和集群都是在复制基础上实现高可用的。复制主要实现了数据的多机备份，以及对于读操作的负载均衡和简单的故障恢复。缺陷：故障恢复无法自动化；写操作无法负载均衡；存储能力受到单机的限制。 哨兵：哨兵实现了主从复制中故障的自动化恢复。缺陷：写操作无法负载均衡；存储能力受到单机的限制。 集群：通过集群，解决了写操作无法负载均衡，以及存储能力受到单机限制的问题，实现了较为完善的高可用方案。","headline":"2.Redis哨兵机制","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/"},"url":"http://localhost:4000/redis/redis%E6%A8%A1%E5%BC%8F/%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-11-09T16:00:00+08:00","datePublished":"2025-11-09T16:00:00+08:00","description":"概述 Redis的高可用机制有持久化、复制、哨兵和集群。其主要的作用和解决的问题分别是： 持久化：持久化是最简单的高可用方法(有时甚至不被归为高可用的手段)，主要作用是数据备份，即将数据存储在硬盘，保证数据不会因进程退出而丢失。 复制：复制是高可用Redis的基础，哨兵和集群都是在复制基础上实现高可用的。复制主要实现了数据的多机备份，以及对于读操作的负载均衡和简单的故障恢复。缺陷：故障恢复无法自动化；写操作无法负载均衡；存储能力受到单机的限制。 哨兵：哨兵实现了主从复制中故障的自动化恢复。缺陷：写操作无法负载均衡；存储能力受到单机的限制。 集群：通过集群，解决了写操作无法负载均衡，以及存储能力受到单机限制的问题，实现了较为完善的高可用方案。","headline":"2.Redis哨兵机制","mainEntityOfPage":{"@type":"WebPage","@id":"https://auroraol.github.io/redis/redis%E6%A8%A1%E5%BC%8F/%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/"},"url":"https://auroraol.github.io/redis/redis%E6%A8%A1%E5%BC%8F/%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
