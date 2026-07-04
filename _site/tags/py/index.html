@@ -30,23 +30,22 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="errors" />
+<meta property="og:title" content="py" />
 <meta property="og:locale" content="zh_CN" />
-<meta name="description" content="``` errors.Is() 使用场景总结 ✅ 可以使用的情况 直接返回预定义错误实例 // 定义 var ErrNotFound = errors.New(“not found”)" />
-<meta property="og:description" content="``` errors.Is() 使用场景总结 ✅ 可以使用的情况 直接返回预定义错误实例 // 定义 var ErrNotFound = errors.New(“not found”)" />
-<link rel="canonical" href="http://localhost:4000/go/errors/%E6%8C%87%E9%92%88/" />
-<meta property="og:url" content="http://localhost:4000/go/errors/%E6%8C%87%E9%92%88/" />
+<meta name="description" content="A personal blog for recording pieces of thoughts." />
+<meta property="og:description" content="A personal blog for recording pieces of thoughts." />
+<link rel="canonical" href="http://localhost:4000/tags/py/" />
+<meta property="og:url" content="http://localhost:4000/tags/py/" />
 <meta property="og:site_name" content="​" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-12-02T11:00:00+08:00" />
+<meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="errors" />
+<meta property="twitter:title" content="py" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-12-02T11:00:00+08:00","datePublished":"2025-12-02T11:00:00+08:00","description":"``` errors.Is() 使用场景总结 ✅ 可以使用的情况 直接返回预定义错误实例 // 定义 var ErrNotFound = errors.New(“not found”)","headline":"errors","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/go/errors/%E6%8C%87%E9%92%88/"},"url":"http://localhost:4000/go/errors/%E6%8C%87%E9%92%88/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"A personal blog for recording pieces of thoughts.","headline":"py","url":"http://localhost:4000/tags/py/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>errors</title>
+  <title>py</title>
 
   <!--
   The Favicons for Web, Android, Microsoft, and iOS (iPhone and iPad) Apps
@@ -102,16 +101,9 @@
   <link rel="stylesheet" href="/assets/css/jekyll-theme-chirpy.css">
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.25.0/dist/tocbot.min.css">
-  
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.min.css">
-  
 
-  
-    <!-- Image Popup -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css">
   
 
   <!-- JavaScript -->
@@ -423,10 +415,8 @@
           
         
           
-        
-          
             
-              <span>errors</span>
+              <span>py</span>
             
 
           
@@ -440,7 +430,7 @@
     </button>
 
     <div id="topbar-title">
-      文章
+      标签
     </div>
 
     <button type="button" id="search-trigger" class="btn btn-link">
@@ -466,85 +456,27 @@
         <div class="row flex-grow-1">
           <main aria-label="Main Content" class="col-12 col-lg-11 col-xl-9 px-md-4">
             
-              <!-- Refactor the HTML structure -->
-
-
-
-<!-- Add collapsible code block functionality -->
-
-
-<!--
-  In order to allow a wide table to scroll horizontally,
-  we suround the markdown table with `<div class="table-wrapper">` and `</div>`
--->
-
-
-
-<!--
-  Fixed kramdown code highlight rendering:
-  https://github.com/penibelst/jekyll-compress-html/issues/101
-  https://github.com/penibelst/jekyll-compress-html/issues/71#issuecomment-188144901
--->
-
-
-
-<!-- Change the icon of checkbox -->
-
-
-
-<!-- Handle images -->
-
-
-
-
-
-<!-- Add header for code snippets -->
-
-
-
-<!-- Create heading anchors -->
-
-
-
-
-
-  
-  
-
-  
-
-  
-  
-
-  
-
-  
-  
-
-  
-
-  
-  
-
-  
-
-
-
-
-<!-- return -->
-
+              
 
 
 
 <article class="px-1">
-  <header>
-    <h1 data-toc-skip>errors</h1>
+  
     
 
-    <div class="post-meta text-muted">
-      <!-- published date -->
-      <span>
-        发表于
+
+
+<div id="page-tag">
+  <h1 class="ps-lg-2">
+    <i class="fa fa-tag fa-fw text-muted"></i>
+    py
+    <span class="lead text-muted ps-2">1</span>
+  </h1>
+  <ul class="content ps-0">
+    
+      <li class="d-flex justify-content-between px-md-3">
+        <a href="/k8s/requirements/">requirements</a>
+        <span class="dash flex-grow-1"></span>
         <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
@@ -555,275 +487,22 @@
 
 <time
   
-  data-ts="1764644400"
+    class="text-muted small text-nowrap"
+  
+  data-ts="1779678000"
   data-df="YYYY/MM/DD"
   
-    data-bs-toggle="tooltip" data-bs-placement="bottom"
-  
 >
-  2025/12/02
+  2026/05/25
 </time>
 
-      </span>
-
-      <!-- lastmod date -->
-      
-
-      
-
-      <div class="d-flex justify-content-between">
-        <!-- author(s) -->
-        <span>
-          
-
-          作者
-
-          <em>
-            
-              <a href="https://github.com/Auroraol">lfj</a>
-            
-          </em>
-        </span>
-
-        <div>
-          <!-- pageviews -->
-          
-
-          <!-- read time -->
-          <!-- Calculate the post's reading time, and display the word count in tooltip -->
-
-
-
-<!-- words per minute -->
-
-
-
-
-
-
-
-
-
-
-<!-- return element -->
-<span
-  class="readtime"
-  data-bs-toggle="tooltip"
-  data-bs-placement="bottom"
-  title="410 字"
->
-  <em>2 分钟</em>阅读</span>
-
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <script src="/assets/js/dist/collapsible.js"></script><div class="content">
-    <div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
-        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-</pre></td><td class="rouge-code"><pre>errors.Is() 使用场景总结
-✅ 可以使用的情况
-1. 直接返回预定义错误实例 // 定义
-var ErrNotFound = errors.New("not found")
-
-// 返回
-func GetUser(id string) error {
-    return ErrNotFound  // ✅ 直接返回同一个实例
-}
-
-// 判断
-if errors.Is(err, ErrNotFound) {  // ✅ 返回 true
-2. 通过 fmt.Errorf 包装的错误链
-// 定义
-var ErrNotFound = errors.New("not found")
-
-// 返回（Go 1.13+ 支持 %w）
-func GetUser(id string) error {
-    err := ErrNotFound
-    return fmt.Errorf("get user failed: %w", err)  // ✅ 使用 %w 包装
-}
-
-// 判断
-if errors.Is(err, ErrNotFound) {  // ✅ 返回 true（会解包查找）
-3. 多层包装
-var ErrNotFound = errors.New("not found")
-
-func layer1() error {
-    return fmt.Errorf("layer1: %w", ErrNotFound)
-}
-
-func layer2() error {
-    return fmt.Errorf("layer2: %w", layer1())
-}
-
-// 判断
-if errors.Is(err, ErrNotFound) {  // ✅ 即使包装多层也能找到
-❌ 不能使用的情况
-1. 使用 errors.New() 创建新实例（你的代码中的情况）
-var ErrNotFound = errors.New("not found")
-
-func GetUser(id string) error {
-    return errors.New("not found")  // ❌ 创建了新的错误实例
-}
-
-// 判断
-if errors.Is(err, ErrNotFound) {  // ❌ 返回 false（不是同一个实例）
-2. 使用 fmt.Errorf 但不带 %w
-var ErrNotFound = errors.New("not found")
-
-func GetUser(id string) error {
-    return fmt.Errorf("get user failed: %v", ErrNotFound)  // ❌ 使用 %v
-}
-
-// 判断
-if errors.Is(err, ErrNotFound) {  // ❌ 返回 false（%v 不会保留错误链）
-3. 代理请求模式（你的代码中的情况）
-// 从你看到的 ks.go 第 138 行
-if rv.Code != 0 {
-    return "", errors.New(rv.Message)  // ❌ 创建了新实例
-}
-
-</pre></td></tr></tbody></table></code></div></div>
-
-
-  </div>
-
-  <div class="post-tail-wrapper text-muted">
-    <!-- categories -->
+      </li>
     
-      <div class="post-meta mb-3">
-        <i class="far fa-folder-open fa-fw me-1"></i>
-        
-          <a href="/categories/go/">GO</a>,
-          <a href="/categories/errors/">errors</a>
-      </div>
-    
-
-    <!-- tags -->
-    
-      <div class="post-tags mb-3">
-        <i class="fa fa-tags fa-fw me-1"></i>
-        
-          <a
-            href="/tags/errors/"
-            class="post-tag no-text-decoration"
-          >errors</a>
-        
-      </div>
-    
-    <div
-      class="
-        post-tail-bottom
-        d-flex justify-content-between align-items-center mt-5 pb-2
-      "
-    >
-      <!--
-      <div class="license-wrapper">
-        
-          
-
-          本文由作者按照 
-        <a href="https://creativecommons.org/licenses/by/4.0/">
-          CC BY 4.0
-        </a>
-         进行授权
-        
-      </div>
-      -->
-      <!-- Post sharing snippet -->
-
-<div class="share-wrapper d-flex align-items-center">
-  <span class="share-label text-muted">分享</span>
-  <span class="share-icons">
-    
-    
-    
-
-    
-
-    <button
-      id="copy-link"
-      aria-label="Copy link"
-      class="btn small"
-      data-bs-toggle="tooltip"
-      data-bs-placement="top"
-      title="分享链接"
-      data-title-succeed="链接已复制！"
-    >
-      <i class="fa-fw fas fa-link pe-none fs-6"></i>
-    </button>
-  </span>
+  </ul>
 </div>
 
-    </div>
-    <!-- .post-tail-bottom -->
-  </div>
-  <!-- div.post-tail-wrapper -->
+  
 </article>
-
 
             
           </main>
@@ -1546,578 +1225,12 @@ if rv.Code != 0 {
             </div>
 
             
-              
-              
-
-
-
-
-            
           </aside>
         </div>
 
         <div class="row">
           <!-- tail -->
           <div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 px-md-4">
-            
-              
-              <!-- Recommend the other 3 posts according to the tags and categories of the current post. -->
-
-<!-- The total size of related posts -->
-
-
-<!-- An random integer that bigger than 0 -->
-
-
-<!-- Equals to TAG_SCORE / {max_categories_hierarchy} -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  <aside id="related-posts" aria-labelledby="related-label">
-    <h3 class="mb-4" id="related-label">相关文章</h3>
-    <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
-      
-        <article class="col">
-          <a href="/go/%E8%A7%84%E5%88%99/%E6%8E%A5%E5%8F%A3/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1764734400"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/12/03
-</time>
-
-              <h4 class="pt-0 my-2">接口/结构体的组合</h4>
-              <div class="text-muted">
-                <p>接口
-
-
-  接口 = 定义方法集
-
-
-1
-2
-3
-4
-5
-6
-7
-type FImpl interface {
-	f1()
-	f2()
-	f3()
-	f4()
-}
-
-
-
-实现
-
-结构体实现遵循规则:
-
-
-  
-    结构体T方法为值接收者方法：   T 和 *T 都可以赋给接口
-  
-  结构体T方法为接收者方法：      只有 *T 可以赋给接口
-  接口类型前面永远不要加 * (接...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/go/%E8%A7%84%E5%88%99/%E6%96%B9%E6%B3%95/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1765080000"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/12/07
-</time>
-
-              <h4 class="pt-0 my-2">函数</h4>
-              <div class="text-muted">
-                <p>函数
-
-定义函数
-
-1
-2
-3
-4
-func 函数名字 (参数列表) (返回值列表）{
-	// 函数体
-	return 返回值列表
-}
-
-
-注意：
-
-
-  函数名首字母小写为私有，大写为公有；
-  参数列表可以有0-多个，多参数使用逗号分隔，不支持默认参数；
-  返回值列表返回值类型可以不用写变量名
-  如果只有一个返回值且不声明类型，可以省略返回值列表与括号
-  如果有返回值，函数内必须有...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1765098000"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/12/07
-</time>
-
-              <h4 class="pt-0 my-2">toml配置文件</h4>
-              <div class="text-muted">
-                <p>总结
-
-
-  
-    
-      Go 类型特征
-      tag 出现的关键字
-      生成的 TOML
-      备注
-    
-  
-  
-    
-      非匿名 struct
-      无 squash
-      [xxx]
-      字段继续往下写
-    
-    
-      匿名 struct
-      ,squash
-      没有 [xxx]，...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-    </nav>
-  </aside>
-  <!-- #related-posts -->
-
-
-            
-              
-              <!-- Navigation buttons at the bottom of the post. -->
-
-<nav class="post-navigation d-flex justify-content-between" aria-label="Post Navigation">
-  
-  
-
-  
-    <a
-      href="/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/"
-      class="btn btn-outline-primary"
-      aria-label="上一篇"
-    >
-      <p>指针</p>
-    </a>
-  
-
-  
-    <a
-      href="/go/%E8%A7%84%E5%88%99/%E6%8E%A5%E5%8F%A3/"
-      class="btn btn-outline-primary"
-      aria-label="下一篇"
-    >
-      <p>接口/结构体的组合</p>
-    </a>
-  
-</nav>
-
-            
-              
-              <!-- The comments switcher -->
-
-  
-  <!-- https://giscus.app/ -->
-<script type="text/javascript">
-  (function () {
-    const origin = 'https://giscus.app';
-    const lightTheme = 'light';
-    const darkTheme = 'dark_dimmed';
-
-    let initTheme = lightTheme;
-    const html = document.documentElement;
-
-    if (
-      (html.hasAttribute('data-mode') &&
-        html.getAttribute('data-mode') === 'dark') ||
-      (!html.hasAttribute('data-mode') &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      initTheme = darkTheme;
-    }
-
-    let giscusAttributes = {
-      src: 'https://giscus.app/client.js',
-      'data-repo': 'auroraol/auroraol.github.io',
-      'data-repo-id': 'R_kgDOQNpBGw',
-      'data-category': 'Comments',
-      'data-category-id': 'DIC_kwDOQNpBG84CxWyu',
-      'data-mapping': 'title',
-      'data-strict' : '0',
-      'data-reactions-enabled': '1',
-      'data-emit-metadata': '0',
-      'data-theme': initTheme,
-      'data-input-position': 'bottom',
-      'data-lang': 'zh-CN',
-      'data-loading': 'lazy',
-      crossorigin: 'anonymous',
-      async: ''
-    };
-
-    let giscusScript = document.createElement('script');
-    Object.entries(giscusAttributes).forEach(([key, value]) =>
-      giscusScript.setAttribute(key, value)
-    );
-    document.getElementById('tail-wrapper').appendChild(giscusScript);
-
-    addEventListener('message', (event) => {
-      if (
-        event.source === window &&
-        event.data &&
-        event.data.direction === ModeToggle.ID
-      ) {
-        /* global theme mode changed */
-        const mode = event.data.message;
-        const theme = mode === ModeToggle.DARK_MODE ? darkTheme : lightTheme;
-
-        const message = {
-          setConfig: {
-            theme: theme
-          }
-        };
-
-        const giscus = document.getElementsByClassName('giscus-frame')[0].contentWindow;
-        giscus.postMessage({ giscus: message }, origin);
-      }
-    });
-  })();
-</script>
-
-
-
             
 
             <!-- The Footer -->
@@ -2872,13 +1985,6 @@ func 函数名字 (参数列表) (返回值列表）{
 
 
 
-  
-
-  
-    <!-- image lazy-loading & popup & clipboard -->
-    
-  
-
 
 
 
@@ -2932,45 +2038,20 @@ func 函数名字 (参数列表) (返回值列表）{
 
   
 
-  
-    
-
-    
-
-  
-
-  
-    
-
-    
-
-  
-
-  
-    
-
-    
-
-  
 
 
-
-  <script src="https://cdn.jsdelivr.net/combine/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/glightbox@3.3.0/dist/js/glightbox.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.10/dayjs.min.js,npm/dayjs@1.11.10/locale/zh.min.js,npm/dayjs@1.11.10/plugin/relativeTime.min.js,npm/dayjs@1.11.10/plugin/localizedFormat.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/combine/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js,npm/dayjs@1.11.10/dayjs.min.js,npm/dayjs@1.11.10/locale/zh.min.js,npm/dayjs@1.11.10/plugin/relativeTime.min.js,npm/dayjs@1.11.10/plugin/localizedFormat.min.js"></script>
 
 
 
 
 
 
-<script defer src="/assets/js/dist/post.min.js"></script>
+<script defer src="/assets/js/dist/misc.min.js"></script>
 
 
 
 <!-- Pageviews -->
-
-  
-
-  
 
 
 

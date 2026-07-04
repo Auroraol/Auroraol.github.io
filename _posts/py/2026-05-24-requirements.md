@@ -1,8 +1,8 @@
 ---
-title: traefik ingress
+title: requirements
 date: 2026-05-25 11:00:00 +0800
 categories: [k8s]
-tags: [traefik ]
+tags: [py]
 ---
 
 # requirements.txt
@@ -26,15 +26,20 @@ pip install -r requirements.txt
 
 ![image-20250116192848360](D:\Github\python-note\Python2.0.assets\image-20250116192848360.png)
 
-
-
+```
 
 
 # 安装 pipreqs
+
 pip install pipreqs
 
 # 扫描项目并生成 requirements.txt
+
 pipreqs . --force
 
 # 或者只更新现有文件
+
 pipreqs . --savepath requirements.txt
+```
+
+
