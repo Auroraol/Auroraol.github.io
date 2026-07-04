@@ -244,12 +244,72 @@ header {
     padding-left: 0;
 
     li {
+      position: relative;
+
       &:not(:last-child) {
         margin: 0.4rem 0;
       }
 
       a {
         padding: 0.2rem 0 0.2rem 1.25rem;
+      }
+    }
+
+    .toc-toggle {
+      align-items: center;
+      background: transparent;
+      border: 0;
+      border-radius: 50%;
+      color: var(--text-muted-color);
+      cursor: pointer;
+      display: flex;
+      height: 1.35rem;
+      justify-content: center;
+      left: 0.18rem;
+      opacity: 0.72;
+      padding: 0;
+      position: absolute;
+      top: 0.08rem;
+      transition:
+        background-color 0.15s ease,
+        color 0.15s ease,
+        opacity 0.15s ease;
+      width: 1.35rem;
+
+      &::before {
+        border: solid currentcolor;
+        border-width: 0 1.5px 1.5px 0;
+        content: '';
+        display: block;
+        height: 0.38rem;
+        transform: translateY(-0.06rem) rotate(45deg);
+        transition: transform 0.16s ease;
+        width: 0.38rem;
+      }
+
+      &:hover,
+      &:focus-visible {
+        background-color: rgba(128, 128, 128, 0.16);
+        color: var(--toc-highlight);
+        opacity: 1;
+        outline: none;
+      }
+    }
+
+    .toc-collapsible {
+      > .toc-link {
+        padding-left: 1.7rem;
+      }
+
+      &.toc-collapsed {
+        > ul,
+        > ol {
+          display: none;
+        }
+
+        > .toc-toggle::before {
+          transform: translateX(-0.05rem) rotate(-45deg);
+        }
       }
     }
 
