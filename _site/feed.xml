@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>&amp;#8203;</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2026-07-04T19:47:28+08:00</updated>
+  <updated>2026-07-04T19:51:11+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -88,7 +88,7 @@
     <link href="http://localhost:4000/k8s/requirements/" rel="alternate" type="text/html" title="requirements" />
     <published>2026-05-25T11:00:00+08:00</published>
   
-    <updated>2026-05-25T11:00:00+08:00</updated>
+    <updated>2026-07-04T19:51:18+08:00</updated>
   
     <id>http://localhost:4000/k8s/requirements/</id>
     <content src="http://localhost:4000/k8s/requirements/" />
