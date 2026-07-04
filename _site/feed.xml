@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>&amp;#8203;</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2026-05-30T22:07:47+08:00</updated>
+  <updated>2026-07-04T19:11:42+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,70 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>errors规则</title>
+    <link href="http://localhost:4000/go/%E8%A7%84%E5%88%99/errors/" rel="alternate" type="text/html" title="errors规则" />
+    <published>2026-07-04T10:40:00+08:00</published>
+  
+    <updated>2026-07-04T10:40:00+08:00</updated>
+  
+    <id>http://localhost:4000/go/%E8%A7%84%E5%88%99/errors/</id>
+    <content src="http://localhost:4000/go/%E8%A7%84%E5%88%99/errors/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="GO" />
+    
+    <category term="规则" />
+    
+  
+
+  <summary>核心结论
+
+
+  
+    
+      写法
+      作用
+      是否保留错误链
+      常见用途
+    
+  
+  
+    
+      %v
+      打印错误文本
+      否
+      日志、简单拼接
+    
+    
+      %+v
+      打印更详细格式
+      否，取决于 error 类型
+      配合 pkg/errors 打印堆栈
+    
+    
+      %w
+      包装 error
+      是
+      给错误加上下文，并让上层还能判断原始错误, 支持errors.Is()
+    
+    
+      errors.Wrap
+      第三方包装 error
+      是
+      老项目常见，可配合 %+v 打印堆栈
+    
+    
+      errors.Join
+      合并...</summary>
+
+  </entry>
 
   
   <entry>
@@ -203,51 +267,6 @@ Ingress Controller 实质上可以理解为是个监视器，Ingress Controller 
 赏析点评
 
 此句以形象的比喻描绘出人生的短暂和无常，极具感染力。‘浮名浮利，休苦劳神’直接点明主旨，劝人不要被名利所累。‘隙中驹，石中火，梦中身’三个比喻连用，从不同角度强化了人生虚幻的感觉，让读者深刻感受到时光的...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>openclaw项目文件说明</title>
-    <link href="http://localhost:4000/openclaw/openclaw-docker-deployment/" rel="alternate" type="text/html" title="openclaw项目文件说明" />
-    <published>2026-03-22T19:19:00+08:00</published>
-  
-    <updated>2026-03-22T19:19:00+08:00</updated>
-  
-    <id>http://localhost:4000/openclaw/openclaw-docker-deployment/</id>
-    <content src="http://localhost:4000/openclaw/openclaw-docker-deployment/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="openclaw" />
-    
-  
-
-  <summary>项目文件说明
-
-
-  Dockerfile - Docker镜像构建文件
-  init.sh - 容器初始化脚本（作为主程序运行）
-  docker-compose.yml - Docker Compose 配置文件
-  .env.example - 环境变量配置模板
-  .dockerignore - Docker 构建忽略文件
-  openclaw.json.example - OpenClaw 默认配置文件示例
-
-
-注意：PRIMARY_MODEL 和 IMAGE_MODEL_ID 都可以填写完整引用，即 provider/model 格式，例如：
-
-
-  default/dashscope/qwen3.5-plus
-
-
-mkdir -p /etc/docker
-
-cat &amp;amp;gt; /etc/docker/daemon.json &amp;amp;lt;&amp;amp;lt; &amp;#39;EOF&amp;#39;
-{
-  &amp;quot;regi...</summary>
 
   </entry>
 

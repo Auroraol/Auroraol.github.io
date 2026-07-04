@@ -1,0 +1,1 @@
+[go-cache内存保护：防止缓存溢出的限制措施-CSDN博客](https://blog.csdn.net/gitblog_00770/article/details/152024238)

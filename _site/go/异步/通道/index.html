@@ -869,9 +869,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="3718 字"
+  title="4565 字"
 >
-  <em>20 分钟</em>阅读</span>
+  <em>25 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -1033,7 +1033,6 @@
 124
 125
 126
-127
 </pre></td><td class="rouge-code"><pre><span class="c">//情形1：  channel缓存队列已满，接收者goroutine退出，发送者阻塞且所在goroutine无法退出</span>
 <span class="k">func</span> <span class="n">TestName</span><span class="p">(</span><span class="n">t</span> <span class="o">*</span><span class="n">testing</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="p">{</span>
 	<span class="n">channel</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="k">chan</span> <span class="kt">int</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
@@ -1160,14 +1159,18 @@ receive: 1
 	<span class="p">}</span>
 
 <span class="p">}</span>
-
 </pre></td></tr></tbody></table></code></div></div>
 
-<p>备注：</p>
+<p><strong>备注：</strong></p>
 
-<p>从一个关闭的channel仍能读出数据，当缓冲队列还有数据时，会返回正常值；缓冲队列为空时，则返回channel已关闭。</p>
-
-<p>向一个关闭的channel发送数据则会报Panic</p>
+<ul>
+  <li>
+    <p>从一个关闭的channel仍能读出数据，当缓冲队列还有数据时，会返回正常值；缓冲队列为空时，则返回channel已关闭。</p>
+  </li>
+  <li>
+    <p>向一个关闭的channel发送数据则会报Panic</p>
+  </li>
+</ul>
 
 <h2 id="阻塞判断"><span class="me-2">阻塞判断</span><a href="#阻塞判断" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
@@ -1242,7 +1245,7 @@ channel 关闭且空: 循环正常退出
       <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 </pre></td><td class="rouge-code"><pre><span class="n">ch</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="k">chan</span> <span class="n">item</span><span class="p">)</span> <span class="c">// 容量 0</span>
-<span class="n">ch</span> <span class="o">&lt;-</span> <span class="n">it</span>         <span class="c">// 写端会卡住，直到有人 `&lt;-ch` 读走</span>
+<span class="n">ch</span> <span class="o">&lt;-</span> <span class="n">it</span>         <span class="c">// 写端会卡住，直到有人 `&lt;-ch` 读走上一个</span>
 </pre></td></tr></tbody></table></code></div></div>
 
 <p>特点：</p>
@@ -1258,7 +1261,7 @@ channel 关闭且空: 循环正常退出
 
 <ul>
   <li>需要严格的同步通信
-]生产者消费者模式中需要精确控制
+生产者消费者模式中需要精确控制
 协程间协调操作</li>
 </ul>
 
@@ -1278,7 +1281,7 @@ channel 关闭且空: 循环正常退出
 
 <ul>
   <li>
-    <p>异步操作：发送方可以在缓存未满时立即发送</p>
+    <p>异步操作：发送方可以在缓存未满时立即发送,  写不阻塞, 直到满了</p>
   </li>
   <li>
     <p>非阻塞发送：只要缓存未满，发送不会阻塞</p>
@@ -1298,6 +1301,100 @@ channel 关闭且空: 循环正常退出
   <li>生产者和消费者速率不匹配的情况</li>
   <li>避免不必要的阻塞，提高并发性能</li>
 </ul>
+
+<p><strong>案例</strong></p>
+
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+</pre></td><td class="rouge-code"><pre><span class="c">// 写入</span>
+<span class="k">func</span> <span class="n">notifySaveOneIDBatchTasks</span><span class="p">(</span><span class="n">payloads</span> <span class="p">[]</span><span class="o">*</span><span class="n">saveOneIDBatchTask</span><span class="p">,</span> <span class="n">result</span> <span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">,</span> <span class="n">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">p</span> <span class="o">:=</span> <span class="k">range</span> <span class="n">payloads</span> <span class="p">{</span>
+            <span class="n">value</span> <span class="o">:=</span> <span class="s">""</span>
+            <span class="k">if</span> <span class="n">result</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">direction</span> <span class="o">==</span> <span class="s">"oneid_to_openuid"</span> <span class="p">{</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">req</span><span class="o">.</span><span class="n">OneID</span><span class="p">]</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">req</span><span class="o">.</span><span class="n">BuyerOpenUID</span><span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="c">//写入，不阻塞（缓冲=1)</span>
+            <span class="n">p</span><span class="o">.</span><span class="n">done</span> <span class="o">&lt;-</span> <span class="n">oneIDBatchResult</span><span class="p">{</span><span class="n">value</span><span class="o">:</span> <span class="n">value</span><span class="p">,</span> <span class="n">err</span><span class="o">:</span> <span class="n">err</span><span class="p">}</span>
+            <span class="nb">close</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">done</span><span class="p">)</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c">// 读取</span>
+<span class="k">func</span> <span class="n">waitOneIDBatchResult</span><span class="p">(</span><span class="n">ctx</span> <span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">done</span> <span class="o">&lt;-</span><span class="k">chan</span> <span class="n">oneIDBatchResult</span><span class="p">)</span> <span class="p">(</span><span class="kt">string</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c">// 阻塞等待结果</span>
+        <span class="k">select</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="o">&lt;-</span><span class="n">ctx</span><span class="o">.</span><span class="n">Done</span><span class="p">()</span><span class="o">:</span>
+            <span class="k">return</span> <span class="s">""</span><span class="p">,</span> <span class="n">ctx</span><span class="o">.</span><span class="n">Err</span><span class="p">()</span>
+        <span class="k">case</span> <span class="n">result</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="n">done</span><span class="o">:</span>
+            <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">err</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="n">无缓冲</span> <span class="n">channel</span> <span class="n">的</span> <span class="n">send</span> <span class="n">必须有</span> <span class="n">receiver</span> <span class="n">同时准备好才能完成</span><span class="err">（</span><span class="n">handshake</span><span class="err">）。</span>
+
+      <span class="n">done</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="k">chan</span> <span class="n">oneIDBatchResult</span><span class="p">)</span> <span class="c">// 无缓冲</span>
+      <span class="n">p</span><span class="o">.</span><span class="n">done</span> <span class="o">&lt;-</span> <span class="n">result</span> <span class="c">// 阻塞！等 receiver 来读</span>
+      <span class="nb">close</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">done</span><span class="p">)</span>    <span class="c">// send 完成后才能执行到这里</span>
+
+      <span class="n">如果</span> <span class="n">waitOneIDBatchResult</span> <span class="n">已经因为</span> <span class="n">ctx</span><span class="o">.</span><span class="n">Done</span><span class="p">()</span> <span class="n">退出了</span><span class="err">，</span><span class="n">没人读这个</span> <span class="n">channel</span><span class="err">，</span><span class="n">p</span><span class="o">.</span><span class="n">done</span> <span class="o">&lt;-</span> <span class="n">result</span> <span class="n">就永远卡住</span><span class="err">——</span><span class="n">goroutine</span> <span class="n">泄漏</span><span class="err">。</span>                                        
+
+<span class="n">缓冲</span><span class="o">=</span><span class="m">1</span><span class="err">：</span>
+
+      <span class="n">done</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="k">chan</span> <span class="n">oneIDBatchResult</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span> <span class="c">// 缓冲=1</span>
+      <span class="n">p</span><span class="o">.</span><span class="n">done</span> <span class="o">&lt;-</span> <span class="n">result</span> <span class="c">// 直接写入缓冲区，不等 receiver，立刻返回</span>
+      <span class="nb">close</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">done</span><span class="p">)</span>    <span class="c">// 立刻执行，关闭 channel</span>
+
+      <span class="n">即使</span> <span class="n">receiver</span> <span class="n">已经走了</span><span class="err">，</span><span class="n">send</span> <span class="n">也能成功</span><span class="err">（</span><span class="n">值进缓冲区</span><span class="p">,</span> <span class="n">默认会吧缓存区只读完</span><span class="err">），</span><span class="nb">close</span> <span class="n">也立刻完成</span><span class="err">。</span><span class="n">没有阻塞</span><span class="err">，</span><span class="n">没有泄漏</span><span class="err">。</span>
+</pre></td></tr></tbody></table></code></div></div>
 
 <h2 id="写法"><span class="me-2">写法</span><a href="#写法" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
@@ -1515,16 +1612,142 @@ channel 关闭且空: 循环正常退出
 8
 9
 10
+11
+12
+13
+14
+15
+16
+17
+18
 </pre></td><td class="rouge-code"><pre><span class="n">ch1</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="k">chan</span> <span class="kt">string</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
 <span class="n">ch2</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="k">chan</span> <span class="kt">string</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
 
-<span class="c">// 写</span>
+<span class="c">// 写, 如果select没套循环，它只执行一次</span>
 <span class="k">select</span> <span class="p">{</span>
     <span class="k">case</span> <span class="n">ch1</span> <span class="o">&lt;-</span> <span class="n">msg</span><span class="o">:</span> <span class="c">//投递</span>
     <span class="k">case</span> <span class="n">ch2</span> <span class="o">&lt;-</span> <span class="n">msg</span><span class="o">:</span> <span class="c">//投递</span>
     <span class="k">default</span><span class="o">:</span> <span class="c">// 实现select非阻塞</span>
       <span class="c">// 缓冲区两个都满，丢弃</span>
 <span class="p">}</span>
+
+<span class="c">// 注意</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="o">:=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">p</span><span class="o">.</span><span class="n">batchSize</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">{</span>
+    <span class="k">select</span> <span class="p">{</span>
+    <span class="k">default</span><span class="o">:</span>
+       <span class="k">break</span>  <span class="c">// break 只跳出 select，不会跳出for</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>例子</p>
+
+<div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+</pre></td><td class="rouge-code"><pre> // 调用方（同步视角）
+  func doSubmitSaveOneIDBatch(ctx context.Context, req *proto.SaveOneIDInfoReq, direction string) (string, error) {
+      task := &amp;saveOneIDBatchTask{
+          ...
+          done: make(chan oneIDBatchResult, 1),  // 步骤1: 创建一个信箱
+      }
+      saveOneIDScheduler.Schedule(task)           // 步骤2: 把任务投递到调度器
+      return waitOneIDBatchResult(ctx, task.done) // 步骤3: 去信箱等结果
+  }
+
+  // 调度器（异步视角）
+  func handleSaveOneIDBatch(ctx context.Context, groupKey string, tasks []batchscheduler.Task) error {
+      // ... 批量调 API，拿到结果 ...
+      for _, p := range payloads {
+          p.done &lt;- oneIDBatchResult{value: value} // 步骤4: 把结果放进信箱
+          close(p.done)
+      }
+  }
+
+  // 连接两者的桥梁
+  func waitOneIDBatchResult(ctx context.Context, done &lt;-chan oneIDBatchResult) (string, error) {
+      select {
+      case result := &lt;-done:   // 步骤3在等这个：信箱里有没有东西？
+          return result.value, result.err
+      case &lt;-ctx.Done():
+          return "", ctx.Err()
+      }
+  }
+
+  时序：
+
+  调用方                          调度器(后台)
+    |                               |
+    Schedule(task) ──投递──→        |
+    waitOneIDBatchResult            |
+      select &lt;-done ──阻塞等──      |
+      |                             |
+      |      (等几秒凑batch)         |
+      |                             |
+      |                  handleSaveOneIDBatch
+      |                  调API拿结果
+      |                  done &lt;- result ──写入──→ done 有值了
+      |                             |
+      ←── select 解除阻塞，拿到值     |
+    返回 openUID                    |
+
+  done channel 是信箱：调用方创建信箱，投递任务后去信箱门口等。调度器处理完把结果放进信箱，调用方立刻收到。
+
+  没有 channel 的话，调用方投递完任务就走了，调度器处理完也没法把结果送回去——异步就真的是纯异步，拿不到结果。
+
+  channel 把"投递-等待-回传"串成一条线，对调用方来说就像调了一个普通函数：进去 → 等一会儿 → 拿到值出来。内部实际是异步聚合处理，但调用方感知不到。
+
 </pre></td></tr></tbody></table></code></div></div>
 
 <h2 id="例子"><span class="me-2">例子</span><a href="#例子" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
@@ -2283,35 +2506,35 @@ channel 关闭且空: 循环正常退出
         
         
         <li class="text-truncate lh-lg">
+          <a href="/go/%E8%A7%84%E5%88%99/errors/">errors规则</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/">指针</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/go/%E8%A7%84%E5%88%99/%E6%8E%A5%E5%8F%A3/">接口/结构体的组合</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/k8s/requirements/">traefik ingress</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/k8s/traefik/">traefik ingress</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/%E6%9C%AF%E6%95%B0/%E7%B4%AB%E5%BE%AE%E6%96%97%E6%95%B0/">紫薇斗数</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/pgsql/%E8%AF%AD%E6%B3%95/pg%E8%AF%AD%E6%B3%95/">PgSQL语法</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/mongodb/mongodb%E8%AF%AD%E6%B3%95/">mongodb语法</a>
         </li>
       
     </ul>
@@ -2420,30 +2643,6 @@ channel 关闭且空: 循环正常退出
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2458,77 +2657,6 @@ channel 关闭且空: 循环正常退出
         
         
 
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2579,103 +2707,30 @@ channel 关闭且空: 循环正常退出
     
     
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
+        
+        
+
   
     
     
     
     
       
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -2873,88 +2928,6 @@ channel 关闭且空: 循环正常退出
     
     
     
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -3007,10 +2980,86 @@ channel 关闭且空: 循环正常退出
     
     
     
-      
-        
-        
-
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -3029,13 +3078,6 @@ channel 关闭且空: 循环正常退出
     
     
     
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -3064,6 +3106,27 @@ channel 关闭且空: 循环正常退出
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -3078,6 +3141,48 @@ channel 关闭且空: 循环正常退出
     
     
     
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -3128,9 +3233,6 @@ channel 关闭且空: 循环正常退出
         <a class="post-tag btn btn-outline-primary" href="/tags/traefik/">traefik</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E6%8C%87%E9%92%88/">指针</a>
-      
-        
         <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
       
         
@@ -3140,10 +3242,13 @@ channel 关闭且空: 循环正常退出
         <a class="post-tag btn btn-outline-primary" href="/tags/docker%E6%8E%A8%E9%80%81%E9%95%9C%E5%83%8F/">docker推送镜像</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/go-gui%E6%A1%86%E6%9E%B6-fyne/">go-GUI框架-fyne</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/errors/">errors</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/goland/">Goland</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/errors%E8%A7%84%E5%88%99/">errors规则</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/go-gui%E6%A1%86%E6%9E%B6-fyne/">go-GUI框架-fyne</a>
       
     </div>
   </section>
@@ -3194,6 +3299,18 @@ channel 关闭且空: 循环正常退出
 
 
 
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
   
 
@@ -3454,52 +3571,6 @@ channel 关闭且空: 循环正常退出
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
-          <a href="/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1764644400"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/12/02
-</time>
-
-              <h4 class="pt-0 my-2">指针</h4>
-              <div class="text-muted">
-                <p>📌 结论
-
-
-  
-    值接收者方法：   T 和 *T 都可以赋给接口
-  
-  指针接收者方法：只有 *T 可以赋给接口
-  接口类型前面永远不要加 * (接口用值，不加星；加星就废，没方法)
-
-
-示例1:
-
-type F interface {
-    f()
-}
-
-type S1 struct{}
-
-func (s S1) f() {}    // 值接收者方法，属于 S1 的值...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
           <a href="/go/%E8%A7%84%E5%88%99/%E6%8E%A5%E5%8F%A3/" class="post-preview card h-100">
             <div class="card-body">
               <!--
@@ -3592,6 +3663,55 @@ func 函数名字 (参数列表) (返回值列表）{
   如果只有一个返回值且不声明类型，可以省略返回值列表与括号
   如果有返回值，函数内必须有return　
 ...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/toml%E9%85%8D%E7%BD%AE/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1765098000"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/12/07
+</time>
+
+              <h4 class="pt-0 my-2">toml配置文件</h4>
+              <div class="text-muted">
+                <p>总结
+
+
+  
+    
+      Go 类型特征
+      tag 出现的关键字
+      生成的 TOML
+      备注
+    
+  
+  
+    
+      非匿名 struct
+      无 squash
+      [xxx]
+      字段继续往下写
+    
+    
+      匿名 struct
+      ,squash
+      没有 [xxx]，...</p>
               </div>
             </div>
           </a>
@@ -3853,30 +3973,6 @@ func 函数名字 (参数列表) (返回值列表）{
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -3891,77 +3987,6 @@ func 函数名字 (参数列表) (返回值列表）{
         
         
 
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -4012,103 +4037,30 @@ func 函数名字 (参数列表) (返回值列表）{
     
     
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
+        
+        
+
   
     
     
     
     
       
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -4306,88 +4258,6 @@ func 函数名字 (参数列表) (返回值列表）{
     
     
     
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -4440,10 +4310,86 @@ func 函数名字 (参数列表) (返回值列表）{
     
     
     
-      
-        
-        
-
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -4462,13 +4408,6 @@ func 函数名字 (参数列表) (返回值列表）{
     
     
     
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -4497,6 +4436,27 @@ func 函数名字 (参数列表) (返回值列表）{
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -4511,6 +4471,48 @@ func 函数名字 (参数列表) (返回值列表）{
     
     
     
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -4561,9 +4563,6 @@ func 函数名字 (参数列表) (返回值列表）{
         <a class="post-tag btn btn-outline-primary" href="/tags/traefik/">traefik</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E6%8C%87%E9%92%88/">指针</a>
-      
-        
         <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
       
         
@@ -4573,10 +4572,13 @@ func 函数名字 (参数列表) (返回值列表）{
         <a class="post-tag btn btn-outline-primary" href="/tags/docker%E6%8E%A8%E9%80%81%E9%95%9C%E5%83%8F/">docker推送镜像</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/go-gui%E6%A1%86%E6%9E%B6-fyne/">go-GUI框架-fyne</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/errors/">errors</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/goland/">Goland</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/errors%E8%A7%84%E5%88%99/">errors规则</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/go-gui%E6%A1%86%E6%9E%B6-fyne/">go-GUI框架-fyne</a>
       
     </div>
   </section>

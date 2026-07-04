@@ -542,35 +542,108 @@
 <div id="post-list" class="flex-grow-1 px-xl-1">
   
     <article class="card-wrapper card">
-      <a href="/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/" class="post-preview row g-0 flex-md-row-reverse">
+      <a href="/go/%E8%A7%84%E5%88%99/%E6%8E%A5%E5%8F%A3/" class="post-preview row g-0 flex-md-row-reverse">
         
 
         
 
         <div class="col-md-12">
           <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">指针</h1>
+            <h1 class="card-title my-2 mt-md-0">接口/结构体的组合</h1>
 
             <div class="card-text content mt-0 mb-3">
-              <p>📌 结论
+              <p>接口
 
 
-  
-    值接收者方法：   T 和 *T 都可以赋给接口
-  
-  指针接收者方法：只有 *T 可以赋给接口
-  接口类型前面永远不要加 * (接口用值，不加星；加星就废，没方法)
+  接口 = 定义方法集
 
 
-示例1:
-
-type F interface {
-    f()
+type FImpl interface {
+	f1()
+	f2()
+	f3()
+	f4()
 }
 
-type S1 struct{}
 
-func (s S1) f() {}    // 值接收者方法，属于 S1 的值...</p>
+
+实现
+
+结构体实现遵循规则:
+
+
+  
+    结构体T方法为值接收者方法：   T 和 *T 都可以赋给接口
+  
+  结构体T方法为接收者方法：      只有 *T 可以赋给接口
+  接口类型前面永远不要加 * (接口用值，不加星；加星就废，没...</p>
+            </div>
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- posted date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1764734400"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/12/03
+</time>
+
+
+                <!-- categories -->
+                
+                  <i class="far fa-folder-open fa-fw me-1"></i>
+                  <span class="categories">
+                    
+                      GO,
+                      规则
+                  </span>
+                
+              </div>
+
+              
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  
+    <article class="card-wrapper card">
+      <a href="/go/errors/%E6%8C%87%E9%92%88/" class="post-preview row g-0 flex-md-row-reverse">
+        
+
+        
+
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">errors</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>errors.Is() 使用场景总结
+✅ 可以使用的情况
+1. 直接返回预定义错误实例 // 定义
+var ErrNotFound = errors.New(&quot;not found&quot;)
+
+// 返回
+func GetUser(id string) error {
+    return ErrNotFound  // ✅ 直接返回同一个实例
+}
+
+// 判断
+if errors.Is(err, ...</p>
             </div>
 
             <div class="post-meta flex-grow-1 d-flex align-items-end">
@@ -601,7 +674,7 @@ func (s S1) f() {}    // 值接收者方法，属于 S1 的值...</p>
                   <span class="categories">
                     
                       GO,
-                      规则
+                      errors
                   </span>
                 
               </div>
@@ -1175,74 +1248,6 @@ i, _ := ...</p>
       </a>
     </article>
   
-    <article class="card-wrapper card">
-      <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E6%97%B6%E9%97%B4%E8%A7%A3%E6%9E%90%E5%BA%93/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">时间解析库</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>时间戳
-
-now := time.Now() // 当前本地时间
-
-sec  := now.Unix()    // 秒级（Unix 时间戳）
-msec := now.UnixMilli() // 毫秒级（Go 1.17+）
-usec := now.UnixMicro() // 微秒级（Go 1.17+）
-nsec := now.UnixNano()  // 纳秒级
-
-
-封装
-
-packag...</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1763782800"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/11/22
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      GO,
-                      解析库
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
 </div>
 <!-- #post-list -->
 
@@ -1424,35 +1429,35 @@ packag...</p>
         
         
         <li class="text-truncate lh-lg">
+          <a href="/go/%E8%A7%84%E5%88%99/errors/">errors规则</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/json%E8%A7%A3%E6%9E%90%E5%BA%93/">json解析库</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/go/%E8%A7%84%E5%88%99/%E6%8C%87%E9%92%88/">指针</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/go/%E8%A7%84%E5%88%99/%E6%8E%A5%E5%8F%A3/">接口/结构体的组合</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/k8s/requirements/">traefik ingress</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/k8s/traefik/">traefik ingress</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/%E6%9C%AF%E6%95%B0/%E7%B4%AB%E5%BE%AE%E6%96%97%E6%95%B0/">紫薇斗数</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/pgsql/%E8%AF%AD%E6%B3%95/pg%E8%AF%AD%E6%B3%95/">PgSQL语法</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/mongodb/mongodb%E8%AF%AD%E6%B3%95/">mongodb语法</a>
         </li>
       
     </ul>
@@ -1561,30 +1566,6 @@ packag...</p>
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1599,77 +1580,6 @@ packag...</p>
         
         
 
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -1720,103 +1630,30 @@ packag...</p>
     
     
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
+        
+        
+
   
     
     
     
     
       
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -2014,88 +1851,6 @@ packag...</p>
     
     
     
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2148,10 +1903,86 @@ packag...</p>
     
     
     
-      
-        
-        
-
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -2170,13 +2001,6 @@ packag...</p>
     
     
     
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -2205,6 +2029,27 @@ packag...</p>
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -2219,6 +2064,48 @@ packag...</p>
     
     
     
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -2269,9 +2156,6 @@ packag...</p>
         <a class="post-tag btn btn-outline-primary" href="/tags/traefik/">traefik</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E6%8C%87%E9%92%88/">指针</a>
-      
-        
         <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
       
         
@@ -2281,10 +2165,13 @@ packag...</p>
         <a class="post-tag btn btn-outline-primary" href="/tags/docker%E6%8E%A8%E9%80%81%E9%95%9C%E5%83%8F/">docker推送镜像</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/go-gui%E6%A1%86%E6%9E%B6-fyne/">go-GUI框架-fyne</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/errors/">errors</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/goland/">Goland</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/errors%E8%A7%84%E5%88%99/">errors规则</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/go-gui%E6%A1%86%E6%9E%B6-fyne/">go-GUI框架-fyne</a>
       
     </div>
   </section>
@@ -2448,30 +2335,6 @@ packag...</p>
     
     
     
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2486,77 +2349,6 @@ packag...</p>
         
         
 
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -2607,103 +2399,30 @@ packag...</p>
     
     
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
+        
+        
+
   
     
     
     
     
       
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -2901,88 +2620,6 @@ packag...</p>
     
     
     
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
   
     
     
@@ -3035,10 +2672,86 @@ packag...</p>
     
     
     
-      
-        
-        
-
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
   
     
     
@@ -3057,13 +2770,6 @@ packag...</p>
     
     
     
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -3092,6 +2798,27 @@ packag...</p>
     
     
       
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -3106,6 +2833,48 @@ packag...</p>
     
     
     
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
     
   
     
@@ -3156,9 +2925,6 @@ packag...</p>
         <a class="post-tag btn btn-outline-primary" href="/tags/traefik/">traefik</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/%E6%8C%87%E9%92%88/">指针</a>
-      
-        
         <a class="post-tag btn btn-outline-primary" href="/tags/%E7%BA%BF%E4%B8%8A%E9%97%AE%E9%A2%98/">线上问题</a>
       
         
@@ -3168,10 +2934,13 @@ packag...</p>
         <a class="post-tag btn btn-outline-primary" href="/tags/docker%E6%8E%A8%E9%80%81%E9%95%9C%E5%83%8F/">docker推送镜像</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/go-gui%E6%A1%86%E6%9E%B6-fyne/">go-GUI框架-fyne</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/errors/">errors</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/goland/">Goland</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/errors%E8%A7%84%E5%88%99/">errors规则</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/go-gui%E6%A1%86%E6%9E%B6-fyne/">go-GUI框架-fyne</a>
       
     </div>
   </section>
