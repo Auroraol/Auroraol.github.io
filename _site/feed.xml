@@ -4,7 +4,7 @@
   <id>http://localhost:4000/</id>
   <title>&amp;#8203;</title>
   <subtitle>A personal blog for recording pieces of thoughts.</subtitle>
-  <updated>2026-07-04T20:58:28+08:00</updated>
+  <updated>2026-07-08T19:26:58+08:00</updated>
   <author>
     <name>lfj</name>
     <uri>http://localhost:4000/</uri>
@@ -17,6 +17,47 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>面题</title>
+    <link href="http://localhost:4000/go/%E9%9D%A2%E9%A2%98/" rel="alternate" type="text/html" title="面题" />
+    <published>2026-07-06T11:00:00+08:00</published>
+  
+    <updated>2026-07-06T11:00:00+08:00</updated>
+  
+    <id>http://localhost:4000/go/%E9%9D%A2%E9%A2%98/</id>
+    <content src="http://localhost:4000/go/%E9%9D%A2%E9%A2%98/" />
+    <author>
+      <name>lfj</name>
+    </author>
+
+  
+    
+    <category term="Go" />
+    
+  
+
+  <summary>1.1 与其他语言相比，使用 Go 有什么好处?
+
+与其他语言不同，Go 代码的设计是务实的，Go的语法更简洁。每个功能和语法决策都旨在让程序员的开发效率更高
+
+Golang 针对并发进行了优化，支持协程，并且实现了高效的GMP调度模型。
+
+由于单一的标准代码格式，Golang 通常被认为比其他语言更具可读性。
+
+有高效的垃圾回收机制，支持并行垃圾回收，垃圾回收效率比比 Java 或 Python 更高
+
+1.2 什么是协程？
+
+协程是用户态轻量级线程，它是线程调度的基本单位。通常在函数前加上 go 关键字就能实现并发。一个 Goroutine 会以一个很小的栈启动（自 Go 1.4 起初始 2KB，早期版本曾为 8KB），当遇到栈空间不足时，栈会自动伸缩，因此可以轻易实现成千上万个 goroutine 同时启动。
+
+1.3 协程和线程和进程的区别？
+
+进程：资源分配单位
+进程是正在...</summary>
+
+  </entry>
 
   
   <entry>
@@ -226,52 +267,6 @@ Ingress Controller 实质上可以理解为是个监视器，Ingress Controller 
 
 在侧边栏顶部添加了折叠按钮：
 &amp;amp;lt;button id=&amp;quot;sidebar-collapse&amp;quot; class=&amp;quot;bt...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>浮名浮利，休苦劳神。叹隙中驹，石中火，梦中身。</title>
-    <link href="http://localhost:4000/%E8%AF%97%E8%AF%8D/%E8%B5%8F%E6%9E%90/%E6%B5%AE%E5%90%8D%E6%B5%AE%E5%88%A9-%E4%BC%91%E8%8B%A6%E5%8A%B3%E7%A5%9E-%E5%8F%B9%E9%9A%99%E4%B8%AD%E9%A9%B9-%E7%9F%B3%E4%B8%AD%E7%81%AB-%E6%A2%A6%E4%B8%AD%E8%BA%AB/" rel="alternate" type="text/html" title="浮名浮利，休苦劳神。叹隙中驹，石中火，梦中身。" />
-    <published>2026-03-23T23:05:00+08:00</published>
-  
-    <updated>2026-03-23T23:05:00+08:00</updated>
-  
-    <id>http://localhost:4000/%E8%AF%97%E8%AF%8D/%E8%B5%8F%E6%9E%90/%E6%B5%AE%E5%90%8D%E6%B5%AE%E5%88%A9-%E4%BC%91%E8%8B%A6%E5%8A%B3%E7%A5%9E-%E5%8F%B9%E9%9A%99%E4%B8%AD%E9%A9%B9-%E7%9F%B3%E4%B8%AD%E7%81%AB-%E6%A2%A6%E4%B8%AD%E8%BA%AB/</id>
-    <content src="http://localhost:4000/%E8%AF%97%E8%AF%8D/%E8%B5%8F%E6%9E%90/%E6%B5%AE%E5%90%8D%E6%B5%AE%E5%88%A9-%E4%BC%91%E8%8B%A6%E5%8A%B3%E7%A5%9E-%E5%8F%B9%E9%9A%99%E4%B8%AD%E9%A9%B9-%E7%9F%B3%E4%B8%AD%E7%81%AB-%E6%A2%A6%E4%B8%AD%E8%BA%AB/" />
-    <author>
-      <name>lfj</name>
-    </author>
-
-  
-    
-    <category term="诗词" />
-    
-    <category term="赏析" />
-    
-  
-
-  <summary>浮名浮利，休苦劳神。叹隙中驹，石中火，梦中身。
-
-原文语境
-
-在《行香子》一词中，作者于清夜无尘、月色如银的情境下斟酒，由此感慨人生。作者认为不应为浮名浮利而苦苦劳神，用隙中驹、石中火、梦中身来形容人生的短暂和虚幻，表达了对人生的深刻思考和超脱名利的心境。
-
-译文
-
-那些虚浮的名声和利益，不要为此而辛苦劳神了。感叹人生就像从缝隙中看到的骏马飞驰而过，像击石迸出的火花一闪即逝，像一场虚幻的梦境。
-
-注释
-
-隙中驹：出自《庄子·知北游》“人生天地之间，若白驹之过隙，忽然而已”，形容时间过得极快。
-
-石中火：指击石迸出的火花，比喻生命短暂。
-
-梦中身：表示人生如梦，虚幻不实。
-
-赏析点评
-
-此句以形象的比喻描绘出人生的短暂和无常，极具感染力。‘浮名浮利，休苦劳神’直接点明主旨，劝人不要被名利所累。‘隙中驹，石中火，梦中身’三个比喻连用，从不同角度强化了人生虚幻的感觉，让读者深刻感受到时光的...</summary>
 
   </entry>
 
