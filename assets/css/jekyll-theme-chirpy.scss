@@ -89,7 +89,6 @@
         margin-bottom: 0;
     }
 }
-  
 /* box-info 蓝色 */
 .box-info {
 @include colorbox(
@@ -99,7 +98,6 @@
     var(--prompt-info-bg)
 );
 }
-
 /* box-tip 绿色 */
 .box-tip {
 @include colorbox(
@@ -301,18 +299,6 @@ details.details-block[open] > summary{
   }
 
   body[data-sidebar-collapsed='true'] #sidebar-collapse {
-    left: 0;
-  }
-}
-
-
-// Adjust collapse button position for large sidebar (>= 1650px)
-@media all and (min-width: 1650px) {
-  #sidebar-collapse {
-    left: calc(#{-width-large} - 1rem);
-  }
-
-  body[data-sidebar-collapsed="true"] #sidebar-collapse {
     left: 0;
   }
 }

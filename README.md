@@ -6,8 +6,16 @@
 - 执行命令生成静态网页：
 
 ```
-bundle exec jekyll s 
+bundle exec jekyll build
 ```
+
+生成后的 `_site/index.html` 不要直接双击打开。页面使用站点根路径加载 CSS、JavaScript 和字体，`file://` 协议下这些资源会找不到，页面会显示成浏览器默认样式。请通过本地服务器预览：
+
+```powershell
+bundle exec jekyll serve --livereload
+```
+
+然后访问 <http://localhost:4000/>。
 
 - 推送至GitHub仓库，更新后的网页会自动部署到GitHub Page上。
 

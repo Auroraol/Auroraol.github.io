@@ -42,7 +42,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="通道" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-07-04T19:18:11+08:00","datePublished":"2026-01-20T00:40:00+08:00","description":"内存泄露","headline":"通道","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/go/%E5%BC%82%E6%AD%A5/%E9%80%9A%E9%81%93/"},"url":"http://localhost:4000/go/%E5%BC%82%E6%AD%A5/%E9%80%9A%E9%81%93/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-09-05T14:42:43+08:00","datePublished":"2026-01-20T00:40:00+08:00","description":"内存泄露","headline":"通道","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/go/%E5%BC%82%E6%AD%A5/%E9%80%9A%E9%81%93/"},"url":"http://localhost:4000/go/%E5%BC%82%E6%AD%A5/%E9%80%9A%E9%81%93/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -669,6 +669,39 @@
 
       
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
 
     
   
@@ -750,6 +783,83 @@
 
       
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
 
     
   
@@ -757,6 +867,49 @@
   
   
 
+  
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+
+    
   
 
   
@@ -816,13 +969,13 @@
 
 <time
   
-  data-ts="1783163891"
+  data-ts="1788590563"
   data-df="YYYY/MM/DD"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  2026/07/04
+  2026/09/05
 </time>
 
         </span>
@@ -869,9 +1022,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="4565 字"
+  title="6500 字"
 >
-  <em>25 分钟</em>阅读</span>
+  <em>36 分钟</em>阅读</span>
 
         </div>
       </div>
@@ -1393,28 +1546,10 @@ channel 关闭且空: 循环正常退出
       <span class="n">p</span><span class="o">.</span><span class="n">done</span> <span class="o">&lt;-</span> <span class="n">result</span> <span class="c">// 直接写入缓冲区，不等 receiver，立刻返回</span>
       <span class="nb">close</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">done</span><span class="p">)</span>    <span class="c">// 立刻执行，关闭 channel</span>
 
-      <span class="n">即使</span> <span class="n">receiver</span> <span class="n">已经走了</span><span class="err">，</span><span class="n">send</span> <span class="n">也能成功</span><span class="err">（</span><span class="n">值进缓冲区</span><span class="p">,</span> <span class="n">默认会吧缓存区只读完</span><span class="err">），</span><span class="nb">close</span> <span class="n">也立刻完成</span><span class="err">。</span><span class="n">没有阻塞</span><span class="err">，</span><span class="n">没有泄漏</span><span class="err">。</span>
+      <span class="n">即使</span> <span class="n">receiver</span> <span class="n">已经走了</span><span class="err">，</span><span class="n">send</span> <span class="n">也能成功</span><span class="err">（</span><span class="n">值进缓冲区</span><span class="p">,</span> <span class="n">默认会把缓存区只读完</span><span class="err">），</span><span class="nb">close</span> <span class="n">也立刻完成</span><span class="err">。</span><span class="n">没有阻塞</span><span class="err">，</span><span class="n">没有泄漏</span><span class="err">。</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<h2 id="写法"><span class="me-2">写法</span><a href="#写法" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
-<p>入参:</p>
-
-<div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
-        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>onsaleCh chan &lt;- IterGoodsResult
-</pre></td></tr></tbody></table></code></div></div>
-
-<p>出参</p>
-
-<div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
-        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>chan SupplierSkuMsg
-</pre></td></tr></tbody></table></code></div></div>
-
-<p>写入</p>
+<p><strong>无缓存, close的时候, 如果值进缓冲区, 默认会把缓存区只读完</strong></p>
 
 <div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
@@ -1423,11 +1558,55 @@ channel 关闭且空: 循环正常退出
 3
 4
 5
-</pre></td><td class="rouge-code"><pre>ch &lt;- SupplierSkuMsg{
-    SkuId:     resWare.GoodsID,
-    IsMainSku: true,
-    Price:     resWare.Price,
-}
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre>// 取消后：先非阻塞地 drain 掉缓冲里的消息，再退出
+case &lt;-ctx.Done():
+    for {
+        select {
+        case message := &lt;-w.Channel:
+            w.Handle(ctx, message)  // 尽量处理完堆积
+        default:
+            return nil  // 没有堆积了，退出
+        }
+    }
+</pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="写法"><span class="me-2">写法</span><a href="#写法" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>入参:</p>
+
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">onsaleCh</span> <span class="k">chan</span> <span class="o">&lt;-</span> <span class="n">IterGoodsResult</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>出参</p>
+
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="k">chan</span> <span class="n">SupplierSkuMsg</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>写入</p>
+
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="n">ch</span> <span class="o">&lt;-</span> <span class="n">SupplierSkuMsg</span><span class="p">{</span>
+    <span class="n">SkuId</span><span class="o">:</span>     <span class="n">resWare</span><span class="o">.</span><span class="n">GoodsID</span><span class="p">,</span>
+    <span class="n">IsMainSku</span><span class="o">:</span> <span class="no">true</span><span class="p">,</span>
+    <span class="n">Price</span><span class="o">:</span>     <span class="n">resWare</span><span class="o">.</span><span class="n">Price</span><span class="p">,</span>
+<span class="p">}</span>
 </pre></td></tr></tbody></table></code></div></div>
 
 <p>读取</p>
@@ -1447,10 +1626,15 @@ channel 关闭且空: 循环正常退出
 11
 12
 13
+14
+15
+16
+17
 </pre></td><td class="rouge-code"><pre><span class="c">// 方法1</span>
 <span class="k">for</span> <span class="n">skuMsg</span> <span class="o">:=</span> <span class="k">range</span> <span class="n">ch</span> <span class="p">{</span> 
     <span class="c">//… </span>
 <span class="p">}</span>
+
 <span class="c">// 方法2</span>
 <span class="k">for</span> <span class="p">{</span>
     <span class="k">select</span> <span class="p">{</span>
@@ -1460,6 +1644,9 @@ channel 关闭且空: 循环正常退出
          <span class="c">//… </span>
     <span class="p">}</span>
 <span class="p">}</span>
+
+<span class="c">// 方式3,  阻塞「等一个结果」或「等一个完成/就绪信号」 的同步场景</span>
+<span class="o">&lt;-</span><span class="n">jobCh</span>
 </pre></td></tr></tbody></table></code></div></div>
 
 <h2 id="搭配select"><span class="me-2">搭配select</span><a href="#搭配select" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
@@ -1599,6 +1786,8 @@ channel 关闭且空: 循环正常退出
 <h3 id="非阻塞收发带-default"><span class="me-2">非阻塞收发（带 default）</span><a href="#非阻塞收发带-default" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <p>消息必须立刻发出去，否则就直接丢，绝对不能阻塞上游的场景</p>
+
+<p><span style="color: red;">**default 它只有在 channel 有缓冲（≥1）, **通道暂时为空（触发 <code class="language-plaintext highlighter-rouge collapsible-container">default</code>）</span></p>
 
 <div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
         <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
@@ -1750,6 +1939,195 @@ channel 关闭且空: 循环正常退出
 
 </pre></td></tr></tbody></table></code></div></div>
 
+<h4 id="退出场景"><span class="me-2">退出场景</span><a href="#退出场景" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre><span class="k">func</span> <span class="p">(</span><span class="n">w</span> <span class="o">*</span><span class="n">ConsumerHandler</span><span class="p">)</span> <span class="n">drain</span><span class="p">(</span><span class="n">ctx</span> <span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+    <span class="n">ctx</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">WithoutCancel</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+    <span class="k">for</span> <span class="p">{</span>
+        <span class="c">// 处理已经缓冲在 channel 里的消息，然后立刻退出</span>
+        <span class="k">select</span> <span class="p">{</span>
+            <span class="k">case</span> <span class="n">message</span><span class="p">,</span> <span class="n">ok</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="n">w</span><span class="o">.</span><span class="n">Channel</span><span class="o">:</span>
+                <span class="k">if</span> <span class="o">!</span><span class="n">ok</span> <span class="o">||</span> <span class="n">message</span> <span class="o">==</span> <span class="no">nil</span> <span class="p">{</span>
+                   <span class="k">return</span> <span class="no">nil</span>
+                <span class="p">}</span>
+                <span class="k">if</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">w</span><span class="o">.</span><span class="n">Handle</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">message</span><span class="p">);</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+                   		<span class="n">logger</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"handle_request_message %s %+v"</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+           				     <span class="p">}</span>
+            <span class="k">default</span><span class="o">:</span>    <span class="c">//  default 本身没错，但它只有在 channel 有缓冲（≥1）</span>
+              <span class="k">return</span> <span class="no">nil</span>
+        <span class="p">}</span> 
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p><strong>最常见：通道暂时为空（触发 <code class="language-plaintext highlighter-rouge collapsible-container">default</code>）</strong></p>
+
+<p>当 <code class="language-plaintext highlighter-rouge collapsible-container">case</code> 无法立即读取到数据时，<code class="language-plaintext highlighter-rouge collapsible-container">select</code> 会立刻命中 <code class="language-plaintext highlighter-rouge collapsible-container">default</code> 分支，执行 <code class="language-plaintext highlighter-rouge collapsible-container">return nil</code>，<strong>循环直接结束</strong></p>
+
+<p><strong>通道被关闭（<code class="language-plaintext highlighter-rouge collapsible-container">ok == false</code>）</strong></p>
+
+<p>当 <code class="language-plaintext highlighter-rouge collapsible-container">w.Channel</code> 被外部 <code class="language-plaintext highlighter-rouge collapsible-container">close()</code> 关闭，且缓冲区里的数据已被取完时，下一次循环的 <code class="language-plaintext highlighter-rouge collapsible-container">case</code> 会<strong>立即返回零值</strong>，且 <code class="language-plaintext highlighter-rouge collapsible-container">ok == false</code>，触发 <code class="language-plaintext highlighter-rouge collapsible-container">if !ok</code>，执行 <code class="language-plaintext highlighter-rouge collapsible-container">return nil</code>。</p>
+
+<p><strong>收到约定的结束标记（<code class="language-plaintext highlighter-rouge collapsible-container">message == nil</code>）</strong></p>
+
+<p>如果你的业务逻辑约定往通道里发送 <code class="language-plaintext highlighter-rouge collapsible-container">nil</code> 指针代表“结束信号”，那么 <code class="language-plaintext highlighter-rouge collapsible-container">if !ok || message == nil</code> 条件成立，执行 <code class="language-plaintext highlighter-rouge collapsible-container">return nil</code>。</p>
+
+<h3 id="select随机"><span class="me-2">select随机</span><a href="#select随机" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre><span class="c">// 非阻塞地</span>
+<span class="k">select</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="o">&lt;-</span><span class="n">w</span><span class="o">.</span><span class="n">stopCh</span><span class="o">:</span> <span class="c">// 已停 → 立即拒绝，绝不投递</span>
+    <span class="k">return</span> <span class="n">context</span><span class="o">.</span><span class="n">Canceled</span>
+    <span class="k">default</span><span class="o">:</span> <span class="c">// 没停 → 放行，继续</span>
+    <span class="p">}</span>
+
+<span class="c">// select随机，没有非阻塞地, 可能把消息投进死channel</span>
+<span class="k">select</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="o">&lt;-</span><span class="n">ctx</span><span class="o">.</span><span class="n">Done</span><span class="p">()</span><span class="o">:</span>
+    <span class="k">return</span> <span class="n">ctx</span><span class="o">.</span><span class="n">Err</span><span class="p">()</span>
+    <span class="k">case</span> <span class="o">&lt;-</span><span class="n">w</span><span class="o">.</span><span class="n">stopCh</span><span class="o">:</span>
+    <span class="k">return</span> <span class="n">context</span><span class="o">.</span><span class="n">Canceled</span>
+    <span class="k">case</span> <span class="n">w</span><span class="o">.</span><span class="n">Channel</span> <span class="o">&lt;-</span> <span class="n">cache</span><span class="o">:</span>
+    <span class="k">return</span> <span class="no">nil</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="退出"><span class="me-2">退出</span><a href="#退出" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p><code class="language-plaintext highlighter-rouge collapsible-container">for message := range w.Channel</code> 的语义是:</p>
+
+<ol>
+  <li>先从 channel 里<strong>取出所有已缓冲、还没被接收的消息</strong>,每条都会正常进入循环体,走 <code class="language-plaintext highlighter-rouge collapsible-container">w.Handle(ctx, message)</code>。</li>
+  <li>只有当 channel <strong>既已关闭、又被取空了</strong>,<code class="language-plaintext highlighter-rouge collapsible-container">range</code> 才会停止循环。</li>
+  <li>close 不会让 <code class="language-plaintext highlighter-rouge collapsible-container">range</code> 立刻退出</li>
+</ol>
+
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="rouge-code"><pre><span class="c">// close(w.Channel) 时</span>
+<span class="k">for</span> <span class="n">message</span> <span class="o">:=</span> <span class="k">range</span> <span class="n">w</span><span class="o">.</span><span class="n">Channel</span> <span class="p">{</span>
+    <span class="c">// 这里只会执行"剩余的真实消息"</span>
+    <span class="c">// close 不会让 message 变成 nil 走进来</span>
+    <span class="k">if</span> <span class="n">message</span> <span class="o">==</span> <span class="no">nil</span> <span class="p">{</span>   <span class="c">// ← 这个分支对 close 来说是死代码</span>
+        <span class="k">return</span> <span class="no">nil</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">return</span> <span class="no">nil</span>   <span class="c">// ← close + 取空后,从这里正常返回</span>
+
+<span class="c">//真正能"中断" Handle 的只有这些</span>
+<span class="c">/**
+ctx 被 cancel —— 前提是 w.Handle 内部主动检查 ctx(比如 select 监听 ctx.Done())。close(w.Channel) 本身不会 cancel ctx。
+Handle 内部 panic —— 会被最外层的 defer recover 接住,但那是它自己崩了,和 close 无关。
+Handle 自己返回 —— 正常路径。
+**/</span>
+
+
+<span class="c">// </span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p><strong>是的，完全允许多次调用，且绝对安全。</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge collapsible-container">context.WithCancel</code> 返回的 <code class="language-plaintext highlighter-rouge collapsible-container">cancelFunc</code> 在设计上就是<strong>幂等（Idempotent）</strong>的</p>
+
+<h2 id="取消上下文关闭通道"><span class="me-2">取消上下文&amp;关闭通道</span><a href="#取消上下文关闭通道" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<h3 id="-cancelconsumer-的幂等性安全"><span class="me-2">. <code class="language-plaintext highlighter-rouge collapsible-container">cancelConsumer()</code> 的幂等性（安全）</span><a href="#-cancelconsumer-的幂等性安全" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<ul>
+  <li><strong>结论</strong>：<strong>允许多次调用，绝对安全。</strong></li>
+  <li>得益于 <code class="language-plaintext highlighter-rouge collapsible-container">context</code> 包的设计，第二次及之后的调用是空操作（No-op）。</li>
+  <li><strong>实战价值</strong>：即使你在业务代码中因报错提前手动调用了 <code class="language-plaintext highlighter-rouge collapsible-container">cancelConsumer()</code>，函数返回时 <code class="language-plaintext highlighter-rouge collapsible-container">defer</code> 中的再次调用也不会引发 Panic，非常适合做“兜底清理”。</li>
+</ul>
+
+<h3 id="closewchannel-的非幂等性高风险"><span class="me-2"><code class="language-plaintext highlighter-rouge collapsible-container">close(w.Channel)</code> 的非幂等性（高风险）</span><a href="#closewchannel-的非幂等性高风险" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<ul>
+  <li>
+    <p><strong>结论</strong>：<strong>绝对不允许多次调用。</strong> 重复 <code class="language-plaintext highlighter-rouge collapsible-container">close</code> 会直接引发 <code class="language-plaintext highlighter-rouge collapsible-container">panic: close of closed channel</code>。</p>
+  </li>
+  <li>
+    <p><strong>对比</strong>：<code class="language-plaintext highlighter-rouge collapsible-container">cancelConsumer()</code> 可以随便调用，但 <code class="language-plaintext highlighter-rouge collapsible-container">close(ch)</code> <strong>不行</strong>。</p>
+  </li>
+  <li>
+    <p><strong>双重保障</strong>：如果你无法保证只有一个地方调用 <code class="language-plaintext highlighter-rouge collapsible-container">close</code>（比如多个 <code class="language-plaintext highlighter-rouge collapsible-container">defer</code> 都想收尾），<strong>必须使用 <code class="language-plaintext highlighter-rouge collapsible-container">sync.Once</code></strong> 包裹 <code class="language-plaintext highlighter-rouge collapsible-container">close</code> 操作。</p>
+  </li>
+  <li>
+    <p>必须使用</p>
+
+    <div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="n">closeOnce</span> <span class="n">sync</span><span class="o">.</span><span class="n">Once</span>
+<span class="k">func</span> <span class="p">(</span><span class="n">w</span> <span class="o">*</span><span class="n">PulsarConsumer</span><span class="p">)</span> <span class="n">CloseChannel</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">w</span><span class="o">.</span><span class="n">closeOnce</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="k">func</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nb">close</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">Channel</span><span class="p">)</span>
+        <span class="p">})</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div>    </div>
+  </li>
+</ul>
+
 <h2 id="例子"><span class="me-2">例子</span><a href="#例子" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <p>多路等待（multiplex）</p>
@@ -1830,9 +2208,79 @@ channel 关闭且空: 循环正常退出
 <span class="p">}</span>
 </pre></td></tr></tbody></table></code></div></div>
 
+<h3 id="例子2"><span class="me-2">例子2</span><a href="#例子2" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="rouge-code"><pre><span class="k">func</span> <span class="p">(</span><span class="n">w</span> <span class="o">*</span><span class="n">ConsumerHandler</span><span class="p">)</span> <span class="n">Run</span><span class="p">(</span><span class="n">ctx</span> <span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+	<span class="k">defer</span> <span class="k">func</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="n">err</span> <span class="o">:=</span> <span class="nb">recover</span><span class="p">();</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+			<span class="n">logger</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"handle_request_message recover err: %v stack:%v"</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="kt">string</span><span class="p">(</span><span class="n">debug</span><span class="o">.</span><span class="n">Stack</span><span class="p">()))</span>
+		<span class="p">}</span>
+	<span class="p">}()</span>
+	<span class="n">logger</span><span class="o">.</span><span class="n">Infof</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"start handle_request_message %s"</span><span class="p">,</span> <span class="n">w</span><span class="o">.</span><span class="n">Name</span><span class="p">())</span>
+	<span class="k">for</span> <span class="p">{</span>
+		<span class="k">select</span> <span class="p">{</span>
+		<span class="k">case</span> <span class="o">&lt;-</span><span class="n">ctx</span><span class="o">.</span><span class="n">Done</span><span class="p">()</span><span class="o">:</span>
+			<span class="k">return</span> <span class="no">nil</span>
+		<span class="k">case</span> <span class="n">message</span><span class="p">,</span> <span class="n">ok</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="n">w</span><span class="o">.</span><span class="n">Channel</span><span class="o">:</span>
+			<span class="k">if</span> <span class="o">!</span><span class="n">ok</span> <span class="o">||</span> <span class="n">message</span> <span class="o">==</span> <span class="no">nil</span> <span class="p">{</span> <span class="c">//!ok = 通道被关闭（外部 close(w.Channel)）；message == nil = 有人往通道里塞了 nil（常见用作停止信号）。两者都触发 return nil 退出。</span>
+				<span class="k">return</span> <span class="no">nil</span>
+			<span class="p">}</span>
+			<span class="k">if</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">w</span><span class="o">.</span><span class="n">Handle</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">message</span><span class="p">);</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+				<span class="n">logger</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"handle_request_message %s %+v"</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div></div>
+
 <h2 id="取消goroutine"><span class="me-2">取消goroutine</span><a href="#取消goroutine" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <h3 id="方式1-取消信号"><span class="me-2">方式1 取消信号</span><a href="#方式1-取消信号" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<h4 id="案例1"><span class="me-2">案例1</span><a href="#案例1" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+
+<div class="language-go highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Go"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="n">done</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="k">chan</span> <span class="k">struct</span><span class="p">{})</span>
+<span class="k">go</span> <span class="k">func</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">defer</span> <span class="nb">close</span><span class="p">(</span><span class="n">done</span><span class="p">)</span>   <span class="c">// 干完活就 close</span>
+    <span class="n">doSomething</span><span class="p">()</span>
+<span class="p">}()</span>
+
+<span class="o">&lt;-</span><span class="n">done</span>  <span class="c">// 阻塞，直到 goroutine 关闭 done，表示完成</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<h4 id="案例2"><span class="me-2">案例2</span><a href="#案例2" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
 
 <p>假设你有一个主 goroutine 和一个工作 goroutine，主 goroutine 需要通知工作 goroutine 停止处理，并等待工作 goroutine 确认停止。
 <strong>主 goroutine</strong></p>
@@ -1881,8 +2329,8 @@ channel 关闭且空: 循环正常退出
     <span class="n">time</span><span class="o">.</span><span class="n">Sleep</span><span class="p">(</span><span class="m">2</span> <span class="o">*</span> <span class="n">time</span><span class="o">.</span><span class="n">Second</span><span class="p">)</span>
 
     <span class="c">// 通知工作 goroutine 停止处理</span>
-    <span class="n">closeProcessCh</span> <span class="o">&lt;-</span> <span class="k">struct</span><span class="p">{}{}</span>     <span class="c">// ① 发送停止信号（阻塞直到worker接收）</span>
-    <span class="o">&lt;-</span><span class="n">closeProcessAckCh</span>           <span class="c">// ② 等待确认（阻塞直到worker发送）</span>
+    <span class="n">closeProcessCh</span> <span class="o">&lt;-</span> <span class="k">struct</span><span class="p">{}{}</span>     <span class="c">// ① 发送停止信号（阻塞直到worker接收）//写</span>
+    <span class="o">&lt;-</span><span class="n">closeProcessAckCh</span>           <span class="c">// ② 等待确认（阻塞直到worker发送）   //读</span>
 
     <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"工作 goroutine 已经停止"</span><span class="p">)</span>
 <span class="p">}</span>
@@ -2401,6 +2849,164 @@ channel 关闭且空: 循环正常退出
 
 <p><a href="https://github.com/Auroraol/Drawing-bed/raw/main/img/image-20260127110922858.png" class="popup img-link  shimmer"><img src="https://github.com/Auroraol/Drawing-bed/raw/main/img/image-20260127110922858.png" alt="image-20241206144106416" loading="lazy"></a></p>
 
+<h2 id="为什么先消费堆积只属于-close-语义"><span class="me-2">为什么”先消费堆积”只属于 close 语义</span><a href="#为什么先消费堆积只属于-close-语义" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>你前面理解的那个”先取空缓冲”的行为，前提是 <strong><code class="language-plaintext highlighter-rouge collapsible-container">close(ch)</code></strong>：</p>
+
+<p>go</p>
+
+<p>复制</p>
+
+<div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre>ch := make(chan item, 2)
+ch &lt;- it1
+ch &lt;- it2
+close(ch)  // ← 关键：close 了
+
+m, ok := &lt;-ch  // ok=true, 拿到 it1（缓冲值）
+m, ok = &lt;-ch   // ok=true, 拿到 it2（缓冲值）
+m, ok = &lt;-ch   // ok=false, 取空了
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>这是 Go 通道的<strong>确定性语义</strong>：close 后，接收方会先把缓冲区里的值<strong>全部取完</strong>（期间 <code class="language-plaintext highlighter-rouge collapsible-container">ok</code> 一直是 <code class="language-plaintext highlighter-rouge collapsible-container">true</code>），取空之后才返回 <code class="language-plaintext highlighter-rouge collapsible-container">ok=false</code>。所以这里确实”先消费堆积”。</p>
+
+<h3 id="ctx-取消是另一回事"><span class="me-2">ctx 取消是另一回事</span><a href="#ctx-取消是另一回事" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>回到你的代码：</p>
+
+<p>go</p>
+
+<p>复制</p>
+
+<div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre>for {
+    select {
+    case &lt;-ctx.Done():          // ① ctx 取消通道
+        return nil
+    case message, ok := &lt;-w.Channel:  // ② 消息通道
+        if !ok || message == nil {
+            return nil
+        }
+        w.Handle(ctx, message)
+    }
+}
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>这里有两个<strong>相互独立</strong>的 channel：</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge collapsible-container">ctx.Done()</code>：一旦取消/超时，它被关闭，<strong>从此永远处于”就绪”状态</strong>；</li>
+  <li><code class="language-plaintext highlighter-rouge collapsible-container">w.Channel</code>：缓冲区里堆着消息时，它也”就绪”。</li>
+</ul>
+
+<p><strong>当 <code class="language-plaintext highlighter-rouge collapsible-container">ctx.Done()</code> 已关闭、同时 <code class="language-plaintext highlighter-rouge collapsible-container">w.Channel</code> 缓冲里还有消息时，<code class="language-plaintext highlighter-rouge collapsible-container">select</code> 的两个 case 都就绪</strong>。而 Go 的 <code class="language-plaintext highlighter-rouge collapsible-container">select</code> 在多个 case 就绪时是<strong>随机挑选</strong>的。</p>
+
+<p>所以取消后的实际行为是：</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>轮次</th>
+      <th>可能结果</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>第 1 轮</td>
+      <td>随机：50% 走 <code class="language-plaintext highlighter-rouge collapsible-container">ctx.Done()</code> 直接退出；50% 拿到一条堆积消息处理</td>
+    </tr>
+    <tr>
+      <td>第 2 轮（若上轮处理了）</td>
+      <td>再次随机……</td>
+    </tr>
+    <tr>
+      <td>…</td>
+      <td>每次都随机，可能随时退出</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p><strong>堆积的 2 条消息可能一条都没处理，也可能处理 1 条、2 条，完全随机，没有顺序保证。</strong> 一旦某轮 <code class="language-plaintext highlighter-rouge collapsible-container">select</code> 选中了 <code class="language-plaintext highlighter-rouge collapsible-container">ctx.Done()</code>，剩下的堆积消息就<strong>被丢弃、永远不处理</strong>。</p>
+
+<h3 id="对比总结"><span class="me-2">对比总结</span><a href="#对比总结" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>触发方式</th>
+      <th>是否先消费堆积</th>
+      <th>原因</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">close(w.Channel)</code>（<code class="language-plaintext highlighter-rouge collapsible-container">!ok</code>）</td>
+      <td><strong>是，确定性</strong></td>
+      <td>close 语义保证先取空缓冲，<code class="language-plaintext highlighter-rouge collapsible-container">ok</code> 才变 false</td>
+    </tr>
+    <tr>
+      <td>ctx 取消 / 超时</td>
+      <td><strong>否，随机</strong></td>
+      <td><code class="language-plaintext highlighter-rouge collapsible-container">ctx.Done()</code> 与 <code class="language-plaintext highlighter-rouge collapsible-container">w.Channel</code> 在 select 里随机竞争</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<h3 id="如果你确实想取消前先把堆积处理完"><span class="me-2">如果你确实想”取消前先把堆积处理完”</span><a href="#如果你确实想取消前先把堆积处理完" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>现在的代码做不到。需要改结构，比如：</p>
+
+<p>go</p>
+
+<p>复制</p>
+
+<div class="language-plaintext highlighter-rouge collapsible-container"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="已复制！"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre>// 取消后：先非阻塞地 drain 掉缓冲里的消息，再退出
+case &lt;-ctx.Done():
+    for {
+        select {
+        case message := &lt;-w.Channel:
+            w.Handle(ctx, message)  // 尽量处理完堆积
+        default:
+            return nil  // 没有堆积了，退出
+        }
+    }
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>不过要注意：<strong>这种”尽量 drain”仍然无法保证处理完所有堆积</strong>（处理过程中随时可能有新消息进入，且 ctx 已取消时继续处理是否合理需要业务判断）。是否要这样做，取决于你希望”优雅退出”到什么程度</p>
+
   </div>
 
   <div class="post-tail-wrapper text-muted">
@@ -2506,27 +3112,6 @@ channel 关闭且空: 循环正常退出
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E9%9D%A2%E9%A2%98/">面题</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/redis/redis%E6%A8%A1%E5%BC%8F/Redis%E9%9B%86%E7%BE%A4/">3.Redis集群</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/k8s/requirements/">requirements</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
           <a href="/go/%E5%BC%82%E6%AD%A5/%E9%80%9A%E9%81%93/">通道</a>
         </li>
       
@@ -2534,7 +3119,28 @@ channel 关闭且空: 循环正常退出
         
         
         <li class="text-truncate lh-lg">
-          <a href="/go/%E8%A7%84%E5%88%99/errors/">errors规则</a>
+          <a href="/go/%E8%A7%84%E5%88%99/%E5%AD%97%E5%85%B8/">字典</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/go/%E8%A7%84%E5%88%99/%E7%BB%93%E6%9E%84%E4%BD%93/">结构体</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/go/%E8%A7%A3%E6%9E%90%E5%BA%93/%E5%AD%97%E5%85%B8%E8%A7%A3%E6%9E%90%E5%BA%93/">字典解析库</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/go/%E9%9D%A2%E9%A2%98/">面题</a>
         </li>
       
     </ul>
@@ -2731,6 +3337,16 @@ channel 关闭且空: 循环正常退出
     
     
       
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -3319,6 +3935,18 @@ channel 关闭且空: 循环正常退出
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
   
 
@@ -3527,58 +4155,6 @@ channel 关闭且空: 循环正常退出
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
-          <a href="/go/%E8%A7%84%E5%88%99/%E6%8E%A5%E5%8F%A3/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1764734400"
-  data-df="YYYY/MM/DD"
-  
->
-  2025/12/03
-</time>
-
-              <h4 class="pt-0 my-2">接口/结构体的组合</h4>
-              <div class="text-muted">
-                <p>接口
-
-
-  接口 = 定义方法集
-
-
-type FImpl interface {
-	f1()
-	f2()
-	f3()
-	f4()
-}
-
-
-
-实现
-
-结构体实现遵循规则:
-
-
-  
-    结构体T方法为值接收者方法：   T 和 *T 都可以赋给接口
-  
-  结构体T方法为接收者方法：      只有 *T 可以赋给接口
-  接口类型前面永远不要加 * (接口用值，不加星；加星就废，没...</p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
           <a href="/go/%E8%A7%84%E5%88%99/%E6%96%B9%E6%B3%95/" class="post-preview card h-100">
             <div class="card-body">
               <!--
@@ -3668,6 +4244,52 @@ func 函数名字 (参数列表) (返回值列表）{
       匿名 struct
       ,squash
       没有 [xxx]，...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/go/%E8%A7%84%E5%88%99/%E5%88%87%E7%89%87/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1766224800"
+  data-df="YYYY/MM/DD"
+  
+>
+  2025/12/20
+</time>
+
+              <h4 class="pt-0 my-2">切片</h4>
+              <div class="text-muted">
+                <p>创建
+
+//1.make函数创建 (推荐)
+切片名称 := make([]切片类型, 0, 指定容量) 
+
+//2.创建同时初始化 (有确定的数据时推荐)
+var 切片名称 = []切片类型{}
+
+//3.var常量定义 (不推荐)
+var 切片名称 [] 切片类型
+
+
+修改
+
+值类型切片 → 必须拿索引才能改
+指针切片 → 循环变量本身就是原对象地址，直接改即可
+
+// 必须按索引修改
+d...</p>
               </div>
             </div>
           </a>
@@ -4017,6 +4639,16 @@ func 函数名字 (参数列表) (返回值列表）{
     
     
       
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
